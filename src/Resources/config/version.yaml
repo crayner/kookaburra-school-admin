@@ -11,8 +11,8 @@ module:
     author: 'Ross Parker'
     url: 'http://rossparker.org'
     actions:
-        'Manage School Years':
-            name: 'Manage School Years'
+        'Manage Academic Years':
+            name: 'Manage Academic Years'
             precedence: 0
             category: 'Years, Days & Times'
             description: 'Allows user to control the definition of academic years within the system'

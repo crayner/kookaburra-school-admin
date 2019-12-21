@@ -12,11 +12,18 @@
 
 namespace Kookaburra\SchoolAdmin\Controller;
 
+use App\Container\ContainerManager;
 use App\Provider\ProviderFactory;
+use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
+use Kookaburra\SchoolAdmin\Form\AcademicYearType;
 use Kookaburra\SchoolAdmin\Pagination\AcademicYearPagination;
+use Kookaburra\SystemAdmin\Entity\Role;
+use Kookaburra\UserAdmin\Form\RoleType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -39,16 +46,45 @@ class AcademicYearController extends AbstractController
     }
 
     /**
-     * manage
+     * edit
      * @Route("/academic/year/{year}/edit/", name="academic_year_edit")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function edit(?AcademicYear $year = null)
+    public function edit(ContainerManager $manager, Request $request, ?AcademicYear $year = null)
     {
-        return $this->render('@KookaburraSchoolAdmin/academic-year/manage.html.twig');
+        if ($year === null)
+            $year = new AcademicYear();
+
+        $form = $this->createForm(AcademicYearType::class, $year, ['action' => $this->generateUrl('school_admin__academic_year_edit', ['year' => $year->getId()])]);
+
+        if ($request->getContentType() === 'json') {
+            $content = json_decode($request->getContent(), true);
+            $form->submit($content);
+            $data = [];
+            $data['status'] = 'success';
+            if ($form->isValid()) {
+                $id = $year->getId();
+                $provider = ProviderFactory::create(AcademicYear::class);
+                $data = $provider->persistFlush($year, $data);
+                if ($id !== $year->getId() && $data['status'] === 'success')
+                    $form = $this->createForm(AcademicYear::class, $year, ['action' => $this->generateUrl('school_admin__academic_year_edit', ['year' => $year->getId()])]);
+            } else {
+                $data['errors'][] = ['class' => 'error', 'message' => TranslationsHelper::translate('return.error.1', [], 'messages')];
+                $data['status'] = 'error';
+            }
+
+            $manager->singlePanel($form->createView());
+            $data['form'] = $manager->getFormFromContainer('formContent', 'single');
+
+            return new JsonResponse($data, 200);
+        }
+        $manager->singlePanel($form->createView());
+
+        return $this->render('@KookaburraSchoolAdmin/academic-year/edit.html.twig');
     }
+
     /**
-     * manage
+     * delete
      * @Route("/academic/year/{year}/delete/", name="academic_year_delete")
      * @IsGranted("ROLE_ROUTE")
      */

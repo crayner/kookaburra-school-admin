@@ -10,7 +10,7 @@
  * Time: 11:35
  */
 
-namespace Kookaburra\SchoolProvider\Provider;
+namespace Kookaburra\SchoolAdmin\Provider;
 
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;

@@ -10,8 +10,17 @@ First Page: First Page
 Previous Page: Previous Page
 Next Page: Next Page
 Last Page: Last Page
-academicYear:
+academicyear:
     status:
-        Past: Past
-        Current: Current
-        Upcoming: Upcoming
+        past: Past
+        current: Current
+        upcoming: Upcoming
+Sequence: Sequence
+Academic Year Manage: Academic Year Manage
+School Admin: School Admin
+Sequence Number: Sequence Number
+Must be unique. Helps to control chronological ordering.: Must be unique. Helps to control chronological ordering.
+First Day: First Day
+Last Day: Last Day
+Edit Academic Year: Edit Academic Year
+Manage Academic Years: Manage Academic Years

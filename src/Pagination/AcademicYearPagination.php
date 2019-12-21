@@ -33,6 +33,15 @@ class AcademicYearPagination extends ReactPaginationManager
         $column = new PaginationColumn();
         $column->setLabel('Name')
             ->setContentKey('name')
+            ->setSort(true)
+            ->setClass('column relative pr-4 cursor-pointer widthAuto text-centre')
+        ;
+        $row->addColumn($column);
+
+        $column = new PaginationColumn();
+        $column->setLabel('Sequence')
+            ->setContentKey('sequence')
+            ->setSort(true)
             ->setClass('column relative pr-4 cursor-pointer widthAuto text-centre')
         ;
         $row->addColumn($column);

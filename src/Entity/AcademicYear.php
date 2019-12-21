@@ -58,15 +58,15 @@ class AcademicYear implements EntityInterface
     private static $statusList = ['Past', 'Current', 'Upcoming'];
 
     /**
-     * @var \DateTime|null
-     * @ORM\Column(type="date", name="firstDay", nullable=true)
+     * @var \DateTimeImmutable|null
+     * @ORM\Column(type="date_immutable", name="firstDay", nullable=true)
      * @Assert\NotBlank()
      */
     private $firstDay;
 
     /**
-     * @var \DateTime|null
-     * @ORM\Column(type="date", name="lastDay", nullable=true)
+     * @var \DateTimeImmutable|null
+     * @ORM\Column(type="date_immutable", name="lastDay", nullable=true)
      * @Assert\NotBlank()
      */
     private $lastDay;
@@ -142,36 +142,40 @@ class AcademicYear implements EntityInterface
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeImmutable|null
      */
-    public function getFirstDay(): ?\DateTime
+    public function getFirstDay(): ?\DateTimeImmutable
     {
         return $this->firstDay;
     }
 
     /**
-     * @param \DateTime|null $firstDay
+     * FirstDay.
+     *
+     * @param \DateTimeImmutable|null $firstDay
      * @return AcademicYear
      */
-    public function setFirstDay(?\DateTime $firstDay): AcademicYear
+    public function setFirstDay(?\DateTimeImmutable $firstDay): AcademicYear
     {
         $this->firstDay = $firstDay;
         return $this;
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeImmutable|null
      */
-    public function getLastDay(): ?\DateTime
+    public function getLastDay(): ?\DateTimeImmutable
     {
         return $this->lastDay;
     }
 
     /**
-     * @param \DateTime|null $lastDay
+     * LastDay.
+     *
+     * @param \DateTimeImmutable|null $lastDay
      * @return AcademicYear
      */
-    public function setLastDay(?\DateTime $lastDay): AcademicYear
+    public function setLastDay(?\DateTimeImmutable $lastDay): AcademicYear
     {
         $this->lastDay = $lastDay;
         return $this;
@@ -236,9 +240,10 @@ class AcademicYear implements EntityInterface
         $dates = $this->getFirstDay()->format('d M Y') . ' - ' . $this->getLastDay()->format('d M Y');
         return [
             'name' => $this->getName(),
-            'status' => TranslationsHelper::translate('academicYear.status.'.$this->getStatus(), [], 'SchoolAdmin'),
+            'status' => TranslationsHelper::translate('academicyear.status.'.strtolower($this->getStatus()), [], 'SchoolAdmin'),
             'dates' => $dates,
             'canDelete' => true,
+            'sequence' => $this->getSequenceNumber(),
         ];
     }
 }

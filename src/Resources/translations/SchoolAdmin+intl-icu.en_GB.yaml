@@ -1,0 +1,17 @@
+Edit: Edit
+Delete: Delete
+Name: Name
+Dates: Dates
+Status: Status
+Actions: Actions
+There are no records to display.: There are no records to display.
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+First Page: First Page
+Previous Page: Previous Page
+Next Page: Next Page
+Last Page: Last Page
+academicYear:
+    status:
+        Past: Past
+        Current: Current
+        Upcoming: Upcoming

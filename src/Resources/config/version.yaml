@@ -1,0 +1,533 @@
+version: 0.0.00
+name: School Admin
+module:
+    name: 'School Admin'
+    description: 'Allows administrators to configure school settings.'
+    entryURL: academic_year_manage
+    type: Core
+    active: 'Y'
+    category: Admin
+    version: v18.0.01
+    author: 'Ross Parker'
+    url: 'http://rossparker.org'
+    actions:
+        'Manage School Years':
+            name: 'Manage School Years'
+            precedence: 0
+            category: 'Years, Days & Times'
+            description: 'Allows user to control the definition of academic years within the system'
+            URLList: 'academic_year_manage,AcademicYear_manage_edit.php,AcademicYear_manage_delete.php,AcademicYear_manage_add.php'
+            entryURL: academic_year_manage
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Year Groups':
+            name: 'Manage Year Groups'
+            precedence: 0
+            category: Groupings
+            description: ''
+            URLList: 'yearGroup_manage.php,yearGroup_manage_edit.php,yearGroup_manage_add.php,yearGroup_manage_delete.php'
+            entryURL: yearGroup_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Roll Groups':
+            name: 'Manage Roll Groups'
+            precedence: 0
+            category: Groupings
+            description: ''
+            URLList: 'rollGroup_manage.php,rollGroup_manage_edit.php,rollGroup_manage_add.php,rollGroup_manage_delete.php'
+            entryURL: rollGroup_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Houses':
+            name: 'Manage Houses'
+            precedence: 0
+            category: Groupings
+            description: ''
+            URLList: 'house_manage.php,house_manage_edit.php,house_manage_add.php,house_manage_delete.php,house_manage_assign.php'
+            entryURL: house_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Days of the Week':
+            name: 'Manage Days of the Week'
+            precedence: 0
+            category: 'Years, Days & Times'
+            description: ''
+            URLList: daysOfWeek_manage.php
+            entryURL: daysOfWeek_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Terms':
+            name: 'Manage Terms'
+            precedence: 0
+            category: 'Years, Days & Times'
+            description: ''
+            URLList: 'AcademicYearTerm_manage.php,AcademicYearTerm_manage_add.php,AcademicYearTerm_manage_edit.php,AcademicYearTerm_manage_delete.php'
+            entryURL: AcademicYearTerm_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Special Days':
+            name: 'Manage Special Days'
+            precedence: 0
+            category: 'Years, Days & Times'
+            description: ''
+            URLList: 'AcademicYearSpecialDay_manage.php,AcademicYearSpecialDay_manage_add.php,AcademicYearSpecialDay_manage_edit.php,AcademicYearSpecialDay_manage_delet ▶
+            entryURL: AcademicYearSpecialDay_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Facilities':
+            name: 'Manage Facilities'
+            precedence: 0
+            category: Other
+            description: 'Allows users to create a list of spaces and rooms in the school'
+            URLList: 'space_manage.php, space_manage_add.php, space_manage_edit.php, space_manage_delete.php'
+            entryURL: space_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Activity Settings':
+            name: 'Manage Activity Settings'
+            precedence: 0
+            category: Learn
+            description: 'Control activity settings'
+            URLList: activitySettings.php
+            entryURL: activitySettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Departments':
+            name: 'Manage Departments'
+            precedence: 0
+            category: Groupings
+            description: 'Allows admins to create learning areas and administrative groups.'
+            URLList: 'department_manage.php,department_manage_add.php,department_manage_edit.php,department_manage_delete.php'
+            entryURL: department_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Behaviour Settings':
+            name: 'Manage Behaviour Settings'
+            precedence: 0
+            category: People
+            description: 'Manage settings for the Behaviour module'
+            URLList: behaviourSettings.php
+            entryURL: behaviourSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Resource Settings':
+            name: 'Manage Resource Settings'
+            precedence: 0
+            category: Learn
+            description: 'Manage settings for the resources module'
+            URLList: resourceSettings.php
+            entryURL: resourceSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Planner Settings':
+            name: 'Manage Planner Settings'
+            precedence: 0
+            category: Learn
+            description: 'Edit settings for the planner'
+            URLList: plannerSettings.php
+            entryURL: plannerSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Grade Scales':
+            name: 'Manage Grade Scales'
+            precedence: 1
+            category: Assess
+            description: 'Manage all aspects of grade scales, which are used throughout ARR to control grade input.'
+            URLList: 'gradeScales_manage.php, gradeScales_manage_add.php, gradeScales_manage_edit.php, gradeScales_manage_delete.php, gradeScales_manage_edit_gr ▶
+            entryURL: gradeScales_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Alert Levels':
+            name: 'Manage Alert Levels'
+            precedence: 0
+            category: People
+            description: 'Manage the alert levels which are used throughout the school to flag problems.'
+            URLList: alertLevelSettings.php
+            entryURL: alertLevelSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage IN Settings':
+            name: 'Manage IN Settings'
+            precedence: 0
+            category: People
+            description: 'Allows admins to control the descriptors available for use in the Individual Needs module.'
+            URLList: 'inSettings.php, inSettings_add.php, inSettings_edit.php, inSettings_delete.php'
+            entryURL: inSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Formal Assessment Settings':
+            name: 'Formal Assessment Settings'
+            precedence: 0
+            category: Assess
+            description: 'Configure External Assessment module options'
+            URLList: formalAssessmentSettings.php
+            entryURL: formalAssessmentSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Markbook Settings':
+            name: 'Markbook Settings'
+            precedence: 0
+            category: Assess
+            description: 'Configure options for the Markbook module'
+            URLList: markbookSettings.php
+            entryURL: markbookSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Messenger Settings':
+            name: 'Manage Messenger Settings'
+            precedence: 0
+            category: Other
+            description: 'Manage gateway settings for outgoing SMS messages.'
+            URLList: messengerSettings.php
+            entryURL: messengerSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage File Extensions':
+            name: 'Manage File Extensions'
+            precedence: 0
+            category: Other
+            description: 'Manage file extensions allowed across the system'
+            URLList: 'fileExtensions_manage.php,fileExtensions_manage_add.php,fileExtensions_manage_edit.php,fileExtensions_manage_delete.php'
+            entryURL: fileExtensions_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Finance Settings':
+            name: 'Manage Finance Settings'
+            precedence: 0
+            category: Other
+            description: 'Allows users to edit the text that appears in invoices and receipts.'
+            URLList: financeSettings.php
+            entryURL: financeSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage External Assessments':
+            name: 'Manage External Assessments'
+            precedence: 1
+            category: Assess
+            description: 'Add, edit and delete external assessments.'
+            URLList: 'externalAssessments_manage.php,externalAssessments_manage_edit.php,externalAssessments_manage_edit_field_add.php,externalAssessments_manag ▶
+            entryURL: externalAssessments_manage.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Facility Settings':
+            name: 'Manage Facility Settings'
+            precedence: 0
+            category: Other
+            description: 'Allows privileged users to manage settings for spaces.'
+            URLList: spaceSettings.php
+            entryURL: spaceSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Tracking Settings':
+            name: 'Tracking Settings'
+            precedence: 0
+            category: Assess
+            description: 'Allows a user to manage settings for the Tracking module.'
+            URLList: trackingSettings.php
+            entryURL: trackingSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Dashboard Settings':
+            name: 'Manage Dashboard Settings'
+            precedence: 0
+            category: Other
+            description: 'Manage settings that control Staff, Student and Parent dashboards.'
+            URLList: dashboardSettings.php
+            entryURL: dashboardSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator
+        'Manage Attendance Settings':
+            name: 'Manage Attendance Settings'
+            precedence: 0
+            category: People
+            description: 'Allows administrators to configure the attendance module.'
+            URLList: 'attendanceSettings.php,attendanceSettings_manage_add.php,attendanceSettings_manage_edit.php,attendanceSettings_manage_delete.php'
+            entryURL: attendanceSettings.php
+            entrySidebar: 'Y'
+            menuShow: 'Y'
+            defaultPermissionAdmin: 'Y'
+            defaultPermissionTeacher: 'N'
+            defaultPermissionStudent: 'N'
+            defaultPermissionParent: 'N'
+            defaultPermissionSupport: 'N'
+            categoryPermissionStaff: 'Y'
+            categoryPermissionStudent: 'N'
+            categoryPermissionParent: 'N'
+            categoryPermissionOther: 'N'
+            permissions:
+                - Administrator

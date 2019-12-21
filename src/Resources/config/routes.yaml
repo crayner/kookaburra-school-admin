@@ -1,0 +1,8 @@
+controllers:
+    resource: '@KookaburraSchoolAdminBundle/Controller/'
+    type: annotation
+    schemes: [ 'https' ]
+    # this is added to the beginning of all imported route URLs
+    prefix: '/school/admin'
+    # this is added to the beginning of all imported route names
+    name_prefix: 'school_admin__'

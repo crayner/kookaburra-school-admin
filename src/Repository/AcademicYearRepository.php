@@ -1,0 +1,91 @@
+<?php
+/**
+ * Created by PhpStorm.
+ *
+ * Kookaburra
+ *
+ * (c) 2018 Craig Rayner <craig@craigrayner.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * UserProvider: craig
+ * Date: 23/11/2018
+ * Time: 11:14
+ */
+namespace Kookaburra\SchoolAdmin\Repository;
+
+use Kookaburra\SchoolAdmin\Entity\AcademicYear;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Persistence\ManagerRegistry;
+
+/**
+ * Class AcademicYearRepository
+ * @package Kookaburra\SchoolAdmin\Repository
+ */
+class AcademicYearRepository extends ServiceEntityRepository
+{
+    /**
+     * AcademicYearRepository constructor.
+     * @param ManagerRegistry $registry
+     */
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, AcademicYear::class);
+    }
+
+    /**
+     * findAllByOverlap
+     * @param AcademicYear $year
+     * @return array
+     */
+    public function findAllByOverlap(AcademicYear $year): array
+    {
+        return $this->createQueryBuilder('s')
+            ->where('s.id <> :year')
+            ->setParameter('year', $year->getId())
+            ->andwhere('(s.firstDay <= :firstDay AND s.lastDay >= :firstDay) OR (s.firstDay <= :lastDay AND s.lastDay >= :lastDay)')
+            ->setParameter('firstDay', $year->getFirstDay())
+            ->setParameter('lastDay', $year->getLastDay())
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * selectAcademicYears
+     * @param string $status
+     * @param string $direction
+     * @return array
+     */
+    public function findByStatus(string $status = 'All', $direction = 'ASC'): array
+    {
+        $direction = $direction === 'DESC' ? "DESC" : 'ASC';
+        $query = $this->createQueryBuilder('s')
+            ->select(['s.id', 's.name'])
+            ->orderBy('s.firstDay', $direction);
+        switch($status) {
+            case 'Active':
+                return $query
+                    ->where('s.status = :current OR s.status = :future')
+                    ->setParameters(['current' => 'Current', 'future' => 'Upcoming'])
+                    ->getQuery()
+                    ->getResult();
+                break;
+            case 'Upcoming':
+                return $query
+                    ->where('s.status = :future')
+                    ->setParameters(['future' => 'Upcoming'])
+                    ->getQuery()
+                    ->getResult();
+                break;
+            case 'Past':
+                return $query
+                    ->where('s.status = :future')
+                    ->setParameters(['future' => 'Past'])
+                    ->getQuery()
+                    ->getResult();
+                break;
+        }
+        return $query->getQuery()->getResult();
+    }
+}

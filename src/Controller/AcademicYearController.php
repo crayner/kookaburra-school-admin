@@ -38,6 +38,8 @@ class AcademicYearController extends AbstractController
      * manage
      * @Route("/academic/year/manage/", name="academic_year_manage")
      * @IsGranted("ROLE_ROUTE")
+     * @param AcademicYearPagination $pagination
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function manage(AcademicYearPagination $pagination)
     {
@@ -50,14 +52,23 @@ class AcademicYearController extends AbstractController
     /**
      * edit
      * @Route("/academic/year/{year}/edit/", name="academic_year_edit")
+     * @Route("/academic/year/add/", name="academic_year_add")
      * @IsGranted("ROLE_ROUTE")
+     * @param ContainerManager $manager
+     * @param Request $request
+     * @param AcademicYear|null $year
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function edit(ContainerManager $manager, Request $request, ?AcademicYear $year = null)
     {
-        if ($year === null)
+        if (intval($year) === 0) {
             $year = new AcademicYear();
+            $action = $this->generateUrl('school_admin__academic_year_add');
+        } else {
+            $action = $this->generateUrl('school_admin__academic_year_edit', ['year' => $year->getId()]);
+        }
 
-        $form = $this->createForm(AcademicYearType::class, $year, ['action' => $this->generateUrl('school_admin__academic_year_edit', ['year' => $year->getId()])]);
+        $form = $this->createForm(AcademicYearType::class, $year, ['action' => $action]);
 
         if ($request->getContentType() === 'json') {
             $content = json_decode($request->getContent(), true);
@@ -69,7 +80,7 @@ class AcademicYearController extends AbstractController
                 $provider = ProviderFactory::create(AcademicYear::class);
                 $data = $provider->persistFlush($year, $data);
                 if ($id !== $year->getId() && $data['status'] === 'success')
-                    $form = $this->createForm(AcademicYear::class, $year, ['action' => $this->generateUrl('school_admin__academic_year_edit', ['year' => $year->getId()])]);
+                    $form = $this->createForm(AcademicYearType::class, $year, ['action' => $this->generateUrl('school_admin__academic_year_edit', ['year' => $year->getId()])]);
             } else {
                 $data['errors'][] = ['class' => 'error', 'message' => TranslationsHelper::translate('return.error.1', [], 'messages')];
                 $data['status'] = 'error';
@@ -89,6 +100,10 @@ class AcademicYearController extends AbstractController
      * delete
      * @Route("/academic/year/{year}/delete/", name="academic_year_delete")
      * @IsGranted("ROLE_ROUTE")
+     * @param AcademicYear $year
+     * @param FlashBagInterface $flashBag
+     * @param TranslatorInterface $translator
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function delete(AcademicYear $year, FlashBagInterface $flashBag, TranslatorInterface $translator)
     {

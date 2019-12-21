@@ -186,7 +186,7 @@ class AcademicYear implements EntityInterface
      */
     public function getSequenceNumber(): int
     {
-        return $this->sequenceNumber;
+        return intval($this->sequenceNumber);
     }
 
     /**

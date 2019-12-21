@@ -64,4 +64,37 @@ class AcademicYearTermRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getOneOrNullResult();
     }
+
+    /**
+     * findByPaginationList
+     * @return mixed
+     */
+    public function findByPaginationList(): iterable
+    {
+        return $this->createQueryBuilder('t')
+            ->leftJoin('t.academicYear', 'y')
+            ->orderBy('y.firstDay')
+            ->addOrderBy('t.firstDay')
+            ->select(['t','y'])
+            ->getQuery()
+            ->getResult();
+
+    }
+
+    /**
+     * findOtherTerms
+     * @param AcademicYearTerm $term
+     * @return mixed
+     */
+    public function findOtherTerms(AcademicYearTerm $term)
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.academicYear = :year')
+            ->setParameter('year', $term->getAcademicYear())
+            ->andWhere('t.id <> :term')
+            ->setParameter('term', $term->getId())
+            ->orderBy('t.firstDay')
+            ->getQuery()
+            ->getResult();
+    }
 }

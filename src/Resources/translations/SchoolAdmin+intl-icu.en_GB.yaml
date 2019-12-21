@@ -25,3 +25,11 @@ Last Day: Last Day
 Edit Academic Year: Edit Academic Year
 Add Academic Year: Add Academic Year
 Manage Academic Years: Manage Academic Years
+Edit Term: Edit Term
+Academic Year: Academic Year
+Must be unique in the Academic Year: Must be unique in the Academic Year
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day})).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+Add Term: Add Term
+Manage Terms: Manage Terms

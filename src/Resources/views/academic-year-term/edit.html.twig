@@ -7,9 +7,9 @@
     baseURL: 'school_admin',
     crumbs: [
         {uri: 'school_admin__academic_year_manage', name: 'School Admin'},
-        {uri: 'school_admin__academic_year_manage', name: 'Manage Academic Years'},
+        {uri: 'school_admin__academic_year_term_manage', name: 'Manage Terms'},
     ],
-    title: (year.id > 0 ? 'Edit Academic Year' : 'Add Academic Year'), domain: 'SchoolAdmin'} %}
+    title: (term.id > 0 ? 'Edit Term' : 'Add Term'), domain: 'SchoolAdmin'} %}
 {% set breadcrumbs = 'new' %}
 
 {% block content %}

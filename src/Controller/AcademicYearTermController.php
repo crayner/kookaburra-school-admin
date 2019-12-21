@@ -7,7 +7,7 @@
  *
  * User: craig
  * Date: 21/12/2019
- * Time: 10:27
+ * Time: 19:58
  */
 
 namespace Kookaburra\SchoolAdmin\Controller;
@@ -16,10 +16,11 @@ use App\Container\ContainerManager;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
+use Kookaburra\SchoolAdmin\Entity\AcademicYearTerm;
+use Kookaburra\SchoolAdmin\Form\AcademicYearTermType;
 use Kookaburra\SchoolAdmin\Form\AcademicYearType;
 use Kookaburra\SchoolAdmin\Pagination\AcademicYearPagination;
-use Kookaburra\SystemAdmin\Entity\Role;
-use Kookaburra\UserAdmin\Form\RoleType;
+use Kookaburra\SchoolAdmin\Pagination\AcademicYearTermPagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -29,46 +30,46 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * Class AcademicYearController
+ * Class AcademicYearTermController
  * @package Kookaburra\SchoolAdmin\Controller
  */
-class AcademicYearController extends AbstractController
+class AcademicYearTermController extends AbstractController
 {
     /**
      * manage
-     * @Route("/academic/year/manage/", name="academic_year_manage")
+     * @Route("/academic/year/term/manage/", name="academic_year_term_manage")
      * @IsGranted("ROLE_ROUTE")
      * @param AcademicYearPagination $pagination
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manage(AcademicYearPagination $pagination)
+    public function manage(AcademicYearTermPagination $pagination)
     {
-        $content = ProviderFactory::getRepository(AcademicYear::class)->findBy([], ['firstDay' => 'ASC']);
+        $content = ProviderFactory::getRepository(AcademicYearTerm::class)->findByPaginationList();
         $pagination->setContent($content)->setPageMax(25)
             ->setPaginationScript();
-        return $this->render('@KookaburraSchoolAdmin/academic-year/manage.html.twig');
+        return $this->render('@KookaburraSchoolAdmin/academic-year-term/manage.html.twig');
     }
 
     /**
      * edit
-     * @Route("/academic/year/{year}/edit/", name="academic_year_edit")
-     * @Route("/academic/year/add/", name="academic_year_add")
+     * @Route("/academic/year/term/{term}/edit/", name="academic_year_term_edit")
+     * @Route("/academic/year/term/add/", name="academic_year_term_add")
      * @IsGranted("ROLE_ROUTE")
      * @param ContainerManager $manager
      * @param Request $request
-     * @param AcademicYear|null $year
+     * @param AcademicYearTerm|null $term
      * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function edit(ContainerManager $manager, Request $request, ?AcademicYear $year = null)
+    public function edit(ContainerManager $manager, Request $request, ?AcademicYearTerm $term = null)
     {
-        if (!$year instanceof AcademicYear) {
-            $year = new AcademicYear();
-            $action = $this->generateUrl('school_admin__academic_year_add');
+        if (!$term instanceof AcademicYearTerm) {
+            $term = new AcademicYearTerm();
+            $action = $this->generateUrl('school_admin__academic_year_term_add');
         } else {
-            $action = $this->generateUrl('school_admin__academic_year_edit', ['year' => $year->getId()]);
+            $action = $this->generateUrl('school_admin__academic_year_term_edit', ['term' => $term->getId()]);
         }
 
-        $form = $this->createForm(AcademicYearType::class, $year, ['action' => $action]);
+        $form = $this->createForm(AcademicYearTermType::class, $term, ['action' => $action]);
 
         if ($request->getContentType() === 'json') {
             $content = json_decode($request->getContent(), true);
@@ -76,11 +77,11 @@ class AcademicYearController extends AbstractController
             $data = [];
             $data['status'] = 'success';
             if ($form->isValid()) {
-                $id = $year->getId();
-                $provider = ProviderFactory::create(AcademicYear::class);
-                $data = $provider->persistFlush($year, $data);
-                if ($id !== $year->getId() && $data['status'] === 'success')
-                    $form = $this->createForm(AcademicYearType::class, $year, ['action' => $this->generateUrl('school_admin__academic_year_edit', ['year' => $year->getId()])]);
+                $id = $term->getId();
+                $provider = ProviderFactory::create(AcademicYearTerm::class);
+                $data = $provider->persistFlush($term, $data);
+                if ($id !== $term->getId() && $data['status'] === 'success')
+                    $form = $this->createForm(AcademicYearTermType::class, $term, ['action' => $this->generateUrl('school_admin__academic_year_term_edit', ['term' => $term->getId()])]);
             } else {
                 $data['errors'][] = ['class' => 'error', 'message' => TranslationsHelper::translate('return.error.1', [], 'messages')];
                 $data['status'] = 'error';
@@ -93,30 +94,30 @@ class AcademicYearController extends AbstractController
         }
         $manager->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/academic-year/edit.html.twig',
+        return $this->render('@KookaburraSchoolAdmin/academic-year-term/edit.html.twig',
             [
-                'year' => $year,
+                'term' => $term,
             ]
         );
     }
 
     /**
      * delete
-     * @Route("/academic/year/{year}/delete/", name="academic_year_delete")
+     * @Route("/academic/year/term/{term}/delete/", name="academic_year_term_delete")
      * @IsGranted("ROLE_ROUTE")
-     * @param AcademicYear $year
+     * @param AcademicYearTerm $term
      * @param FlashBagInterface $flashBag
      * @param TranslatorInterface $translator
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function delete(AcademicYear $year, FlashBagInterface $flashBag, TranslatorInterface $translator)
+    public function delete(AcademicYearTerm $term, FlashBagInterface $flashBag, TranslatorInterface $translator)
     {
-        $provider = ProviderFactory::create(AcademicYear::class);
+        $provider = ProviderFactory::create(AcademicYearTerm::class);
 
-        $provider->delete($year);
+        $provider->delete($term);
 
         $provider->getMessageManager()->pushToFlash($flashBag, $translator);
 
-        return $this->redirectToRoute('school_admin__academic_year_manage');
+        return $this->redirectToRoute('school_admin__academic_year_term_manage');
     }
 }

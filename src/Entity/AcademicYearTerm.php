@@ -14,12 +14,18 @@ namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Kookaburra\SchoolAdmin\Validator as Check;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Class AcademicYearTerm
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\AcademicYearTermRepository")
- * @ORM\Table(options={"auto_increment": 1}, name="AcademicYearTerm", uniqueConstraints={@ORM\UniqueConstraint(name="sequenceNumber", columns={"sequenceNumber","id"})})
+ * @ORM\Table(options={"auto_increment": 1}, name="AcademicYearTerm", uniqueConstraints={@ORM\UniqueConstraint(name="sequenceNumber", columns={"sequenceNumber"})})
+ * @UniqueEntity("sequenceNumber")
+ * @Check\Term()
  */
 class AcademicYearTerm implements EntityInterface
 {
@@ -34,37 +40,44 @@ class AcademicYearTerm implements EntityInterface
     /**
      * @var AcademicYear|null
      * @ORM\ManyToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYear")
-     * @ORM\JoinColumn(name="id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="academic_year",referencedColumnName="id",nullable=false)
+     * @Assert\NotBlank()
      */
-    private $AcademicYear;
+    private $academicYear;
 
     /**
      * @var integer
-     * @ORM\Column(type="smallint",columnDefinition="INT(5)",name="sequenceNumber")
+     * @ORM\Column(type="smallint",columnDefinition="INT(5)",name="sequenceNumber",unique=true)
      */
     private $sequenceNumber;
 
     /**
      * @var string|null
      * @ORM\Column(length=20)
+     * @Assert\Length(max=20)
+     * @Assert\NotBlank()
      */
     private $name;
 
     /**
      * @var string|null
      * @ORM\Column(length=4, name="nameShort")
+     * @Assert\Length(max=4)
+     * @Assert\NotBlank()
      */
     private $nameShort;
 
     /**
-     * @var \DateTime|null
-     * @ORM\Column(type="date", name="firstDay")
+     * @var \DateTimeImmutable|null
+     * @ORM\Column(type="date_immutable",name="firstDay",nullable=true)
+     * @Assert\NotBlank()
      */
     private $firstDay;
 
     /**
-     * @var \DateTime|null
-     * @ORM\Column(type="date", name="lastDay")
+     * @var \DateTimeImmutable|null
+     * @ORM\Column(type="date_immutable",name="lastDay",nullable=true)
+     * @Assert\NotBlank()
      */
     private $lastDay;
 
@@ -91,16 +104,16 @@ class AcademicYearTerm implements EntityInterface
      */
     public function getAcademicYear(): ?AcademicYear
     {
-        return $this->AcademicYear;
+        return $this->academicYear;
     }
 
     /**
-     * @param AcademicYear|null $AcademicYear
+     * @param AcademicYear|null $academicYear
      * @return AcademicYearTerm
      */
-    public function setAcademicYear(?AcademicYear $AcademicYear): AcademicYearTerm
+    public function setAcademicYear(?AcademicYear $academicYear): AcademicYearTerm
     {
-        $this->AcademicYear = $AcademicYear;
+        $this->academicYear = $academicYear;
         return $this;
     }
 
@@ -109,7 +122,7 @@ class AcademicYearTerm implements EntityInterface
      */
     public function getSequenceNumber(): int
     {
-        return $this->sequenceNumber;
+        return intval($this->sequenceNumber);
     }
 
     /**
@@ -159,36 +172,40 @@ class AcademicYearTerm implements EntityInterface
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeImmutable|null
      */
-    public function getFirstDay(): ?\DateTime
+    public function getFirstDay(): ?\DateTimeImmutable
     {
         return $this->firstDay;
     }
 
     /**
-     * @param \DateTime|null $firstDay
+     * FirstDay.
+     *
+     * @param \DateTimeImmutable|null $firstDay
      * @return AcademicYearTerm
      */
-    public function setFirstDay(?\DateTime $firstDay): AcademicYearTerm
+    public function setFirstDay(?\DateTimeImmutable $firstDay): AcademicYearTerm
     {
         $this->firstDay = $firstDay;
         return $this;
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeImmutable|null
      */
-    public function getLastDay(): ?\DateTime
+    public function getLastDay(): ?\DateTimeImmutable
     {
         return $this->lastDay;
     }
 
     /**
-     * @param \DateTime|null $lastDay
+     * LastDay.
+     *
+     * @param \DateTimeImmutable|null $lastDay
      * @return AcademicYearTerm
      */
-    public function setLastDay(?\DateTime $lastDay): AcademicYearTerm
+    public function setLastDay(?\DateTimeImmutable $lastDay): AcademicYearTerm
     {
         $this->lastDay = $lastDay;
         return $this;
@@ -201,6 +218,14 @@ class AcademicYearTerm implements EntityInterface
      */
     public function toArray(?string $name = null): array
     {
-        return [];
+        $dates = $this->getFirstDay()->format('d M Y') . ' - ' . $this->getLastDay()->format('d M Y');
+        return [
+            'name' => $this->getName(),
+            'abbr' => $this->getNameShort(),
+            'year' => $this->getAcademicYear()->getName(),
+            'dates' => $dates,
+            'canDelete' => true,
+            'sequence' => $this->getSequenceNumber(),
+        ];
     }
 }

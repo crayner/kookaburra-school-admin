@@ -42,6 +42,7 @@ class AcademicYear implements EntityInterface
      * @var string|null
      * @ORM\Column(length=9, unique=true)
      * @Assert\NotBlank()
+     * @Assert\Length(max=9)
      */
     private $name;
 

@@ -24,7 +24,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class AcademicYearController
@@ -88,8 +90,14 @@ class AcademicYearController extends AbstractController
      * @Route("/academic/year/{year}/delete/", name="academic_year_delete")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function delete(AcademicYear $year)
+    public function delete(AcademicYear $year, FlashBagInterface $flashBag, TranslatorInterface $translator)
     {
-        return $this->render('@KookaburraSchoolAdmin/academic-year/manage.html.twig');
+        $provider = ProviderFactory::create(AcademicYear::class);
+
+        $provider->delete($year);
+
+        $provider->getMessageManager()->pushToFlash($flashBag, $translator);
+
+        return $this->redirectToRoute('school_admin__academic_year_manage');
     }
 }

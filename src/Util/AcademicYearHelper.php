@@ -40,7 +40,7 @@ class AcademicYearHelper
      * getCurrentSchoolYear
      * @return mixed
      */
-    public static function getCurrentSchoolYear()
+    public static function getCurrentAcademicYear()
     {
         $session = self::$stack->getCurrentRequest()->getSession();
         if ($session->has('academicYear'))

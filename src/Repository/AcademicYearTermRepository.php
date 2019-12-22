@@ -42,7 +42,7 @@ class AcademicYearTermRepository extends ServiceEntityRepository
         if ($this->createQueryBuilder('syt')
                 ->select('COUNT(syt)')
                 ->where('syt.firstDay <= :date and syt.lastDay >= :date')
-                ->andWhere('syt.AcademicYear = :AcademicYear')
+                ->andWhere('syt.academicYear = :AcademicYear')
                 ->setParameters(['AcademicYear' => AcademicYearHelper::getCurrentAcademicYear(), 'date' => $date])
                 ->getQuery()
                 ->getSingleScalarResult() > 0)
@@ -59,7 +59,7 @@ class AcademicYearTermRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('syt')
                 ->where('syt.firstDay <= :date and syt.lastDay >= :date')
-                ->andWhere('syt.AcademicYear = :AcademicYear')
+                ->andWhere('syt.academicYear = :AcademicYear')
                 ->setParameters(['AcademicYear' => AcademicYearHelper::getCurrentAcademicYear(), 'date' => $date])
                 ->getQuery()
                 ->getOneOrNullResult();

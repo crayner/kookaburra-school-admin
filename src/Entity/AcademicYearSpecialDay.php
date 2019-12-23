@@ -16,6 +16,7 @@ use App\Manager\EntityInterface;
 use Kookaburra\SchoolAdmin\Validator as Check;
 use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -24,6 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\AcademicYearSpecialDayRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="AcademicYearSpecialDay", uniqueConstraints={@ORM\UniqueConstraint(name="date", columns={"date"})})
  * @Check\SpecialDay()
+ * @UniqueEntity("date")
  */
 class AcademicYearSpecialDay implements EntityInterface
 {
@@ -38,9 +40,9 @@ class AcademicYearSpecialDay implements EntityInterface
     /**
      * @var AcademicYearTerm|null
      * @ORM\ManyToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYearTerm")
-     * @ORM\JoinColumn(name="gibbonAcademicYearTermID", referencedColumnName="gibbonAcademicYearTermID", nullable=false)
+     * @ORM\JoinColumn(name="academic_year_term", referencedColumnName="id", nullable=false)
      */
-    private $AcademicYearTerm;
+    private $academicYearTerm;
 
     /**
      * @var string
@@ -67,8 +69,8 @@ class AcademicYearSpecialDay implements EntityInterface
     private $description;
 
     /**
-     * @var \DateTime|null
-     * @ORM\Column(type="date", unique=true)
+     * @var \DateTimeImmutable|null
+     * @ORM\Column(type="date_immutable", unique=true)
      * @Assert\NotBlank()
      */
     private $date;
@@ -120,16 +122,16 @@ class AcademicYearSpecialDay implements EntityInterface
      */
     public function getAcademicYearTerm(): ?AcademicYearTerm
     {
-        return $this->AcademicYearTerm;
+        return $this->academicYearTerm;
     }
 
     /**
-     * @param AcademicYearTerm|null $AcademicYearTerm
+     * @param AcademicYearTerm|null $academicYearTerm
      * @return AcademicYearSpecialDay
      */
-    public function setAcademicYearTerm(?AcademicYearTerm $AcademicYearTerm): AcademicYearSpecialDay
+    public function setAcademicYearTerm(?AcademicYearTerm $academicYearTerm): AcademicYearSpecialDay
     {
-        $this->AcademicYearTerm = $AcademicYearTerm;
+        $this->academicYearTerm = $academicYearTerm;
         return $this;
     }
 
@@ -188,18 +190,20 @@ class AcademicYearSpecialDay implements EntityInterface
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeImmutable|null
      */
-    public function getDate(): ?\DateTime
+    public function getDate(): ?\DateTimeImmutable
     {
         return $this->date;
     }
 
     /**
-     * @param \DateTime|null $date
+     * Date.
+     *
+     * @param \DateTimeImmutable|null $date
      * @return AcademicYearSpecialDay
      */
-    public function setDate(?\DateTime $date): AcademicYearSpecialDay
+    public function setDate(?\DateTimeImmutable $date): AcademicYearSpecialDay
     {
         $this->date = $date;
         return $this;
@@ -317,6 +321,12 @@ class AcademicYearSpecialDay implements EntityInterface
      */
     public function toArray(?string $name = null): array
     {
-        return [];
+        return [
+            'year' => $this->getAcademicYearTerm()->getAcademicYear()->getName(),
+            'name' => $this->getName(),
+            'type' => $this->getType(),
+            'date' => $this->getDate()->format('jS M/Y'),
+            'canDelete' => true,
+        ];
     }
 }

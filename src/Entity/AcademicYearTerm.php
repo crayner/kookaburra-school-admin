@@ -23,8 +23,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class AcademicYearTerm
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\AcademicYearTermRepository")
- * @ORM\Table(options={"auto_increment": 1}, name="AcademicYearTerm", uniqueConstraints={@ORM\UniqueConstraint(name="sequenceNumber", columns={"sequenceNumber"})})
- * @UniqueEntity("sequenceNumber")
+ * @ORM\Table(options={"auto_increment": 1}, name="AcademicYearTerm", uniqueConstraints={@ORM\UniqueConstraint(name="sequenceNumber", columns={"academic_year","sequenceNumber"}), @ORM\UniqueConstraint(name="abbr", columns={"academic_year","nameShort"}), @ORM\UniqueConstraint(name="name", columns={"academic_year","name"})})
+ * @UniqueEntity({"academicYear","sequenceNumber"})
+ * @UniqueEntity({"academicYear","name"})
+ * @UniqueEntity({"academicYear","snameShort"})
  * @Check\Term()
  */
 class AcademicYearTerm implements EntityInterface

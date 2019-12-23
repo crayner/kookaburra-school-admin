@@ -17,8 +17,12 @@ namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
 use App\Util\TranslationsHelper;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\PersistentCollection;
 use Kookaburra\SchoolAdmin\Validator as Check;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -27,6 +31,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\AcademicYearRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="AcademicYear", uniqueConstraints={@ORM\UniqueConstraint(name="name", columns={"name"}), @ORM\UniqueConstraint(name="sequence", columns={"sequenceNumber"})})
  * @Check\AcademicYear()
+ * @UniqueEntity("sequenceNumber")
+ * @UniqueEntity("name")
  */
 class AcademicYear implements EntityInterface
 {

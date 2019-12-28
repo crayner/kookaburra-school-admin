@@ -253,4 +253,13 @@ class AcademicYear implements EntityInterface
             'sequence' => $this->getSequenceNumber(),
         ];
     }
+
+    /**
+     * getNameDates
+     * @return string
+     */
+    public function getNameDates()
+    {
+        return $this->getName() . ': ' . $this->getFirstDay()->format('Y-m-d') . ' - ' . $this->getLastDay()->format('Y-m-d');
+    }
 }

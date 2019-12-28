@@ -12,6 +12,7 @@
  */
 namespace Kookaburra\SchoolAdmin\Repository;
 
+use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Entity\AcademicYearTerm;
 use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -51,16 +52,20 @@ class AcademicYearTermRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param \DateTime $date
+     * findOneByDay
+     * @param \DateTimeImmutable $date
+     * @param AcademicYear|null $year
      * @return AcademicYearTerm|null
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function findOneByDay(\DateTime $date): ?AcademicYearTerm
+    public function findOneByDay(\DateTimeImmutable $date, ?AcademicYear $year = null): ?AcademicYearTerm
     {
+        if (null === $year) $year = AcademicYearHelper::getCurrentAcademicYear();
+
         return $this->createQueryBuilder('syt')
                 ->where('syt.firstDay <= :date and syt.lastDay >= :date')
-                ->andWhere('syt.academicYear = :AcademicYear')
-                ->setParameters(['AcademicYear' => AcademicYearHelper::getCurrentAcademicYear(), 'date' => $date])
+                ->andWhere('syt.academicYear = :academicYear')
+                ->setParameters(['academicYear' => $year, 'date' => $date])
                 ->getQuery()
                 ->getOneOrNullResult();
     }

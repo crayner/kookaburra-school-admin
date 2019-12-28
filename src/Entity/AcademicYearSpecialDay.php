@@ -13,6 +13,7 @@
 namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
+use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Validator as Check;
 use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
 use Doctrine\ORM\Mapping as ORM;
@@ -45,7 +46,7 @@ class AcademicYearSpecialDay implements EntityInterface
     private $academicYearTerm;
 
     /**
-     * @var string
+     * @var string|null
      * @ORM\Column(length=14, name="type")
      */
     private $type ;
@@ -64,40 +65,45 @@ class AcademicYearSpecialDay implements EntityInterface
 
     /**
      * @var string|null
-     * @ORM\Column()
+     * @ORM\Column(nullable=true)
      */
     private $description;
 
     /**
      * @var \DateTimeImmutable|null
-     * @ORM\Column(type="date_immutable", unique=true)
+     * @ORM\Column(type="date_immutable")
      * @Assert\NotBlank()
      */
     private $date;
 
     /**
-     * @var \DateTime|null
-     * @ORM\Column(type="time", name="schoolOpen", nullable=true)
+     * @var \DateTimeImmutable|null
+     * @ORM\Column(type="time_immutable", name="schoolOpen", nullable=true)
      */
     private $schoolOpen;
 
     /**
-     * @var \DateTime|null
-     * @ORM\Column(type="time", name="schoolStart", nullable=true)
+     * @var \DateTimeImmutable|null
+     * @ORM\Column(type="time_immutable", name="schoolStart", nullable=true)
      */
     private $schoolStart;
 
     /**
-     * @var \DateTime|null
-     * @ORM\Column(type="time", name="schoolEnd", nullable=true)
+     * @var \DateTimeImmutable|null
+     * @ORM\Column(type="time_immutable", name="schoolEnd", nullable=true)
      */
     private $schoolEnd;
 
     /**
-     * @var \DateTime|null
-     * @ORM\Column(type="time", name="schoolClose", nullable=true)
+     * @var \DateTimeImmutable|null
+     * @ORM\Column(type="time_immutable", name="schoolClose", nullable=true)
      */
     private $schoolClose;
+
+    /**
+     * @var AcademicYear|null
+     */
+    private $academicYear;
 
     /**
      * @return int|null
@@ -136,9 +142,9 @@ class AcademicYearSpecialDay implements EntityInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -210,72 +216,80 @@ class AcademicYearSpecialDay implements EntityInterface
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeImmutable|null
      */
-    public function getSchoolOpen(): ?\DateTime
+    public function getSchoolOpen(): ?\DateTimeImmutable
     {
         return $this->schoolOpen;
     }
 
     /**
-     * @param \DateTime|null $schoolOpen
+     * SchoolOpen.
+     *
+     * @param \DateTimeImmutable|null $schoolOpen
      * @return AcademicYearSpecialDay
      */
-    public function setSchoolOpen(?\DateTime $schoolOpen): AcademicYearSpecialDay
+    public function setSchoolOpen(?\DateTimeImmutable $schoolOpen): AcademicYearSpecialDay
     {
         $this->schoolOpen = $schoolOpen;
         return $this;
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeImmutable|null
      */
-    public function getSchoolStart(): ?\DateTime
+    public function getSchoolStart(): ?\DateTimeImmutable
     {
         return $this->schoolStart;
     }
 
     /**
-     * @param \DateTime|null $schoolStart
+     * SchoolStart.
+     *
+     * @param \DateTimeImmutable|null $schoolStart
      * @return AcademicYearSpecialDay
      */
-    public function setSchoolStart(?\DateTime $schoolStart): AcademicYearSpecialDay
+    public function setSchoolStart(?\DateTimeImmutable $schoolStart): AcademicYearSpecialDay
     {
         $this->schoolStart = $schoolStart;
         return $this;
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeImmutable|null
      */
-    public function getSchoolEnd(): ?\DateTime
+    public function getSchoolEnd(): ?\DateTimeImmutable
     {
         return $this->schoolEnd;
     }
 
     /**
-     * @param \DateTime|null $schoolEnd
+     * SchoolEnd.
+     *
+     * @param \DateTimeImmutable|null $schoolEnd
      * @return AcademicYearSpecialDay
      */
-    public function setSchoolEnd(?\DateTime $schoolEnd): AcademicYearSpecialDay
+    public function setSchoolEnd(?\DateTimeImmutable $schoolEnd): AcademicYearSpecialDay
     {
         $this->schoolEnd = $schoolEnd;
         return $this;
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeImmutable|null
      */
-    public function getSchoolClose(): ?\DateTime
+    public function getSchoolClose(): ?\DateTimeImmutable
     {
         return $this->schoolClose;
     }
 
     /**
-     * @param \DateTime|null $schoolClose
+     * SchoolClose.
+     *
+     * @param \DateTimeImmutable|null $schoolClose
      * @return AcademicYearSpecialDay
      */
-    public function setSchoolClose(?\DateTime $schoolClose): AcademicYearSpecialDay
+    public function setSchoolClose(?\DateTimeImmutable $schoolClose): AcademicYearSpecialDay
     {
         $this->schoolClose = $schoolClose;
         return $this;
@@ -321,12 +335,40 @@ class AcademicYearSpecialDay implements EntityInterface
      */
     public function toArray(?string $name = null): array
     {
+        if ($name === 'new')
+        {
+            return [
+                'type' => 'School Closure',
+                'name' => 'New Special Day',
+                'description' => '',
+            ];
+        }
         return [
             'year' => $this->getAcademicYearTerm()->getAcademicYear()->getName(),
             'name' => $this->getName(),
-            'type' => $this->getType(),
             'date' => $this->getDate()->format('jS M/Y'),
+            'type' => TranslationsHelper::translate('academicyearspecialday.type.'.strtolower($this->getType()), [], 'SchoolAdmin'),
             'canDelete' => true,
         ];
+    }
+
+    /**
+     * @return null|AcademicYear
+     */
+    public function getAcademicYear(): ?AcademicYear
+    {
+        return $this->academicYear ?: $this->getAcademicYearTerm() ? $this->getAcademicYearTerm()->getAcademicYear() : null;
+    }
+
+    /**
+     * AcademicYear.
+     *
+     * @param mixed $academicYear
+     * @return AcademicYearSpecialDay
+     */
+    public function setAcademicYear($academicYear): AcademicYearSpecialDay
+    {
+        $this->academicYear = $academicYear;
+        return $this;
     }
 }

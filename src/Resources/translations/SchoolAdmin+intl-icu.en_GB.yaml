@@ -54,3 +54,11 @@ Sat: Sat
 Sunday: Sunday
 Sun: Sun
 Manage Days of the Week: Manage Days of the Week
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        timing change: Timing Change
+        school closure: School Closure
+Date: Date
+Type: Type
+Manage Special Days: Manage Special Days

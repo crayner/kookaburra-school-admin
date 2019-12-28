@@ -15,9 +15,12 @@ namespace Kookaburra\SchoolAdmin\Controller;
 use App\Container\ContainerManager;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
+use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Entity\AcademicYearSpecialDay;
+use Kookaburra\SchoolAdmin\Entity\AcademicYearTerm;
 use Kookaburra\SchoolAdmin\Form\SpecialDayType;
 use Kookaburra\SchoolAdmin\Pagination\SpecialDayPagination;
+use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -75,8 +78,11 @@ class SpecialDayController extends AbstractController
                 $id = $day->getId();
                 $provider = ProviderFactory::create(AcademicYearSpecialDay::class);
                 $data = $provider->persistFlush($day, $data);
-                if ($id !== $day->getId() && $data['status'] === 'success')
-                    $form = $this->createForm(SpecialDayType::class, $day, ['action' => $this->generateUrl('school_admin__special_day_edit', ['day' => $day->getId()])]);
+                if ($id !== $day->getId() && $data['status'] === 'success') {
+                    $data['status'] = 'redirect';
+                    $data['redirect'] = $this->generateUrl('school_admin__special_day_edit', ['day' => $day->getId()]);
+                    return new JsonResponse($data, 200);
+                }
             } else {
                 $data['errors'][] = ['class' => 'error', 'message' => TranslationsHelper::translate('return.error.1', [], 'messages')];
                 $data['status'] = 'error';

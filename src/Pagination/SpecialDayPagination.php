@@ -54,6 +54,13 @@ class SpecialDayPagination extends ReactPaginationManager
         ;
         $row->addColumn($column);
 
+        $column = new PaginationColumn();
+        $column->setLabel('Type')
+            ->setContentKey('type')
+            ->setClass('column relative pr-4 cursor-pointer widthAuto text-centre')
+        ;
+        $row->addColumn($column);
+
         $action = new PaginationAction();
         $action->setTitle('Edit')
             ->setAClass('')
@@ -78,6 +85,7 @@ class SpecialDayPagination extends ReactPaginationManager
             $filter = new PaginationFilter();
             $filter->setName('Academic Year: ' . $year->getName())
                 ->setValue($year->getName())
+                ->setLabel(['Academic Year: {value}', ['{value}' => $year->getName()], 'SchoolAdmin'])
                 ->setGroup('Academic Year')
                 ->setContentKey('year');
             $row->addFilter($filter);

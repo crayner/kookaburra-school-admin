@@ -12,7 +12,21 @@
 
 namespace Kookaburra\SchoolAdmin\Form;
 
+use App\Form\Type\DisplayType;
+use App\Form\Type\EntityType;
+use App\Form\Type\EnumType;
+use App\Form\Type\HeaderType;
+use App\Form\Type\ReactDateType;
+use App\Form\Type\ReactFormType;
+use Doctrine\ORM\EntityRepository;
+use Kookaburra\SchoolAdmin\Entity\AcademicYear;
+use Kookaburra\SchoolAdmin\Entity\AcademicYearSpecialDay;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class SpecialDayType
@@ -20,5 +34,137 @@ use Symfony\Component\Form\AbstractType;
  */
 class SpecialDayType extends AbstractType
 {
+    /**
+     * getParent
+     * @return string|null
+     */
+    public function getParent()
+    {
+        return ReactFormType::class;
+    }
 
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'translation_domain' => 'SchoolAdmin',
+            'data_class' => AcademicYearSpecialDay::class,
+        ]);
+    }
+
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $day = $options['data'];
+        $builder
+            ->add('dayHeader', HeaderType::class,
+                [
+                    'label' => $day->getId() > 0 ? 'Edit Special Day' : 'Add Special Day'  ,
+                ]
+            )
+        ;
+        if ($day->getId() !== null) {
+            $builder
+                ->add('academicYear', DisplayType::class,
+                    [
+                        'label' => 'Academic Year',
+                        'data' => $day->getAcademicYear()->getName(),
+                        'mapped' => false,
+                    ]
+                )
+                ->add('date', DisplayType::class,
+                    [
+                        'label' => 'Date',
+                        'data' => $day->getDate()->format('Y-m-d'),
+                        'mapped' => false,
+                    ]
+                )
+            ;
+        } else {
+            $builder
+                ->add('academicYear', EntityType::class,
+                    [
+                        'label' => 'Academic Year',
+                        'placeholder' => 'Please select...',
+                        'class' => AcademicYear::class,
+                        'choice_label' => 'nameDates',
+                        'query_builder' => function (EntityRepository $er) {
+                            return $er->createQueryBuilder('y')
+                                ->orderBy('y.firstDay', 'ASC')
+                                ->addOrderBy('y.sequenceNumber', 'ASC');
+                        },
+                    ]
+                )
+                ->add('date', ReactDateType::class,
+                    [
+                        'label' => 'Date',
+                        'help' => 'Must be unique in the Academic Year.',
+                        'input' => 'datetime_immutable',
+                    ]
+                )
+            ;
+        }
+            $builder
+                ->add('type', EnumType::class,
+                    [
+                        'label' => 'Type',
+                        'placeholder' => 'Please select...',
+                        'visibleByClass' => 'timingChange',
+                        'visibleWhen' => 'Timing Change',
+                        'values' => AcademicYearSpecialDay::getTypeList(),
+                    ]
+                )
+                ->add('name', TextType::class,
+                    [
+                        'label' => 'Name',
+                    ]
+                )
+                ->add('description', TextType::class,
+                    [
+                        'label' => 'Description',
+                        'required' => false,
+                    ]
+                )
+                ->add('schoolOpen', TimeType::class,
+                    [
+                        'label' => 'School Opens',
+                        'required' => false,
+                        'input' => 'datetime_immutable',
+                        'widget' => 'single_text',
+                        'row_class' => 'timingChange flex flex-col sm:flex-row justify-between content-center p-0',
+                    ]
+                )
+                ->add('schoolStart', TimeType::class,
+                    [
+                        'label' => 'School Starts',
+                        'required' => false,
+                        'input' => 'datetime_immutable',
+                        'widget' => 'single_text',
+                        'row_class' => 'timingChange flex flex-col sm:flex-row justify-between content-center p-0',
+                    ]
+                )
+                ->add('schoolEnd', TimeType::class,
+                    [
+                        'label' => 'School Ends',
+                        'required' => false,
+                        'input' => 'datetime_immutable',
+                        'row_class' => 'timingChange flex flex-col sm:flex-row justify-between content-center p-0',
+                        'widget' => 'single_text',
+                    ]
+                )
+                ->add('schoolClose', TimeType::class,
+                    [
+                        'label' => 'School Closes',
+                        'required' => false,
+                        'input' => 'datetime_immutable',
+                        'row_class' => 'timingChange flex flex-col sm:flex-row justify-between content-center p-0',
+                        'widget' => 'single_text',
+                    ]
+                )
+                ->add('submit', SubmitType::class,
+                    [
+                        'label' => 'Submit',
+                        'translation_domain' => 'messages',
+                    ]
+                )
+            ;
+    }
 }

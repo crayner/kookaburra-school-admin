@@ -48,7 +48,7 @@ class SpecialDayPagination extends ReactPaginationManager
 
         $column = new PaginationColumn();
         $column->setLabel('Name')
-            ->setContentKey('name')
+            ->setContentKey(['name','description'])
             ->setSort(true)
             ->setClass('column relative pr-4 cursor-pointer widthAuto text-centre')
         ;
@@ -90,11 +90,11 @@ class SpecialDayPagination extends ReactPaginationManager
                 ->setContentKey('year');
             $row->addFilter($filter);
         }
+
         $year = AcademicYearHelper::getCurrentAcademicYear();
-
         $row->setDefaultFilter(['Academic Year: ' . $year->getName()]);
-
         $this->setRow($row);
+dump($this);
         return $this;
     }
 }

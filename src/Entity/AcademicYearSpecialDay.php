@@ -24,7 +24,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class AcademicYearSpecialDay
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\AcademicYearSpecialDayRepository")
- * @ORM\Table(options={"auto_increment": 1}, name="AcademicYearSpecialDay", uniqueConstraints={@ORM\UniqueConstraint(name="date", columns={"date"})})
+ * @ORM\Table(options={"auto_increment": 1}, name="AcademicYearSpecialDay",
+ *     uniqueConstraints={@ORM\UniqueConstraint(name="date", columns={"date"})},
+ *     indexes={@ORM\Index(name="academic_year", columns={"academic_year"})})
  * @Check\SpecialDay()
  * @UniqueEntity("date")
  */
@@ -39,11 +41,11 @@ class AcademicYearSpecialDay implements EntityInterface
     private $id;
 
     /**
-     * @var AcademicYearTerm|null
-     * @ORM\ManyToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYearTerm")
-     * @ORM\JoinColumn(name="academic_year_term", referencedColumnName="id", nullable=false)
+     * @var AcademicYear|null
+     * @ORM\ManyToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYear")
+     * @ORM\JoinColumn(name="academic_year", referencedColumnName="id", nullable=false)
      */
-    private $academicYearTerm;
+    private $academicYear;
 
     /**
      * @var string|null
@@ -101,11 +103,6 @@ class AcademicYearSpecialDay implements EntityInterface
     private $schoolClose;
 
     /**
-     * @var AcademicYear|null
-     */
-    private $academicYear;
-
-    /**
      * @return int|null
      */
     public function getId(): ?int
@@ -124,20 +121,21 @@ class AcademicYearSpecialDay implements EntityInterface
     }
 
     /**
-     * @return AcademicYearTerm|null
+     * @return null|AcademicYear
      */
-    public function getAcademicYearTerm(): ?AcademicYearTerm
+    public function getAcademicYear(): ?AcademicYear
     {
-        return $this->academicYearTerm;
+        return $this->academicYear;
     }
 
     /**
-     * @param AcademicYearTerm|null $academicYearTerm
+     * setAcademicYear
+     * @param AcademicYear|null $academicYear
      * @return AcademicYearSpecialDay
      */
-    public function setAcademicYearTerm(?AcademicYearTerm $academicYearTerm): AcademicYearSpecialDay
+    public function setAcademicYear(?AcademicYear $academicYear): AcademicYearSpecialDay
     {
-        $this->academicYearTerm = $academicYearTerm;
+        $this->academicYear = $academicYear;
         return $this;
     }
 
@@ -344,31 +342,12 @@ class AcademicYearSpecialDay implements EntityInterface
             ];
         }
         return [
-            'year' => $this->getAcademicYearTerm()->getAcademicYear()->getName(),
+            'year' => $this->getAcademicYear()->getName(),
             'name' => $this->getName(),
+            'description' => $this->getDescription(),
             'date' => $this->getDate()->format('jS M/Y'),
             'type' => TranslationsHelper::translate('academicyearspecialday.type.'.strtolower($this->getType()), [], 'SchoolAdmin'),
             'canDelete' => true,
         ];
-    }
-
-    /**
-     * @return null|AcademicYear
-     */
-    public function getAcademicYear(): ?AcademicYear
-    {
-        return $this->academicYear ?: $this->getAcademicYearTerm() ? $this->getAcademicYearTerm()->getAcademicYear() : null;
-    }
-
-    /**
-     * AcademicYear.
-     *
-     * @param mixed $academicYear
-     * @return AcademicYearSpecialDay
-     */
-    public function setAcademicYear($academicYear): AcademicYearSpecialDay
-    {
-        $this->academicYear = $academicYear;
-        return $this;
     }
 }

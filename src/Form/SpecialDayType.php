@@ -12,6 +12,7 @@
 
 namespace Kookaburra\SchoolAdmin\Form;
 
+use App\Form\Transform\DateStringTransform;
 use App\Form\Type\DisplayType;
 use App\Form\Type\EntityType;
 use App\Form\Type\EnumType;
@@ -21,6 +22,7 @@ use App\Form\Type\ReactFormType;
 use Doctrine\ORM\EntityRepository;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Entity\AcademicYearSpecialDay;
+use Kookaburra\SchoolAdmin\Form\Transform\AcademicYearNameTransform;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -66,31 +68,22 @@ class SpecialDayType extends AbstractType
                 ->add('academicYear', DisplayType::class,
                     [
                         'label' => 'Academic Year',
-                        'data' => $day->getAcademicYear()->getName(),
-                        'mapped' => false,
+                        'help' => 'This value is locked.'
                     ]
                 )
                 ->add('date', DisplayType::class,
                     [
                         'label' => 'Date',
-                        'data' => $day->getDate()->format('Y-m-d'),
-                        'mapped' => false,
                     ]
                 )
             ;
+            $builder->get('date')->addViewTransformer(new DateStringTransform(true));
         } else {
             $builder
-                ->add('academicYear', EntityType::class,
+                ->add('academicYear', DisplayType::class,
                     [
                         'label' => 'Academic Year',
-                        'placeholder' => 'Please select...',
-                        'class' => AcademicYear::class,
-                        'choice_label' => 'nameDates',
-                        'query_builder' => function (EntityRepository $er) {
-                            return $er->createQueryBuilder('y')
-                                ->orderBy('y.firstDay', 'ASC')
-                                ->addOrderBy('y.sequenceNumber', 'ASC');
-                        },
+                        'help' => 'This value is locked. Change it in the manage screen.'
                     ]
                 )
                 ->add('date', ReactDateType::class,
@@ -166,5 +159,6 @@ class SpecialDayType extends AbstractType
                     ]
                 )
             ;
+        $builder->get('academicYear')->addViewTransformer(new AcademicYearNameTransform());
     }
 }

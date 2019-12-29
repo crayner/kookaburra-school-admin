@@ -14,10 +14,10 @@ namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
 use App\Provider\ProviderFactory;
+use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Entity\AcademicYearSpecialDay;
-use Kookaburra\SchoolAdmin\Entity\AcademicYearTerm;
 use Kookaburra\SchoolAdmin\Form\SpecialDayType;
 use Kookaburra\SchoolAdmin\Pagination\SpecialDayPagination;
 use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
@@ -43,8 +43,9 @@ class SpecialDayController extends AbstractController
     public function manage(SpecialDayPagination $pagination)
     {
         $content = ProviderFactory::getRepository(AcademicYearSpecialDay::class)->findBy([],['date' => 'ASC']);
-        $pagination->setContent($content)->setPageMax(25)
+        $pagination->setStoreFilterURL($this->generateUrl('school_admin__special_day_filter_store'))->setContent($content)->setPageMax(25)
             ->setPaginationScript();
+        dump($pagination);
         return $this->render('@KookaburraSchoolAdmin/special-day/manage.html.twig');
     }
 
@@ -63,6 +64,8 @@ class SpecialDayController extends AbstractController
         if (!$day instanceof AcademicYearSpecialDay) {
             $day = new AcademicYearSpecialDay();
             $action = $this->generateUrl('school_admin__special_day_add');
+            $year = ProviderFactory::getRepository(AcademicYear::class)->findOneByName(str_replace('Academic Year: ','', $request->getSession()->get('special_day_pagination'))) ?: AcademicYearHelper::getCurrentAcademicYear();
+            $day->setAcademicYear($year);
         } else {
             $action = $this->generateUrl('school_admin__special_day_edit', ['day' => $day->getId()]);
         }
@@ -81,6 +84,7 @@ class SpecialDayController extends AbstractController
                 if ($id !== $day->getId() && $data['status'] === 'success') {
                     $data['status'] = 'redirect';
                     $data['redirect'] = $this->generateUrl('school_admin__special_day_edit', ['day' => $day->getId()]);
+                    ErrorMessageHelper::convertToFlash($data, $request->getSession()->getBag('flashes'));
                     return new JsonResponse($data, 200);
                 }
             } else {
@@ -120,5 +124,18 @@ class SpecialDayController extends AbstractController
         $provider->getMessageManager()->pushToFlash($flashBag, $translator);
 
         return $this->redirectToRoute('school_admin__special_day_manage');
+    }
+
+    /**
+     * storeFilter
+     * @param Request $request
+     * @return JsonResponse
+     * @Route("/special/day/filter/store/",name="special_day_filter_store", methods={"POST"})
+     */
+    public function storeFilter(Request $request, SpecialDayPagination $pagination)
+    {
+        $content = json_decode($request->getContent(), true);
+        $pagination->writeInitialFilter($content);
+        return new JsonResponse([],200);
     }
 }

@@ -28,7 +28,7 @@ class AcademicYearHelper
     private static $stack;
 
     /**
-     * GlobalHelper constructor.
+     * AcademicYearHelper constructor.
      * @param RequestStack $stack
      */
     public function __construct(RequestStack $stack)
@@ -37,7 +37,7 @@ class AcademicYearHelper
     }
 
     /**
-     * getCurrentSchoolYear
+     * getCurrentAcademicYear
      * @return mixed
      */
     public static function getCurrentAcademicYear()
@@ -46,5 +46,18 @@ class AcademicYearHelper
         if ($session->has('academicYear'))
             return $session->get('academicYear');
         return ProviderFactory::getRepository(AcademicYear::class)->findOneByStatus('Current');
+    }
+
+    /**
+     * getNextAcademicYear
+     * @param AcademicYear|null $year
+     * @return mixed
+     */
+    public static function getNextAcademicYear(?AcademicYear $year = null)
+    {
+        if (null === $year)
+            $year = self::getCurrentAcademicYear();
+
+        return ProviderFactory::getRepository(AcademicYear::class)->findOneByNext($year);
     }
 }

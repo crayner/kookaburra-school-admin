@@ -14,6 +14,7 @@ namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
 use App\Util\TranslationsHelper;
+use Kookaburra\SchoolAdmin\Manager\SpecialDayManager;
 use Kookaburra\SchoolAdmin\Validator as Check;
 use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
 use Doctrine\ORM\Mapping as ORM;
@@ -348,6 +349,7 @@ class AcademicYearSpecialDay implements EntityInterface
             'date' => $this->getDate()->format('jS M/Y'),
             'type' => TranslationsHelper::translate('academicyearspecialday.type.'.strtolower($this->getType()), [], 'SchoolAdmin'),
             'canDelete' => true,
+            'canDuplicate' => SpecialDayManager::canDuplicate($this),
         ];
     }
 }

@@ -88,4 +88,38 @@ class AcademicYearRepository extends ServiceEntityRepository
         }
         return $query->getQuery()->getResult();
     }
+
+    /**
+     * findOneByNext
+     * @param AcademicYear $year
+     * @return AcademicYear|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findOneByNext(AcademicYear $year): ?AcademicYear
+    {
+        return $this->createQueryBuilder('y')
+            ->orderBy('y.firstDay', 'ASC')
+            ->setMaxResults(1)
+            ->where('y.firstDay > :firstDay')
+            ->setParameter('firstDay', $year->getFirstDay())
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    /**
+     * findOneByPrev
+     * @param AcademicYear $year
+     * @return AcademicYear|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function findOneByPrev(AcademicYear $year): ?AcademicYear
+    {
+        return $this->createQueryBuilder('y')
+            ->orderBy('y.firstDay', 'DESC')
+            ->setMaxResults(1)
+            ->where('y.firstDay < :firstDay')
+            ->setParameter('firstDay', $year->getFirstDay())
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

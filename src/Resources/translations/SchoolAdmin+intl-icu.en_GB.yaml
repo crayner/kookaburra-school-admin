@@ -68,3 +68,5 @@ Description: Description
 Add Special Day: Add Special Day
 his value is locked. Change it in the manage screen.: This value is locked. Change it in the manage screen.
 Must be unique in the Academic Year.: Must be unique in the Academic Year.
+'This value is locked.': 'This value is locked.'
+Duplicate: Duplicate

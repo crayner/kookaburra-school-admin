@@ -19,6 +19,7 @@ use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Entity\AcademicYearSpecialDay;
 use Kookaburra\SchoolAdmin\Form\SpecialDayType;
+use Kookaburra\SchoolAdmin\Manager\SpecialDayManager;
 use Kookaburra\SchoolAdmin\Pagination\SpecialDayPagination;
 use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -45,7 +46,6 @@ class SpecialDayController extends AbstractController
         $content = ProviderFactory::getRepository(AcademicYearSpecialDay::class)->findBy([],['date' => 'ASC']);
         $pagination->setStoreFilterURL($this->generateUrl('school_admin__special_day_filter_store'))->setContent($content)->setPageMax(25)
             ->setPaginationScript();
-        dump($pagination);
         return $this->render('@KookaburraSchoolAdmin/special-day/manage.html.twig');
     }
 
@@ -53,15 +53,31 @@ class SpecialDayController extends AbstractController
      * edit
      * @Route("/special/day/{day}/edit/", name="special_day_edit")
      * @Route("/special/day/add/", name="special_day_add")
+     * @Route("/special/day/{day}/duplicate/", name="special_day_duplicate")
      * @IsGranted("ROLE_ROUTE")
      * @param ContainerManager $manager
      * @param Request $request
      * @param AcademicYearSpecialDay|null $day
      * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function edit(ContainerManager $manager, Request $request, ?AcademicYearSpecialDay $day = null)
     {
-        if (!$day instanceof AcademicYearSpecialDay) {
+        if ($request->attributes->get('_route') === 'school_admin__special_day_duplicate') {
+            $copy = clone $day;
+            $day = new AcademicYearSpecialDay();
+            $day->setName($copy->getName())
+                ->setDescription($copy->getDescription())
+                ->setAcademicYear(AcademicYearHelper::getNextAcademicYear($copy->getAcademicYear()))
+                ->setDate(SpecialDayManager::getDuplicateDate($copy))
+                ->setType($copy->getType())
+                ->setSchoolClose($copy->getSchoolClose())
+                ->setSchoolEnd($copy->getSchoolEnd())
+                ->setSchoolStart($copy->getSchoolStart())
+                ->setSchoolOpen($copy->getSchoolOpen())
+            ;
+            $action = $this->generateUrl('school_admin__special_day_add');
+        } else if (!$day instanceof AcademicYearSpecialDay) {
             $day = new AcademicYearSpecialDay();
             $action = $this->generateUrl('school_admin__special_day_add');
             $year = ProviderFactory::getRepository(AcademicYear::class)->findOneByName(str_replace('Academic Year: ','', $request->getSession()->get('special_day_pagination'))) ?: AcademicYearHelper::getCurrentAcademicYear();

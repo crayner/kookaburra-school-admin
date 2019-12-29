@@ -14,6 +14,7 @@ namespace Kookaburra\SchoolAdmin\Provider;
 
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
+use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Entity\AcademicYearSpecialDay;
 
 /**
@@ -27,4 +28,15 @@ class AcademicYearSpecialDayProvider implements EntityProviderInterface
      * @var string
      */
     private $entityName = AcademicYearSpecialDay::class;
+
+    /**
+     * dateExists
+     * @param \DateTimeImmutable $date
+     * @param AcademicYear $year
+     * @return bool
+     */
+    public function dateExists(\DateTimeImmutable $date, AcademicYear $year): bool
+    {
+        return $this->getRepository()->findOneBy(['date' => $date, 'academicYear' => $year]) !== null;
+    }
 }

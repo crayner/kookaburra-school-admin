@@ -81,6 +81,16 @@ class SpecialDayPagination extends ReactPaginationManager
             ->setRouteParams(['day' => 'id']);
         $row->addAction($action);
 
+        $action = new PaginationAction();
+        $action->setTitle('Duplicate')
+            ->setAClass('')
+            ->setColumnClass('column p-2 sm:p-3')
+            ->setSpanClass('far fa-copy fa-fw fa-1-5x text-gray-700')
+            ->setRoute('school_admin__special_day_duplicate')
+            ->setDisplayWhen('canDuplicate')
+            ->setRouteParams(['day' => 'id']);
+        $row->addAction($action);
+
         foreach(ProviderFactory::getRepository(AcademicYear::class)->findBy([], ['firstDay' => 'ASC']) as $year) {
             $filter = new PaginationFilter();
             $filter->setName('Academic Year: ' . $year->getName())
@@ -94,7 +104,7 @@ class SpecialDayPagination extends ReactPaginationManager
         $year = AcademicYearHelper::getCurrentAcademicYear();
         $row->setDefaultFilter(['Academic Year: ' . $year->getName()]);
         $this->setRow($row);
-dump($this);
+
         return $this;
     }
 }

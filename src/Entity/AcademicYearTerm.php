@@ -41,7 +41,7 @@ class AcademicYearTerm implements EntityInterface
 
     /**
      * @var AcademicYear|null
-     * @ORM\ManyToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYear")
+     * @ORM\ManyToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYear", inversedBy="terms")
      * @ORM\JoinColumn(name="academic_year",referencedColumnName="id",nullable=false)
      * @Assert\NotBlank()
      */

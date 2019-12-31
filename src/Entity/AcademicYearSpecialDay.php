@@ -43,7 +43,7 @@ class AcademicYearSpecialDay implements EntityInterface
 
     /**
      * @var AcademicYear|null
-     * @ORM\ManyToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYear")
+     * @ORM\ManyToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYear", inversedBy="specialDays")
      * @ORM\JoinColumn(name="academic_year", referencedColumnName="id", nullable=false)
      */
     private $academicYear;

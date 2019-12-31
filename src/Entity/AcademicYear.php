@@ -86,6 +86,27 @@ class AcademicYear implements EntityInterface
     private $sequenceNumber;
 
     /**
+     * @var Collection|AcademicYearTerm[]
+     * @ORM\OneToMany(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYearTerm", mappedBy="academicYear")
+     */
+    private $terms;
+
+    /**
+     * @var Collection|AcademicYearSpecialDay[]
+     * @ORM\OneToMany(targetEntity="Kookaburra\SchoolAdmin\Entity\AcademicYearSpecialDay", mappedBy="academicYear")
+     */
+    private $specialDays;
+
+    /**
+     * AcademicYear constructor.
+     */
+    public function __construct()
+    {
+        $this->terms = new ArrayCollection();
+        $this->specialDays = new ArrayCollection();
+    }
+
+    /**
      * @return array
      */
     public static function getStatusList(): array
@@ -261,5 +282,77 @@ class AcademicYear implements EntityInterface
     public function getNameDates()
     {
         return $this->getName() . ': ' . $this->getFirstDay()->format('Y-m-d') . ' - ' . $this->getLastDay()->format('Y-m-d');
+    }
+
+    /**
+     * getTerms
+     * @return ArrayCollection|Collection|PersistentCollection|AcademicYearTerm[]
+     */
+    public function getTerms()
+    {
+        if (null === $this->terms)
+            $this->terms = new ArrayCollection();
+        if ($this->terms instanceof PersistentCollection)
+            $this->terms->initialize();
+
+        return $this->terms;
+    }
+
+    /**
+     * Terms.
+     *
+     * @param Collection|AcademicYearTerm[] $terms
+     * @return AcademicYear
+     */
+    public function setTerms($terms)
+    {
+        $this->terms = $terms;
+        return $this;
+    }
+
+    /**
+     * @return Collection|AcademicYearSpecialDay[]
+     */
+    public function getSpecialDays()
+    {
+        if (null === $this->specialDays)
+            $this->specialDays = new ArrayCollection();
+        if ($this->specialDays instanceof PersistentCollection)
+            $this->specialDays->initialize();
+
+        return $this->specialDays;
+    }
+
+    /**
+     * SpecialDays.
+     *
+     * @param Collection|AcademicYearSpecialDay[] $specialDays
+     * @return AcademicYear
+     */
+    public function setSpecialDays($specialDays)
+    {
+        $this->specialDays = $specialDays;
+        return $this;
+    }
+
+    /**
+     * hasSpecialDay
+     * @param \DateTimeImmutable $date
+     * @return bool
+     */
+    public function hasSpecialDay(\DateTimeImmutable $date): bool
+    {
+        $found = $this->getSpecialDays()->filter(function(AcademicYearSpecialDay $day) use ($date) {
+            if ($date->format('Ymd') === $day->getDate()->format('Ymd'))
+                return $day;
+            }
+        );
+
+        if ($found->count() === 1) {
+            $this->specialDays->removeElement($found->first());
+            $this->specialDays->set($found->first()->getDate()->format('Ymd'), $found->first());
+            return true;
+        }
+        return false;
     }
 }

@@ -1,0 +1,28 @@
+{% trans_default_domain 'SchoolAdmin' %}
+
+<div class="month">
+    <div class="header">{{ month.name|trans }}</div>
+    {% for day in calendar.daysOfWeek %}
+        <div class="day day-label">{{ day.nameShort|trans }}</div>
+    {% endfor %}
+    {% for day in month.days %}
+        {% set className = 'day' %}
+        {% set prompt = '' %}
+        {% if day.termBreak %}
+            {% set className = className ~ ' termBreak' %}
+            {% set prompt = 'Term Break'|trans %}
+        {% endif %}
+        {% if day.special %}
+            {% set className = className ~ ' specialDay' %}
+            {% set prompt = day.prompt %}
+            {% if day.closed %}
+                {% set className = className ~ ' closed' %}
+                {% set prompt = day.prompt %}
+            {% endif %}
+        {% endif %}
+        {% if not day.schoolDay %}
+            {% set className = className ~ ' notSchoolDay' %}
+        {% endif %}
+        <div class="{{ className }}" title="{{ prompt }}">{{ day.label }}</div>
+    {% endfor %}
+</div>

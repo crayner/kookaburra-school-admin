@@ -78,6 +78,15 @@ class AcademicYearPagination extends ReactPaginationManager
             ->setRouteParams(['year' => 'id']);
         $row->addAction($action);
 
+        $action = new PaginationAction();
+        $action->setTitle('Display')
+            ->setAClass('')
+            ->setColumnClass('column p-2 sm:p-3')
+            ->setSpanClass('far fa-calendar-alt fa-fw fa-1-5x text-gray-700')
+            ->setRoute('school_admin__academic_year_display')
+            ->setRouteParams(['year' => 'id']);
+        $row->addAction($action);
+
         $this->setRow($row);
         return $this;
     }

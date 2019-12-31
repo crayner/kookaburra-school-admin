@@ -1,0 +1,27 @@
+{% trans_default_domain 'SchoolAdmin' %}
+
+{% set bodyStyle = "background: url('" ~ asset(getBackgroundImage()) ~ "') repeat fixed center top white!important;" %}
+{% set return = path('school_admin__academic_year_manage') %}
+{% extends 'kookaburra_popup.html.twig' %}
+
+{% block content %}
+        <h3 class="text-center">{{ organisationName }} {{ calendar.academicYear.name }} {{ 'Calendar'|trans }}</h3>
+        <p class="no-print text-right">{{ 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'|trans }}.</p>
+        <div class="w-full">
+            <div class="month-row">
+                {% for month in calendar.months %}
+                    {% include '@KookaburraSchoolAdmin/academic-year/month.html.twig' %}
+                    {%  if loop.index is divisible by(4) %}
+                        </div><div class="month-row">
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div style="clear: both" class="w-full">
+            {% for day in calendar.academicYear.specialDays %}
+                <div class="specialDayNotice" title="{{ day.date|date('d/M/Y')}}: {{ day.name }} ({{ day.description }})">
+                    <span>{{ day.date|date('d/M/Y')}}: {{ day.name }}</span>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock content %}

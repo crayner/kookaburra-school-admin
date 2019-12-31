@@ -49,4 +49,16 @@ class DaysOfWeekRepository extends ServiceEntityRepository
             ->getArrayResult();
         return $this->daysOfWeek;
     }
+
+    /**
+     * findAllByName
+     * @return array
+     */
+    public function findAllByName(): array
+    {
+        return $this->createQueryBuilder('d', 'd.name')
+            ->orderBy('d.sequenceNumber')
+            ->getQuery()
+            ->getResult();
+    }
 }

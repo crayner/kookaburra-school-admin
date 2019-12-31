@@ -13,13 +13,13 @@
 namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
+use App\Manager\ScriptManager;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Form\AcademicYearType;
+use Kookaburra\SchoolAdmin\Manager\Hidden\CalendarDisplayManager;
 use Kookaburra\SchoolAdmin\Pagination\AcademicYearPagination;
-use Kookaburra\SystemAdmin\Entity\Role;
-use Kookaburra\UserAdmin\Form\RoleType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -118,5 +118,25 @@ class AcademicYearController extends AbstractController
         $provider->getMessageManager()->pushToFlash($flashBag, $translator);
 
         return $this->redirectToRoute('school_admin__academic_year_manage');
+    }
+
+    /**
+     * display
+     * @param AcademicYear $year
+     * @param Request $request
+     * @param ScriptManager $manager
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
+     * @Route("/academic/year/{year}/display/", name="academic_year_display")
+     * @IsGranted("ROLE_USER")
+     */
+    public function display(AcademicYear $year, Request $request, ScriptManager $manager)
+    {
+        $calendar = new CalendarDisplayManager($request->getLocale());
+        $manager->addPageStyle('@KookaburraSchoolAdmin/academic-year/calendar.css.twig');
+        $calendar->createYear($year);
+        return $this->render('@KookaburraSchoolAdmin/academic-year/display.html.twig', [
+            'calendar' => $calendar,
+        ]);
     }
 }

@@ -9,11 +9,12 @@
  * file that was distributed with this source code.
  *
  * User: craig
- * Date: 21/12/2019
- * Time: 10:46
+ * Date: 31/12/2019
+ * Time: 18:15
  */
 
 namespace Kookaburra\SchoolAdmin\Pagination;
+
 
 use App\Manager\Entity\PaginationAction;
 use App\Manager\Entity\PaginationColumn;
@@ -22,11 +23,7 @@ use App\Manager\ReactPaginationInterface;
 use App\Manager\ReactPaginationManager;
 use App\Util\TranslationsHelper;
 
-/**
- * Class AcademicYearPagination
- * @package Kookaburra\SchoolAdmin\Pagination
- */
-class AcademicYearPagination extends ReactPaginationManager
+class HousePagination extends ReactPaginationManager
 {
     public function execute(): ReactPaginationInterface
     {
@@ -34,30 +31,25 @@ class AcademicYearPagination extends ReactPaginationManager
         $row = new PaginationRow();
 
         $column = new PaginationColumn();
+        $column->setLabel('Logo')
+            ->setContentKey('logo')
+            ->setContentType('image')
+            ->setClass('column relative pr-4 cursor-pointer widthAuto')
+            ->setOptions(['class' => 'max75 user'])
+        ;
+        $row->addColumn($column);
+
+        $column = new PaginationColumn();
         $column->setLabel('Name')
             ->setContentKey('name')
             ->setSort(true)
-            ->setClass('column relative pr-4 cursor-pointer widthAuto text-centre')
+            ->setClass('column relative pr-4 cursor-pointer widthAuto')
         ;
         $row->addColumn($column);
 
         $column = new PaginationColumn();
-        $column->setLabel('Sequence')
-            ->setContentKey('sequence')
-            ->setSort(true)
-            ->setClass('column relative pr-4 cursor-pointer widthAuto text-centre')
-        ;
-        $row->addColumn($column);
-
-        $column = new PaginationColumn();
-        $column->setLabel('Dates')
-            ->setContentKey(['dates'])
-            ->setClass('column relative pr-4 cursor-pointer widthAuto');
-        $row->addColumn($column);
-
-        $column = new PaginationColumn();
-        $column->setLabel('Status')
-            ->setContentKey(['status'])
+        $column->setLabel('Abbreviation')
+            ->setContentKey('short')
             ->setClass('column relative pr-4 cursor-pointer widthAuto');
         $row->addColumn($column);
 
@@ -66,8 +58,8 @@ class AcademicYearPagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__academic_year_edit')
-            ->setRouteParams(['year' => 'id']);
+            ->setRoute('school_admin__house_edit')
+            ->setRouteParams(['house' => 'id']);
         $row->addAction($action);
 
         $action = new PaginationAction();
@@ -75,22 +67,14 @@ class AcademicYearPagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__academic_year_delete')
+            ->setRoute('school_admin__house_delete')
             ->setDisplayWhen('canDelete')
             ->setOnClick('areYouSure')
-            ->setRouteParams(['year' => 'id']);
-        $row->addAction($action);
-
-        $action = new PaginationAction();
-        $action->setTitle('Display')
-            ->setAClass('')
-            ->setColumnClass('column p-2 sm:p-3')
-            ->setSpanClass('far fa-calendar-alt fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__academic_year_display')
-            ->setRouteParams(['year' => 'id']);
+            ->setRouteParams(['house' => 'id']);
         $row->addAction($action);
 
         $this->setRow($row);
         return $this;
     }
+
 }

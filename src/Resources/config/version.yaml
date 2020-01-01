@@ -7,16 +7,16 @@ module:
     type: Core
     active: 'Y'
     category: Admin
-    version: v18.0.01
-    author: 'Ross Parker'
-    url: 'http://rossparker.org'
+    version: 0.0.00
+    author: 'Craig Rayner'
+    url: 'http://www.craigrayner.com'
     actions:
         'Manage Academic Years':
             name: 'Manage Academic Years'
             precedence: 0
             category: 'Years, Days & Times'
             description: 'Allows user to control the definition of academic years within the system'
-            URLList: 'academic_year_manage,AcademicYear_manage_edit.php,AcademicYear_manage_delete.php,AcademicYear_manage_add.php'
+            URLList: 'academic_year_manage,academic_year_edit,academic_year_delete,academic_year_add'
             entryURL: academic_year_manage
             entrySidebar: 'Y'
             menuShow: 'Y'
@@ -76,8 +76,8 @@ module:
             precedence: 0
             category: Groupings
             description: ''
-            URLList: 'house_manage.php,house_manage_edit.php,house_manage_add.php,house_manage_delete.php,house_manage_assign.php'
-            entryURL: house_manage.php
+            URLList: 'house_manage,house_edit,house_add,house_delete,house_assign'
+            entryURL: house_manage
             entrySidebar: 'Y'
             menuShow: 'Y'
             defaultPermissionAdmin: 'Y'
@@ -96,8 +96,8 @@ module:
             precedence: 0
             category: 'Years, Days & Times'
             description: ''
-            URLList: daysOfWeek_manage.php
-            entryURL: daysOfWeek_manage.php
+            URLList: days_of_the_week
+            entryURL: days_of_the_week
             entrySidebar: 'Y'
             menuShow: 'Y'
             defaultPermissionAdmin: 'Y'
@@ -116,8 +116,8 @@ module:
             precedence: 0
             category: 'Years, Days & Times'
             description: ''
-            URLList: 'AcademicYearTerm_manage.php,AcademicYearTerm_manage_add.php,AcademicYearTerm_manage_edit.php,AcademicYearTerm_manage_delete.php'
-            entryURL: AcademicYearTerm_manage.php
+            URLList: 'academic_year_term_manage,academic_year_term_edit,academic_year_term_add,academic_year_term_delete'
+            entryURL: academic_year_term_manage
             entrySidebar: 'Y'
             menuShow: 'Y'
             defaultPermissionAdmin: 'Y'
@@ -136,8 +136,8 @@ module:
             precedence: 0
             category: 'Years, Days & Times'
             description: ''
-            URLList: 'AcademicYearSpecialDay_manage.php,AcademicYearSpecialDay_manage_add.php,AcademicYearSpecialDay_manage_edit.php,AcademicYearSpecialDay_manage_delet ▶
-            entryURL: AcademicYearSpecialDay_manage.php
+            URLList: 'special_day_manage,special_day_add,special_day_edit,special_day_delete,special_day_duplicate'
+            entryURL: special_day_manage
             entrySidebar: 'Y'
             menuShow: 'Y'
             defaultPermissionAdmin: 'Y'
@@ -276,28 +276,8 @@ module:
             precedence: 1
             category: Assess
             description: 'Manage all aspects of grade scales, which are used throughout ARR to control grade input.'
-            URLList: 'gradeScales_manage.php, gradeScales_manage_add.php, gradeScales_manage_edit.php, gradeScales_manage_delete.php, gradeScales_manage_edit_gr ▶
+            URLList: 'gradeScales_manage.php, gradeScales_manage_add.php, gradeScales_manage_edit.php, gradeScales_manage_delete.php, gradeScales_manage_edit_grade_add.php, gradeScales_manage_edit_grade_edit.php, gradeScales_manage_edit_grade_delete.php'
             entryURL: gradeScales_manage.php
-            entrySidebar: 'Y'
-            menuShow: 'Y'
-            defaultPermissionAdmin: 'Y'
-            defaultPermissionTeacher: 'N'
-            defaultPermissionStudent: 'N'
-            defaultPermissionParent: 'N'
-            defaultPermissionSupport: 'N'
-            categoryPermissionStaff: 'Y'
-            categoryPermissionStudent: 'N'
-            categoryPermissionParent: 'N'
-            categoryPermissionOther: 'N'
-            permissions:
-                - Administrator
-        'Manage Alert Levels':
-            name: 'Manage Alert Levels'
-            precedence: 0
-            category: People
-            description: 'Manage the alert levels which are used throughout the school to flag problems.'
-            URLList: alertLevelSettings.php
-            entryURL: alertLevelSettings.php
             entrySidebar: 'Y'
             menuShow: 'Y'
             defaultPermissionAdmin: 'Y'
@@ -431,12 +411,12 @@ module:
             categoryPermissionOther: 'N'
             permissions:
                 - Administrator
-        'Manage External Assessments':
-            name: 'Manage External Assessments'
+        'External Assessments':
+            name: 'External Assessments'
             precedence: 1
             category: Assess
             description: 'Add, edit and delete external assessments.'
-            URLList: 'externalAssessments_manage.php,externalAssessments_manage_edit.php,externalAssessments_manage_edit_field_add.php,externalAssessments_manag ▶
+            URLList: 'externalAssessments_manage.php,externalAssessments_manage_edit.php,externalAssessments_manage_edit_field_add.php,externalAssessments_manage_edit_field_edit.php,externalAssessments_manage_edit_field_delete.php, externalAssessments_manage_add.php, externalAssessments_manage_delete.php'
             entryURL: externalAssessments_manage.php
             entrySidebar: 'Y'
             menuShow: 'Y'

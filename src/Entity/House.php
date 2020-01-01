@@ -16,9 +16,8 @@
 namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
-use App\Manager\Traits\ImageRemoval;
+use App\Manager\Traits\ImageRemovalTrait;
 use App\Provider\ProviderFactory;
-use App\Util\ImageHelper;
 use Doctrine\ORM\Mapping as ORM;
 use Kookaburra\UserAdmin\Entity\Person;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -32,7 +31,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class House implements EntityInterface
 {
-    use ImageRemoval;
+    use ImageRemovalTrait;
 
     /**
      * @var integer|null
@@ -142,7 +141,7 @@ class House implements EntityInterface
     public function setLogo(?string $logo): House
     {
         if ($this->isFileInPublic($logo)) {
-            $this->setExistingImage('logo', '/build/static/DefaultLogo.png');
+            $this->setExistingFile('logo', '/build/static/DefaultLogo.png');
             $this->logo = $logo;
         }
         return $this;

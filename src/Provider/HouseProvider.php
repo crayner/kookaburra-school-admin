@@ -32,6 +32,11 @@ class HouseProvider implements EntityProviderInterface
      */
     private $entityName = House::class;
 
+    /**
+     * canDelete
+     * @param House $house
+     * @return bool
+     */
     public function canDelete(House $house): bool
     {
         return $house->canDelete();

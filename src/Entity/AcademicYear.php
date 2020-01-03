@@ -16,6 +16,7 @@
 namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
+use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -270,7 +271,7 @@ class AcademicYear implements EntityInterface
             'name' => $this->getName(),
             'status' => TranslationsHelper::translate('academicyear.status.'.strtolower($this->getStatus()), [], 'SchoolAdmin'),
             'dates' => $dates,
-            'canDelete' => true,
+            'canDelete' => $this->canDelete(),
             'sequence' => $this->getSequenceNumber(),
         ];
     }
@@ -354,5 +355,14 @@ class AcademicYear implements EntityInterface
             return true;
         }
         return false;
+    }
+
+    /**
+     * canDelete
+     * @return bool
+     */
+    public function canDelete(): bool
+    {
+        return ProviderFactory::create(AcademicYear::class)->canDelete($this);
     }
 }

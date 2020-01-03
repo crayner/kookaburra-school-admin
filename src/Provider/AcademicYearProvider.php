@@ -15,9 +15,11 @@
 
 namespace Kookaburra\SchoolAdmin\Provider;
 
+use App\Entity\StudentEnrolment;
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
+use Kookaburra\SchoolAdmin\Entity\YearGroup;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
@@ -81,5 +83,15 @@ class AcademicYearProvider implements EntityProviderInterface
             $result[$item['name']] = $item['id'];
         }
         return $result;
+    }
+
+    /**
+     * canDelete
+     * @param AcademicYear $year
+     * @return bool
+     */
+    public function canDelete(AcademicYear $year): bool
+    {
+        return $this->getRepository(StudentEnrolment::class)->countEnrolmentsByAcademicYear($year) === 0;
     }
 }

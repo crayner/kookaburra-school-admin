@@ -1,3 +1,8 @@
+
+'Student computers': "{count, plural,
+        one   {# student computer}
+        other   {# student computers}
+    }"
 Edit: Edit
 Delete: Delete
 Name: Name
@@ -79,3 +84,15 @@ Manage Houses: Manage Houses
 Image file size maximum 2MB: Image file size maximum 2MB
 Edit House: Edit House
 Add House: Add House
+Projector: Projector
+TV: TV
+DVD Player: DVD Player
+Hifi: Hifi
+Speakers: Speakers
+Interactive White Board: Interactive White Board
+Extension Number {number}: Extension Number {number}
+Phone Number {number}: Phone Number {number}
+Teaching computer: Teaching computer
+Capacity: Capacity
+Facilities: Facilities
+Manage Facilities: Manage Facilities

@@ -15,6 +15,7 @@ namespace Kookaburra\SchoolAdmin\Entity;
 use App\Manager\EntityInterface;
 use App\Manager\Traits\BooleanList;
 use App\Provider\ProviderFactory;
+use App\Util\TranslationsHelper;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -189,7 +190,7 @@ class Facility implements EntityInterface
      */
     public function getCapacity(): int
     {
-        return $this->capacity;
+        return intval($this->capacity);
     }
 
     /**
@@ -200,6 +201,15 @@ class Facility implements EntityInterface
     {
         $this->capacity = $capacity;
         return $this;
+    }
+
+    /**
+     * isComputer
+     * @return bool
+     */
+    public function isComputer(): bool
+    {
+        return $this->getComputer() === 'Y';
     }
 
     /**
@@ -240,6 +250,11 @@ class Facility implements EntityInterface
         return $this;
     }
 
+    public function isProjector(): bool
+    {
+        return $this->getProjector() === 'Y';
+    }
+
     /**
      * getProjector
      * @return string
@@ -258,6 +273,15 @@ class Facility implements EntityInterface
     {
         $this->projector = self::checkBoolean($projector, 'N');
         return $this;
+    }
+
+    /**
+     * isTv
+     * @return bool
+     */
+    public function isTv(): bool
+    {
+        return $this->getTv() === 'Y';
     }
 
     /**
@@ -281,6 +305,15 @@ class Facility implements EntityInterface
     }
 
     /**
+     * isDvd
+     * @return bool
+     */
+    public function isDvd(): bool
+    {
+        return $this->getDvd() === 'Y';
+    }
+
+    /**
      * getDvd
      * @return string
      */
@@ -298,6 +331,15 @@ class Facility implements EntityInterface
     {
         $this->dvd = self::checkBoolean($dvd, 'N');
         return $this;
+    }
+
+    /**
+     * isHifi
+     * @return bool
+     */
+    public function isHifi(): bool
+    {
+        return $this->getHifi() === 'Y';
     }
 
     /**
@@ -321,6 +363,15 @@ class Facility implements EntityInterface
     }
 
     /**
+     * isSpeakers
+     * @return bool
+     */
+    public function isSpeakers(): bool
+    {
+        return $this->getSpeakers() === 'Y';
+    }
+
+    /**
      * getSpeakers
      * @return string
      */
@@ -338,6 +389,15 @@ class Facility implements EntityInterface
     {
         $this->speakers = self::checkBoolean($speakers, 'N');
         return $this;
+    }
+
+    /**
+     * isIwb
+     * @return bool
+     */
+    public function isIwb(): bool
+    {
+        return $this->getIwb() === 'Y';
     }
 
     /**
@@ -439,6 +499,52 @@ class Facility implements EntityInterface
      */
     public function toArray(?string $name = null): array
     {
-        return [];
+        return [
+            'name' => $this->getName(),
+            'type' => $this->getType(),
+            'canDelete' => $this->canDelete(),
+            'capacity' => $this->getCapacity(),
+            'facilities' => $this->getFacilityDetails(),
+        ];
     }
+
+    /**
+     * canDelete
+     * @return bool
+     */
+    public function canDelete(): bool
+    {
+        return false;
+    }
+
+    /**
+     * getFacilityDetails
+     * @return string
+     */
+    public function getFacilityDetails(): string
+    {
+        $result = [];
+        if ($this->isComputer())
+            $result[] = TranslationsHelper::translate('Teaching computer', [], 'SchoolAdmin');
+        if ($this->getStudentComputers() > 0)
+            $result[] = TranslationsHelper::translate('Student computers', ['count' => $this->getStudentComputers()], 'SchoolAdmin');
+        if ($this->isProjector())
+            $result[] = TranslationsHelper::translate('Projector', [], 'SchoolAdmin');
+        if ($this->isTv())
+            $result[] = TranslationsHelper::translate('TV', [], 'SchoolAdmin');
+        if ($this->isDvd())
+            $result[] = TranslationsHelper::translate('DVD Player', [], 'SchoolAdmin');
+        if ($this->isHifi())
+            $result[] = TranslationsHelper::translate('Hifi', [], 'SchoolAdmin');
+        if ($this->isSpeakers())
+            $result[] = TranslationsHelper::translate('Speakers', [], 'SchoolAdmin');
+        if ($this->isIwb())
+            $result[] = TranslationsHelper::translate('Interactive White Board', [], 'SchoolAdmin');
+        if (!empty($this->getPhoneInt()))
+            $result[] = TranslationsHelper::translate('Extension Number {number}', ['{number}' => $this->getPhoneInt()], 'SchoolAdmin');
+        if (!empty($this->getPhoneExt()))
+            $result[] = TranslationsHelper::translate('Phone Number {number}', ['{number}' => $this->getPhoneExt()], 'SchoolAdmin');
+        return implode("\n<br/>", $result);
+    }
+
 }

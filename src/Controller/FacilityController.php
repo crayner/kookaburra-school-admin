@@ -24,6 +24,7 @@ use Kookaburra\SchoolAdmin\Form\FacilitySettingsType;
 use Kookaburra\SchoolAdmin\Pagination\FacilityPagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
@@ -44,7 +45,7 @@ class FacilityController extends AbstractController
     public function manage(FacilityPagination $pagination)
     {
         $content = ProviderFactory::getRepository(Facility::class)->findBy([], ['name' => 'ASC']);
-        $pagination->setContent($content)->setPageMax(10)
+        $pagination->setContent($content)
             ->setPaginationScript();
         return $this->render('@KookaburraSchoolAdmin/facility/manage.html.twig');
     }

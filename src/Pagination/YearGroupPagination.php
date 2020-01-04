@@ -18,15 +18,15 @@ namespace Kookaburra\SchoolAdmin\Pagination;
 
 use App\Manager\Entity\PaginationAction;
 use App\Manager\Entity\PaginationColumn;
-use App\Manager\Entity\PaginationFilter;
 use App\Manager\Entity\PaginationRow;
 use App\Manager\ReactPaginationInterface;
 use App\Manager\ReactPaginationManager;
-use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
-use Kookaburra\SchoolAdmin\Entity\AcademicYear;
-use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
 
+/**
+ * Class YearGroupPagination
+ * @package Kookaburra\SchoolAdmin\Pagination
+ */
 class YearGroupPagination extends ReactPaginationManager
 {
     public function execute(): ReactPaginationInterface
@@ -96,5 +96,4 @@ class YearGroupPagination extends ReactPaginationManager
 
         return $this;
     }
-
 }

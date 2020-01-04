@@ -96,3 +96,27 @@ Teaching computer: Teaching computer
 Capacity: Capacity
 Facilities: Facilities
 Manage Facilities: Manage Facilities
+facility:
+    type:
+        classroom: Classroom
+        hall: Hall
+        laboratory: Laboratory
+        library: Library
+        office: Office
+        outdoor: Outdoor
+        performance: Performance Space
+        staffroom: Staff Room
+        storage: Storage
+        study: Study
+        undercover: Undercover
+        other: Other
+Teacher Computer: Teacher Computer
+Student Computers: Student Computers
+How many are there: How many are there
+Extension: Extension
+Room's internal phone number.: Room's internal phone number.
+Phone Number: Phone Number
+Room's external phone number.: Room's external phone number.
+Comment: Comment
+Edit Facility: Edit Facility
+Facility Type: Facility Type

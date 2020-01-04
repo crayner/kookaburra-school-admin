@@ -12,11 +12,13 @@
  */
 namespace Kookaburra\SchoolAdmin\Entity;
 
+use App\Entity\Setting;
 use App\Manager\EntityInterface;
 use App\Manager\Traits\BooleanList;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -24,6 +26,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\FacilityRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="Facility", uniqueConstraints={@ORM\UniqueConstraint(name="name", columns={"name"})})
+ * @UniqueEntity({"name"})
  */
 class Facility implements EntityInterface
 {
@@ -41,6 +44,7 @@ class Facility implements EntityInterface
      * @var string|null
      * @ORM\Column(length=30, unique=true)
      * @Assert\NotBlank()
+     * @Assert\Length(max="30")
      */
     private $name;
 
@@ -48,6 +52,7 @@ class Facility implements EntityInterface
      * @var string|null
      * @ORM\Column(length=50)
      * @Assert\Choice(callback="getTypeList")
+     * @Assert\NotBlank()
      */
     private $type;
 
@@ -115,21 +120,21 @@ class Facility implements EntityInterface
 
     /**
      * @var string|null
-     * @ORM\Column(length=5, name="phoneInternal")
+     * @ORM\Column(length=5, name="phoneInternal",nullable=true)
      */
-    private $phoneInt = '';
+    private $phoneInt;
 
     /**
      * @var string|null
-     * @ORM\Column(length=20, name="phoneExternal")
+     * @ORM\Column(length=20, name="phoneExternal",nullable=true)
      */
-    private $phoneExt = '';
+    private $phoneExt;
 
     /**
      * @var string|null
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text",nullable=true)
      */
-    private $comment = '';
+    private $comment;
 
     /**
      * @return int|null
@@ -480,7 +485,9 @@ class Facility implements EntityInterface
      */
     public static function getTypeList(): array
     {
-        return ProviderFactory::create(Setting::class)->getSettingByScopeAsArray('School Admin', 'facilityTypes');
+        $x = ProviderFactory::create(Setting::class)->getSettingByScopeAsArray('School Admin', 'facilityTypes');
+        asort($x);
+        return $x;
     }
 
     /**
@@ -514,7 +521,7 @@ class Facility implements EntityInterface
      */
     public function canDelete(): bool
     {
-        return false;
+        return ProviderFactory::create(Facility::class)->canDelete($this);
     }
 
     /**

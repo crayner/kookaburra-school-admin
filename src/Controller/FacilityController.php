@@ -21,10 +21,10 @@ use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Entity\Facility;
 use Kookaburra\SchoolAdmin\Form\FacilitySettingsType;
+use Kookaburra\SchoolAdmin\Form\FacilityType;
 use Kookaburra\SchoolAdmin\Pagination\FacilityPagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
@@ -83,8 +83,7 @@ class FacilityController extends AbstractController
                 if ($data['status'] === 'success')
                     $form = $this->createForm(FacilityType::class, $facility, ['action' => $this->generateUrl('school_admin__facility_edit', ['facility' => $facility->getId()])]);
             } else {
-                $data['errors'][] = ['class' => 'error', 'message' => TranslationsHelper::translate('return.error.1', [], 'messages')];
-                $data['status'] = 'error';
+                $data = ErrorMessageHelper::getInvalidInputsMessage($data);
             }
 
             $manager->singlePanel($form->createView());

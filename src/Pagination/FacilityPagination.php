@@ -22,6 +22,7 @@ use App\Manager\Entity\PaginationRow;
 use App\Manager\ReactPaginationInterface;
 use App\Manager\ReactPaginationManager;
 use App\Util\TranslationsHelper;
+use Kookaburra\SchoolAdmin\Entity\Facility;
 
 /**
  * Class FacilityPagination
@@ -84,6 +85,15 @@ class FacilityPagination extends ReactPaginationManager
             ->setOnClick('areYouSure')
             ->setRouteParams(['facility' => 'id']);
         $row->addAction($action);
+
+        foreach(Facility::getTypeList() as $type) {
+            $filter = new PaginationFilter();
+            $filter->setName('Type: '.$type)
+                ->setValue($type)
+                ->setGroup('Type')
+                ->setContentKey('type');
+            $row->addFilter($filter);
+        }
 
         $this->setRow($row);
         return $this;

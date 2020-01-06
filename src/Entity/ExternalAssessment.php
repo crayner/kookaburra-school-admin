@@ -13,7 +13,9 @@
 
 namespace Kookaburra\SchoolAdmin\Entity;
 
+use App\Manager\EntityInterface;
 use App\Manager\Traits\BooleanList;
+use App\Util\TranslationsHelper;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,7 +24,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\ExternalAssessmentRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="ExternalAssessment")
  */
-class ExternalAssessment
+class ExternalAssessment implements EntityInterface
 {
     use BooleanList;
 
@@ -161,11 +163,19 @@ class ExternalAssessment
     }
 
     /**
-     * @return string|null
+     * @return bool
      */
-    public function getActive(): ?string
+    public function isActive(): bool
     {
-        return $this->active;
+        return $this->getActive() === 'Y';
+    }
+
+    /**
+     * @return string
+     */
+    public function getActive(): string
+    {
+        return $this->active = self::checkBoolean($this->active, 'N');
     }
 
     /**
@@ -179,11 +189,19 @@ class ExternalAssessment
     }
 
     /**
+     * @return bool
+     */
+    public function isAllowFileUpload(): bool
+    {
+        return $this->getAllowFileUpload() === 'Y';
+    }
+
+    /**
      * @return string|null
      */
     public function getAllowFileUpload(): ?string
     {
-        return $this->allowFileUpload;
+        return $this->allowFileUpload =  self::checkBoolean($this->allowFileUpload, 'N');
     }
 
     /**
@@ -194,5 +212,22 @@ class ExternalAssessment
     {
         $this->allowFileUpload = self::checkBoolean($allowFileUpload, 'N');
         return $this;
+    }
+
+    /**
+     * toArray
+     * @param string|null $name
+     * @return array
+     */
+    public function toArray(?string $name = null): array
+    {
+        return [
+            'name' => $this->getName(),
+            'abbr' => $this->getNameShort(),
+            'description' => $this->getDescription(),
+            'active' => $this->isActive() ? TranslationsHelper::translate('Yes', [], 'messages') : TranslationsHelper::translate('No', [], 'messages'),
+            'upload' => $this->isAllowFileUpload() ? TranslationsHelper::translate('Yes', [], 'messages') : TranslationsHelper::translate('No', [], 'messages'),
+            'canDelete' => true,
+        ];
     }
 }

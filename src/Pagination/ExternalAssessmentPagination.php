@@ -3,18 +3,17 @@
  * Created by PhpStorm.
  *
  * kookaburra
- * (c) 2019 Craig Rayner <craig@craigrayner.com>
+ * (c) 2020 Craig Rayner <craig@craigrayner.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * User: craig
- * Date: 31/12/2019
- * Time: 18:15
+ * Date: 6/01/2020
+ * Time: 13:16
  */
 
 namespace Kookaburra\SchoolAdmin\Pagination;
-
 
 use App\Manager\Entity\PaginationAction;
 use App\Manager\Entity\PaginationColumn;
@@ -23,7 +22,11 @@ use App\Manager\ReactPaginationInterface;
 use App\Manager\ReactPaginationManager;
 use App\Util\TranslationsHelper;
 
-class HousePagination extends ReactPaginationManager
+/**
+ * Class ExternalAssessmentPagination
+ * @package Kookaburra\SchoolAdmin\Pagination
+ */
+class ExternalAssessmentPagination extends ReactPaginationManager
 {
     public function execute(): ReactPaginationInterface
     {
@@ -31,25 +34,29 @@ class HousePagination extends ReactPaginationManager
         $row = new PaginationRow();
 
         $column = new PaginationColumn();
-        $column->setLabel('Logo')
-            ->setContentKey('logo')
-            ->setContentType('image')
-            ->setClass('column relative pr-4 cursor-pointer widthAuto')
-            ->setOptions(['class' => 'max75 user'])
-        ;
-        $row->addColumn($column);
-
-        $column = new PaginationColumn();
         $column->setLabel('Name')
-            ->setContentKey('name')
+            ->setHelp('Abbreviation')
+            ->setContentKey(['name','abbr'])
             ->setSort(true)
             ->setClass('column relative pr-4 cursor-pointer widthAuto')
         ;
         $row->addColumn($column);
 
         $column = new PaginationColumn();
-        $column->setLabel('Abbreviation')
-            ->setContentKey('short')
+        $column->setLabel('Description')
+            ->setContentKey('description')
+            ->setClass('column relative pr-4 cursor-pointer widthAuto');
+        $row->addColumn($column);
+
+        $column = new PaginationColumn();
+        $column->setLabel('Active')
+            ->setContentKey('active')
+            ->setClass('column relative pr-4 cursor-pointer widthAuto');
+        $row->addColumn($column);
+
+        $column = new PaginationColumn();
+        $column->setLabel('File Upload')
+            ->setContentKey('upload')
             ->setClass('column relative pr-4 cursor-pointer widthAuto');
         $row->addColumn($column);
 
@@ -58,8 +65,8 @@ class HousePagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__house_edit')
-            ->setRouteParams(['house' => 'id']);
+            ->setRoute('school_admin__external_assessment_edit')
+            ->setRouteParams(['assessment' => 'id']);
         $row->addAction($action);
 
         $action = new PaginationAction();
@@ -67,10 +74,10 @@ class HousePagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__house_delete')
+            ->setRoute('school_admin__external_assessment_delete')
             ->setDisplayWhen('canDelete')
             ->setOnClick('areYouSure')
-            ->setRouteParams(['house' => 'id']);
+            ->setRouteParams(['assessment' => 'id']);
         $row->addAction($action);
 
         $this->setRow($row);

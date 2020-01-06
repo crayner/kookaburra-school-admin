@@ -14,6 +14,8 @@
 namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Entity\Scale;
+use App\Manager\EntityInterface;
+use App\Provider\ProviderFactory;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,7 +25,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(options={"auto_increment": 1}, name="ExternalAssessmentField",
  *     indexes={@ORM\Index(name="external_assessment", columns={"external_assessment"})})
  */
-class ExternalAssessmentField
+class ExternalAssessmentField implements EntityInterface
 {
     /**
      * @var integer|null
@@ -195,5 +197,20 @@ class ExternalAssessmentField
     {
         $this->yearGroupList = $yearGroupList;
         return $this;
+    }
+
+    /**
+     * toArray
+     * @param string|null $name
+     * @return array
+     */
+    public function toArray(?string $name = null): array
+    {
+        return [
+            'name' => $this->getName(),
+            'category' => $this->getCategory(),
+            'order' => $this->getOrder(),
+            'canDelete' => ProviderFactory::create(ExternalAssessmentField::class)->canDelete($this),
+        ];
     }
 }

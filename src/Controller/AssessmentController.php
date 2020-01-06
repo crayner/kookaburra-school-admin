@@ -15,12 +15,19 @@
 
 namespace Kookaburra\SchoolAdmin\Controller;
 
+use App\Container\Container;
 use App\Container\ContainerManager;
+use App\Container\Panel;
 use App\Provider\ProviderFactory;
+use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessment;
+use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
+use Kookaburra\SchoolAdmin\Form\ExternalAssessmentType;
+use Kookaburra\SchoolAdmin\Pagination\ExternalAssessmentFieldPagination;
 use Kookaburra\SchoolAdmin\Pagination\ExternalAssessmentPagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,11 +60,11 @@ class AssessmentController extends AbstractController
      * @param Request $request
      * @param ExternalAssessment|null $assessment
      * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
-     * @Route("/external/assessment/{assessment}/edit/", name="external_assessment_edit")
-     * @Route("/external/assessment/add/", name="external_assessment_add")
+     * @Route("/external/assessment/{assessment}/edit/{tabName}", name="external_assessment_edit")
+     * @Route("/external/assessment/add/{tabName}", name="external_assessment_add")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function edit(ContainerManager $manager, Request $request, ?ExternalAssessment $assessment = null)
+    public function edit(ContainerManager $manager, Request $request, ?ExternalAssessment $assessment = null, string $tabName = 'Details')
     {
         if (!$assessment instanceof ExternalAssessment) {
             $assessment = new ExternalAssessment();
@@ -68,18 +75,30 @@ class AssessmentController extends AbstractController
 
         $form = $this->createForm(ExternalAssessmentType::class, $assessment, ['action' => $action]);
 
+        $container = new Container();
+        $container->setTarget('formContent')->setSelectedPanel($tabName);
+
+        $panel = new Panel('Details', 'SchoolAdmin');
+        $container->addForm('Details', $form->createView())->addPanel($panel);
+
+
         if ($request->getContentType() === 'json') {
             $content = json_decode($request->getContent(), true);
-            dump($content);
             $form->submit($content);
             $data = [];
             $data['status'] = 'success';
             if ($form->isValid()) {
                 $id = $assessment->getId();
-                $provider = ProviderFactory::create(Assessment::class);
+                $provider = ProviderFactory::create(ExternalAssessment::class);
                 $data = $provider->persistFlush($assessment, $data);
-                if ($data['status'] === 'success')
+                if ($data['status'] === 'success') {
                     $form = $this->createForm(ExternalAssessmentType::class, $assessment, ['action' => $this->generateUrl('school_admin__external_assessment_edit', ['assessment' => $assessment->getId()])]);
+                    if ($id !== $assessment->getId()) {
+                        $data['redirect'] = $this->generateUrl('school_admin__external_assessment_edit', ['assessment' => $assessment->getId()]);
+                        $data['status'] = 'redirect';
+                        ErrorMessageHelper::convertToFlash($data, $request->getSession()->getBag('flashes'));
+                    }
+                }
             } else {
                 $data['errors'][] = ['class' => 'error', 'message' => TranslationsHelper::translate('return.error.1', [], 'messages')];
                 $data['status'] = 'error';
@@ -90,7 +109,25 @@ class AssessmentController extends AbstractController
 
             return new JsonResponse($data, 200);
         }
-        $manager->singlePanel($form->createView());
+
+        if ($assessment->getId() > 0) {
+            $panel = new Panel('Fields', 'SchoolAdmin');
+            $panel->setPreContent(['fieldHeaderContent','fieldPaginationContent']);
+            $container->addPanel($panel)->setContentLoader([
+                [
+                    'route' => $this->generateUrl('school_admin__external_assessment_field_loader', ['assessment' => $assessment->getId()]),
+                    'target' => 'fieldPaginationContent',
+                    'type' => 'pagination',
+                ],
+                [
+                    'route' => $this->generateUrl('school_admin__external_assessment_field_header'),
+                    'target' => 'fieldHeaderContent',
+                    'type' => 'text',
+                ],
+            ]);
+        }
+
+        $manager->addContainer($container)->buildContainers();
 
         return $this->render('@KookaburraSchoolAdmin/assessment/edit.html.twig',
             [
@@ -110,12 +147,111 @@ class AssessmentController extends AbstractController
      */
     public function delete(ExternalAssessment $assessment, FlashBagInterface $flashBag, TranslatorInterface $translator)
     {
-        $provider = ProviderFactory::create(Assessment::class);
+        $provider = ProviderFactory::create(ExternalAssessment::class);
 
         $provider->delete($assessment);
 
         $provider->getMessageManager()->pushToFlash($flashBag, $translator);
 
-        return $this->redirectToRoute('school_admin__external_assessment_manage');
+        return $this->redirectToRoute('school_admin__external_assessments_manage');
+    }
+
+    /**
+     * manageContent
+     * @Route("/external/assessment/{assessment}/loader/", name="external_assessment_field_loader")
+     * @Security("is_granted('ROLE_ROUTE', ['school_admin__external_assessments_manage'])")
+     * @return JsonResponse
+     */
+    public function manageContent(ExternalAssessmentFieldPagination $pagination, ?ExternalAssessment $assessment)
+    {
+        try {
+            $content = ProviderFactory::getRepository(ExternalAssessmentField::class)->findByAssessment($assessment);
+            $pagination->setContent($content);
+            return new JsonResponse(['content' => $pagination->toArray(), 'pageMax' => $pagination->getPageMax(), 'status' => 'success'], 200);
+        } catch (\Exception $e) {
+            return new JsonResponse(['status' => 'error', 'message' => $e->getMessage()], 200);
+        }
+    }
+
+    /**
+     * manageContent
+     * @Route("/external/assessment/field/header/loader/", name="external_assessment_field_header")
+     * @return JsonResponse
+     */
+    public function fieldContentHeader()
+    {
+        return new JsonResponse(['content' => $this->renderView('@KookaburraSchoolAdmin/assessment/field/header.html.twig'), 'status' => 'success'], 200);
+    }
+
+    /**
+     * editField
+     * @Route("/external/assessment/field/{field}/edit/", name="external_assessment_field_edit")
+     * @Route("/external/assessment/field/add/", name="external_assessment_field_add")
+     * @IsGranted("ROLE_ROUTE")
+     * @param ContainerManager $manager
+     * @param Request $request
+     * @param ExternalAssessmentField|null $field
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function editField(ContainerManager $manager, Request $request, ?ExternalAssessmentField $field = null)
+    {
+        if (!$field instanceof ExternalAssessmentField) {
+            $field = new ExternalAssessmentField();
+            $action = $this->generateUrl('school_admin__external_field_add');
+        } else {
+            $action = $this->generateUrl('school_admin__external_field_edit', ['field' => $field->getId()]);
+        }
+
+        $form = $this->createForm(ExternalAssessmentFieldType::class, $field, ['action' => $action]);
+
+        if ($request->getContentType() === 'json') {
+            $content = json_decode($request->getContent(), true);
+            $form->submit($content);
+            $data = [];
+            $data['status'] = 'success';
+            if ($form->isValid()) {
+                $id = $field->getId();
+                $provider = ProviderFactory::create(ExternalAssessmentField::class);
+                $data = $provider->persistFlush($field, $data);
+                if ($data['status'] === 'success')
+                    $form = $this->createForm(ExternalAssessmentFieldType::class, $field, ['action' => $this->generateUrl('school_admin__external_field_edit', ['field' => $field->getId()])]);
+            } else {
+                $data['errors'][] = ['class' => 'error', 'message' => TranslationsHelper::translate('return.error.1', [], 'messages')];
+                $data['status'] = 'error';
+            }
+
+            $manager->singlePanel($form->createView());
+            $data['form'] = $manager->getFormFromContainer('formContent', 'single');
+
+            return new JsonResponse($data, 200);
+        }
+
+        $manager->singlePanel($form->createView());
+
+        return $this->render('@KookaburraSchoolAdmin/field/edit.html.twig',
+            [
+                'field' => $field,
+            ]
+        );
+    }
+
+    /**
+     * deleteField
+     * @Route("/external/assessment/field/{field}/delete/", name="external_assessment_field_delete")
+     * @IsGranted("ROLE_ROUTE")
+     * @param ExternalAssessmentField $field
+     * @param FlashBagInterface $flashBag
+     * @param TranslatorInterface $translator
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteField(ExternalAssessmentField $field, FlashBagInterface $flashBag, TranslatorInterface $translator)
+    {
+        $provider = ProviderFactory::create(ExternalAssessmentField::class);
+
+        $provider->delete($field);
+
+        $provider->getMessageManager()->pushToFlash($flashBag, $translator);
+
+        return $this->redirectToRoute('school_admin__external_fields_manage');
     }
 }

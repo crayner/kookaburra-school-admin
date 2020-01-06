@@ -70,7 +70,6 @@ class HouseController extends AbstractController
 
         if ($request->getContentType() === 'json') {
             $content = json_decode($request->getContent(), true);
-            dump($content);
             $form->submit($content);
             $data = [];
             $data['status'] = 'success';

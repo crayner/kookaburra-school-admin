@@ -12,6 +12,9 @@
  */
 namespace Kookaburra\SchoolAdmin\Repository;
 
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
+use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentStudentEntry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -29,5 +32,24 @@ class ExternalAssessmentStudentEntryRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, ExternalAssessmentStudentEntry::class);
+    }
+
+    /**
+     * countByField
+     * @param ExternalAssessmentField $field
+     * @return int
+     */
+    public function countByField(ExternalAssessmentField $field): int
+    {
+        try {
+            return $this->createQueryBuilder('e')
+                ->select('COUNT(e.id)')
+                ->where('e.externalAssessmentField = :field')
+                ->setParameter('field', $field)
+                ->getQuery()
+                ->getSingleScalarResult();
+        } catch (NoResultException | NonUniqueResultException $e) {
+            return 0;
+        }
     }
 }

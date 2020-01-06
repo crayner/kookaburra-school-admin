@@ -12,6 +12,9 @@
  */
 namespace Kookaburra\SchoolAdmin\Repository;
 
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
+use Kookaburra\SchoolAdmin\Entity\ExternalAssessment;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -45,6 +48,41 @@ class ExternalAssessmentFieldRepository extends ServiceEntityRepository
             ->addOrderBy('f.category', 'ASC')
             ->where('a.active = :true')
             ->setParameter('true', 'Y')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * countFieldOfAssessment
+     * @param ExternalAssessment $assessment
+     * @return int
+     */
+    public function countFieldOfAssessment(ExternalAssessment $assessment): int
+    {
+        try {
+            return $this->createQueryBuilder('e')
+                ->select('COUNT(e.id)')
+                ->where('e.externalAssessment = :assessment')
+                ->setParameter('assessment', $assessment)
+                ->getQuery()
+                ->getSingleScalarResult();
+        } catch (NoResultException | NonUniqueResultException $e) {
+            return 0;
+        }
+    }
+
+    /**
+     * findByAssessment
+     * @param ExternalAssessment $assessment
+     * @return array
+     */
+    public function findByAssessment(ExternalAssessment $assessment): array
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.externalAssessment = :assessment')
+            ->setParameter('assessment', $assessment)
+            ->orderBy('e.category', 'ASC')
+            ->addOrderBy('e.order', 'ASC')
             ->getQuery()
             ->getResult();
     }

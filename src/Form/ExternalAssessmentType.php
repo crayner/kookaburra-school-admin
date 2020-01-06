@@ -3,35 +3,36 @@
  * Created by PhpStorm.
  *
  * kookaburra
- * (c) 2019 Craig Rayner <craig@craigrayner.com>
+ * (c) 2020 Craig Rayner <craig@craigrayner.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * User: craig
- * Date: 31/12/2019
- * Time: 18:31
+ * Date: 6/01/2020
+ * Time: 13:37
  */
 
 namespace Kookaburra\SchoolAdmin\Form;
 
-use App\Form\Type\FilePathType;
 use App\Form\Type\ReactFileType;
 use App\Form\Type\ReactFormType;
-use App\Validator\ReactFile;
+use App\Form\Type\ToggleType;
 use App\Validator\ReactImage;
-use Kookaburra\SchoolAdmin\Entity\House;
+use Kookaburra\SchoolAdmin\Entity\ExternalAssessment;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class HouseType
+ * Class ExternalAssessmentType
  * @package Kookaburra\SchoolAdmin\Form
  */
-class HouseType extends AbstractType
+class ExternalAssessmentType extends AbstractType
 {
     /**
      * buildForm
@@ -46,6 +47,7 @@ class HouseType extends AbstractType
                     'label' => 'Name',
                     'help' => 'Must be unique',
                     'translation_domain' => 'messages',
+                    'panel' => 'Details',
                 ]
             )
             ->add('nameShort', TextType::class,
@@ -53,27 +55,43 @@ class HouseType extends AbstractType
                     'label' => 'Abbreviation',
                     'help' => 'Must be unique',
                     'translation_domain' => 'messages',
+                    'panel' => 'Details',
                 ]
             )
-            ->add('logo', ReactFileType::class,
+            ->add('description', TextareaType::class,
                 [
-                    'label' => 'Logo',
-                    'help' => 'Image file size maximum 2MB',
-                    'file_prefix' => 'house_logo_',
-                    'data' => $options['data']->getLogo(),
-                    'constraints' => [
-                         new ReactImage([
-                             'maxSize' => "2M",
-                             'minRatio' => 0.7,
-                             'maxRatio' => 1,
-                             'mimeTypes' => "image/*"
-                         ]),
+                    'label' => 'Description',
+                    'help' => 'Brief description of assessment and how it is used.',
+                    'attr' => [
+                        'rows' => '2',
                     ],
+                    'panel' => 'Details',
+                ]
+            )
+            ->add('active', ToggleType::class,
+                [
+                    'label' => 'Active',
+                    'panel' => 'Details',
+                ]
+            )
+            ->add('allowFileUpload', ToggleType::class,
+                [
+                    'panel' => 'Details',
+                    'label' => 'Allow File Upload',
+                    'help' => 'Should the student record include the option of a file upload?',
+                ]
+            )
+            ->add('nothing', HiddenType::class,
+                [
+                    'panel' => 'Fields',
+                    'mapped' => false,
+                    'data' => 'nothing',
                 ]
             )
             ->add('submit', SubmitType::class,
                 [
                     'label' => 'Submit',
+                    'panel' => 'Details',
                     'translation_domain' => 'messages',
                 ]
             )
@@ -98,8 +116,9 @@ class HouseType extends AbstractType
         $resolver->setDefaults(
             [
                 'translation_domain' => 'SchoolAdmin',
-                'data_class' => House::class,
+                'data_class' => ExternalAssessment::class,
             ]
         );
     }
+
 }

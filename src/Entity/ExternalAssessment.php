@@ -15,8 +15,10 @@ namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
 use App\Manager\Traits\BooleanList;
+use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class ExternalAssessment
@@ -39,36 +41,44 @@ class ExternalAssessment implements EntityInterface
     /**
      * @var string|null
      * @ORM\Column(length=50)
+     * @Assert\Length(max=50)
+     * @Assert\NotBlank()
      */
     private $name;
 
     /**
      * @var string|null
      * @ORM\Column(length=10, name="nameShort")
+     * @Assert\Length(max=10)
+     * @Assert\NotBlank()
      */
     private $nameShort;
 
     /**
      * @var string|null
      * @ORM\Column()
+     * @Assert\NotBlank()
      */
     private $description;
 
     /**
      * @var string|null
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text",nullable=true)
+     * @Assert\Url()
      */
     private $website;
 
     /**
      * @var string|null
      * @ORM\Column(length=1)
+     * @Assert\Choice(callback="getBooleanList")
      */
     private $active = 'N';
 
     /**
      * @var string|null
      * @ORM\Column(length=1, name="allowFileUpload", options={"default": "N"})
+     * @Assert\Choice(callback="getBooleanList")
      */
     private $allowFileUpload = 'N';
 
@@ -227,7 +237,7 @@ class ExternalAssessment implements EntityInterface
             'description' => $this->getDescription(),
             'active' => $this->isActive() ? TranslationsHelper::translate('Yes', [], 'messages') : TranslationsHelper::translate('No', [], 'messages'),
             'upload' => $this->isAllowFileUpload() ? TranslationsHelper::translate('Yes', [], 'messages') : TranslationsHelper::translate('No', [], 'messages'),
-            'canDelete' => true,
+            'canDelete' => ProviderFactory::create(ExternalAssessment::class)->canDelete($this),
         ];
     }
 }

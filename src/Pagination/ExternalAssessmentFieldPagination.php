@@ -10,7 +10,7 @@
  *
  * User: craig
  * Date: 6/01/2020
- * Time: 13:16
+ * Time: 14:35
  */
 
 namespace Kookaburra\SchoolAdmin\Pagination;
@@ -23,10 +23,10 @@ use App\Manager\ReactPaginationManager;
 use App\Util\TranslationsHelper;
 
 /**
- * Class ExternalAssessmentProvider
+ * Class ExternalAssessmentFieldPagination
  * @package Kookaburra\SchoolAdmin\Pagination
  */
-class ExternalAssessmentPagination extends ReactPaginationManager
+class ExternalAssessmentFieldPagination extends ReactPaginationManager
 {
     /**
      * execute
@@ -40,27 +40,22 @@ class ExternalAssessmentPagination extends ReactPaginationManager
         $column = new PaginationColumn();
         $column->setLabel('Name')
             ->setHelp('Abbreviation')
-            ->setContentKey(['name','abbr'])
+            ->setContentKey(['name'])
             ->setSort(true)
             ->setClass('column relative pr-4 cursor-pointer widthAuto')
         ;
         $row->addColumn($column);
 
         $column = new PaginationColumn();
-        $column->setLabel('Description')
-            ->setContentKey('description')
+        $column->setLabel('Category')
+            ->setContentKey('category')
+            ->setSearch(true)
             ->setClass('column relative pr-4 cursor-pointer widthAuto');
         $row->addColumn($column);
 
         $column = new PaginationColumn();
-        $column->setLabel('Active')
-            ->setContentKey('active')
-            ->setClass('column relative pr-4 cursor-pointer widthAuto');
-        $row->addColumn($column);
-
-        $column = new PaginationColumn();
-        $column->setLabel('File Upload')
-            ->setContentKey('upload')
+        $column->setLabel('Order')
+            ->setContentKey('order')
             ->setClass('column relative pr-4 cursor-pointer widthAuto');
         $row->addColumn($column);
 
@@ -69,8 +64,8 @@ class ExternalAssessmentPagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__external_assessment_edit')
-            ->setRouteParams(['assessment' => 'id']);
+            ->setRoute('school_admin__external_assessment_field_edit')
+            ->setRouteParams(['field' => 'id']);
         $row->addAction($action);
 
         $action = new PaginationAction();
@@ -78,10 +73,10 @@ class ExternalAssessmentPagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__external_assessment_delete')
+            ->setRoute('school_admin__external_assessment_field_delete')
             ->setDisplayWhen('canDelete')
             ->setOnClick('areYouSure')
-            ->setRouteParams(['assessment' => 'id']);
+            ->setRouteParams(['field' => 'id']);
         $row->addAction($action);
 
         $this->setRow($row);

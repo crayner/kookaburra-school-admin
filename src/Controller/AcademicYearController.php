@@ -24,6 +24,7 @@ use Kookaburra\SchoolAdmin\Form\AcademicYearType;
 use Kookaburra\SchoolAdmin\Manager\Hidden\CalendarDisplayManager;
 use Kookaburra\SchoolAdmin\Pagination\AcademicYearPagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,7 +41,8 @@ class AcademicYearController extends AbstractController
     /**
      * manage
      * @Route("/academic/year/manage/", name="academic_year_manage")
-     * @IsGranted("ROLE_ROUTE")
+     * @Route("/")
+     * @Security("is_granted('ROLE_ROUTE', ['school_admin__academic_year_manage'])")
      * @param AcademicYearPagination $pagination
      * @return \Symfony\Component\HttpFoundation\Response
      */

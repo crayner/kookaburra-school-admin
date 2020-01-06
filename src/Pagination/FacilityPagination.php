@@ -86,9 +86,11 @@ class FacilityPagination extends ReactPaginationManager
             ->setRouteParams(['facility' => 'id']);
         $row->addAction($action);
 
+        $x = TranslationsHelper::translate('Type', [], 'SchoolAdmin');
+
         foreach(Facility::getTypeList() as $type) {
             $filter = new PaginationFilter();
-            $filter->setName('Type: '.$type)
+            $filter->setName($x.': '.$type)
                 ->setValue($type)
                 ->setGroup('Type')
                 ->setContentKey('type');

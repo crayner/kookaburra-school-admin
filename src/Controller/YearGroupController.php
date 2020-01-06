@@ -17,7 +17,6 @@ namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
 use App\Provider\ProviderFactory;
-use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\YearGroup;
 use Kookaburra\SchoolAdmin\Form\YearGroupType;

@@ -17,13 +17,19 @@ use App\Entity\Scale;
 use App\Manager\EntityInterface;
 use App\Provider\ProviderFactory;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class ExternalAssessmentField
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\ExternalAssessmentFieldRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="ExternalAssessmentField",
- *     indexes={@ORM\Index(name="external_assessment", columns={"external_assessment"})})
+ *     indexes={@ORM\Index(name="external_assessment", columns={"external_assessment"})},
+ *     uniqueConstraints={@ORM\UniqueConstraint(name="name_category",columns={"name","category"}),
+ *     @ORM\UniqueConstraint(name="category_order_scale",columns={"category","sort_order","gibbonScaleID"})})
+ * @UniqueEntity({"name", "category"})
+ * @UniqueEntity({"category", "order", "scale"})
  */
 class ExternalAssessmentField implements EntityInterface
 {
@@ -56,7 +62,8 @@ class ExternalAssessmentField implements EntityInterface
 
     /**
      * @var integer|null
-     * @ORM\Column(type="smallint", columnDefinition="INT(4)")
+     * @ORM\Column(type="smallint", name="sort_order", columnDefinition="INT(4)")
+     * @Assert\NotBlank()
      */
     private $order;
 
@@ -64,6 +71,7 @@ class ExternalAssessmentField implements EntityInterface
      * @var Scale|null
      * @ORM\ManyToOne(targetEntity="App\Entity\Scale")
      * @ORM\JoinColumn(name="gibbonScaleID", referencedColumnName="gibbonScaleID", nullable=false)
+     * @Assert\NotBlank()
      */
     private $scale;
 

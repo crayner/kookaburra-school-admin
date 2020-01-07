@@ -136,5 +136,5 @@ Grade scale used to control values that can be assigned.: Grade scale used to co
 Year Groups: Year Groups
 Year groups to which this field is relevant.: Year groups to which this field is relevant.
 Edit Field: Edit Field
-Manage External Assessments: Manage External Assessments
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
 Edit External Assessments: Edit External Assessments

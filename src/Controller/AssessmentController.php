@@ -30,7 +30,6 @@ use Kookaburra\SchoolAdmin\Pagination\ExternalAssessmentPagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
@@ -204,7 +203,7 @@ class AssessmentController extends AbstractController
                         'content' => '',
                     ],
                 ],
-                'content' => TranslationsHelper::translate('Manage Assessment Fields', [], 'SchoolAdmin'),
+                'content' => TranslationsHelper::translate('Manage Assessment Fields for {name}', ['{name}' =>  $assessment->getName()], 'SchoolAdmin') ,
             ],
         ];
 
@@ -242,6 +241,7 @@ class AssessmentController extends AbstractController
             if ($form->isValid()) {
                 $id = $field->getId();
                 $provider = ProviderFactory::create(ExternalAssessmentField::class);
+                dump($field);
                 $data = $provider->persistFlush($field, $data);
                 if ($data['status'] === 'success')
                     $form = $this->createForm(ExternalAssessmentFieldType::class, $field, ['action' => $this->generateUrl('school_admin__external_assessment_field_edit', ['assessment' => $assessment->getId(), 'field' => $field->getId()])]);
@@ -282,6 +282,6 @@ class AssessmentController extends AbstractController
 
         $provider->getMessageManager()->pushToFlash($flashBag, $translator);
 
-        return $this->redirectToRoute('school_admin__external_fields_manage');
+        return $this->redirectToRoute('school_admin__external_assessment_edit', ['assessment' => $field->getExternalAssessment()->getId(), 'tabName' => 'Fields']);
     }
 }

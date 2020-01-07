@@ -16,7 +16,7 @@
 {% block content %}
     <button class="close-button gray" title="{{ 'Return'|trans({}, 'messages') }}" type="button" onclick="window.open('{{ path('school_admin__external_assessment_edit', {assessment: field.externalAssessment.id, tabName: 'Fields'}) }}','_self')"><span class="fas fa-reply fa-fw"/></button>
     {% if field.id > 0 %}
-        <button class="close-button gray" title="{{ 'Add Field'|trans }}" type="button" onclick="window.open('{{ path('school_admin__external_assessment_field_add') }}','_self')"><span class="fas fa-plus-circle fw"/></button>
+        <button class="close-button gray" title="{{ 'Add Field'|trans }}" type="button" onclick="window.open('{{ path('school_admin__external_assessment_field_add', {assessment: field.externalAssessment.id}) }}','_self')"><span class="fas fa-plus-circle fw"/></button>
     {% endif %}
     <div id="formContent"></div>
 {% endblock content %}

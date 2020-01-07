@@ -16,7 +16,6 @@
 namespace Kookaburra\SchoolAdmin\Form;
 
 use App\Entity\Scale;
-use App\Form\Transform\EntityFromSimpleArrayTransform;
 use App\Form\Type\DisplayType;
 use App\Form\Type\ReactFormType;
 use App\Form\Type\SimpleArrayToEntityType;
@@ -25,7 +24,6 @@ use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
 use Kookaburra\SchoolAdmin\Entity\YearGroup;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -75,6 +73,7 @@ class ExternalAssessmentFieldType extends AbstractType
                     'label' => 'Grade Scale',
                     'help' => 'Grade scale used to control values that can be assigned.',
                     'class' => Scale::class,
+                    'placeholder' => 'Please select...',
                     'choice_label' => 'name',
                     'choice_translation_domain' => false,
                     'query_builder' => function(EntityRepository $er) {
@@ -84,9 +83,6 @@ class ExternalAssessmentFieldType extends AbstractType
                             ->setParameter('true', 'Y')
                         ;
                     },
-                    'attr' => [
-                        'rows' => 7,
-                    ],
                 ]
             )
             ->add('yearGroupList', SimpleArrayToEntityType::class,
@@ -97,6 +93,7 @@ class ExternalAssessmentFieldType extends AbstractType
                     'expanded' => true,
                     'class' => YearGroup::class,
                     'choice_label' => 'name',
+                    'choice_translation_domain' => false,
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('s')
                             ->orderBy('s.nameShort', 'ASC')

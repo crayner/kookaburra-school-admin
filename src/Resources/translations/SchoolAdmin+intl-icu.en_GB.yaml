@@ -126,3 +126,15 @@ Facility Type: Facility Type
 'Data Points - Internal Assessment': Data Points - Internal Assessment
 'Use the options below to select the internal assessments that you wish to include in your Data Points export.': Use the options below to select the internal assessments that you wish to include in your Data Points export.
 Add Field: Add Field
+External Assessment: External Assessment
+This value cannot be changed.: This value cannot be changed.
+Category: Category
+Order: Order
+Order in which fields appear within category. Should be unique for this category.: Order in which fields appear within category. Should be unique for this category.
+Grade Scale: Grade Scale
+Grade scale used to control values that can be assigned.: Grade scale used to control values that can be assigned.
+Year Groups: Year Groups
+Year groups to which this field is relevant.: Year groups to which this field is relevant.
+Edit Field: Edit Field
+Manage External Assessments: Manage External Assessments
+Edit External Assessments: Edit External Assessments

@@ -65,7 +65,7 @@ class ExternalAssessmentFieldPagination extends ReactPaginationManager
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-700')
             ->setRoute('school_admin__external_assessment_field_edit')
-            ->setRouteParams(['field' => 'id']);
+            ->setRouteParams(['field' => 'id', 'assessment' => 'assessmentId']);
         $row->addAction($action);
 
         $action = new PaginationAction();

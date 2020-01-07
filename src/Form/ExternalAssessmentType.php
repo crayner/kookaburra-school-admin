@@ -15,10 +15,8 @@
 
 namespace Kookaburra\SchoolAdmin\Form;
 
-use App\Form\Type\ReactFileType;
 use App\Form\Type\ReactFormType;
 use App\Form\Type\ToggleType;
-use App\Validator\ReactImage;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -120,5 +118,4 @@ class ExternalAssessmentType extends AbstractType
             ]
         );
     }
-
 }

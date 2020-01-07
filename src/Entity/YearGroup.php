@@ -165,7 +165,7 @@ class YearGroup implements EntityInterface
      */
     public function __toString(): string
     {
-        return $this->getName();
+        return $this->getId();
     }
 
     /**

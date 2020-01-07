@@ -182,20 +182,22 @@ class ExternalAssessmentField implements EntityInterface
     }
 
     /**
-     * @return string|null
+     * getYearGroupList
+     * @return array
      */
-    public function getYearGroupList(): ?string
+    public function getYearGroupList(): array
     {
-        return $this->yearGroupList;
+        return $this->yearGroupList ?: [];
     }
 
     /**
-     * @param string|null $yearGroupList
+     * setYearGroupList
+     * @param array|null $yearGroupList
      * @return ExternalAssessmentField
      */
-    public function setYearGroupList(?string $yearGroupList): ExternalAssessmentField
+    public function setYearGroupList(?array $yearGroupList): ExternalAssessmentField
     {
-        $this->yearGroupList = $yearGroupList;
+        $this->yearGroupList = $yearGroupList ?: [];
         return $this;
     }
 
@@ -212,5 +214,14 @@ class ExternalAssessmentField implements EntityInterface
             'order' => $this->getOrder(),
             'canDelete' => ProviderFactory::create(ExternalAssessmentField::class)->canDelete($this),
         ];
+    }
+
+    /**
+     * getAssessmentId
+     * @return int
+     */
+    public function getAssessmentId(): int
+    {
+        return $this->getExternalAssessment() ? $this->getExternalAssessment()->getId() : 0;
     }
 }

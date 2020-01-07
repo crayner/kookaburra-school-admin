@@ -76,4 +76,20 @@ class YearGroupRepository extends ServiceEntityRepository
             ->getQuery()
             ->getArrayResult();
     }
+
+    /**
+     * findAllInArray
+     * @param array $data
+     * @return array
+     */
+    public function findAllInArray(array $data): array
+    {
+        foreach($data as $q=>$w)
+            $data[$q] = intval($w);
+        return $this->createQueryBuilder('y')
+            ->where('y.id in (:years)')
+            ->setParameter('years', $data, Connection::PARAM_INT_ARRAY)
+            ->getQuery()
+            ->getResult();
+    }
 }

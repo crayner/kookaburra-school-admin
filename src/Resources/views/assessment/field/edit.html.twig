@@ -1,0 +1,22 @@
+{% trans_default_domain 'SchoolAdmin' %}
+
+{% extends 'kookaburra.html.twig' %}
+
+{% set moduleName = 'School Admin' %}
+{% set module = {
+    baseURL: 'school_admin',
+    crumbs: [
+        {uri: 'school_admin__academic_year_manage', name: 'School Admin'},
+        {uri: 'school_admin__external_assessments_manage', name: 'Manage External Assessments'},
+        {uri: 'school_admin__external_assessment_edit', name: 'Edit External Assessments', uri_params: {'assessment': field.externalAssessment.id}},
+    ],
+    title: (field.id > 0 ? 'Edit Field' : 'Add Field'), domain: 'SchoolAdmin'} %}
+{% set breadcrumbs = 'new' %}
+
+{% block content %}
+    <button class="close-button gray" title="{{ 'Return'|trans({}, 'messages') }}" type="button" onclick="window.open('{{ path('school_admin__external_assessment_edit', {assessment: field.externalAssessment.id, tabName: 'Fields'}) }}','_self')"><span class="fas fa-reply fa-fw"/></button>
+    {% if field.id > 0 %}
+        <button class="close-button gray" title="{{ 'Add Field'|trans }}" type="button" onclick="window.open('{{ path('school_admin__external_assessment_field_add') }}','_self')"><span class="fas fa-plus-circle fw"/></button>
+    {% endif %}
+    <div id="formContent"></div>
+{% endblock content %}

@@ -24,17 +24,24 @@
             </tr>
 
             {% for external in form.external %}
+                {{ form_row(external.externalAssessment, {value: external.vars.value.id}) }}
+                {{ form_row(external.category, {value: external.vars.value.category}) }}
                 <tr>
                     <td class="px-2 border-b-0 sm:border-b border-t-0 ">
                         {% set yearGroups = external.vars.value.yearGroupList|default({}) %}
                         {% set category = external.vars.value.category|split('_', 2) %}
-                        {% set label = external.vars.value.nameShort ~ ' ' ~ category[1] %}
+                        {%  if category|length is same as(2) %}
+                            {% set label = external.vars.value.nameShort ~ ' ' ~ category[1] %}
+                        {% else %}
+                            {% set label = external.vars.value.nameShort ~ ' ' ~ external.vars.value.category %}
+                        {% endif %}
                         {{ form_label(external, label) }}
                         {% set activeYearGroups = {} %}
                         {% for year in yearGroups %}
                             {% set activeYearGroups = activeYearGroups|merge({(loop.index0): year|trim('0', 'left')}) %}
                         {% endfor %}
                         {% set yearGroups = activeYearGroups %}
+                        {% set externalLoop = loop.index0 %}
                     </td>
                     <td class="px-2 border-b-0 sm:border-b border-t-0 right">
                         <div class="inline flex-1 relative">
@@ -44,8 +51,8 @@
                                     {% if year.id in yearGroups %}
                                         {% set checked = 'checked' %}
                                     {% endif %}
-                                    <label class="leading-normal" for="{{ 'tracking_settings_external_1_yearGroupList_' ~ year.id }}">{{ year.name }}</label>
-                                    <input type="checkbox" name="{{ 'tracking_settings[external][1][yearGroupList][' ~ year.id ~ ']' }}" id="{{ 'tracking_settings_external_1_yearGroupList_' ~ year.id }}" value="{{ year.id }}" class="right" {{ checked }}>
+                                    <label class="leading-normal" for="{{ 'tracking_settings_external_'~externalLoop~'_yearGroupList_' ~ loop.index0 }}">{{ year.name }}</label>
+                                    <input type="checkbox" name="{{ 'tracking_settings[external]['~externalLoop~'][yearGroupList][' ~ loop.index0 ~ ']' }}" id="{{ 'tracking_settings_external_' ~ externalLoop ~ '_yearGroupList_' ~ loop.index0 }}" value="{{ year.id }}" class="right" {{ checked }}>
                                     <br>
                                 {% endfor %}
                             </fieldset>
@@ -55,6 +62,50 @@
             {% endfor %}
 
             {% do form.external.setRendered %}
+
+            <tr class="break">
+                <td class="px-2 border-b-0 sm:border-b border-t-0 " colspan="2">
+                    <h3>{{ 'Data Points - Internal Assessment'|trans }}</h3>{{ 'Use the options below to select the internal assessments that you wish to include in your Data Points export.'|trans }} {{ 'If duplicates of any assessment exist, only the most recent entry will be shown.'|trans }}
+                </td>
+            </tr>
+
+            {% for external in form.internal %}
+                <tr>
+                    <td class="px-2 border-b-0 sm:border-b border-t-0 ">
+                        {% set yearGroups = external.vars.value.yearGroupList|default({}) %}
+                        {% set category = external.vars.value.category|split('_', 2) %}
+                        {%  if category|length is same as(2) %}
+                            {% set label = external.vars.value.nameShort ~ ' ' ~ category[1] %}
+                        {% else %}
+                            {% set label = external.vars.value.nameShort ~ ' ' ~ external.vars.value.category %}
+                        {% endif %}
+                        {{ form_label(external, label) }}
+                        {% set activeYearGroups = {} %}
+                        {% for year in yearGroups %}
+                            {% set activeYearGroups = activeYearGroups|merge({(loop.index0): year|trim('0', 'left')}) %}
+                        {% endfor %}
+                        {% set yearGroups = activeYearGroups %}
+                        {% set externalLoop = loop.index %}
+                    </td>
+                    <td class="px-2 border-b-0 sm:border-b border-t-0 right">
+                        <div class="inline flex-1 relative">
+                            <fieldset>
+                                {% for year in years %}
+                                    {% set checked = '' %}
+                                    {% if year.id in yearGroups %}
+                                        {% set checked = 'checked' %}
+                                    {% endif %}
+                                    <label class="leading-normal" for="{{ 'tracking_settings_internal_'~externalLoop~'_yearGroupList_' ~ year.id }}">{{ year.name }}
+                                    <input type="checkbox" name="{{ 'tracking_settings[internal]['~externalLoop~'][yearGroupList][' ~ year.id ~ ']' }}" id="{{ 'tracking_settings_internal_' ~ externalLoop ~ '_yearGroupList_' ~ year.id }}" value="{{ year.id }}" class="right" {{ checked }}></label>
+                                    <br>
+                                {% endfor %}
+                            </fieldset>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            {% do form.internal.setRendered %}
             <tr>
                 <td class=" px-2 border-b-0 sm:border-b border-t-0 ">
                     <span class="emphasis small">{{ '* denotes a required field'|trans({}, 'messages')}}</span>
@@ -63,13 +114,6 @@
                     {{ form_widget(form.submit) }}
                 </td>
             </tr>
-
-            <tr class="break">
-                <td class="px-2 border-b-0 sm:border-b border-t-0 " colspan="2">
-                    <h3>{{ 'Data Points - Internal Assessment'|trans }}</h3>{{ 'Use the options below to select the internal assessments that you wish to include in your Data Points export.'|trans }} {{ 'If duplicates of any assessment exist, only the most recent entry will be shown.'|trans }}
-                </td>
-            </tr>
-
 
         </table>
     {{form_end(form)}}

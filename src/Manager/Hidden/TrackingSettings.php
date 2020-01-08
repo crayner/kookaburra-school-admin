@@ -15,7 +15,13 @@
 
 namespace Kookaburra\SchoolAdmin\Manager\Hidden;
 
+use App\Entity\Setting;
+use App\Provider\ProviderFactory;
 use Doctrine\Common\Collections\ArrayCollection;
+use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
+use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
+use Symfony\Component\OptionsResolver\Exception\MissingOptionsException;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class TrackingSettings
@@ -74,5 +80,59 @@ class TrackingSettings
     {
         $this->internal = $internal;
         return $this;
+    }
+
+    /**
+     * convertInternal
+     * @param array $data
+     * @return ArrayCollection
+     */
+    public static function convertInternal(array $data): ArrayCollection
+    {
+        $result = new ArrayCollection();
+        foreach($data as $name)
+        {
+            $field = [];
+            $field['nameShort'] = $name;
+            $field['category'] = '';
+            $field['yearGroupList'] = [];
+            $result->add($field);
+        }
+        return $result;
+    }
+
+    public function manageExternal(array $external)
+    {
+        $resolver = new OptionsResolver();
+        $resolver->setRequired(
+            [
+                'category',
+                'externalAssessment',
+            ]
+        );
+        $resolver->setDefaults(
+            [
+                'yearGroupList' => [],
+            ]
+        );
+        $resolver->setAllowedTypes('category', 'string')->setAllowedTypes('externalAssessment', 'integer');
+        foreach($external as $q=>$item)
+        {
+            try {
+                if (isset($item['externalAssessment']))
+                    $item['externalAssessment'] = intval($item['externalAssessment']);
+                $external[$q] = $resolver->resolve($item);
+            } catch (MissingOptionsException $e) {
+                unset($external[$q]);
+            }
+        }
+        ProviderFactory::create(Setting::class)->setSettingByScope('Tracking','externalAssessmentDataPoints',serialize($external));
+    }
+
+    public function buildInternal(array $internal)
+    {
+        dump(unserialize("a:3:{i:0;a:1:{s:4:\"type\";s:14:\"Expected Grade\";}i:1;a:2:{s:4:\"type\";s:15:\"Predicted Grade\";s:21:\"gibbonYearGroupIDList\";s:11:\"001,002,003\";}i:2;a:1:{s:4:\"type\";s:12:\"Target Grade\";}}"));
+
+        dd($internal);
     }
 }

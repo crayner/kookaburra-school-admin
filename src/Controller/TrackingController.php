@@ -49,17 +49,29 @@ class TrackingController extends AbstractController
     {
         // System Settings
         $et = new TrackingSettings();
-        $fields = ProviderFactory::getRepository(ExternalAssessmentField::class)->findByActiveInEAOrder();
+        $fields = ProviderFactory::create(ExternalAssessmentField::class)->findByActiveInEAOrder();
 
         $internal = ProviderFactory::create(Setting::class)->getSettingByScopeAsArray('Formal Assessment', 'internalAssessmentTypes');
 
-        $et->setExternal(new ArrayCollection($fields))->setInternal(new ArrayCollection($internal));
+        $et->setExternal(new ArrayCollection($fields))->setInternal(TrackingSettings::convertInternal($internal));
 
         $form = $this->createForm(TrackingSettingsType::class, $et , ['action' => $this->generateUrl('school_admin__tracking_settings',)]);
 
         $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+            $settings = $request->request->get('tracking_settings');
+            if ($this->isCsrfTokenValid('tracking_settings', $settings['_token'])) {
+                $et->manageExternal($settings['external']);
 
+                $fields = ProviderFactory::create(ExternalAssessmentField::class)->findByActiveInEAOrder();
 
+                $internal = ProviderFactory::create(Setting::class)->getSettingByScopeAsArray('Formal Assessment', 'internalAssessmentTypes');
+
+                $et->setExternal(new ArrayCollection($fields))->setInternal(TrackingSettings::convertInternal($internal));
+
+                $form = $this->createForm(TrackingSettingsType::class, $et , ['action' => $this->generateUrl('school_admin__tracking_settings',)]);
+            }
+        }
 
         return $this->render('@KookaburraSchoolAdmin/tracking/settings.html.twig',
             [

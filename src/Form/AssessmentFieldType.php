@@ -15,9 +15,11 @@
 
 namespace Kookaburra\SchoolAdmin\Form;
 
+use Kookaburra\SchoolAdmin\Entity\ExternalAssessment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -29,7 +31,10 @@ class AssessmentFieldType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
+            ->add('externalAssessment', HiddenType::class)
+            ->add('category', HiddenType::class)
             ->add('yearGroupList', ChoiceType::class,
                 [
                     'expanded' => true,

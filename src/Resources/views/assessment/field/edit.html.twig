@@ -8,7 +8,7 @@
     crumbs: [
         {uri: 'school_admin__academic_year_manage', name: 'School Admin'},
         {uri: 'school_admin__external_assessments_manage', name: 'Manage External Assessments'},
-        {uri: 'school_admin__external_assessment_edit', name: 'Edit External Assessments', uri_params: {'assessment': field.externalAssessment.id}},
+        {uri: 'school_admin__external_assessment_edit', name: 'Edit External Assessments', uri_params: {'assessment': field.externalAssessment.id, tabName: 'Fields'}},
     ],
     title: (field.id > 0 ? 'Edit Field' : 'Add Field'), domain: 'SchoolAdmin'} %}
 {% set breadcrumbs = 'new' %}

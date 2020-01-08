@@ -15,6 +15,7 @@
 
 namespace Kookaburra\SchoolAdmin\Provider;
 
+use App\Entity\Setting;
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
 use App\Provider\ProviderFactory;
@@ -46,5 +47,29 @@ class ExternalAssessmentFieldProvider implements EntityProviderInterface
             return true;
         }
         return false;
+    }
+
+    /**
+     * findByActiveInEAOrder
+     * @return array
+     */
+    public function findByActiveInEAOrder(): array
+    {
+        $result = $this->getRepository()->findByActiveInEAOrder();
+        $dataPoints = unserialize(ProviderFactory::create(Setting::class)->getSettingByScopeAsString('Tracking', 'externalAssessmentDataPoints'));
+
+        foreach($result as $q=>$item)
+        {
+            foreach($dataPoints as $point)
+            {
+                if ($item['id'] === intval($point['externalAssessment']) && $item['category'] === $point['category'])
+                {
+                    $result[$q]['yearGroupList'] = $point['yearGroupList'];
+                    break;
+                }
+            }
+        }
+
+        return $result;
     }
 }

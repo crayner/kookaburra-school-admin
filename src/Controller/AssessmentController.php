@@ -234,14 +234,12 @@ class AssessmentController extends AbstractController
 
         if ($request->getContentType() === 'json') {
             $content = json_decode($request->getContent(), true);
-            dump($content);
             $form->submit($content);
             $data = [];
             $data['status'] = 'success';
             if ($form->isValid()) {
                 $id = $field->getId();
                 $provider = ProviderFactory::create(ExternalAssessmentField::class);
-                dump($field);
                 $data = $provider->persistFlush($field, $data);
                 if ($data['status'] === 'success')
                     $form = $this->createForm(ExternalAssessmentFieldType::class, $field, ['action' => $this->generateUrl('school_admin__external_assessment_field_edit', ['assessment' => $assessment->getId(), 'field' => $field->getId()])]);

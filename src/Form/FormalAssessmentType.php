@@ -9,8 +9,8 @@
  * file that was distributed with this source code.
  *
  * User: craig
- * Date: 4/01/2020
- * Time: 14:20
+ * Date: 9/01/2020
+ * Time: 12:20
  */
 
 namespace Kookaburra\SchoolAdmin\Form;
@@ -24,11 +24,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- * Class FacilitySettingsType
- * @package Kookaburra\SchoolAdmin\Form
- */
-class FacilitySettingsType extends AbstractType
+class FormalAssessmentType extends AbstractType
 {
     /**
      * buildForm
@@ -38,17 +34,17 @@ class FacilitySettingsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('securitySettingsHeader', HeaderType::class,
+            ->add('internalSettingsHeader', HeaderType::class,
                 [
-                    'label' => 'Facility Settings'
+                    'label' => 'Internal Assessment Settings'
                 ]
             )
             ->add('facilitySettings', SettingsType::class,
                 [
                     'settings' => [
                         [
-                            'scope' => 'School Admin',
-                            'name' => 'facilityTypes',
+                            'scope' => 'Formal Assessment',
+                            'name' => 'internalAssessmentTypes',
                             'entry_type' => SimpleArrayType::class,
                             'entry_options' => [
                             ],
@@ -56,7 +52,11 @@ class FacilitySettingsType extends AbstractType
                     ],
                 ]
             )
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class,
+                [
+                    "label" => 'Submit Internal Assessment Settings'
+                ]
+            )
         ;
     }
 

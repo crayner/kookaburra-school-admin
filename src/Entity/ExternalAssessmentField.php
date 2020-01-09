@@ -43,7 +43,7 @@ class ExternalAssessmentField implements EntityInterface
 
     /**
      * @var ExternalAssessment|null
-     * @ORM\ManyToOne(targetEntity="ExternalAssessment")
+     * @ORM\ManyToOne(targetEntity="ExternalAssessment",inversedBy="fields")
      * @ORM\JoinColumn(name="external_assessment", referencedColumnName="id", nullable=false)
      */
     private $externalAssessment;

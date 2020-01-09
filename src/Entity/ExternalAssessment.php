@@ -17,7 +17,10 @@ use App\Manager\EntityInterface;
 use App\Manager\Traits\BooleanList;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -81,6 +84,12 @@ class ExternalAssessment implements EntityInterface
      * @Assert\Choice(callback="getBooleanList")
      */
     private $allowFileUpload = 'N';
+
+    /**
+     * @var Collection|ExternalAssessmentField[]
+     * @ORM\OneToMany(targetEntity="Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField",mappedBy="externalAssessment")
+     */
+    private $fields;
 
     /**
      * @return int|null
@@ -222,6 +231,46 @@ class ExternalAssessment implements EntityInterface
     {
         $this->allowFileUpload = self::checkBoolean($allowFileUpload, 'N');
         return $this;
+    }
+
+    /**
+     * @return Collection|ExternalAssessmentField[]
+     */
+    public function getFields(): Collection
+    {
+        if (null === $this->fields)
+            $this->fields = new ArrayCollection();
+
+        if ($this->fields instanceof PersistentCollection)
+            $this->fields->initialize();
+
+        return $this->fields;
+    }
+
+    /**
+     * Fields.
+     *
+     * @param Collection|ExternalAssessmentField[] $fields
+     * @return ExternalAssessment
+     */
+    public function setFields($fields)
+    {
+        $this->fields = $fields;
+        return $this;
+    }
+
+    /**
+     * getFieldChoices
+     * @return array
+     */
+    public function getFieldChoices(): array
+    {
+        $result = [];
+        foreach($this->getFields() as $field)
+        {
+            $result[$field->getCategory()] = ltrim(substr($field->getCategory(), intval(mb_strpos($field->getCategory(), '_'))), '_');
+        }
+        return $result;
     }
 
     /**

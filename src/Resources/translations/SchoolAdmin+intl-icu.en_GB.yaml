@@ -139,3 +139,4 @@ Edit Field: Edit Field
 'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
 Edit External Assessments: Edit External Assessments
 Tracking Settings: Tracking Settings
+primary_external_assessment_help: These settings allow a particular type of external assessment to be associated with each year group. The selected assessment will be used as the primary assessment to be used as a baseline for comparison (for example, within the Markbook). You are required to select a particular field category can be chosen from which to draw data (if no category is chosen, the data will not be saved).

@@ -18,13 +18,19 @@ namespace Kookaburra\SchoolAdmin\Controller;
 use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
+use App\Entity\Setting;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessment;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
+use Kookaburra\SchoolAdmin\Entity\YearGroup;
 use Kookaburra\SchoolAdmin\Form\ExternalAssessmentFieldType;
 use Kookaburra\SchoolAdmin\Form\ExternalAssessmentType;
+use Kookaburra\SchoolAdmin\Form\FacilitySettingsType;
+use Kookaburra\SchoolAdmin\Form\FormalAssessmentType;
+use Kookaburra\SchoolAdmin\Form\PrimaryExternalAssessmentType;
+use Kookaburra\SchoolAdmin\Manager\Hidden\FormalAssessmentManager;
 use Kookaburra\SchoolAdmin\Pagination\ExternalAssessmentFieldPagination;
 use Kookaburra\SchoolAdmin\Pagination\ExternalAssessmentPagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -281,5 +287,46 @@ class AssessmentController extends AbstractController
         $provider->getMessageManager()->pushToFlash($flashBag, $translator);
 
         return $this->redirectToRoute('school_admin__external_assessment_edit', ['assessment' => $field->getExternalAssessment()->getId(), 'tabName' => 'Fields']);
+    }
+
+    /**
+     * formalAssessment
+     * @Route("formal/assessment/{tabName}", name="formal_assessment")
+     * @IsGranted("ROLE_ROUTE")
+     */
+    public function formalAssessment(Request $request, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Internal')
+    {
+        // System Settings
+        $form = $this->createForm(FormalAssessmentType::class, null, ['action' => $this->generateUrl('school_admin__formal_assessment',)]);
+
+        if ($request->getContentType() === 'json') {
+            $data = [];
+            $data['status'] = 'success';
+            try {
+                $data['errors'] = ProviderFactory::create(Setting::class)->handleSettingsForm($form, $request, $translator);
+            } catch (\Exception $e) {
+                $data = ErrorMessageHelper::getDatabaseErrorMessage($data, true);
+            }
+
+            $manager->singlePanel($form->createView());
+            $data['form'] = $manager->getFormFromContainer('formContent', 'single');
+
+            return new JsonResponse($data, 200);
+        }
+        if ($request->request->has('formal_external_assessment')) {
+            $assessments = $request->request->get('formal_external_assessment');
+            if ($this->isCsrfTokenValid('formal_external_assessment', $assessments['_token'])) {
+                unset($assessments['_token']);
+                ProviderFactory::create(Setting::class)->setSettingByScope('School Admin', 'primaryExternalAssessmentByYearGroup', serialize($assessments));
+            }
+        }
+
+        $manager->singlePanel($form->createView());
+
+        $fa = new FormalAssessmentManager();
+
+        return $this->render('@KookaburraSchoolAdmin/assessment/settings.html.twig', [
+            'assessments' => $fa->createFormContent(),
+        ]);
     }
 }

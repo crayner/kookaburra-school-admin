@@ -9,26 +9,18 @@
  * file that was distributed with this source code.
  *
  * User: craig
- * Date: 4/01/2020
- * Time: 14:20
+ * Date: 9/01/2020
+ * Time: 13:18
  */
 
 namespace Kookaburra\SchoolAdmin\Form;
 
-use App\Form\Type\HeaderType;
-use App\Form\Type\ReactFormType;
-use App\Form\Type\SettingsType;
-use App\Form\Type\SimpleArrayType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- * Class FacilitySettingsType
- * @package Kookaburra\SchoolAdmin\Form
- */
-class FacilitySettingsType extends AbstractType
+class PrimaryExternalAssessmentType extends AbstractType
 {
     /**
      * buildForm
@@ -38,25 +30,11 @@ class FacilitySettingsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('securitySettingsHeader', HeaderType::class,
+            ->add('submit', SubmitType::class,
                 [
-                    'label' => 'Facility Settings'
+                    "label" => 'Submit Primary External Assessment'
                 ]
             )
-            ->add('facilitySettings', SettingsType::class,
-                [
-                    'settings' => [
-                        [
-                            'scope' => 'School Admin',
-                            'name' => 'facilityTypes',
-                            'entry_type' => SimpleArrayType::class,
-                            'entry_options' => [
-                            ],
-                        ],
-                    ],
-                ]
-            )
-            ->add('submit', SubmitType::class)
         ;
     }
 
@@ -72,14 +50,5 @@ class FacilitySettingsType extends AbstractType
                 'data_class' => null,
             ]
         );
-    }
-
-    /**
-     * getParent
-     * @return string|null
-     */
-    public function getParent()
-    {
-        return ReactFormType::class;
     }
 }

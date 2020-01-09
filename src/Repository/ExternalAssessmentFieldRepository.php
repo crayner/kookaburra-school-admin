@@ -86,4 +86,22 @@ class ExternalAssessmentFieldRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * findByCategoryAssessment
+     * @return array
+     */
+    public function findByCategoryAssessment(): array
+    {
+        return $this->createQueryBuilder('f')
+            ->select(['f','a','s'])
+            ->join('f.externalAssessment', 'a')
+            ->join('f.scale', 's')
+            ->where('a.active = :true')
+            ->setParameter('true', 'Y')
+            ->groupBy('f.externalAssessment')
+            ->addGroupBy('f.category')
+            ->getQuery()
+            ->getResult();
+    }
 }

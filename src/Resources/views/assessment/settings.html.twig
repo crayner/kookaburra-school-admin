@@ -1,0 +1,106 @@
+{% trans_default_domain 'SchoolAdmin' %}
+
+{% extends 'kookaburra.html.twig' %}
+
+{% set moduleName = 'School Admin' %}
+{% set module = {
+    baseURL: 'school_admin',
+    crumbs: [
+        {uri: 'school_admin__academic_year_manage', name: 'School Admin'},
+    ],
+    title: 'Formal Assessment Settings', domain: 'SchoolAdmin'} %}
+{% set breadcrumbs = 'new' %}
+
+{% block content %}
+    <div id="formContent"></div>
+    <table class="smallIntBorder fullWidth standardForm relative">
+        <thead>
+            <tr class="break flex flex-col sm:flex-row justify-between content-center p-0">
+                <th colspan="3" class="flex-grow justify-center px-2 border-b-0 sm:border-b border-t-0">
+                    <h3>{{ 'Primary External Assessment'|trans }}</h3>{{ 'primary_external_assessment_help'|trans }}
+                </th>
+            </tr>
+            <tr class="break flex flex-col sm:flex-row justify-between content-center p-0"">
+                <th class="flex-grow justify-center px-2 border-b-0 sm:border-b border-t-0">
+                    {{'Year Group'|trans}}
+                </th>
+                <th class="flex-grow justify-center px-2 border-b-0 sm:border-b border-t-0">
+                    {{'External Assessment'|trans}}
+                </th>
+                <th class="flex-grow justify-center px-2 border-b-0 sm:border-b border-t-0">
+                    {{'Field Set'|trans}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <form method="post" action="{{ path('school_admin__formal_assessment') }}" id="formal_external_assessment">
+                {% for key,data in assessments.data %}
+                    {% set year = assessments.years[key] %}
+                    {% set yearLoop = loop.index0 %}
+                    <tr class="break flex flex-col sm:flex-row justify-between content-center p-0">
+                        <td class="flex-grow justify-center px-2 border-b-0 sm:border-b border-t-0" style="width: 20%">
+                            {{ year.name }}
+                            <input type="hidden" id="{{ 'formal_external_assessment_' ~ yearLoop ~ '_yearGroup'}}" name="{{ 'formal_external_assessment[' ~ yearLoop ~ '][yearGroup]' }}" value="{{ year.id }}"/>
+                        </td>
+                        <td class="flex-grow justify-center px-2 border-b-0 sm:border-b border-t-0" style="width: 40%">
+                            <select class="w-full" onChange="changeAssessment({{ 'formal_external_assessment_' ~ yearLoop ~ '_externalAssessment' }})" id="{{ 'formal_external_assessment_' ~ yearLoop ~ '_externalAssessment'}}" name="{{ 'formal_external_assessment[' ~ yearLoop ~ '][externalAssessment]' }}" >
+                                <option></option>
+                                {% for value,name in assessments.choices %}
+                                    <option value="{{ value }}"{{ data.externalAssessment == value ?' selected' : '' }}>{{ name }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td class="flex-grow justify-center px-2 border-b-0 sm:border-b border-t-0" style="width: 40%">
+                            <select{{ data.externalAssessment < 1 ?' disabled' : '' }} class="w-full" id="{{ 'formal_external_assessment_' ~ yearLoop ~ '_category'}}" name="{{ 'formal_external_assessment[' ~ yearLoop ~ '][category]' }}" >
+                                {% if data.externalAssessment > 0 %}
+                                    <option></option>
+                                    {% for value,name in assessments.fieldChoices[data.externalAssessment] %}
+                                        <option value="{{ value }}"{{ data.category is same as(value) ? ' selected' : '' }}>{{ name }}</option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr class="break flex flex-col sm:flex-row justify-between content-center p-0">
+                    <td colspan="3" class="flex-grow justify-center px-2 border-b-0 sm:border-b border-t-0">
+                        <div class="flex-1 relative">
+                            <span class="emphasis small">* denotes a required field</span>
+                            <input type="hidden" name="formal_external_assessment[_token]" value="{{ csrf_token('formal_external_assessment') }}" />
+                            <button onclick="this.form.submit()" class="btn-gibbon" id="formal_external_assessment_submit" name="formal_external_assessment[submit]" aria-describedby="formal_external_assessment_submit_help" type="button" style="float: right;">{{ 'Submit Primary External Assessment'|trans }}</button>
+                        </div>
+                    </td>
+                </tr>
+
+            </form>
+        </tbody>
+    </table>
+    <script>
+        function changeAssessment(e)
+        {
+            let x = {{ assessments.jsonFieldChoices|raw }}
+
+            let id = e.id.replace('externalAssessment', 'category')
+            let cat = document.getElementById(id)
+            if (e.value > 0) {
+                const value = e.value
+                var option = document.createElement("option")
+                cat.add(option)
+                cat.disabled = false
+                Object.keys(x[value]).map(function(k) {
+                    const name = x[value][k]
+                    option = document.createElement("option")
+                    option.text = name
+                    option.value = k
+                    cat.add(option)
+                })
+            } else {
+                Object.keys(cat.options).map(function(key) {
+                    let option = cat.options[key]
+                    cat.remove(option)
+                })
+                cat.disabled = true
+            }
+        }
+    </script>
+{% endblock content %}

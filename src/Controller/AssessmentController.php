@@ -24,12 +24,9 @@ use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessment;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
-use Kookaburra\SchoolAdmin\Entity\YearGroup;
 use Kookaburra\SchoolAdmin\Form\ExternalAssessmentFieldType;
 use Kookaburra\SchoolAdmin\Form\ExternalAssessmentType;
-use Kookaburra\SchoolAdmin\Form\FacilitySettingsType;
 use Kookaburra\SchoolAdmin\Form\FormalAssessmentType;
-use Kookaburra\SchoolAdmin\Form\PrimaryExternalAssessmentType;
 use Kookaburra\SchoolAdmin\Manager\Hidden\FormalAssessmentManager;
 use Kookaburra\SchoolAdmin\Pagination\ExternalAssessmentFieldPagination;
 use Kookaburra\SchoolAdmin\Pagination\ExternalAssessmentPagination;
@@ -52,6 +49,8 @@ class AssessmentController extends AbstractController
      * manage
      * @Route("/external/assessments/manage/", name="external_assessments_manage")
      * @IsGranted("ROLE_ROUTE")
+     * @param ExternalAssessmentPagination $pagination
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function manage(ExternalAssessmentPagination $pagination)
     {

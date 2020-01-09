@@ -12,7 +12,7 @@
  */
 namespace Kookaburra\SchoolAdmin\Entity;
 
-use App\Entity\ScaleGrade;
+use Kookaburra\SchoolAdmin\Entity\ScaleGrade;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,9 +20,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\ExternalAssessmentStudentEntryRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="ExternalAssessmentStudentEntry",
- *     indexes={@ORM\Index(name="external_assessment_student", columns={"external_assessment_student"}),
- *     @ORM\Index(name="external_assessment_field", columns={"external_assessment_field"}),
- *      @ORM\Index(name="gibbonScaleGradeID", columns={"gibbonScaleGradeID"})})
+ *     indexes={
+ *          @ORM\Index(name="external_assessment_student", columns={"external_assessment_student"}),
+ *          @ORM\Index(name="external_assessment_field", columns={"external_assessment_field"}),
+ *          @ORM\Index(name="scale_grade", columns={"scale_grade"})
+ *     }
+ * )
  */
 class ExternalAssessmentStudentEntry
 {
@@ -50,8 +53,8 @@ class ExternalAssessmentStudentEntry
 
     /**
      * @var ScaleGrade|null
-     * @ORM\ManyToOne(targetEntity="App\Entity\ScaleGrade")
-     * @ORM\JoinColumn(name="gibbonScaleGradeID", referencedColumnName="gibbonScaleGradeID")
+     * @ORM\ManyToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\ScaleGrade")
+     * @ORM\JoinColumn(name="scale_grade", referencedColumnName="id")
      */
     private $scaleGrade;
 

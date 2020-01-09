@@ -89,18 +89,50 @@ class TrackingSettings
      */
     public static function convertInternal(array $data): ArrayCollection
     {
-        $result = new ArrayCollection();
-        foreach($data as $name)
+        foreach($data['names'] as $name)
         {
-            $field = [];
-            $field['nameShort'] = $name;
-            $field['category'] = '';
-            $field['yearGroupList'] = [];
-            $result->add($field);
+            $found = false;
+            foreach($data['tracking'] as $point)
+            {
+                if ($name === $point['type'])
+                {
+                    $found = true;
+                    break;
+                }
+            }
+            if (!$found)
+            {
+                $track = [];
+                $track['type'] = $name;
+                $track['yearGroupList'] = [];
+                $data['track'][] = $track;
+            }
         }
-        return $result;
+
+        foreach($data['tracking'] as $q=>$point)
+        {
+            $found = false;
+            foreach($data['names'] as $name)
+            {
+                if ($name === $point['type'])
+                {
+                    $found = true;
+                    break;
+                }
+            }
+            if (!$found)
+            {
+                unset($data['tracking'][$q]);
+            }
+        }
+
+        return new ArrayCollection($data['tracking']);
     }
 
+    /**
+     * manageExternal
+     * @param array $external
+     */
     public function manageExternal(array $external)
     {
         $resolver = new OptionsResolver();
@@ -129,10 +161,33 @@ class TrackingSettings
         ProviderFactory::create(Setting::class)->setSettingByScope('Tracking','externalAssessmentDataPoints',serialize($external));
     }
 
-    public function buildInternal(array $internal)
+    /**
+     * manageInternal
+     * @param array $internal
+     */
+    public function manageInternal(array $internal)
     {
-        dump(unserialize("a:3:{i:0;a:1:{s:4:\"type\";s:14:\"Expected Grade\";}i:1;a:2:{s:4:\"type\";s:15:\"Predicted Grade\";s:21:\"gibbonYearGroupIDList\";s:11:\"001,002,003\";}i:2;a:1:{s:4:\"type\";s:12:\"Target Grade\";}}"));
+        $resolver = new OptionsResolver();
+        $resolver->setRequired(
+            [
+                'type',
+            ]
+        );
+        $resolver->setDefaults(
+            [
+                'yearGroupList' => [],
+            ]
+        );
+        $resolver->setAllowedTypes('type', 'string');
+        foreach($internal as $q=>$item)
+        {
+            try {
+                $internal[$q] = $resolver->resolve($item);
+            } catch (MissingOptionsException $e) {
+                unset($internal[$q]);
+            }
+        }
 
-        dd($internal);
+        ProviderFactory::create(Setting::class)->setSettingByScope('Tracking','internalAssessmentDataPoints',serialize($internal));
     }
 }

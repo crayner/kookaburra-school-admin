@@ -40,36 +40,23 @@ class TrackingController extends AbstractController
     /**
      * settings
      * @param Request $request
-     * @param ContainerManager $manager
-     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/tracking/settings/", name="tracking_settings")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator)
+    public function settings(Request $request)
     {
         // System Settings
         $et = new TrackingSettings();
-        $fields = ProviderFactory::create(ExternalAssessmentField::class)->findByActiveInEAOrder();
+        $form = $this->generateSettingForm($et);
 
-        $internal = ProviderFactory::create(Setting::class)->getSettingByScopeAsArray('Formal Assessment', 'internalAssessmentTypes');
-
-        $et->setExternal(new ArrayCollection($fields))->setInternal(TrackingSettings::convertInternal($internal));
-
-        $form = $this->createForm(TrackingSettingsType::class, $et , ['action' => $this->generateUrl('school_admin__tracking_settings',)]);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+//        $form->handleRequest($request);
+        if ($request->request->has('tracking_settings')) {
             $settings = $request->request->get('tracking_settings');
             if ($this->isCsrfTokenValid('tracking_settings', $settings['_token'])) {
                 $et->manageExternal($settings['external']);
+                $et->manageInternal(isset($settings['internal']) ? $settings['internal'] : []);
 
-                $fields = ProviderFactory::create(ExternalAssessmentField::class)->findByActiveInEAOrder();
-
-                $internal = ProviderFactory::create(Setting::class)->getSettingByScopeAsArray('Formal Assessment', 'internalAssessmentTypes');
-
-                $et->setExternal(new ArrayCollection($fields))->setInternal(TrackingSettings::convertInternal($internal));
-
-                $form = $this->createForm(TrackingSettingsType::class, $et , ['action' => $this->generateUrl('school_admin__tracking_settings',)]);
+                $form = $this->generateSettingForm($et);
             }
         }
 
@@ -81,4 +68,21 @@ class TrackingController extends AbstractController
         );
     }
 
+    /**
+     * generateSettingForm
+     * @param TrackingSettings $et
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    private function generateSettingForm(TrackingSettings $et)
+    {
+        $fields = ProviderFactory::create(ExternalAssessmentField::class)->findByActiveInEAOrder();
+
+        $internal['names'] = ProviderFactory::create(Setting::class)->getSettingByScopeAsArray('Formal Assessment', 'internalAssessmentTypes');
+        $internal['tracking'] = unserialize(ProviderFactory::create(Setting::class)->getSettingByScopeAsString('Tracking', 'internalAssessmentDataPoints'));
+
+        $et->setExternal(new ArrayCollection($fields))->setInternal(TrackingSettings::convertInternal($internal));
+
+        $form = $this->createForm(TrackingSettingsType::class, $et , ['action' => $this->generateUrl('school_admin__tracking_settings',)]);
+        return $form;
+    }
 }

@@ -69,23 +69,18 @@
                 </td>
             </tr>
 
-            {% for external in form.internal %}
+            {% for internal in form.internal %}
                 <tr>
                     <td class="px-2 border-b-0 sm:border-b border-t-0 ">
-                        {% set yearGroups = external.vars.value.yearGroupList|default({}) %}
-                        {% set category = external.vars.value.category|split('_', 2) %}
-                        {%  if category|length is same as(2) %}
-                            {% set label = external.vars.value.nameShort ~ ' ' ~ category[1] %}
-                        {% else %}
-                            {% set label = external.vars.value.nameShort ~ ' ' ~ external.vars.value.category %}
-                        {% endif %}
-                        {{ form_label(external, label) }}
+                        {% set yearGroups = internal.vars.value.yearGroupList|default({}) %}
+                        {% set category = internal.vars.value.type %}
+                        {{ form_label(internal, category) }}
                         {% set activeYearGroups = {} %}
                         {% for year in yearGroups %}
                             {% set activeYearGroups = activeYearGroups|merge({(loop.index0): year|trim('0', 'left')}) %}
                         {% endfor %}
                         {% set yearGroups = activeYearGroups %}
-                        {% set externalLoop = loop.index %}
+                        {% set internalLoop = loop.index0 %}
                     </td>
                     <td class="px-2 border-b-0 sm:border-b border-t-0 right">
                         <div class="inline flex-1 relative">
@@ -95,11 +90,12 @@
                                     {% if year.id in yearGroups %}
                                         {% set checked = 'checked' %}
                                     {% endif %}
-                                    <label class="leading-normal" for="{{ 'tracking_settings_internal_'~externalLoop~'_yearGroupList_' ~ year.id }}">{{ year.name }}
-                                    <input type="checkbox" name="{{ 'tracking_settings[internal]['~externalLoop~'][yearGroupList][' ~ year.id ~ ']' }}" id="{{ 'tracking_settings_internal_' ~ externalLoop ~ '_yearGroupList_' ~ year.id }}" value="{{ year.id }}" class="right" {{ checked }}></label>
+                                    <label class="leading-normal" for="{{ 'tracking_settings_internal_'~internalLoop~'_yearGroupList_' ~ loop.index0 }}">{{ year.name }}
+                                    <input type="checkbox" name="{{ 'tracking_settings[internal]['~internalLoop~'][yearGroupList][' ~ loop.index0 ~ ']' }}" id="{{ 'tracking_settings_internal_' ~ internalLoop ~ '_yearGroupList_' ~ loop.index0 }}" value="{{ year.id }}" class="right" {{ checked }}></label>
                                     <br>
                                 {% endfor %}
                             </fieldset>
+                            <input type="hidden" name="{{ 'tracking_settings[internal]['~internalLoop~'][type]' }}" id="{{ 'tracking_settings_internal_' ~ internalLoop ~ '_type' }}" value="{{ category|trim }}" />
                         </div>
                     </td>
                 </tr>

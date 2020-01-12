@@ -14,6 +14,7 @@ namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
 use App\Manager\Traits\BooleanList;
+use App\Util\TranslationsHelper;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -53,12 +54,14 @@ class ScaleGrade implements EntityInterface
      * @var string|null
      * @ORM\Column(length=10)
      * @Assert\NotBlank()
+     * @Assert\Length(max=10)
      */
     private $value;
 
     /**
      * @var string|null
      * @ORM\Column(length=50)
+     * @Assert\Length(max=50)
      */
     private $descriptor;
 
@@ -95,11 +98,21 @@ class ScaleGrade implements EntityInterface
     }
 
     /**
+     * getScale
      * @return Scale|null
      */
     public function getScale(): ?Scale
     {
         return $this->scale;
+    }
+
+    /**
+     * getScaleId
+     * @return integer
+     */
+    public function getScaleId(): int
+    {
+        return $this->getScale() ? $this->getScale()->getId() : 0;
     }
 
     /**
@@ -175,6 +188,15 @@ class ScaleGrade implements EntityInterface
     }
 
     /**
+     * isDefault
+     * @return string|null
+     */
+    public function isDefault(): ?string
+    {
+        return $this->getIsDefault() === 'Y';
+    }
+
+    /**
      * @return string|null
      */
     public function getIsDefault(): ?string
@@ -208,6 +230,11 @@ class ScaleGrade implements EntityInterface
      */
     public function toArray(?string $name = null): array
     {
-        return [];
+        return [
+            'value' => $this->getValue(),
+            'descriptor' => $this->getDescriptor(),
+            'sequence' => $this->getSequenceNumber(),
+            'default' => $this->isDefault() ? TranslationsHelper::translate('Yes', [], 'messages') : TranslationsHelper::translate('No', [], 'messages'),
+        ];
     }
 }

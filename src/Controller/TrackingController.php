@@ -49,7 +49,6 @@ class TrackingController extends AbstractController
         $et = new TrackingSettings();
         $form = $this->generateSettingForm($et);
 
-//        $form->handleRequest($request);
         if ($request->request->has('tracking_settings')) {
             $settings = $request->request->get('tracking_settings');
             if ($this->isCsrfTokenValid('tracking_settings', $settings['_token'])) {

@@ -9,8 +9,8 @@
  * file that was distributed with this source code.
  *
  * User: craig
- * Date: 10/01/2020
- * Time: 08:26
+ * Date: 12/01/2020
+ * Time: 16:34
  */
 
 namespace Kookaburra\SchoolAdmin\Pagination;
@@ -24,10 +24,10 @@ use App\Manager\ReactPaginationManager;
 use App\Util\TranslationsHelper;
 
 /**
- * Class ScalePagination
+ * Class ScaleGradePagination
  * @package Kookaburra\SchoolAdmin\Pagination
  */
-class ScalePagination extends ReactPaginationManager
+class ScaleGradePagination extends ReactPaginationManager
 {
     /**
      * execute
@@ -37,33 +37,34 @@ class ScalePagination extends ReactPaginationManager
     {
         TranslationsHelper::setDomain('SchoolAdmin');
         $row = new PaginationRow();
+        $this->setTargetElement('scaleGradePaginationContent');
 
         $column = new PaginationColumn();
-        $column->setLabel('Name')
-            ->setHelp('Abbreviation')
+        $column->setLabel('Value')
             ->setSort(true)
-            ->setContentKey(['name','abbr'])
+            ->setContentKey('value')
             ->setClass('column relative pr-4 cursor-pointer widthAuto')
         ;
         $row->addColumn($column);
 
         $column = new PaginationColumn();
-        $column->setLabel('Usage')
-            ->setContentKey('usage')
+        $column->setLabel('Descriptor')
+            ->setContentKey('descriptor')
             ->setClass('column relative pr-4 cursor-pointer widthAuto')
         ;
         $row->addColumn($column);
 
         $column = new PaginationColumn();
-        $column->setLabel('Active')
-            ->setContentKey('active')
+        $column->setLabel('Sequence Number')
+            ->setSort(true)
+            ->setContentKey('sequence')
             ->setClass('column relative pr-4 cursor-pointer widthAuto');
         $row->addColumn($column);
 
         $column = new PaginationColumn();
-        $column->setLabel('Numeric')
-            ->setContentKey('numeric')
-            ->setClass('column relative pr-4 cursor-pointer widthAuto');
+        $column->setLabel('Is Default?')
+            ->setContentKey('default')
+            ->setClass('column relative pr-4 cursor-pointer widthAuto text-center');
         $row->addColumn($column);
 
         $action = new PaginationAction();
@@ -71,8 +72,8 @@ class ScalePagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__scale_edit')
-            ->setRouteParams(['scale' => 'id']);
+            ->setRoute('school_admin__scale_grade_edit')
+            ->setRouteParams(['grade' => 'id', 'scale' => 'scaleId']);
         $row->addAction($action);
 
         $action = new PaginationAction();
@@ -80,27 +81,13 @@ class ScalePagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__scale_delete')
+            ->setRoute('school_admin__scale_grade_delete')
             ->setDisplayWhen('canDelete')
             ->setOnClick('areYouSure')
-            ->setRouteParams(['scale' => 'id']);
+            ->setRouteParams(['grade' => 'id', 'scale' => 'scaleId']);
         $row->addAction($action);
 
-        $filter = new PaginationFilter();
-        $filter->setName('Active: Yes')
-            ->setContentKey('isActive')
-            ->setGroup('Active')
-            ->setValue(true);
-        $row->addFilter($filter);
-
-        $filter = new PaginationFilter();
-        $filter->setName('Active: No')
-            ->setGroup('Active')
-            ->setContentKey('isActive')
-            ->setValue(false);
-        $row->addFilter($filter);
-
-        $this->setRow($row);
+        $this->setPageMax(50)->setRow($row);
         return $this;
     }
 }

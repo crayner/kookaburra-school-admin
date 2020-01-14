@@ -19,6 +19,7 @@ use App\Container\ContainerManager;
 use App\Provider\ProviderFactory;
 use Kookaburra\SchoolAdmin\Entity\Scale;
 use Kookaburra\SchoolAdmin\Entity\ScaleGrade;
+use Kookaburra\SchoolAdmin\Manager\Hidden\ScaleGradeSort;
 use Kookaburra\SchoolAdmin\Pagination\ScaleGradePagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -78,5 +79,21 @@ class ScaleGradeController extends AbstractController
     public function delete(Scale $scale, ScaleGrade $grade)
     {
 
+    }
+
+    /**
+     * sortGrades
+     * @param ScaleGradePagination $pagination
+     * @param ScaleGrade $source
+     * @param ScaleGrade $target
+     * @return JsonResponse
+     * @Route("/scale/grade/{source}/{target}/sort/",name="scale_grade_sort")
+     * @Security("is_granted('ROLE_ROUTE', ['school_admin__scale_grade_edit'])")
+     */
+    public function sortGrades(ScaleGradePagination $pagination, ScaleGrade $source, ScaleGrade $target)
+    {
+        $manager = new ScaleGradeSort($source, $target, $pagination);
+
+        return new JsonResponse($manager->getDetails(), 200);
     }
 }

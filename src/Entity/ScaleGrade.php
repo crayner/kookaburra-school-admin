@@ -234,6 +234,7 @@ class ScaleGrade implements EntityInterface
             'value' => $this->getValue(),
             'descriptor' => $this->getDescriptor(),
             'sequence' => $this->getSequenceNumber(),
+            'id' => $this->getId(),
             'default' => $this->isDefault() ? TranslationsHelper::translate('Yes', [], 'messages') : TranslationsHelper::translate('No', [], 'messages'),
         ];
     }

@@ -55,13 +55,6 @@ class ScaleGradePagination extends ReactPaginationManager
         $row->addColumn($column);
 
         $column = new PaginationColumn();
-        $column->setLabel('Sequence Number')
-            ->setSort(true)
-            ->setContentKey('sequence')
-            ->setClass('column relative pr-4 cursor-pointer widthAuto');
-        $row->addColumn($column);
-
-        $column = new PaginationColumn();
         $column->setLabel('Is Default?')
             ->setContentKey('default')
             ->setClass('column relative pr-4 cursor-pointer widthAuto text-center');
@@ -87,7 +80,8 @@ class ScaleGradePagination extends ReactPaginationManager
             ->setRouteParams(['grade' => 'id', 'scale' => 'scaleId']);
         $row->addAction($action);
 
-        $this->setPageMax(50)->setRow($row);
+        $this->setPageMax(50)->setRow($row)->setDraggableSort(true)->setDraggableRoute('school_admin__scale_grade_sort');
+
         return $this;
     }
 }

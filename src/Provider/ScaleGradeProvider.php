@@ -18,6 +18,7 @@ namespace Kookaburra\SchoolAdmin\Provider;
 
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
+use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Entity\ScaleGrade;
 
 class ScaleGradeProvider implements EntityProviderInterface
@@ -25,4 +26,33 @@ class ScaleGradeProvider implements EntityProviderInterface
     use EntityTrait;
 
     private $entityName = ScaleGrade::class;
+
+    /**
+     * saveGrades
+     * @param array $grades
+     * @param array $data
+     * @return array
+     */
+    public function saveGrades(array $grades, array $data): array
+    {
+        $sm = $this->getEntityManager()->getConnection()->getSchemaManager();
+        $prefix = $this->getEntityManager()->getConnection()->getParams()['driverOptions']['prefix'];
+
+        $table = $sm->listTableDetails($prefix. 'ScaleGrade');
+        $index = $table->getIndex('scalesequence');
+
+        try {
+            $sm->dropIndex($index, $table);
+
+            foreach ($grades as $grade)
+                $this->getEntityManager()->persist($grade);
+            $this->getEntityManager()->flush();
+
+            $sm->createIndex($index, $table);
+        } catch (\Exception $e) {
+            $data = ErrorMessageHelper::getDatabaseErrorMessage($data, true);
+        }
+
+        return $data;
+    }
 }

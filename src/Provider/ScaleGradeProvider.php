@@ -16,6 +16,9 @@
 namespace Kookaburra\SchoolAdmin\Provider;
 
 
+use App\Entity\MarkbookColumn;
+use App\Entity\MarkbookTarget;
+use App\Entity\RubricColumn;
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
 use App\Util\ErrorMessageHelper;
@@ -61,5 +64,20 @@ class ScaleGradeProvider implements EntityProviderInterface
         }
 
         return $data;
+    }
+
+    /**
+     * canDelete
+     * @param ScaleGrade $grade
+     * @return bool
+     */
+    public function canDelete(ScaleGrade $grade): bool
+    {
+        if ($this->getRepository(MarkbookTarget::class)->countGradeUse($grade) > 0)
+            return false;
+        if ($this->getRepository(RubricColumn::class)->countGradeUse($grade) > 0)
+            return false;
+
+        return true;
     }
 }

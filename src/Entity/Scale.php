@@ -25,7 +25,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class Scale
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\ScaleRepository")
- * @ORM\Table(options={"auto_increment": 1}, name="Scale")
+ * @ORM\Table(options={"auto_increment": 1}, name="Scale",
+ *     indexes={@ORM\Index(name="lowestAcceptable",columns={"lowestAcceptable"})})
  */
 class Scale implements EntityInterface
 {
@@ -43,36 +44,43 @@ class Scale implements EntityInterface
      * @var string|null
      * @ORM\Column(length=40)
      * @Assert\NotBlank()
+     * @Assert\Length(max=40)
      */
     private $name;
 
     /**
      * @var string|null
      * @ORM\Column(length=5, name="nameShort")
+     * @Assert\NotBlank()
+     * @Assert\Length(max=5)
      */
     private $nameShort;
 
     /**
      * @var string|null
-     * @ORM\Column(length=50)
+     * @ORM\Column(length=50,name="usage_info")
+     * @Assert\Length(max=50)
      */
     private $usage;
 
     /**
-     * @var string|null
-     * @ORM\Column(length=5, name="lowestAcceptable", options={"comment": "This is the sequence number of the lowest grade a student can get without being unsatisfactory"}, nullable=true)
+     * @var ScaleGrade|null
+     * @ORM\OneToOne(targetEntity="Kookaburra\SchoolAdmin\Entity\ScaleGrade")
+     * @ORM\JoinColumn(name="lowestAcceptable", referencedColumnName="id", nullable=true)
      */
     private $lowestAcceptable;
 
     /**
      * @var string|null
      * @ORM\Column(length=1, options={"default": "Y"})
+     * @Assert\Choice(callback="getBooleanList")
      */
     private $active = 'Y';
 
     /**
      * @var string|null
-     * @ORM\Column(length=1, options={"default": "N"})
+     * @ORM\Column(length=1, options={"default": "N"},name="is_numeric")
+     * @Assert\Choice(callback="getBooleanList")
      */
     private $numeric = 'N';
 
@@ -163,18 +171,20 @@ class Scale implements EntityInterface
     }
 
     /**
-     * @return string|null
+     * @return ScaleGrade|null
      */
-    public function getLowestAcceptable(): ?string
+    public function getLowestAcceptable(): ?ScaleGrade
     {
         return $this->lowestAcceptable;
     }
 
     /**
-     * @param string|null $lowestAcceptablee
+     * LowestAcceptable.
+     *
+     * @param ScaleGrade|null $lowestAcceptable
      * @return Scale
      */
-    public function setLowestAcceptable(?string $lowestAcceptable): Scale
+    public function setLowestAcceptable(?ScaleGrade $lowestAcceptable): Scale
     {
         $this->lowestAcceptable = $lowestAcceptable;
         return $this;

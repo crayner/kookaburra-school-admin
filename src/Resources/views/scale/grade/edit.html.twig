@@ -1,0 +1,20 @@
+{% trans_default_domain 'SchoolAdmin' %}
+
+{% extends 'kookaburra.html.twig' %}
+
+{% set moduleName = 'School Admin' %}
+{% set module = {
+    baseURL: 'school_admin',
+    crumbs: [
+        {uri: 'school_admin__academic_year_manage', name: 'School Admin'},
+        {uri: 'school_admin__scale_manage', name: 'Manage Scales'},
+        {uri: 'school_admin__scale_edit', name: 'Edit Scale', uri_params: {scale: scale.id}},
+    ],
+    title: (grade.id > 0 ? 'Edit Grade' : 'Add Grade'), domain: 'SchoolAdmin'} %}
+{% set breadcrumbs = 'new' %}
+
+{% block content %}
+    <button class="close-button gray" title="{{ 'Return'|trans({}, 'messages') }}" type="button" onclick="window.open('{{ path('school_admin__scale_edit', {scale: scale.id, tabName: 'Grades'}) }}','_self')"><span class="fas fa-reply fa-fw"/></button>
+    <button class="close-button gray" title="{{ 'Add'|trans({}, 'messages') }}" type="button" onclick="window.open('{{ path('school_admin__scale_grade_add', {scale: scale.id}) }}','_self')"><span class="fas fa-plus-circle fa-fw"/></button>
+    <div id="formContent"></div>
+{% endblock content %}

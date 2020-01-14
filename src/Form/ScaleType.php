@@ -86,7 +86,6 @@ class ScaleType extends AbstractType
                         'choice_translation_domain' => false,
                         'data' => $scale->getLowestAcceptable(),
                         'choice_label' => 'value',
-                        'choice_value' => 'sequenceNumber',
                         'query_builder' => function(EntityRepository $er) use ($scale) {
                             return $er->createQueryBuilder('g')
                                 ->where('g.scale = :scale')

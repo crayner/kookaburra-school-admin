@@ -14,6 +14,7 @@ namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
 use App\Manager\Traits\BooleanList;
+use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -62,6 +63,7 @@ class ScaleGrade implements EntityInterface
      * @var string|null
      * @ORM\Column(length=50)
      * @Assert\Length(max=50)
+     * @Assert\NotBlank()
      */
     private $descriptor;
 
@@ -236,6 +238,7 @@ class ScaleGrade implements EntityInterface
             'sequence' => $this->getSequenceNumber(),
             'id' => $this->getId(),
             'default' => $this->isDefault() ? TranslationsHelper::translate('Yes', [], 'messages') : TranslationsHelper::translate('No', [], 'messages'),
+            'canDelete' => ProviderFactory::create(ScaleGrade::class)->canDelete($this),
         ];
     }
 }

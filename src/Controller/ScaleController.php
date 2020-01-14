@@ -19,7 +19,9 @@ use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Provider\ProviderFactory;
+use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
+use Kookaburra\Departments\Entity\Department;
 use Kookaburra\SchoolAdmin\Entity\Scale;
 use Kookaburra\SchoolAdmin\Form\ScaleType;
 use Kookaburra\SchoolAdmin\Pagination\ScaleGradePagination;
@@ -28,7 +30,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class ScaleController
@@ -76,7 +80,7 @@ class ScaleController extends AbstractController
 
         if ($request->getContentType() === 'json') {
             $content = json_decode($request->getContent(), true);
-            dump($content);
+            $id = $scale->getId();
             $form->submit($content);
             $data = [];
             $data['status'] = 'success';
@@ -84,8 +88,14 @@ class ScaleController extends AbstractController
                 $id = $scale->getId();
                 $provider = ProviderFactory::create(Scale::class);
                 $data = $provider->persistFlush($scale, $data);
-                if ($data['status'] === 'success')
+                if ($data['status'] === 'success') {
                     $form = $this->createForm(ScaleType::class, $scale, ['action' => $this->generateUrl('school_admin__scale_edit', ['scale' => $scale->getId(), 'tabName' => $tabName])]);
+                    if ($id !== $scale->getId()) {
+                        $data['redirect'] = $this->generateUrl('school_admin__scale_edit', ['scale' => $scale->getId(), 'tabName' => $tabName]);
+                        $data['status'] = 'redirect';
+                        ErrorMessageHelper::convertToFlash($data, $request->getSession()->getBag('flashes'));
+                    }
+                }
             } else {
                 $data = ErrorMessageHelper::getInvalidInputsMessage($data);
             }
@@ -101,16 +111,18 @@ class ScaleController extends AbstractController
 
         $panel = new Panel('Details', 'SchoolAdmin');
         $container->addForm('Details', $form->createView())->addPanel($panel);
-        $panel = new Panel('Grades', 'SchoolAdmin');
-        $panel->setContent($this->renderView('@KookaburraSchoolAdmin/scale/grades.html.twig'), 'scaleGradePaginationContent');
-        $container->addPanel($panel)->setContentLoader([
-            [
-                'route' => $this->generateUrl('school_admin__scale_grade_manage', ['scale' => $scale->getId()]),
-                'target' => 'scaleGradePaginationContent',
-                'type' => 'pagination',
-                'delay' => 200,
-            ],
-        ]);
+        if ($scale->getId() > 0) {
+            $panel = new Panel('Grades', 'SchoolAdmin');
+            $panel->setContent($this->renderView('@KookaburraSchoolAdmin/scale/grades.html.twig'), 'scaleGradePaginationContent');
+            $container->addPanel($panel)->setContentLoader([
+                [
+                    'route' => $this->generateUrl('school_admin__scale_grade_manage', ['scale' => $scale->getId()]),
+                    'target' => 'scaleGradePaginationContent',
+                    'type' => 'pagination',
+                    'delay' => 200,
+                ],
+            ]);
+        }
 
         $manager->addContainer($container)->buildContainers();
 
@@ -124,11 +136,20 @@ class ScaleController extends AbstractController
     /**
      * delete
      * @param Scale|null $scale
+     * @param FlashBagInterface $flashBag
+     * @param TranslatorInterface $translator
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/scale/{scale}/delete/", name="scale_delete")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function delete(Scale $scale)
+    public function delete(Scale $scale, FlashBagInterface $flashBag, TranslatorInterface $translator)
     {
+        $provider = ProviderFactory::create(Scale::class);
 
+        $provider->delete($scale);
+
+        $provider->getMessageManager()->pushToFlash($flashBag, $translator);
+
+        return $this->redirectToRoute('school_admin__scale_manage');
     }
 }

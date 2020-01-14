@@ -19,6 +19,8 @@ namespace Kookaburra\SchoolAdmin\Provider;
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
 use App\Util\ErrorMessageHelper;
+use Doctrine\DBAL\Schema\Index;
+use Doctrine\DBAL\Schema\SchemaException;
 use Kookaburra\SchoolAdmin\Entity\ScaleGrade;
 
 class ScaleGradeProvider implements EntityProviderInterface
@@ -38,19 +40,24 @@ class ScaleGradeProvider implements EntityProviderInterface
         $sm = $this->getEntityManager()->getConnection()->getSchemaManager();
         $prefix = $this->getEntityManager()->getConnection()->getParams()['driverOptions']['prefix'];
 
-        $table = $sm->listTableDetails($prefix. 'ScaleGrade');
-        $index = $table->getIndex('scalesequence');
-
         try {
-            $sm->dropIndex($index, $table);
+            $table = $sm->listTableDetails($prefix. 'ScaleGrade');
+            $indexes = $sm->listTableIndexes($prefix. 'ScaleGrade');
+            if (isset($indexes['scalesequence'])) {
+                $index = $table->getIndex('scalesequence');
+                $sm->dropIndex($index, $table);
+            } else {
+                $index = new Index('scaleSequence', ['sequenceNumber','scale'], true);
+            }
 
             foreach ($grades as $grade)
                 $this->getEntityManager()->persist($grade);
             $this->getEntityManager()->flush();
 
             $sm->createIndex($index, $table);
-        } catch (\Exception $e) {
+        } catch (SchemaException | \Exception $e) {
             $data = ErrorMessageHelper::getDatabaseErrorMessage($data, true);
+            $data['errors'][] = ['class' => 'error', 'message' => $e->getMessage()];
         }
 
         return $data;

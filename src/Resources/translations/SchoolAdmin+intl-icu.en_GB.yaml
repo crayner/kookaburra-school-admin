@@ -147,3 +147,10 @@ Numeric: Numeric
 'Active: Yes': 'Active: Yes'
 'Active: No': 'Active: No'
 Manage Scales: Manage Scales
+Brief description of how scale is used.: Brief description of how scale is used.
+Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.: Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.
+Lowest Acceptable: Lowest Acceptable
+This is the lowest grade a student can get without being unsatisfactory.: This is the lowest grade a student can get without being unsatisfactory.
+Details: Details
+Grades: Grades
+Edit Scale: Edit Scale

@@ -154,3 +154,42 @@ This is the lowest grade a student can get without being unsatisfactory.: This i
 Details: Details
 Grades: Grades
 Edit Scale: Edit Scale
+Features: Features
+Enable Effort: Enable Effort
+Should columns have the Effort section enabled?: Should columns have the Effort section enabled?
+Enable Rubrics: Enable Rubrics
+Should columns have Rubrics section enabled?: Should columns have Rubrics section enabled?
+Enable Column Weighting: Enable Column Weighting
+Should column weighting and total scores be enabled in the Markbook?: Should column weighting and total scores be enabled in the Markbook?
+Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.: Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.
+Enable Display Cumulative Marks: Enable Display Cumulative Marks
+Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?: Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?
+Enable Raw Attainment Marks: Enable Raw Attainment Marks
+Should recording of raw marks be enabled in the Markbook?: Should recording of raw marks be enabled in the Markbook?
+Enable Modified Assessment: Enable Modified Assessment
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: Interface
+Markbook Type: Markbook Type
+Comma-separated list of types to make available in the Markbook.: Comma-separated list of types to make available in the Markbook.
+Group Columns by Term: Group Columns by Term
+Should columns and total scores be grouped by term?: Should columns and total scores be grouped by term?
+Attainment Alternative Name: Attainment Alternative Name
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use instead of "Attainment" in the first grade column of the markbook.'
+Attainment Alternative Name Abbreviation: Attainment Alternative Name Abbreviation
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+Effort Alternative Name: Effort Alternative Name
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+Effort Alternative Name Abbreviation: Effort Alternative Name Abbreviation
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use instead of "Effort" in the second grade column of the markbook.'
+Warnings: Warnings
+Show Student Attainment Warning: Show Student Attainment Warning
+Show low attainment grade visual warning to students?: Show low attainment grade visual warning to students?
+Show Student Effort Warning: Show Student Effort Warning
+Show low effort grade visual warning to students?: Show low effort grade visual warning to students?
+Show Parent Attainment Warning: Show Parent Attainment Warning
+Show low attainment grade visual warning to parents?: Show low attainment grade visual warning to parents?
+Show Parent Effort Warning: Show Parent Effort Warning
+Show low effort grade visual warning to parents?: Show low effort grade visual warning to parents?
+Personalised Warnings: Personalised Warnings
+Should markbook warnings be based on personal targets, if they are available?: Should markbook warnings be based on personal targets, if they are available?
+Markbook Settings: Markbook Settings

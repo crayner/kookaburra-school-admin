@@ -9,32 +9,30 @@
  * file that was distributed with this source code.
  *
  * User: craig
- * Date: 14/01/2020
- * Time: 17:06
+ * Date: 15/01/2020
+ * Time: 10:07
  */
 
 namespace Kookaburra\SchoolAdmin\Controller;
 
-use App\Container\Container;
 use App\Container\ContainerManager;
-use App\Container\Panel;
 use App\Entity\Setting;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
-use Kookaburra\SchoolAdmin\Form\MarkbookSettingType;
+use Kookaburra\SchoolAdmin\Form\MessengerSettingsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * Class MarkbookSettingController
+ * Class MessengerSettingsController
  * @package Kookaburra\SchoolAdmin\Controller
  */
-class MarkbookSettingController extends AbstractController
+class MessengerSettingsController extends AbstractController
 {
     /**
      * settings
@@ -43,23 +41,23 @@ class MarkbookSettingController extends AbstractController
      * @param TranslatorInterface $translator
      * @param string $tabName
      * @return JsonResponse|Response
-     * @Route("/markbook/settings/{tabName}", name="markbook_settings")
+     * @Route("/messenger/settings/", name="messenger_settings")
      * @IsGranted("ROLE_ROUTE")
      */
     public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Features')
     {
         $settingProvider = ProviderFactory::create(Setting::class);
-        $settingProvider->getSettingsByScope('Markbook');
-        $container = new Container();
+        $settingProvider->getSettingsByScope('Messenger');
 
-        $form = $this->createForm(MarkbookSettingType::class, null, ['action' => $this->generateUrl('school_admin__markbook_settings')]);
+        $form = $this->createForm(MessengerSettingsType::class, null, ['action' => $this->generateUrl('school_admin__messenger_settings')]);
 
         if ($request->getContentType() === 'json') {
             $data = [];
             $data['status'] = 'success';
             try {
                 $data['errors'] = $settingProvider->handleSettingsForm($form, $request, $translator);
-                $form = $this->createForm(MarkbookSettingType::class, null, ['action' => $this->generateUrl('school_admin__markbook_settings')]);
+                if ($data['status'] === 'success')
+                    $form = $this->createForm(MessengerSettingsType::class, null, ['action' => $this->generateUrl('school_admin__messenger_settings')]);
             } catch (\Exception $e) {
                 $data = ErrorMessageHelper::getDatabaseErrorMessage($data, true);
             }
@@ -70,16 +68,10 @@ class MarkbookSettingController extends AbstractController
             return new JsonResponse($data, 200);
         }
 
-        $panel = new Panel('Features');
-        $container->setTranslationDomain('SchoolAdmin')->addForm('Features', $form->createView())->addPanel($panel)->setSelectedPanel($tabName)->setTarget('formContent');
-        $panel = new Panel('Interface');
-        $container->addPanel($panel);
-        $panel = new Panel('Warnings');
-        $container->addPanel($panel);
 
         // Finally Finished
-        $manager->addContainer($container)->buildContainers();
+        $manager->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/markbook/settings.html.twig');
+        return $this->render('@KookaburraSchoolAdmin/messenger/settings.html.twig');
     }
 }

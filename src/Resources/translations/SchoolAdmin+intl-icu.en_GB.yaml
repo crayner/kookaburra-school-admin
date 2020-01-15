@@ -193,3 +193,19 @@ Show low effort grade visual warning to parents?: Show low effort grade visual w
 Personalised Warnings: Personalised Warnings
 Should markbook warnings be based on personal targets, if they are available?: Should markbook warnings be based on personal targets, if they are available?
 Markbook Settings: Markbook Settings
+messenger_sms_warning: Kookaburra can use a number of different gateways to send out SMS messages. These are paid services, not affiliated with Kookaburra, and you must create your own account with them before being able to send out SMSs using the Messenger module. {link}Click here{linkClose} to configure SMS settings.
+Message Wall Settings: Message Wall Settings
+Message Bubble Width Type: Message Bubble Width Type
+Should the message bubble be regular or wide?: Should the message bubble be regular or wide?
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: Regular
+        wide: Wide
+Message Bubble Background Color: Message Bubble Background Color
+Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.: Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.
+Message Bubble Auto Hide: Message Bubble Auto Hide
+Should message bubble fade out automatically?: Should message bubble fade out automatically?
+Miscellaneous: Miscellaneous
+Message Bcc: Message Bcc
+Comma-separated list of recipients to bcc all messenger emails to.: Comma-separated list of recipients to bcc all messenger emails to.
+Messenger Settings: Messenger Settings

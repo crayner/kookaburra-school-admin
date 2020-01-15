@@ -209,3 +209,63 @@ Miscellaneous: Miscellaneous
 Message Bcc: Message Bcc
 Comma-separated list of recipients to bcc all messenger emails to.: Comma-separated list of recipients to bcc all messenger emails to.
 Messenger Settings: Messenger Settings
+General Settings: General Settings
+Email: Email
+Email address to send finance emails from.: Email address to send finance emails from.
+Enable Online Payment: Enable Online Payment
+Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.: Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.
+Online Payment Threshold: Online Payment Threshold
+If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.: If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.
+Invoices: Invoices
+Invoice Text: Invoice Text
+Text to appear in invoice, above invoice details and fees.: Text to appear in invoice, above invoice details and fees.
+Invoice Notes: Invoice Notes
+Text to appear in invoice, below invoice details and fees.: Text to appear in invoice, below invoice details and fees.
+Invoicee Name Style: Invoicee Name Style
+Determines how invoicee name appears on invoices and receipts.: Determines how invoicee name appears on invoices and receipts.
+financesettingstype:
+    finance__invoiceenamestyle:
+        surname, preferred name: Surname, Preferred name
+        official name: Official name
+    finance__invoicenumber:
+        invoice id: Invoice Identifier
+        person id + invoice id: Person & Invoice Identifiers
+        student id + invoice id: Student & Invoice Identifiers
+    finance__expenseapprovaltype:
+        one of: One of
+        two of: Two of
+        chain of all: Chain of All
+Invoice Number Style: Invoice Number Style
+How should invoice numbers be constructed?: How should invoice numbers be constructed?
+Receipts: Receipts
+Receipt Text: Receipt Text
+Text to appear in receipt, above receipt details and fees.: Text to appear in receipt, above receipt details and fees.
+Receipt Notes: Receipt Notes
+Text to appear in receipt, below receipt details and fees.: Text to appear in receipt, below receipt details and fees.
+Hide Itemisation: Hide Itemisation
+Hide fee and payment details in receipts?: Hide fee and payment details in receipts?
+Reminders: Reminders
+Reminder 1 Text: Reminder 1 Text
+Text to appear in first level reminder level, above invoice details and fees.: Text to appear in first level reminder level, above invoice details and fees.
+Reminder 2 Text: Reminder 2 Text
+Text to appear in second level reminder level, above invoice details and fees.: Text to appear in second level reminder level, above invoice details and fees.
+Reminder 3 Text: Reminder 3 Text
+Text to appear in third level reminder level, above invoice details and fees.: Text to appear in third level reminder level, above invoice details and fees.
+Expenses: Expenses
+Budget Categories: Budget Categories
+Comma-separated list of budget categories.: Comma-separated list of budget categories.
+Expense Approval Type: Expense Approval Type
+How should expense approval be dealt with?: How should expense approval be dealt with?
+Budget Level Expense Approval: Budget Level Expense Approval
+Should approval from a budget member with Full access be required?: Should approval from a budget member with Full access be required?
+Expense Request Template: Expense Request Template
+An HTML template to be used in the description field of expense requests.: An HTML template to be used in the description field of expense requests.
+Allow Expense Add: Allow Expense Add
+Allows privileged users to add expenses without going through request process.: Allows privileged users to add expenses without going through request process.
+Purchasing Officer: Purchasing Officer
+User responsible for purchasing for the school.: User responsible for purchasing for the school.
+Reimbursement Officer: Reimbursement Officer
+User responsible for reimbursing expenses.: User responsible for reimbursing expenses.
+General: General
+Finance Settings: Finance Settings
+' ': ' '

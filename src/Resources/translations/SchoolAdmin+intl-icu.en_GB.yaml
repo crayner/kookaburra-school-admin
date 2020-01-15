@@ -320,3 +320,33 @@ dashboardsettingstype:
         activities: Activities
 Parent Dashboard Default Tab: Parent Dashboard Default Tab
 The default landing tab for the parent dashboard.: The default landing tab for the parent dashboard.
+behaviour_letters_help: 'By using an {link}included CLI script{closeLink}, Kookaburra can be configured to automatically generate and email behaviour letters to parents and tutors, once certain negative behaviour threshold levels have been reached. In your letter text you may use the following fields: [studentName], [rollGroup], [behaviourCount], [behaviourRecord]'
+Descriptors: Descriptors
+Enable Descriptors: Enable Descriptors
+Setting to No reduces complexity of behaviour tracking.: Setting to No reduces complexity of behaviour tracking.
+Positive Descriptors: Positive Descriptors
+Allowable choices for positive behaviour: Allowable choices for positive behaviour
+Negative Descriptors: Negative Descriptors
+Allowable choices for negative behaviour: Allowable choices for negative behaviour
+Levels: Levels
+Enable Levels: Enable Levels
+Allowable choices for severity level (from lowest to highest): Allowable choices for severity level (from lowest to highest)
+Behaviour Letters: Behaviour Letters
+Enable Behaviour Letters: Enable Behaviour Letters
+Should automated behaviour letter functionality be enabled?: Should automated behaviour letter functionality be enabled?
+Letter 1 Count: Letter 1 Count
+After how many negative records should letter 1 be sent?: After how many negative records should letter 1 be sent?
+Letter 1 Text: Letter 1 Text
+The contents of letter 1, as HTML.: The contents of letter 1, as HTML.
+Letter 2 Count: Letter 2 Count
+After how many negative records should letter 2 be sent?: After how many negative records should letter 2 be sent?
+Letter 2 Text: Letter 2 Text
+The contents of letter 2, as HTML.: The contents of letter 2, as HTML.
+Letter 3 Count: Letter 3 Count
+After how many negative records should letter 3 be sent?: After how many negative records should letter 3 be sent?
+Letter 3 Text: Letter 3 Text
+The contents of letter 3, as HTML.: The contents of letter 3, as HTML.
+Policy Link: Policy Link
+A link to the school behaviour policy.: A link to the school behaviour policy.
+Letters: Letters
+Behaviour Settings: Behaviour Settings

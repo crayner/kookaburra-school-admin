@@ -138,6 +138,8 @@ class FacilityController extends AbstractController
             $data['status'] = 'success';
             try {
                 $data['errors'] = ProviderFactory::create(Setting::class)->handleSettingsForm($form, $request, $translator);
+                if ($data['status'] === 'success')
+                    $form = $this->createForm(FacilitySettingsType::class, null, ['action' => $this->generateUrl('school_admin__facility_settings',)]);
             } catch (\Exception $e) {
                 $data = ErrorMessageHelper::getDatabaseErrorMessage($data, true);
             }

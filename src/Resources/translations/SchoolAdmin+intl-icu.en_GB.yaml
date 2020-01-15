@@ -304,3 +304,19 @@ Disable External Provider Signup: Disable External Provider Signup
 Should we turn off the option to sign up for activities provided by an outside agency?: Should we turn off the option to sign up for activities provided by an outside agency?
 Hide External Provider Cost: Hide External Provider Cost
 Should we hide the cost of activities provided by an outside agency from the Activities View?: Should we hide the cost of activities provided by an outside agency from the Activities View?
+Dashboard Settings: Dashboard Settings
+Staff Dashboard Default Tab: Staff Dashboard Default Tab
+The default landing tab for the staff dashboard.: The default landing tab for the staff dashboard.
+Student Dashboard Default Tab: Student Dashboard Default Tab
+The default landing tab for the student dashboard.: The default landing tab for the student dashboard.
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: Planner
+    school_admin__studentdashboarddefaulttab:
+        planner: Planner
+    school_admin__parentdashboarddefaulttab:
+        learning overview: Learning Overview
+        timetable: Timetable
+        activities: Activities
+Parent Dashboard Default Tab: Parent Dashboard Default Tab
+The default landing tab for the parent dashboard.: The default landing tab for the parent dashboard.

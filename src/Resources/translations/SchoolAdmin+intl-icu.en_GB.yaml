@@ -269,3 +269,38 @@ User responsible for reimbursing expenses.: User responsible for reimbursing exp
 General: General
 Finance Settings: Finance Settings
 ' ': ' '
+Activity Settings: Activity Settings
+Date Type: Date Type
+Should activities be organised around dates (flexible) or terms (easy)?: Should activities be organised around dates (flexible) or terms (easy)?
+Maximum Activities per Term: Maximum Activities per Term
+The most a student can sign up for in one term. Set to 0 for unlimited.: The most a student can sign up for in one term. Set to 0 for unlimited.
+Access: Access
+System-wide access control: System-wide access control
+Payment: Payment
+Payment system: Payment system
+activitysettingstype:
+    activities__payment:
+        none: None
+        single: Single
+        per activity: Per Activity
+        single + per activity: Single & Per Activity
+    activities__enrolmenttype:
+        competitive: Competitive
+        selection: Selection
+    activities__datetype:
+        date: Date
+        term: Term
+    activities__access:
+        none: None
+        view: View
+        register: Register
+Enrolment Type: Enrolment Type
+Enrolment process type: Enrolment process type
+Backup Choice: Backup Choice
+Allow students to choose a backup, in case enroled activity is full.: Allow students to choose a backup, in case enroled activity is full.
+Activity Types: Activity Types
+Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.: Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.
+Disable External Provider Signup: Disable External Provider Signup
+Should we turn off the option to sign up for activities provided by an outside agency?: Should we turn off the option to sign up for activities provided by an outside agency?
+Hide External Provider Cost: Hide External Provider Cost
+Should we hide the cost of activities provided by an outside agency from the Activities View?: Should we hide the cost of activities provided by an outside agency from the Activities View?

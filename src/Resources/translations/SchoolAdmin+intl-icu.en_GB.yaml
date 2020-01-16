@@ -357,3 +357,12 @@ Background Colour: Background Colour
 Medium: Medium
 High: High
 Alert Levels: Alert Levels
+fileextension:
+    type:
+        document: Document
+        spreadsheet: Spreadsheet
+        presentation: Presentation
+        graphics/design: Graphics/Design
+        video: Video
+        audio: Audio
+        other: Other

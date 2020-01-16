@@ -12,6 +12,7 @@
  */
 namespace Kookaburra\SchoolAdmin\Entity;
 
+use App\Manager\EntityInterface;
 use App\Validator AS Validator;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -22,7 +23,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\AlertLevelRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="AlertLevel")
  */
-class AlertLevel
+class AlertLevel implements EntityInterface
 {
     /**
      * @var integer|null
@@ -50,14 +51,14 @@ class AlertLevel
 
     /**
      * @var string|null
-     * @ORM\Column(length=6, name="color", options={"comment": "RGB Hex, no leading #"})
+     * @ORM\Column(length=7, name="colour", options={"comment": "RGB Hex"})
      * @Validator\Colour(enforceType="hex")
      */
     private $colour;
 
     /**
      * @var string|null
-     * @ORM\Column(length=6, name="colorBG", options={"comment": "RGB Hex, no leading #"})
+     * @ORM\Column(length=7, name="colour_bg", options={"comment": "RGB Hex"})
      * @Validator\Colour(enforceType="hex")
      */
     private $colourBG;
@@ -134,6 +135,8 @@ class AlertLevel
      */
     public function getColour(): ?string
     {
+        if (!strpos($this->colour, '#') === 0 && strlen($this->colour) > 0)
+            $this->colour = '#' . $this->colour;
         return $this->colour;
     }
 
@@ -152,6 +155,8 @@ class AlertLevel
      */
     public function getColourBG(): ?string
     {
+        if (!strpos($this->colourBG, '#') === 0 && strlen($this->colourBG) > 0)
+            $this->colourBG = '#' . $this->colourBG;
         return $this->colourBG;
     }
 
@@ -199,5 +204,15 @@ class AlertLevel
     {
         $this->sequenceNumber = $sequenceNumber;
         return $this;
+    }
+
+    /**
+     * toArray
+     * @param string|null $name
+     * @return array
+     */
+    public function toArray(?string $name = null): array
+    {
+        return [];
     }
 }

@@ -38,6 +38,9 @@ class DaysOfTheWeekController extends AbstractController
     /**
      * manage
      * @param Request $request
+     * @param ContainerManager $manager
+     * @param string $tabName
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/days/of/the/week/{tabName}", name="days_of_the_week")
      */
     public function manage(Request $request, ContainerManager $manager, string $tabName = 'Monday')

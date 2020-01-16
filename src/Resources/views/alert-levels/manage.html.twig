@@ -8,10 +8,9 @@
     crumbs: [
         {uri: 'school_admin__academic_year_manage', name: 'School Admin'},
     ],
-    title: 'Facilities', domain: 'SchoolAdmin'} %}
+    title: 'Alert Levels', domain: 'SchoolAdmin'} %}
 {% set breadcrumbs = 'new' %}
 
 {% block content %}
-    <button class="close-button gray" title="{{ 'Add'|trans({}, 'messages') }}" type="button" onclick="window.open('{{ path('school_admin__facility_add') }}','_self')"><span class="fas fa-plus-circle fa-fw"/></button>
-    <div id="paginationContent"></div>
+    <div id="formContent"></div>
 {% endblock content %}

@@ -1,0 +1,16 @@
+{% trans_default_domain 'SchoolAdmin' %}
+
+{% extends 'kookaburra.html.twig' %}
+
+{% set moduleName = 'School Admin' %}
+{% set module = {
+    baseURL: 'school_admin',
+    crumbs: [
+        {uri: 'school_admin__academic_year_manage', name: 'School Admin'},
+    ],
+    title: 'Individual Needs', domain: 'SchoolAdmin'} %}
+{% set breadcrumbs = 'new' %}
+
+{% block content %}
+    <div id="formContent"></div>
+{% endblock content %}

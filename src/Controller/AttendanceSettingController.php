@@ -187,9 +187,7 @@ class AttendanceSettingController extends AbstractController
 
         if ($request->getContentType() === 'json') {
             $content = json_decode($request->getContent(), true);
-            dump($content);
             $form->submit($content);
-            dump($code);
             $data = [];
             $data['status'] = 'success';
             if ($form->isValid()) {

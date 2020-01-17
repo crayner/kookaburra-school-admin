@@ -21,7 +21,6 @@ use App\Container\Panel;
 use App\Entity\Setting;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
-use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AttendanceCode;
 use Kookaburra\SchoolAdmin\Form\AttendanceCLIType;
 use Kookaburra\SchoolAdmin\Form\AttendanceCodeType;
@@ -48,7 +47,6 @@ class AttendanceSettingController extends AbstractController
      * manage
      * @Route("/attendance/settings/manage/{tabName}", name="attendance_settings")
      * @IsGranted("ROLE_ROUTE")
-     * @param AttendanceCodePagination $pagination
      * @param ContainerManager $manager
      * @param string $tabName
      * @return \Symfony\Component\HttpFoundation\Response
@@ -237,5 +235,4 @@ class AttendanceSettingController extends AbstractController
 
         return $this->redirectToRoute('school_admin__attendance_settings');
     }
-
 }

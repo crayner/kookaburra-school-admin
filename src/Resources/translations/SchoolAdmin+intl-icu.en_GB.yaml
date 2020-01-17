@@ -374,7 +374,7 @@ Scope: Scope
 'Scope: On Site': 'Scope: On Site'
 'Scope: Off Site': 'Scope: Off Site'
 Attendance Settings: Attendance Settings
-attendance_code_warning: These codes should not be changed during an active school year. Removing an attendace code after attendance has been recorded can result in lost information.
+attendance_code_warning: These codes should not be changed during an active school year. Removing an attendance code after attendance has been recorded can result in lost information.
 attendancecontexttype:
     attendance__defaultrollgroupattendancetype:
         present: Present
@@ -421,3 +421,12 @@ Registration: Registration
 CLI: CLI
 'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
 'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: In Class
+        out: Out of Class
+    scope:
+        onsite: On Site
+        onsite - late: On Site - Late (Tardy)
+        offsite: Off Site
+        offsite - left: Off Site - Left

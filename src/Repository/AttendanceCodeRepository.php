@@ -12,6 +12,8 @@
  */
 namespace Kookaburra\SchoolAdmin\Repository;
 
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Kookaburra\SchoolAdmin\Entity\AttendanceCode;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -72,6 +74,23 @@ class AttendanceCodeRepository extends ServiceEntityRepository
             ->orderBy('c.sequenceNumber', 'ASC')
             ->getQuery()
             ->getResult();
+    }
 
+    /**
+     * nextSequenceNumber
+     * @return int
+     */
+    public function nextSequenceNumber(): int
+    {
+        try {
+            return intval($this->createQueryBuilder('c')
+                ->select(['c.sequenceNumber'])
+                ->orderBy('c.sequenceNumber', 'DESC')
+                ->setMaxResults(1)
+                ->getQuery()
+                ->getSingleScalarResult()) + 1;
+        } catch (NoResultException | NonUniqueResultException $e) {
+            return 0;
+        }
     }
 }

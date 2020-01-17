@@ -20,9 +20,11 @@ use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Entity\Setting;
 use App\Provider\ProviderFactory;
+use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AttendanceCode;
 use Kookaburra\SchoolAdmin\Form\AttendanceCLIType;
+use Kookaburra\SchoolAdmin\Form\AttendanceCodeType;
 use Kookaburra\SchoolAdmin\Form\AttendanceContextType;
 use Kookaburra\SchoolAdmin\Form\AttendanceReasonType;
 use Kookaburra\SchoolAdmin\Form\AttendanceRegistrationType;
@@ -51,46 +53,100 @@ class AttendanceSettingController extends AbstractController
      * @param string $tabName
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manage(AttendanceCodePagination $pagination, ContainerManager $manager, string $tabName = 'Code')
+    public function manage(ContainerManager $manager, string $tabName = 'Code')
     {
-        $content = ProviderFactory::getRepository(AttendanceCode::class)->findBy([], ['sequenceNumber' => 'ASC']);
         ProviderFactory::create(Setting::class)->getSettingsByScope('Attendance');
-
-        $pagination->setContent($content)
-            ->setContentLoader($this->generateUrl('school_admin__attendance_code_content'))
-            ->setPaginationScript();
 
         $container = new Container();
         $panel = new Panel('Code', 'SchoolAdmin');
+        $panel->setPostContent(['attendanceCodePaginationContent']);
+        $container->setContentLoader([
+            [
+                'route' => $this->generateUrl('school_admin__attendance_code_content'),
+                'target' => 'attendanceCodePaginationContent',
+                'type' => 'pagination',
+            ],
+        ]);
         $panel->setContent($this->renderView('@KookaburraSchoolAdmin/attendance/code_manage.html.twig'));
 
         $container->addPanel($panel);
 
-        $form = $this->createForm(AttendanceReasonType::class, null, ['action' => '']);
+        $form = $this->createForm(AttendanceReasonType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Reasons'])]);
         $panel = new Panel('Reasons', 'SchoolAdmin');
         $container->addForm('Reasons', $form->createView())->addPanel($panel);
 
-        $form = $this->createForm(AttendanceContextType::class, null, ['action' => '']);
+        $form = $this->createForm(AttendanceContextType::class, null,['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Context'])]);
         $panel = new Panel('Context', 'SchoolAdmin');
         $container->addForm('Context', $form->createView())->addPanel($panel);
 
-        $form = $this->createForm(AttendanceRegistrationType::class, null, ['action' => '']);
+        $form = $this->createForm(AttendanceRegistrationType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Registration'])]);
         $panel = new Panel('Registration', 'SchoolAdmin');
         $container->addForm('Registration', $form->createView())->addPanel($panel);
 
 
-        $form = $this->createForm(AttendanceCLIType::class, null, ['action' => '']);
+        $form = $this->createForm(AttendanceCLIType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'CLI'])]);
         $panel = new Panel('CLI', 'SchoolAdmin');
         $container->addForm('CLI', $form->createView())->addPanel($panel);
-
-
-
-
 
         $manager->addContainer($container->setSelectedPanel($tabName))->buildContainers();
         return $this->render('@KookaburraSchoolAdmin/attendance/manage.html.twig');
     }
 
+    /**
+     * manageContent
+     * @param Request $request
+     * @param string $tabName
+     * @param ContainerManager $manager
+     * @param TranslatorInterface $translator
+     * @return JsonResponse
+     * @Route("/attendance/settings/{tabName}/save/", name="attendance_settings_save", methods={"POST"})
+     * @Security("is_granted('ROLE_ROUTE', ['school_admin__attendance_settings'])")
+     */
+    public function saveSettings(Request $request, string $tabName, ContainerManager $manager, TranslatorInterface $translator)
+    {
+        $form = $this->createForm(AttendanceReasonType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Reasons'])]);
+        switch ($tabName) {
+            case 'Reason':
+                $form = $this->createForm(AttendanceReasonType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Reasons'])]);
+                break;
+            case 'Context':
+                $form = $this->createForm(AttendanceContextType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Context'])]);
+                break;
+            case 'Registration':
+                $form = $this->createForm(AttendanceRegistrationType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Registration'])]);
+                break;
+            case 'CLI':
+                $form = $this->createForm(AttendanceCLIType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'CLI'])]);
+                break;
+            default:
+                dump($tabName);
+        }
+
+        ProviderFactory::create(Setting::class)->handleSettingsForm($form, $request, $translator);
+        $data['status'] = ProviderFactory::create(Setting::class)->getStatus();
+        $data['errors'] = ProviderFactory::create(Setting::class)->getErrors();
+        if (ProviderFactory::create(Setting::class)->getStatus() === 'success') {
+            switch ($tabName) {
+                case 'Reason':
+                    $form = $this->createForm(AttendanceReasonType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Reasons'])]);
+                    break;
+                case 'Context':
+                    $form = $this->createForm(AttendanceContextType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Context'])]);
+                    break;
+                case 'Registration':
+                    $form = $this->createForm(AttendanceRegistrationType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'Registration'])]);
+                    break;
+                case 'CLI':
+                    $form = $this->createForm(AttendanceCLIType::class, null, ['action' => $this->generateUrl('school_admin__attendance_settings_save', ['tabName' => 'CLI'])]);
+                    break;
+            }
+
+            $manager->singlePanel($form->createView());
+            $data['form'] = $manager->getFormFromContainer();
+        }
+
+        return new JsonResponse($data, 200);
+    }
 
     /**
      * manageContent
@@ -103,8 +159,8 @@ class AttendanceSettingController extends AbstractController
     {
         try {
             $content = ProviderFactory::getRepository(AttendanceCode::class)->findBy([], ['sequenceNumber' => 'ASC']);
-            $pagination->setContent($content);
-            return new JsonResponse(['content' => $pagination->getContent(), 'pageMax' => $pagination->getPageMax(), 'status' => 'success'], 200);
+            $pagination->setContent($content)->setAddElementRoute($this->generateUrl('school_admin__attendance_code_add'));
+            return new JsonResponse(['content' => $pagination->toArray(), 'pageMax' => $pagination->getPageMax(), 'status' => 'success'], 200);
         } catch (\Exception $e) {
             return new JsonResponse(['status' => 'error', 'message' => $e->getMessage()], 200);
         }
@@ -115,36 +171,37 @@ class AttendanceSettingController extends AbstractController
      * @param ContainerManager $manager
      * @param Request $request
      * @param AttendanceCode|null $code
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\Response|JsonResponse
      * @Route("/attendance/code/{code}/edit/", name="attendance_code_edit")
      * @Route("/attendance/code/add/", name="attendance_code_add")
      * @IsGranted("ROLE_ROUTE")
      */
     public function edit(ContainerManager $manager, Request $request, ?AttendanceCode $code = null)
     {
-        if (!$code instanceof AttendanceSetting) {
-            $attendanceSetting = new AttendanceSetting();
-            $action = $this->generateUrl('school_admin__attendance_settings_add');
+        if (!$code instanceof AttendanceCode) {
+           $code = new AttendanceCode();
+            $action = $this->generateUrl('school_admin__attendance_code_add');
         } else {
-            $action = $this->generateUrl('school_admin__attendance_settings_edit', ['attendanceSetting' => $attendanceSetting->getId()]);
+            $action = $this->generateUrl('school_admin__attendance_code_edit', ['code' =>$code->getId()]);
         }
 
-        $form = $this->createForm(AttendanceSettingType::class, $attendanceSetting, ['action' => $action]);
+        $form = $this->createForm(AttendanceCodeType::class,$code, ['action' => $action]);
 
         if ($request->getContentType() === 'json') {
             $content = json_decode($request->getContent(), true);
+            dump($content);
             $form->submit($content);
+            dump($code);
             $data = [];
             $data['status'] = 'success';
             if ($form->isValid()) {
-                $id = $attendanceSetting->getId();
-                $provider = ProviderFactory::create(AttendanceSetting::class);
-                $data = $provider->persistFlush($attendanceSetting, $data);
-                if ($data['status'] === 'success')
-                    $form = $this->createForm(AttendanceSettingType::class, $attendanceSetting, ['action' => $this->generateUrl('school_admin__attendance_settings_edit', ['attendanceSetting' => $attendanceSetting->getId()])]);
+                $id = $code->getId();
+                $provider = ProviderFactory::create(AttendanceCode::class);
+                $data = $provider->persistFlush($code, $data);
+                if ($data['status'] === 'success' && $id === $code->getId())
+                        $form = $this->createForm(AttendanceCodeType::class, $code, ['action' => $this->generateUrl('school_admin__attendance_code_edit', ['code' => $code->getId()])]);
             } else {
-                $data['errors'][] = ['class' => 'error', 'message' => TranslationsHelper::translate('return.error.1', [], 'messages')];
-                $data['status'] = 'error';
+                $data = ErrorMessageHelper::getInvalidInputsMessage($data, true);
             }
 
             $manager->singlePanel($form->createView());
@@ -154,9 +211,9 @@ class AttendanceSettingController extends AbstractController
         }
         $manager->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/attendance/settings/edit.html.twig',
+        return $this->render('@KookaburraSchoolAdmin/attendance/edit.html.twig',
             [
-                'attendanceSetting' => $attendanceSetting,
+                'code' => $code,
             ]
         );
     }
@@ -178,7 +235,7 @@ class AttendanceSettingController extends AbstractController
 
         $provider->getMessageManager()->pushToFlash($flashBag, $translator);
 
-        return $this->redirectToRoute('school_admin__attendance_settings_manage');
+        return $this->redirectToRoute('school_admin__attendance_settings');
     }
 
 }

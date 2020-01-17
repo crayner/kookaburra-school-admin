@@ -14,19 +14,25 @@ namespace Kookaburra\SchoolAdmin\Entity;
 
 use App\Manager\EntityInterface;
 use App\Manager\Traits\BooleanList;
+use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
+use App\Validator\RoleList;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Kookaburra\SystemAdmin\Entity\Role;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class AttendanceCode
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\AttendanceCodeRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="AttendanceCode",
- *     uniqueConstraints={@ORM\UniqueConstraint(name="name",columns={"name"}),
+ *     uniqueConstraints={@ORM\UniqueConstraint(name="name",columns={"name"}),@ORM\UniqueConstraint(name="sequence",columns={"sequence"}),
  *     @ORM\UniqueConstraint(name="code",columns={"code"})})
  * @UniqueEntity({"name"})
  * @UniqueEntity({"code"})
+ * @UniqueEntity({"sequenceNumber"})
  */
 class AttendanceCode implements EntityInterface
 {
@@ -43,20 +49,25 @@ class AttendanceCode implements EntityInterface
     /**
      * @var string|null
      * @ORM\Column(length=30)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=30)
      */
     private $name;
 
     /**
      * @var string|null
      * @ORM\Column(length=4)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4)
      */
     private $code;
 
     /**
      * @var string|null
      * @ORM\Column(length=12)
+     * @Assert\Choice(callback="getTypeList")
      */
-    private $type;
+    private $type = 'Additional';
 
     /**
      * @var array
@@ -66,8 +77,9 @@ class AttendanceCode implements EntityInterface
     /**
      * @var string|null
      * @ORM\Column(length=3)
+     * @Assert\Choice(callback="getDirectionList")
      */
-    private $direction;
+    private $direction = 'In';
 
     /**
      * @var array
@@ -77,8 +89,9 @@ class AttendanceCode implements EntityInterface
     /**
      * @var string|null
      * @ORM\Column(length=14)
+     * @Assert\Choice(callback="getScopeList")
      */
-    private $scope;
+    private $scope = 'Onsite';
 
     /**
      * @var array
@@ -88,32 +101,52 @@ class AttendanceCode implements EntityInterface
     /**
      * @var string|null
      * @ORM\Column(length=1)
+     * @Assert\Choice(callback="getBooleanList")
      */
     private $active;
 
     /**
      * @var string|null
      * @ORM\Column(length=1)
+     * @Assert\Choice(callback="getBooleanList")
      */
     private $reportable;
 
     /**
      * @var string|null
      * @ORM\Column(length=1)
+     * @Assert\Choice(callback="getBooleanList")
      */
     private $future;
 
     /**
-     * @var string|null
+     * @var array|null
      * @ORM\Column(length=90, name="role_list", type="simple_array")
+     * @RoleList(propertyPath="roleAll")
      */
     private $roleAll;
 
     /**
      * @var integer|null
      * @ORM\Column(type="smallint", name="sequence", columnDefinition="INT(3)")
+     * @Assert\Range(min=1,max=999)
      */
     private $sequenceNumber;
+
+    /**
+     * AttendanceCode constructor.
+     */
+    public function __construct()
+    {
+        $this->scope = 'Onsite';
+        $this->type = 'Additional';
+        $this->direction = 'In';
+        $this->active = 'N';
+        $this->reportable = 'N';
+        $this->future = 'N';
+        $this->sequenceNumber = ProviderFactory::getRepository(AttendanceCode::class)->nextSequenceNumber();
+    }
+
 
     /**
      * @return int|null
@@ -306,19 +339,32 @@ class AttendanceCode implements EntityInterface
     }
 
     /**
-     * @return string|null
+     * @return array|null
      */
-    public function getRoleAll(): ?string
+    public function getRoleAll(): ?array
     {
         return $this->roleAll;
     }
 
     /**
-     * @param string|null $roleAll
+     * RoleAll.
+     *
+     * @param array|null $roleAll
      * @return AttendanceCode
      */
-    public function setRoleAll(?string $roleAll): AttendanceCode
+    public function setRoleAll($roleAll): AttendanceCode
     {
+        if ($roleAll instanceof ArrayCollection) {
+            $result = [];
+            foreach($roleAll as $role)
+            {
+                if ($role instanceof Role)
+                    $result[] = $role->getId();
+                else
+                    $result[] = $role;
+            }
+            $roleAll = $result;
+        }
         $this->roleAll = $roleAll;
         return $this;
     }
@@ -378,7 +424,9 @@ class AttendanceCode implements EntityInterface
             'direction' => $this->getDirection(),
             'scope' => $this->getScope(),
             'scope_filter' => explode(' - ', $this->getScope())[0],
+            'id' => $this->getId(),
             'active' => $this->isActive() ? TranslationsHelper::translate('Yes', [], 'messages') :  TranslationsHelper::translate('No', [], 'messages'),
+            'canDelete' => ProviderFactory::create(AttendanceCode::class)->canDelete($this),
         ];
     }
 }

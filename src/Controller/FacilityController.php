@@ -80,7 +80,7 @@ class FacilityController extends AbstractController
                 $id = $facility->getId();
                 $provider = ProviderFactory::create(Facility::class);
                 $data = $provider->persistFlush($facility, $data);
-                if ($data['status'] === 'success')
+                if ($data['status'] === 'success' && $id === $facility->getId())
                     $form = $this->createForm(FacilityType::class, $facility, ['action' => $this->generateUrl('school_admin__facility_edit', ['facility' => $facility->getId()])]);
             } else {
                 $data = ErrorMessageHelper::getInvalidInputsMessage($data);

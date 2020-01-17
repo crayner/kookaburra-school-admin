@@ -1,0 +1,4 @@
+{% trans_default_domain 'SchoolAdmin' %}
+<h3><button class="close-button gray" title="{{ 'Add'|trans({}, 'messages') }}" type="button" onclick="window.open('{{ path('school_admin__attendance_code_add') }}','_self')"><span class="fas fa-plus-circle fa-fw"/></button>{{ 'Attendance Codes'|trans }}</h3>
+<p>{{ 'attendance_code_warning'|trans }}</p>
+<div id="paginationContent"></div>

@@ -366,3 +366,58 @@ fileextension:
         video: Video
         audio: Audio
         other: Other
+Code: Code
+Direction: Direction
+Scope: Scope
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+Attendance Settings: Attendance Settings
+attendance_code_warning: These codes should not be changed during an active school year. Removing an attendace code after attendance has been recorded can result in lost information.
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: Present
+        present - late: Present - Late
+        present - offsite: Present - Off Site
+        absent: Absent
+        left: Left
+        left - early: Left - Early
+Attendance Codes: Attendance Codes
+Reasons: Reasons
+Attendance Reasons: Attendance Reasons
+Comma-separated list of reasons which are available when taking attendance.: Comma-separated list of reasons which are available when taking attendance.
+Context and Defaults: Context and Defaults
+Count Class Attendance as School Attendance: Count Class Attendance as School Attendance
+Should attendance from the class context be used to prefill and inform school attendance?: Should attendance from the class context be used to prefill and inform school attendance?
+Cross-Fill Classes: Cross-Fill Classes
+Should classes prefill with data from other classes?: Should classes prefill with data from other classes?
+Default Roll Group Attendance Type: Default Roll Group Attendance Type
+The default selection for attendance type when taking Roll Group attendance: The default selection for attendance type when taking Roll Group attendance
+Default Class Attendance Type: Default Class Attendance Type
+The default selection for attendance type when taking Class attendance: The default selection for attendance type when taking Class attendance
+Present: Present
+Present - Late: Present - Late
+Present - Off Site: Present - Off Site
+Absent: Absent
+Left: Left
+Left - Early: Left - Early
+Student Self Registration: Student Self Registration
+Student Self Registration IP Addresses: Student Self Registration IP Addresses
+Comma-separated list of IP addresses within which students can self register.: Comma-separated list of IP addresses within which students can self register.
+Self Registration Redirect: Self Registration Redirect
+Should self registration redirect to Message Wall?: Should self registration redirect to Message Wall?
+Teacher: Teacher
+Support Staff: Support Staff
+Administrator: Administrator
+Parent: Parent
+Attendance CLI: Attendance CLI
+Enable Notifications by Roll Group: Enable Notifications by Roll Group
+Enable Notifications by Class: Enable Notifications by Class
+Additional Users to Notify: Additional Users to Notify
+Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.: Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.
+Context: Context
+Registration: Registration
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'

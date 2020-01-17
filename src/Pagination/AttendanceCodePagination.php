@@ -3,30 +3,32 @@
  * Created by PhpStorm.
  *
  * kookaburra
- * (c) 2019 Craig Rayner <craig@craigrayner.com>
+ * (c) 2020 Craig Rayner <craig@craigrayner.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * User: craig
- * Date: 31/12/2019
- * Time: 18:15
+ * Date: 17/01/2020
+ * Time: 08:27
  */
 
 namespace Kookaburra\SchoolAdmin\Pagination;
 
 use App\Manager\Entity\PaginationAction;
 use App\Manager\Entity\PaginationColumn;
+use App\Manager\Entity\PaginationFilter;
 use App\Manager\Entity\PaginationRow;
 use App\Manager\ReactPaginationInterface;
 use App\Manager\ReactPaginationManager;
 use App\Util\TranslationsHelper;
+use Kookaburra\SchoolAdmin\Entity\AttendanceCode;
 
 /**
- * Class HousePagination
+ * Class AttendanceCodePagination
  * @package Kookaburra\SchoolAdmin\Pagination
  */
-class HousePagination extends ReactPaginationManager
+class AttendanceCodePagination extends ReactPaginationManager
 {
     /**
      * execute
@@ -38,11 +40,10 @@ class HousePagination extends ReactPaginationManager
         $row = new PaginationRow();
 
         $column = new PaginationColumn();
-        $column->setLabel('Logo')
-            ->setContentKey('logo')
-            ->setContentType('image')
+        $column->setLabel('Code')
+            ->setContentKey('code')
+            ->setSort(true)
             ->setClass('column relative pr-4 cursor-pointer widthAuto')
-            ->setOptions(['class' => 'max75 user'])
         ;
         $row->addColumn($column);
 
@@ -55,8 +56,20 @@ class HousePagination extends ReactPaginationManager
         $row->addColumn($column);
 
         $column = new PaginationColumn();
-        $column->setLabel('Abbreviation')
-            ->setContentKey('short')
+        $column->setLabel('Direction')
+            ->setContentKey('direction')
+            ->setClass('column relative pr-4 cursor-pointer widthAuto');
+        $row->addColumn($column);
+
+        $column = new PaginationColumn();
+        $column->setLabel('Scope')
+            ->setContentKey('scope')
+            ->setClass('column relative pr-4 cursor-pointer widthAuto');
+        $row->addColumn($column);
+
+        $column = new PaginationColumn();
+        $column->setLabel('Active')
+            ->setContentKey('active')
             ->setClass('column relative pr-4 cursor-pointer widthAuto');
         $row->addColumn($column);
 
@@ -65,8 +78,8 @@ class HousePagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__house_edit')
-            ->setRouteParams(['house' => 'id']);
+            ->setRoute('school_admin__attendance_code_edit')
+            ->setRouteParams(['code' => 'id']);
         $row->addAction($action);
 
         $action = new PaginationAction();
@@ -74,14 +87,37 @@ class HousePagination extends ReactPaginationManager
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-700')
-            ->setRoute('school_admin__house_delete')
+            ->setRoute('school_admin__attendance_code_delete')
             ->setDisplayWhen('canDelete')
             ->setOnClick('areYouSure')
-            ->setRouteParams(['house' => 'id']);
+            ->setRouteParams(['code' => 'id']);
         $row->addAction($action);
+
+        foreach(AttendanceCode::getDirectionList() as $direction)
+        {
+            $filter = new PaginationFilter();
+            $filter->setName('Direction: ' . $direction)
+                ->setValue($direction)
+                ->setGroup('Direction')
+                ->setContentKey('direction');
+            $row->addFilter($filter);
+        }
+
+        $filter = new PaginationFilter();
+        $filter->setName('Scope: On Site' )
+            ->setValue('Onsite')
+            ->setGroup('Scope')
+            ->setContentKey('scope_filter');
+        $row->addFilter($filter);
+
+        $filter = new PaginationFilter();
+        $filter->setName('Scope: Off Site' )
+            ->setValue('Offsite')
+            ->setGroup('Scope')
+            ->setContentKey('scope_filter');
+        $row->addFilter($filter);
 
         $this->setRow($row);
         return $this;
     }
 }
-

@@ -20,7 +20,8 @@ use Kookaburra\UserAdmin\Entity\Person;
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\FacilityPersonRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="FacilityPerson",
- *     indexes={@ORM\Index(name="facility",columns={"facility"})})
+ *     indexes={@ORM\Index(name="facility",columns={"facility"}),
+ *     @ORM\Index(name="person",columns={"person"})})
  */
 class FacilityPerson
 {
@@ -42,7 +43,7 @@ class FacilityPerson
     /**
      * @var Person|null
      * @ORM\ManyToOne(targetEntity="Kookaburra\UserAdmin\Entity\Person")
-     * @ORM\JoinColumn(name="gibbonPersonID", referencedColumnName="gibbonPersonID", nullable=false)
+     * @ORM\JoinColumn(name="person", referencedColumnName="gibbonPersonID", nullable=false)
      */
     private $person;
 

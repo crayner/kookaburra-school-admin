@@ -32,7 +32,7 @@ class DaysOfWeek implements EntityInterface
     /**
      * @var integer|null
      * @ORM\Id
-     * @ORM\Column(type="smallint", name="gibbonDaysOfWeekID", columnDefinition="INT(2) UNSIGNED ZEROFILL AUTO_INCREMENT")
+     * @ORM\Column(type="smallint", columnDefinition="INT(2) UNSIGNED ZEROFILL AUTO_INCREMENT")
      * @ORM\GeneratedValue
      */
     private $id;

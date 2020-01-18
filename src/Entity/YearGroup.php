@@ -23,7 +23,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class YearGroup
  * @package Kookaburra\SchoolAdmin\Entity
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\YearGroupRepository")
- * @ORM\Table(options={"auto_increment": 1}, name="YearGroup", uniqueConstraints={@ORM\UniqueConstraint(name="name", columns={"name"}),@ORM\UniqueConstraint(name="nameShort", columns={"nameShort"}),@ORM\UniqueConstraint(name="sequenceNumber", columns={"sequenceNumber"})})
+ * @ORM\Table(options={"auto_increment": 1}, name="YearGroup", uniqueConstraints={@ORM\UniqueConstraint(name="name", columns={"name"}),
+ *     @ORM\UniqueConstraint(name="nameShort", columns={"nameShort"}),@ORM\UniqueConstraint(name="sequenceNumber", columns={"sequenceNumber"})},
+ *     indexes={@ORM\Index(name="headOfYear", columns={"head_of_year})})
  * @UniqueEntity({"name"})
  * @UniqueEntity({"nameShort"})
  * @UniqueEntity({"sequenceNumber"})

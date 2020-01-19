@@ -36,14 +36,14 @@ class INAssistant
     /**
      * @var Person|null
      * @ORM\ManyToOne(targetEntity="Kookaburra\UserAdmin\Entity\Person")
-     * @ORM\JoinColumn(name="student", referencedColumnName="gibbonPersonID", nullable=false)
+     * @ORM\JoinColumn(name="student", referencedColumnName="id", nullable=false)
      */
     private $student;
 
     /**
      * @var Person|null
      * @ORM\ManyToOne(targetEntity="Kookaburra\UserAdmin\Entity\Person")
-     * @ORM\JoinColumn(name="assistant", referencedColumnName="gibbonPersonID", nullable=false)
+     * @ORM\JoinColumn(name="assistant", referencedColumnName="id", nullable=false)
      */
     private $assistant;
 

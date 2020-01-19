@@ -35,7 +35,7 @@ class INPersonDescriptor implements EntityInterface
     /**
      * @var Person|null
      * @ORM\ManyToOne(targetEntity="Kookaburra\UserAdmin\Entity\Person")
-     * @ORM\JoinColumn(name="person", referencedColumnName="gibbonPersonID", nullable=false)
+     * @ORM\JoinColumn(name="person", referencedColumnName="id", nullable=false)
      */
     private $person;
 

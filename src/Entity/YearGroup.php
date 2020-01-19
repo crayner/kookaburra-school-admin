@@ -66,7 +66,7 @@ class YearGroup implements EntityInterface
     /**
      * @var Person|null
      * @ORM\ManyToOne(targetEntity="Kookaburra\UserAdmin\Entity\Person")
-     * @ORM\JoinColumn(name="head_of_year",referencedColumnName="gibbonPersonID")
+     * @ORM\JoinColumn(name="head_of_year",referencedColumnName="id")
      * @Assert\Valid
      */
     private $headOfYear;

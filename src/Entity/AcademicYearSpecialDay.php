@@ -27,7 +27,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="Kookaburra\SchoolAdmin\Repository\AcademicYearSpecialDayRepository")
  * @ORM\Table(options={"auto_increment": 1}, name="AcademicYearSpecialDay",
  *     uniqueConstraints={@ORM\UniqueConstraint(name="date", columns={"date"})},
- *     indexes={@ORM\Index(name="academic_year", columns={"academic_year"})})
+ *     indexes={@ORM\Index(name="academicYear", columns={"academic_year"})})
  * @Check\SpecialDay()
  * @UniqueEntity("date")
  */

@@ -53,7 +53,7 @@ class AttendanceLogPerson
     /**
      * @var Person|null
      * @ORM\ManyToOne(targetEntity="Kookaburra\UserAdmin\Entity\Person")
-     * @ORM\JoinColumn(name="person", referencedColumnName="gibbonPersonID")
+     * @ORM\JoinColumn(name="person", referencedColumnName="id")
      */
     private $person;
 
@@ -106,7 +106,7 @@ class AttendanceLogPerson
     /**
      * @var Person|null
      * @ORM\ManyToOne(targetEntity="Kookaburra\UserAdmin\Entity\Person")
-     * @ORM\JoinColumn(name="taker", referencedColumnName="gibbonPersonID")
+     * @ORM\JoinColumn(name="taker", referencedColumnName="id")
      */
     private $personTaker;
 

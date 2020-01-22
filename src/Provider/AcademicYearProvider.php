@@ -18,6 +18,7 @@ namespace Kookaburra\SchoolAdmin\Provider;
 use App\Entity\StudentEnrolment;
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
+use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Entity\YearGroup;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -43,19 +44,23 @@ class AcademicYearProvider implements EntityProviderInterface
      */
     public function setCurrentAcademicYear(SessionInterface $session)
     {
-        $row = $this->getRepository()->findOneBy(['status' => 'Current']);
+        $year = $this->getRepository()->findOneBy(['status' => 'Current']);
 
-        //Check number of rows returned.
-        if (!$row instanceof AcademicYear) {
-            die(__('Configuration Error: there is a problem accessing the current Academic Year from the database.'));
+        //Check number of years returned.
+        if (!$year instanceof AcademicYear) {
+            if (!empty($this->getRepository()->findAll()))
+                throw new (TranslationsHelper::translate('Configuration Error: there is a problem accessing the current Academic Year from the database.'));
+            $year = new AcademicYear();
+            $year->setSequenceNumber(1)->setStatus('Current')->setFirstDay(new \DateTimeImmutable(date('Y').'-01-01'))->setLastDay(new \DateTimeImmutable(date('Y').'-12-31'))->setName(date('Y'));
+            $this->persistFlush($year);
         }
         
-        $session->set('AcademicYearID',$row->getId());
-        $session->set('AcademicYear', $row);
-        $session->set('AcademicYearSequenceNumber', $row->getSequenceNumber());
-        $session->set('AcademicYearFirstDay', $row->getFirstDay());
-        $session->set('AcademicYearLastDay', $row->getLastDay());
-        return $row;
+        $session->set('AcademicYearID',$year->getId());
+        $session->set('AcademicYear', $year);
+        $session->set('AcademicYearSequenceNumber', $year->getSequenceNumber());
+        $session->set('AcademicYearFirstDay', $year->getFirstDay());
+        $session->set('AcademicYearLastDay', $year->getLastDay());
+        return $year;
     }
 
     /**

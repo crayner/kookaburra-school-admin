@@ -46,8 +46,9 @@ class AcademicYearHelper
     public static function getCurrentAcademicYear()
     {
         $session = self::$stack->getCurrentRequest()->getSession();
-        if ($session->has('academicYear'))
+        if ($session->has('academicYear')) {
             return $session->get('academicYear');
+        }
         return ProviderFactory::getRepository(AcademicYear::class)->findOneByStatus('Current');
     }
 

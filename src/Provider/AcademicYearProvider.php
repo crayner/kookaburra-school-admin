@@ -16,6 +16,8 @@
 namespace Kookaburra\SchoolAdmin\Provider;
 
 use App\Entity\StudentEnrolment;
+use App\Exception\MissingClassException;
+use App\Exception\MissingEntityException;
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
 use App\Util\TranslationsHelper;
@@ -49,7 +51,7 @@ class AcademicYearProvider implements EntityProviderInterface
         //Check number of years returned.
         if (!$year instanceof AcademicYear) {
             if (!empty($this->getRepository()->findAll()))
-                throw new (TranslationsHelper::translate('Configuration Error: there is a problem accessing the current Academic Year from the database.'));
+                throw new MissingEntityException(TranslationsHelper::translate('Configuration Error: there is a problem accessing the current Academic Year from the database.'));
             $year = new AcademicYear();
             $year->setSequenceNumber(1)->setStatus('Current')->setFirstDay(new \DateTimeImmutable(date('Y').'-01-01'))->setLastDay(new \DateTimeImmutable(date('Y').'-12-31'))->setName(date('Y'));
             $this->persistFlush($year);

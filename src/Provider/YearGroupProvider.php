@@ -102,4 +102,23 @@ class YearGroupProvider implements EntityProviderInterface
     {
         return $this->getRepository(StudentEnrolment::class)->countEnrolmentsByYearGroup($year) === 0;
     }
+
+    /**
+     * @var array|null
+     */
+    private $allYears;
+
+    /**
+     * findAll
+     * @return array
+     */
+    public function findAll(): array
+    {
+        if (null === $this->allYears) {
+            foreach($this->getRepository()->findAll() as $year) {
+                $this->allYears[intval($year->getId())] = $year;
+            }
+        }
+        return $this->allYears;
+    }
 }

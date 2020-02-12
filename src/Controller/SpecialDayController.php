@@ -26,6 +26,7 @@ use Kookaburra\SchoolAdmin\Manager\SpecialDayManager;
 use Kookaburra\SchoolAdmin\Pagination\SpecialDayPagination;
 use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,6 +44,8 @@ class SpecialDayController extends AbstractController
      * manage
      * @Route("/special/day/manage/",name="special_day_manage")
      * @IsGranted("ROLE_ROUTE")
+     * @param SpecialDayPagination $pagination
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function manage(SpecialDayPagination $pagination)
     {
@@ -148,8 +151,10 @@ class SpecialDayController extends AbstractController
     /**
      * storeFilter
      * @param Request $request
+     * @param SpecialDayPagination $pagination
      * @return JsonResponse
      * @Route("/special/day/filter/store/",name="special_day_filter_store", methods={"POST"})
+     * @Security("is_granted('ROLE_ROUTE', ['school_admin__special_day_manage'])")
      */
     public function storeFilter(Request $request, SpecialDayPagination $pagination)
     {

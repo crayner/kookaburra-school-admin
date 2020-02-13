@@ -20,14 +20,14 @@ use App\Manager\Entity\PaginationAction;
 use App\Manager\Entity\PaginationColumn;
 use App\Manager\Entity\PaginationRow;
 use App\Manager\ReactPaginationInterface;
-use App\Manager\ReactPaginationManager;
+use App\Manager\AbstractPaginationManager;
 use App\Util\TranslationsHelper;
 
 /**
  * Class YearGroupPagination
  * @package Kookaburra\SchoolAdmin\Pagination
  */
-class YearGroupPagination extends ReactPaginationManager
+class YearGroupPagination extends AbstractPaginationManager
 {
     public function execute(): ReactPaginationInterface
     {

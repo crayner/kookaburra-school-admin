@@ -20,11 +20,11 @@ use App\Manager\Entity\PaginationColumn;
 use App\Manager\Entity\PaginationFilter;
 use App\Manager\Entity\PaginationRow;
 use App\Manager\ReactPaginationInterface;
-use App\Manager\ReactPaginationManager;
+use App\Manager\AbstractPaginationManager;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\FileExtension;
 
-class FileExtensionPagination extends ReactPaginationManager
+class FileExtensionPagination extends AbstractPaginationManager
 {
     public function execute(): ReactPaginationInterface
     {

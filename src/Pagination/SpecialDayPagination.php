@@ -21,13 +21,13 @@ use App\Manager\Entity\PaginationColumn;
 use App\Manager\Entity\PaginationFilter;
 use App\Manager\Entity\PaginationRow;
 use App\Manager\ReactPaginationInterface;
-use App\Manager\ReactPaginationManager;
+use App\Manager\AbstractPaginationManager;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Util\AcademicYearHelper;
 
-class SpecialDayPagination extends ReactPaginationManager
+class SpecialDayPagination extends AbstractPaginationManager
 {
     public function execute(): ReactPaginationInterface
     {

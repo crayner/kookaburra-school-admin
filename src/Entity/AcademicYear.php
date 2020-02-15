@@ -273,6 +273,7 @@ class AcademicYear implements EntityInterface
             'dates' => $dates,
             'canDelete' => $this->canDelete(),
             'sequence' => $this->getSequenceNumber(),
+            'id' => $this->getId(),
         ];
     }
 

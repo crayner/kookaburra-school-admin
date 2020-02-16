@@ -20,6 +20,7 @@ use App\Exception\MissingClassException;
 use App\Exception\MissingEntityException;
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
+use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 use Kookaburra\SchoolAdmin\Entity\YearGroup;
@@ -101,4 +102,17 @@ class AcademicYearProvider implements EntityProviderInterface
     {
         return $this->getRepository(StudentEnrolment::class)->countEnrolmentsByAcademicYear($year) === 0;
     }
+
+    /**
+     * getSelectList
+     * @return array
+     */
+    public function getSelectList(): array
+    {
+        $result = [];
+        foreach($this->getRepository()->findBy([], ['firstDay' => 'ASC', 'lastDay' => 'ASC']) as $year)
+            $result[$year->getName()] = $year->getId();
+        return $result;
+    }
+
 }

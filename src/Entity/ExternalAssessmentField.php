@@ -13,7 +13,6 @@
 
 namespace Kookaburra\SchoolAdmin\Entity;
 
-use App\Entity\Scale;
 use App\Manager\EntityInterface;
 use App\Provider\ProviderFactory;
 use Doctrine\ORM\Mapping as ORM;

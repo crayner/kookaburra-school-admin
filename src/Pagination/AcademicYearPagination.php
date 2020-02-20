@@ -37,7 +37,7 @@ class AcademicYearPagination extends AbstractPaginationManager
         $column->setLabel('Name')
             ->setContentKey('name')
             ->setSort(true)
-            ->setClass('column relative pr-4 cursor-pointer widthAuto text-centre')
+            ->setClass('p-2 sm:p-3')
         ;
         $row->addColumn($column);
 
@@ -45,20 +45,20 @@ class AcademicYearPagination extends AbstractPaginationManager
         $column->setLabel('Sequence')
             ->setContentKey('sequence')
             ->setSort(true)
-            ->setClass('column relative pr-4 cursor-pointer widthAuto text-centre')
+            ->setClass('p-2 sm:p-3')
         ;
         $row->addColumn($column);
 
         $column = new PaginationColumn();
         $column->setLabel('Dates')
             ->setContentKey(['dates'])
-            ->setClass('column relative pr-4 cursor-pointer widthAuto');
+            ->setClass('p-2 sm:p-3 hidden sm:table-cell');
         $row->addColumn($column);
 
         $column = new PaginationColumn();
         $column->setLabel('Status')
             ->setContentKey(['status'])
-            ->setClass('column relative pr-4 cursor-pointer widthAuto');
+            ->setClass('p-2 sm:p-3 hidden md:table-cell');
         $row->addColumn($column);
 
         $action = new PaginationAction();

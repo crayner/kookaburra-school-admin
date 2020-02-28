@@ -16,6 +16,7 @@
 namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
+use App\Manager\PageManager;
 use App\Manager\ScriptManager;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
@@ -41,17 +42,28 @@ class AcademicYearController extends AbstractController
     /**
      * manage
      * @Route("/academic/year/manage/", name="academic_year_manage")
-     * @Route("/")
+     * @Route("/", name="default")
      * @Security("is_granted('ROLE_ROUTE', ['school_admin__academic_year_manage'])")
      * @param AcademicYearPagination $pagination
+     * @param PageManager $pageManager
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manage(AcademicYearPagination $pagination)
+    public function manage(AcademicYearPagination $pagination, PageManager $pageManager, Request $request)
     {
+        if ($request->getContentType() !== 'json')
+            return $this->render('react_base.html.twig',
+                [
+                    'page' => $pageManager,
+                ]
+            );
+
         $content = ProviderFactory::getRepository(AcademicYear::class)->findBy([], ['firstDay' => 'ASC']);
         $pagination->setContent($content)->setPageMax(25)
-            ->setPaginationScript();
-        return $this->render('@KookaburraSchoolAdmin/academic-year/manage.html.twig');
+            ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__academic_year_add'));
+        $pageManager->createBreadcrumbs('Academic Year Manage', [['uri' => 'school_admin__academic_year_manage', 'name' => 'School Admin']]);
+
+        return $pageManager->createResponse(['pagination' => $pagination->toArray()]);
     }
 
     /**

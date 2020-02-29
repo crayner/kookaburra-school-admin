@@ -97,9 +97,9 @@ class Day
      * Day constructor.
      * @param \DateTimeImmutable $date
      * @param int $weeks
-     * @throws \Exception
+     * @param CalendarDisplayManager|null $manager
      */
-	public function __construct(?\DateTimeImmutable $date = null, ?int $weeks = null, CalendarDisplayManager $manager)
+	public function __construct(?\DateTimeImmutable $date = null, ?int $weeks = null, CalendarDisplayManager $manager = null)
 	{
 		$this->settingProvider = ProviderFactory::create(Setting::class);
 		$this->parameters     = [];

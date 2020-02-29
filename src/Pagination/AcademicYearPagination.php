@@ -87,6 +87,8 @@ class AcademicYearPagination extends AbstractPaginationManager
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('far fa-calendar-alt fa-fw fa-1-5x text-gray-800 hover:text-purple-600')
             ->setRoute('school_admin__academic_year_display')
+            ->setOnClick('loadNewPage')
+            ->setOptions('Calender Display')
             ->setRouteParams(['year' => 'id']);
         $row->addAction($action);
 

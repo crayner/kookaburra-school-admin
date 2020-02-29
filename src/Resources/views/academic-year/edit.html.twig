@@ -1,17 +1,5 @@
 {% trans_default_domain 'SchoolAdmin' %}
 
-{% extends 'kookaburra.html.twig' %}
-
-{% set moduleName = 'School Admin' %}
-{% set module = {
-    baseURL: 'school_admin',
-    crumbs: [
-        {uri: 'school_admin__academic_year_manage', name: 'School Admin'},
-        {uri: 'school_admin__academic_year_manage', name: 'Manage Academic Years'},
-    ],
-    title: (year.id > 0 ? 'Edit Academic Year' : 'Add Academic Year'), domain: 'SchoolAdmin'} %}
-{% set breadcrumbs = 'new' %}
-
 {% block content %}
     <button class="close-button gray" title="{{ 'Return'|trans({}, 'messages') }}" type="button" onclick="window.open('{{ path('school_admin__academic_year_manage') }}','_self')"><span class="fas fa-reply fa-fw"/></button>
     <div id="formContent"></div>

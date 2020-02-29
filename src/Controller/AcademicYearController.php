@@ -46,11 +46,11 @@ class AcademicYearController extends AbstractController
      * @Security("is_granted('ROLE_ROUTE', ['school_admin__academic_year_manage'])")
      * @param AcademicYearPagination $pagination
      * @param PageManager $pageManager
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manage(AcademicYearPagination $pagination, PageManager $pageManager, Request $request)
+    public function manage(AcademicYearPagination $pagination, PageManager $pageManager)
     {
+        $request = $pageManager->getRequest();
         if ($request->getContentType() !== 'json')
             return $this->render('react_base.html.twig',
                 [
@@ -60,8 +60,10 @@ class AcademicYearController extends AbstractController
 
         $content = ProviderFactory::getRepository(AcademicYear::class)->findBy([], ['firstDay' => 'ASC']);
         $pagination->setContent($content)->setPageMax(25)
-            ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__academic_year_add'));
-        $pageManager->createBreadcrumbs('Academic Year Manage', [['uri' => 'school_admin__academic_year_manage', 'name' => 'School Admin']]);
+            ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__academic_year_add'))->setReturnRoute($this->generateUrl('school_admin__academic_year_manage'));
+
+        $pageManager->createBreadcrumbs('Academic Year Manage', []);
+        $pageManager->getBreadCrumbs();
 
         return $pageManager->createResponse(['pagination' => $pagination->toArray()]);
     }
@@ -72,12 +74,21 @@ class AcademicYearController extends AbstractController
      * @Route("/academic/year/add/", name="academic_year_add")
      * @IsGranted("ROLE_ROUTE")
      * @param ContainerManager $manager
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param AcademicYear|null $year
      * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function edit(ContainerManager $manager, Request $request, ?AcademicYear $year = null)
+    public function edit(ContainerManager $manager, PageManager $pageManager, ?AcademicYear $year = null)
     {
+        $request = $pageManager->getRequest();
+        if ($request->getContentType() !== 'json')
+            return $this->render('react_base.html.twig',
+                [
+                    'page' => $pageManager,
+                ]
+            );
+
+
         if (!$year instanceof AcademicYear) {
             $year = new AcademicYear();
             $action = $this->generateUrl('school_admin__academic_year_add');
@@ -87,7 +98,7 @@ class AcademicYearController extends AbstractController
 
         $form = $this->createForm(AcademicYearType::class, $year, ['action' => $action]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
             $form->submit($content);
             $data = [];
@@ -105,16 +116,18 @@ class AcademicYearController extends AbstractController
 
             $manager->singlePanel($form->createView());
             $data['form'] = $manager->getFormFromContainer('formContent', 'single');
-
             return new JsonResponse($data, 200);
         }
+
         $manager->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/academic-year/edit.html.twig',
+        $pageManager->createBreadcrumbs($year->getId() > 0 ? 'Edit Academic Year' : 'Add Academic Year',
             [
-                'year' => $year,
+                ['uri' => 'school_admin__academic_year_manage', 'name' => 'Manage Academic Years']
             ]
         );
+
+        return $pageManager->createResponse(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**
@@ -143,9 +156,9 @@ class AcademicYearController extends AbstractController
      * @param Request $request
      * @param ScriptManager $manager
      * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \Exception
      * @Route("/academic/year/{year}/display/", name="academic_year_display")
      * @IsGranted("ROLE_USER")
+     * @throws \Exception
      */
     public function display(AcademicYear $year, Request $request, ScriptManager $manager)
     {

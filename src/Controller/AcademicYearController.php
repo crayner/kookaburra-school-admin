@@ -60,7 +60,7 @@ class AcademicYearController extends AbstractController
 
         $content = ProviderFactory::getRepository(AcademicYear::class)->findBy([], ['firstDay' => 'ASC']);
         $pagination->setContent($content)->setPageMax(25)
-            ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__academic_year_add'))->setReturnRoute($this->generateUrl('school_admin__academic_year_manage'));
+            ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__academic_year_add'));
 
         $pageManager->createBreadcrumbs('Academic Year Manage', []);
         $pageManager->getBreadCrumbs();

@@ -18,6 +18,7 @@ namespace Kookaburra\SchoolAdmin\Controller;
 use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
@@ -37,14 +38,22 @@ class DaysOfTheWeekController extends AbstractController
 {
     /**
      * manage
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param string $tabName
      * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/days/of/the/week/{tabName}", name="days_of_the_week")
      */
-    public function manage(Request $request, ContainerManager $manager, string $tabName = 'Monday')
+    public function manage(PageManager $pageManager, ContainerManager $manager, string $tabName = 'Monday')
     {
+        $request = $pageManager->getRequest();
+        if ($request->getContentType() !== 'json')
+            return $this->render('react_base.html.twig',
+                [
+                    'page' => $pageManager,
+                ]
+            );
+
         $container = new Container();
         $container->setTarget('formContent')->setSelectedPanel($tabName);
         TranslationsHelper::setDomain('SchoolAdmin');
@@ -56,7 +65,7 @@ class DaysOfTheWeekController extends AbstractController
             $container->addForm($day->getName(), $form->createView())->addPanel($panel);
         }
 
-        if ($request->getContentType() === 'json')
+        if ($request->getContent() !== '')
         {
             $content = json_decode($request->getContent(), true);
             $day = $content['id'] > 0 ? ProviderFactory::getRepository(DaysOfWeek::class)->find($content['id']) : new DaysOfWeek();
@@ -82,7 +91,8 @@ class DaysOfTheWeekController extends AbstractController
 
 
         $manager->addContainer($container)->buildContainers();
+        $pageManager->createBreadcrumbs('Manage Days of the Week', []);
 
-        return $this->render('@KookaburraSchoolAdmin/days-of-the-week/manage.html.twig');
+        return $pageManager->createResponse(['containers' => $manager->getBuiltContainers()]);
     }
 }

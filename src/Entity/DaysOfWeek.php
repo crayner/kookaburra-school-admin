@@ -157,9 +157,13 @@ class DaysOfWeek implements EntityInterface
         return $this;
     }
 
+    /**
+     * isSchoolDay
+     * @return bool
+     */
     public function isSchoolDay(): bool
     {
-        return $this->isTrueOrFalse($this->getSchoolDay());
+        return $this->getSchoolDay() === 'Y';
     }
     /**
      * @return string

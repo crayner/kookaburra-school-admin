@@ -64,7 +64,7 @@ class IndividualNeedsPagination extends AbstractPaginationManager
         $action->setTitle('Edit')
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
-            ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-700')
+            ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-800 hover:text-purple-500')
             ->setRoute('school_admin__in_edit')
             ->setRouteParams(['need' => 'id']);
         $row->addAction($action);
@@ -73,7 +73,7 @@ class IndividualNeedsPagination extends AbstractPaginationManager
         $action->setTitle('Delete')
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
-            ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-700')
+            ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-800 hover:text-red-500')
             ->setRoute('school_admin__in_delete')
             ->setDisplayWhen('canDelete')
             ->setOnClick('areYouSure')

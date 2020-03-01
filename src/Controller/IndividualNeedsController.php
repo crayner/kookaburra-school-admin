@@ -19,6 +19,7 @@ use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Entity\INDescriptor;
@@ -37,6 +38,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Class IndividualNeedsController
  * @package Kookaburra\SchoolAdmin\Controller
+ * @todo Move this code to Individual Needs Module when created.
  */
 class IndividualNeedsController extends AbstractController
 {
@@ -45,11 +47,13 @@ class IndividualNeedsController extends AbstractController
      * @Route("/individual/needs/manage/{tabName}", name="in_manage")
      * @IsGranted("ROLE_ROUTE")
      * @param ContainerManager $manager
+     * @param PageManager $pageManager
      * @param string $tabName
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manage(ContainerManager $manager, string $tabName = 'Descriptors')
+    public function manage(ContainerManager $manager, PageManager $pageManager, string $tabName = 'Descriptors')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         ProviderFactory::create(Setting::class)->getSettingsByScope('Individual Needs');
         $container = new Container();
         $panel = new Panel('Descriptors', 'SchoolAdmin');
@@ -70,7 +74,8 @@ class IndividualNeedsController extends AbstractController
         $container->addForm('Templates', $form->createView())->addPanel($panel);
 
         $manager->addContainer($container->setSelectedPanel($tabName))->buildContainers();
-        return $this->render('@KookaburraSchoolAdmin/individual-needs/manage.html.twig');
+        return $pageManager->createBreadcrumbs( 'Individual Needs',[])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**
@@ -113,7 +118,6 @@ class IndividualNeedsController extends AbstractController
             $pagination->setContent($content)->setAddElementRoute($this->generateUrl('school_admin__in_add'));
             return new JsonResponse(['content' => $pagination->toArray(), 'pageMax' => $pagination->getPageMax(), 'status' => 'success'], 200);
         } catch (\Exception $e) {
-            throw $e;
             return new JsonResponse(['status' => 'error', 'message' => $e->getMessage()], 200);
         }
     }
@@ -121,15 +125,17 @@ class IndividualNeedsController extends AbstractController
     /**
      * edit
      * @param ContainerManager $manager
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param INDescriptor|null $need
      * @return \Symfony\Component\HttpFoundation\Response|JsonResponse
      * @Route("/individual/needs/{need}/edit/", name="in_edit")
      * @Route("/individual/needs/add/", name="in_add")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function edit(ContainerManager $manager, Request $request, ?INDescriptor $need = null)
+    public function edit(ContainerManager $manager, PageManager $pageManager, ?INDescriptor $need = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         if (!$need instanceof INDescriptor) {
             $need = new INDescriptor();
             $action = $this->generateUrl('school_admin__in_add');
@@ -139,7 +145,7 @@ class IndividualNeedsController extends AbstractController
 
         $form = $this->createForm(INDescriptorType::class, $need, ['action' => $action]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
             $form->submit($content);
             $data = [];
@@ -164,13 +170,14 @@ class IndividualNeedsController extends AbstractController
 
             return new JsonResponse($data, 200);
         }
-        $manager->singlePanel($form->createView());
+        $manager->setReturnRoute($this->generateUrl('school_admin__in_manage', ['tabName' => 'Descriptors']))->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/individual-needs/edit.html.twig',
+        return $pageManager->createBreadcrumbs($need->getId() > 0 ? 'Edit Individual Need' : 'Add Individual Need',
             [
-                'need' => $need,
+                ['uri' => 'school_admin__in_manage', 'name' => 'Individual Needs']
             ]
-        );
+        )
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

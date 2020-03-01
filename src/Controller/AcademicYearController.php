@@ -56,9 +56,8 @@ class AcademicYearController extends AbstractController
         $pagination->setContent($content)->setPageMax(25)
             ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__academic_year_add'));
 
-        $pageManager->createBreadcrumbs('Academic Year Manage', []);
-
-        return $pageManager->render(['pagination' => $pagination->toArray()]);
+        return $pageManager->createBreadcrumbs('Academic Year Manage', [])
+            ->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
@@ -108,13 +107,12 @@ class AcademicYearController extends AbstractController
 
         $manager->singlePanel($form->createView());
 
-        $pageManager->createBreadcrumbs($year->getId() > 0 ? 'Edit Academic Year' : 'Add Academic Year',
+        return $pageManager->createBreadcrumbs($year->getId() > 0 ? 'Edit Academic Year' : 'Add Academic Year',
             [
                 ['uri' => 'school_admin__academic_year_manage', 'name' => 'Manage Academic Years']
             ]
-        );
-
-        return $pageManager->render(['containers' => $manager->getBuiltContainers()]);
+        )
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

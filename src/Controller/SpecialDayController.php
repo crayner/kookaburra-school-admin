@@ -57,9 +57,8 @@ class SpecialDayController extends AbstractController
         $pagination->setStoreFilterURL($this->generateUrl('school_admin__special_day_filter_store'))->setContent($content)->setPageMax(25)
             ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__special_day_add'));
 
-        $pageManager->createBreadcrumbs('Manage Special Days', []);
-
-        return $pageManager->render(['pagination' => $pagination->toArray()]);
+        return $pageManager->createBreadcrumbs('Manage Special Days', [])
+            ->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
@@ -141,9 +140,8 @@ class SpecialDayController extends AbstractController
         }
         $manager->setReturnRoute($this->generateUrl('school_admin__special_day_manage'))->setAddElementRoute($this->generateUrl('school_admin__special_day_add'))->singlePanel($form->createView());
 
-        $pageManager->createBreadcrumbs(($day->getId() > 0 ? 'Edit Special Day' : 'Add Special Day'), [['uri' => 'school_admin__special_day_manage', 'name' => 'Manage Special Days']]);
-
-        return $pageManager->render(['containers' => $manager->getBuiltContainers()]);
+        return $pageManager->createBreadcrumbs(($day->getId() > 0 ? 'Edit Special Day' : 'Add Special Day'), [['uri' => 'school_admin__special_day_manage', 'name' => 'Manage Special Days']])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

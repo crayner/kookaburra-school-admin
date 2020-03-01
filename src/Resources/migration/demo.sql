@@ -1,4 +1,4 @@
-INSERT INTO `__prefix__academicyear` (`id`, `name`, `status`, `firstDay`, `lastDay`, `sequenceNumber`) VALUES
+INSERT INTO `__prefix__AcademicYear` (`id`, `name`, `status`, `firstDay`, `lastDay`, `sequenceNumber`) VALUES
 (23, '2017-2018', 'Past', '2017-07-01', '2018-06-30', 1),
 (24, '2018-2019', 'Past', '2018-07-01', '2019-06-30', 2),
 (25, '2019-2020', 'Current', '2019-07-01', '2020-06-30', 3),
@@ -58,12 +58,12 @@ INSERT INTO `__prefix__AcademicYearTerm` (`id`, `sequenceNumber`, `name`, `nameS
 (36, 33, 'Term 3', 'T3', '2021-04-16', '2021-06-28', 26);
 
 INSERT INTO `__prefix__AttendanceCode` (`id`, `name`, `code`, `type`, `direction`, `scope`, `active`, `reportable`, `future`, `role_list`, `sequence`) VALUES
-(1, 'Present', 'P', 'Core', 'In', 'Onsite', 'Y', 'Y', 'N', '1,8,6,2', 1),
-(2, 'Present - Late', 'PL', 'Core', 'In', 'Onsite - Late', 'Y', 'Y', 'N', '1,8,6,2', 2),
-(3, 'Present - Offsite', 'PS', 'Core', 'In', 'Offsite', 'Y', 'Y', 'Y', '1,6', 3),
-(4, 'Absent', 'A', 'Core', 'Out', 'Offsite', 'Y', 'Y', 'Y', '1,2,6', 4),
-(5, 'Left', 'L', 'Core', 'Out', 'Offsite - Left', 'Y', 'Y', 'N', '1,2,6', 5),
-(6, 'Left - Early', 'LE', 'Core', 'Out', 'Offsite - Left', 'Y', 'Y', 'N', '1,8,6,2', 6);
+(1, 'Present', 'P', 'Core', 'In', 'Onsite', 'Y', 'Y', 'N', '1,2,5,6', 1),
+(2, 'Present - Late', 'PL', 'Core', 'In', 'Onsite - Late', 'Y', 'Y', 'N', '1,2,5,6', 2),
+(3, 'Present - Offsite', 'PS', 'Core', 'In', 'Offsite', 'Y', 'Y', 'Y', '1,5', 3),
+(4, 'Absent', 'A', 'Core', 'Out', 'Offsite', 'Y', 'Y', 'Y', '1,2,5', 4),
+(5, 'Left', 'L', 'Core', 'Out', 'Offsite - Left', 'Y', 'Y', 'N', '1,2,5', 5),
+(6, 'Left - Early', 'LE', 'Core', 'Out', 'Offsite - Left', 'Y', 'Y', 'N', '1,2,5,6', 6);
 
 INSERT INTO `__prefix__Facility` (`id`, `name`, `type`, `capacity`, `computer`, `computerStudent`, `projector`, `tv`, `dvd`, `hifi`, `speakers`, `iwb`, `phoneInternal`, `phoneExternal`, `comment`) VALUES
 (1, 'C101', 'Classroom', 24, 'N', 0, 'Y', 'N', 'N', 'N', 'Y', 'N', '101', '', ''),

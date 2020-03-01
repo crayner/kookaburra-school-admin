@@ -19,6 +19,7 @@ use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Entity\AttendanceCode;
@@ -48,11 +49,13 @@ class AttendanceSettingController extends AbstractController
      * @Route("/attendance/settings/manage/{tabName}", name="attendance_settings")
      * @IsGranted("ROLE_ROUTE")
      * @param ContainerManager $manager
+     * @param PageManager $pageManager
      * @param string $tabName
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manage(ContainerManager $manager, string $tabName = 'Code')
+    public function manage(ContainerManager $manager, PageManager $pageManager, string $tabName = 'Code')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         ProviderFactory::create(Setting::class)->getSettingsByScope('Attendance');
 
         $container = new Container();
@@ -87,7 +90,8 @@ class AttendanceSettingController extends AbstractController
         $container->addForm('CLI', $form->createView())->addPanel($panel);
 
         $manager->addContainer($container->setSelectedPanel($tabName))->buildContainers();
-        return $this->render('@KookaburraSchoolAdmin/attendance/manage.html.twig');
+        return $pageManager->createBreadcrumbs('Alert Levels', [])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**
@@ -167,15 +171,18 @@ class AttendanceSettingController extends AbstractController
     /**
      * edit
      * @param ContainerManager $manager
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param AttendanceCode|null $code
      * @return \Symfony\Component\HttpFoundation\Response|JsonResponse
      * @Route("/attendance/code/{code}/edit/", name="attendance_code_edit")
      * @Route("/attendance/code/add/", name="attendance_code_add")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function edit(ContainerManager $manager, Request $request, ?AttendanceCode $code = null)
+    public function edit(ContainerManager $manager, PageManager $pageManager, ?AttendanceCode $code = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
+
         if (!$code instanceof AttendanceCode) {
            $code = new AttendanceCode();
             $action = $this->generateUrl('school_admin__attendance_code_add');
@@ -185,7 +192,7 @@ class AttendanceSettingController extends AbstractController
 
         $form = $this->createForm(AttendanceCodeType::class,$code, ['action' => $action]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
             $form->submit($content);
             $data = [];
@@ -205,13 +212,10 @@ class AttendanceSettingController extends AbstractController
 
             return new JsonResponse($data, 200);
         }
-        $manager->singlePanel($form->createView());
+        $manager->setReturnRoute($this->generateUrl('school_admin__attendance_settings'))->setAddElementRoute($this->generateUrl('school_admin__attendance_code_add'))->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/attendance/edit.html.twig',
-            [
-                'code' => $code,
-            ]
-        );
+        return $pageManager->createBreadcrumbs($code->getId() > 0 ? 'Edit Attendance Code' : 'Add Attendance Code', [['uri' => 'school_admin__attendance_settings', 'name' => 'Attendance Settings']])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

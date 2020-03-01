@@ -55,9 +55,8 @@ class AcademicYearTermController extends AbstractController
         $pagination->setContent($content)->setPageMax(25)
             ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__academic_year_term_add'));
 
-        $pageManager->createBreadcrumbs('Manage Academic Year Terms', []);
-
-        return $pageManager->render(['pagination' => $pagination->toArray()]);
+        return $pageManager->createBreadcrumbs('Manage Academic Year Terms', [])
+            ->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
@@ -106,9 +105,8 @@ class AcademicYearTermController extends AbstractController
             return new JsonResponse($data, 200);
         }
         $manager->setAddElementRoute($this->generateUrl('school_admin__academic_year_term_manage'))->setReturnRoute($this->generateUrl('school_admin__academic_year_term_manage'        ))->singlePanel($form->createView());
-        $pageManager->createBreadcrumbs($term->getId() > 0 ? 'Edit Academic Year Term' : 'Add Academic Year Term', [['uri' => 'school_admin__academic_year_term_manage', 'name' => 'Manage Terms']]);
-
-        return $pageManager->render(['containers' => $manager->getBuiltContainers()]);
+        return $pageManager->createBreadcrumbs($term->getId() > 0 ? 'Edit Academic Year Term' : 'Add Academic Year Term', [['uri' => 'school_admin__academic_year_term_manage', 'name' => 'Manage Terms']])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

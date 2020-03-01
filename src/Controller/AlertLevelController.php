@@ -48,9 +48,9 @@ class AlertLevelController extends AbstractController
      */
     public function manage(ContainerManager $manager, PageManager $pageManager, ?string $tabName = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $container = new Container();
         $container->setTarget('formContent')->setSelectedPanel($tabName);
-        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
 
         $levels = ProviderFactory::getRepository(AlertLevel::class)->findBy([],['sequenceNumber' => 'ASC']);
         foreach($levels as $q=>$level) {
@@ -61,7 +61,7 @@ class AlertLevelController extends AbstractController
 
         $manager->addContainer($container)->buildContainers();
 
-        return $pageManager->createBreadcrumbs('Alert Levels', [])
+        return $pageManager->createBreadcrumbs('Attendance Settings', [])
             ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
@@ -78,7 +78,7 @@ class AlertLevelController extends AbstractController
     {
         $form = $this->createForm(AlertLevelType::class,$level, ['action' => $this->generateUrl('school_admin__alert_level_change', ['level' => $level->getId()])]);
         $name = $level->getName();
-dump($level);
+
         $content = json_decode($request->getContent(), true);
 
         $form->submit($content);

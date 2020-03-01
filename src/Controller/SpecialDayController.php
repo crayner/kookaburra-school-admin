@@ -59,7 +59,7 @@ class SpecialDayController extends AbstractController
 
         $pageManager->createBreadcrumbs('Manage Special Days', []);
 
-        return $pageManager->createResponse(['pagination' => $pagination->toArray()]);
+        return $pageManager->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
@@ -143,7 +143,7 @@ class SpecialDayController extends AbstractController
 
         $pageManager->createBreadcrumbs(($day->getId() > 0 ? 'Edit Special Day' : 'Add Special Day'), [['uri' => 'school_admin__special_day_manage', 'name' => 'Manage Special Days']]);
 
-        return $pageManager->createResponse(['containers' => $manager->getBuiltContainers()]);
+        return $pageManager->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

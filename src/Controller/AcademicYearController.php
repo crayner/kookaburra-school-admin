@@ -58,7 +58,7 @@ class AcademicYearController extends AbstractController
 
         $pageManager->createBreadcrumbs('Academic Year Manage', []);
 
-        return $pageManager->createResponse(['pagination' => $pagination->toArray()]);
+        return $pageManager->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
@@ -114,7 +114,7 @@ class AcademicYearController extends AbstractController
             ]
         );
 
-        return $pageManager->createResponse(['containers' => $manager->getBuiltContainers()]);
+        return $pageManager->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

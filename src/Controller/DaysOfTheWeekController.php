@@ -88,6 +88,6 @@ class DaysOfTheWeekController extends AbstractController
         $manager->addContainer($container)->buildContainers();
         $pageManager->createBreadcrumbs('Manage Days of the Week', []);
 
-        return $pageManager->createResponse(['containers' => $manager->getBuiltContainers()]);
+        return $pageManager->render(['containers' => $manager->getBuiltContainers()]);
     }
 }

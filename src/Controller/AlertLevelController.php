@@ -18,6 +18,7 @@ namespace Kookaburra\SchoolAdmin\Controller;
 use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Entity\AlertLevel;
@@ -41,18 +42,18 @@ class AlertLevelController extends AbstractController
      * @Route("/alert/levels/manage/{tabName}", name="alert_levels")
      * @IsGranted("ROLE_ROUTE")
      * @param ContainerManager $manager
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param string|null $tabName
      * @return Response
      */
-    public function manage(ContainerManager $manager, ?string $tabName = null)
+    public function manage(ContainerManager $manager, PageManager $pageManager, ?string $tabName = null)
     {
         $container = new Container();
         $container->setTarget('formContent')->setSelectedPanel($tabName);
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
 
         $levels = ProviderFactory::getRepository(AlertLevel::class)->findBy([],['sequenceNumber' => 'ASC']);
         foreach($levels as $q=>$level) {
-            dump($level);
             $form = $this->createForm(AlertLevelType::class, $level, ['action' => $this->generateUrl('school_admin__alert_level_change', ['level' => $level->getId()])]);
             $panel = new Panel($level->getName(), 'SchoolAdmin');
             $container->addForm($level->getName(), $form->createView())->addPanel($panel);
@@ -60,7 +61,8 @@ class AlertLevelController extends AbstractController
 
         $manager->addContainer($container)->buildContainers();
 
-        return $this->render('@KookaburraSchoolAdmin/alert-levels/manage.html.twig');
+        return $pageManager->createBreadcrumbs('Alert Levels', [])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

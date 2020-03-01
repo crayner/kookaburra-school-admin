@@ -16,6 +16,7 @@
 namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
@@ -45,14 +46,26 @@ class SpecialDayController extends AbstractController
      * @Route("/special/day/manage/",name="special_day_manage")
      * @IsGranted("ROLE_ROUTE")
      * @param SpecialDayPagination $pagination
+     * @param PageManager $pageManager
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manage(SpecialDayPagination $pagination)
+    public function manage(SpecialDayPagination $pagination, PageManager $pageManager)
     {
+        $request = $pageManager->getRequest();
+        if ($request->getContentType() !== 'json')
+            return $this->render('react_base.html.twig',
+                [
+                    'page' => $pageManager,
+                ]
+            );
+
         $content = ProviderFactory::getRepository(AcademicYearSpecialDay::class)->findBy([],['date' => 'ASC']);
         $pagination->setStoreFilterURL($this->generateUrl('school_admin__special_day_filter_store'))->setContent($content)->setPageMax(25)
-            ->setPaginationScript();
-        return $this->render('@KookaburraSchoolAdmin/special-day/manage.html.twig');
+            ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__special_day_add'));
+
+        $pageManager->createBreadcrumbs('Manage Special Days', []);
+
+        return $pageManager->createResponse(['pagination' => $pagination->toArray()]);
     }
 
     /**
@@ -62,13 +75,21 @@ class SpecialDayController extends AbstractController
      * @Route("/special/day/{day}/duplicate/", name="special_day_duplicate")
      * @IsGranted("ROLE_ROUTE")
      * @param ContainerManager $manager
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param AcademicYearSpecialDay|null $day
      * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      * @throws \Exception
      */
-    public function edit(ContainerManager $manager, Request $request, ?AcademicYearSpecialDay $day = null)
+    public function edit(ContainerManager $manager, PageManager $pageManager, ?AcademicYearSpecialDay $day = null)
     {
+        $request = $pageManager->getRequest();
+        if ($request->getContentType() !== 'json')
+            return $this->render('react_base.html.twig',
+                [
+                    'page' => $pageManager,
+                ]
+            );
+
         if ($request->attributes->get('_route') === 'school_admin__special_day_duplicate') {
             $copy = clone $day;
             $day = new AcademicYearSpecialDay();
@@ -86,7 +107,17 @@ class SpecialDayController extends AbstractController
         } else if (!$day instanceof AcademicYearSpecialDay) {
             $day = new AcademicYearSpecialDay();
             $action = $this->generateUrl('school_admin__special_day_add');
-            $year = ProviderFactory::getRepository(AcademicYear::class)->findOneByName(str_replace('Academic Year: ','', $request->getSession()->get('special_day_pagination'))) ?: AcademicYearHelper::getCurrentAcademicYear();
+            $whichYear = $request->getSession()->get('special_day_pagination');
+            if (isset($whichYear['filter'])) {
+                foreach($whichYear['filter'] as $w)
+                    if (mb_strpos($w, 'Academic Year: ') === 0) {
+                        $whichYear = $w;
+                        break;
+                    }
+            } else {
+                $whichYear = '';
+            }
+            $year = ProviderFactory::getRepository(AcademicYear::class)->findOneByName(str_replace('Academic Year: ','', $whichYear)) ?: AcademicYearHelper::getCurrentAcademicYear();
             $day->setAcademicYear($year);
         } else {
             $action = $this->generateUrl('school_admin__special_day_edit', ['day' => $day->getId()]);
@@ -94,7 +125,7 @@ class SpecialDayController extends AbstractController
 
         $form = $this->createForm(SpecialDayType::class, $day, ['action' => $action]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
             $form->submit($content);
             $data = [];
@@ -119,13 +150,11 @@ class SpecialDayController extends AbstractController
 
             return new JsonResponse($data, 200);
         }
-        $manager->singlePanel($form->createView());
+        $manager->setReturnRoute($this->generateUrl('school_admin__special_day_manage'))->setAddElementRoute($this->generateUrl('school_admin__special_day_add'))->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/special-day/edit.html.twig',
-            [
-                'day' => $day,
-            ]
-        );
+        $pageManager->createBreadcrumbs(($day->getId() > 0 ? 'Edit Special Day' : 'Add Special Day'), [['uri' => 'school_admin__special_day_manage', 'name' => 'Manage Special Days']]);
+
+        return $pageManager->createResponse(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

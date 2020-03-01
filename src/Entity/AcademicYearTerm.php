@@ -18,7 +18,6 @@ use Kookaburra\SchoolAdmin\Validator as Check;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * Class AcademicYearTerm
  * @package Kookaburra\SchoolAdmin\Entity
@@ -26,7 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(options={"auto_increment": 1}, name="AcademicYearTerm", uniqueConstraints={@ORM\UniqueConstraint(name="sequenceNumber", columns={"academic_year","sequenceNumber"}), @ORM\UniqueConstraint(name="abbr", columns={"academic_year","nameShort"}), @ORM\UniqueConstraint(name="name", columns={"academic_year","name"})})
  * @UniqueEntity({"academicYear","sequenceNumber"})
  * @UniqueEntity({"academicYear","name"})
- * @UniqueEntity({"academicYear","snameShort"})
+ * @UniqueEntity({"academicYear","nameShort"})
  * @Check\Term()
  */
 class AcademicYearTerm implements EntityInterface

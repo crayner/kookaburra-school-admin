@@ -16,6 +16,7 @@
 namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\AcademicYear;
@@ -42,15 +43,21 @@ class AcademicYearTermController extends AbstractController
      * manage
      * @Route("/academic/year/term/manage/", name="academic_year_term_manage")
      * @IsGranted("ROLE_ROUTE")
-     * @param AcademicYearPagination $pagination
+     * @param AcademicYearTermPagination $pagination
+     * @param PageManager $pageManager
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manage(AcademicYearTermPagination $pagination)
+    public function manage(AcademicYearTermPagination $pagination, PageManager $pageManager)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+
         $content = ProviderFactory::getRepository(AcademicYearTerm::class)->findByPaginationList();
         $pagination->setContent($content)->setPageMax(25)
-            ->setPaginationScript();
-        return $this->render('@KookaburraSchoolAdmin/academic-year-term/manage.html.twig');
+            ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__academic_year_term_add'));
+
+        $pageManager->createBreadcrumbs('Manage Academic Year Terms', []);
+
+        return $pageManager->createResponse(['pagination' => $pagination->toArray()]);
     }
 
     /**
@@ -59,12 +66,15 @@ class AcademicYearTermController extends AbstractController
      * @Route("/academic/year/term/add/", name="academic_year_term_add")
      * @IsGranted("ROLE_ROUTE")
      * @param ContainerManager $manager
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param AcademicYearTerm|null $term
      * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function edit(ContainerManager $manager, Request $request, ?AcademicYearTerm $term = null)
+    public function edit(ContainerManager $manager, PageManager $pageManager, ?AcademicYearTerm $term = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
+
         if (!$term instanceof AcademicYearTerm) {
             $term = new AcademicYearTerm();
             $action = $this->generateUrl('school_admin__academic_year_term_add');
@@ -74,7 +84,7 @@ class AcademicYearTermController extends AbstractController
 
         $form = $this->createForm(AcademicYearTermType::class, $term, ['action' => $action]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
             $form->submit($content);
             $data = [];
@@ -95,13 +105,10 @@ class AcademicYearTermController extends AbstractController
 
             return new JsonResponse($data, 200);
         }
-        $manager->singlePanel($form->createView());
+        $manager->setAddElementRoute($this->generateUrl('school_admin__academic_year_term_manage'))->setReturnRoute($this->generateUrl('school_admin__academic_year_term_manage'        ))->singlePanel($form->createView());
+        $pageManager->createBreadcrumbs($term->getId() > 0 ? 'Edit Academic Year Term' : 'Add Academic Year Term', [['uri' => 'school_admin__academic_year_term_manage', 'name' => 'Manage Terms']]);
 
-        return $this->render('@KookaburraSchoolAdmin/academic-year-term/edit.html.twig',
-            [
-                'term' => $term,
-            ]
-        );
+        return $pageManager->createResponse(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

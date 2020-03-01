@@ -17,10 +17,13 @@ namespace Kookaburra\SchoolAdmin\Pagination;
 
 use App\Manager\Entity\PaginationAction;
 use App\Manager\Entity\PaginationColumn;
+use App\Manager\Entity\PaginationFilter;
 use App\Manager\Entity\PaginationRow;
 use App\Manager\PaginationInterface;
 use App\Manager\AbstractPaginationManager;
+use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
+use Kookaburra\SchoolAdmin\Entity\AcademicYear;
 
 /**
  * Class AcademicYearTermPagination
@@ -70,7 +73,7 @@ class AcademicYearTermPagination extends AbstractPaginationManager
         $action->setTitle('Edit')
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
-            ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-700')
+            ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-800 hover:text-purple-500')
             ->setRoute('school_admin__academic_year_term_edit')
             ->setRouteParams(['term' => 'id']);
         $row->addAction($action);
@@ -79,12 +82,22 @@ class AcademicYearTermPagination extends AbstractPaginationManager
         $action->setTitle('Delete')
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
-            ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-700')
+            ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-800 hover:text-red-500' )
             ->setRoute('school_admin__academic_year_term_delete')
             ->setDisplayWhen('canDelete')
             ->setOnClick('areYouSure')
             ->setRouteParams(['term' => 'id']);
         $row->addAction($action);
+
+        foreach(ProviderFactory::getRepository(AcademicYear::class)->findBy([], ['firstDay' => 'ASC']) as $year) {
+            $filter = new PaginationFilter();
+            $filter->setName('Academic Year: ' . $year->getName())
+                ->setValue($year->getName())
+                ->setLabel(['Academic Year: {value}', ['{value}' => $year->getName()], 'SchoolAdmin'])
+                ->setGroup('Academic Year')
+                ->setContentKey('year');
+            $row->addFilter($filter);
+        }
 
         $this->setRow($row);
         return $this;

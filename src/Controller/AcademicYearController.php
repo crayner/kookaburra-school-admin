@@ -57,7 +57,6 @@ class AcademicYearController extends AbstractController
             ->setPaginationScript()->setAddElementRoute($this->generateUrl('school_admin__academic_year_add'));
 
         $pageManager->createBreadcrumbs('Academic Year Manage', []);
-        $pageManager->getBreadCrumbs();
 
         return $pageManager->createResponse(['pagination' => $pagination->toArray()]);
     }

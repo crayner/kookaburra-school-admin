@@ -20,6 +20,7 @@ use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Form\BehaviourSettingsType;
@@ -36,7 +37,7 @@ class BehaviourSettingsController extends AbstractController
 {
     /**
      * settings
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param TranslatorInterface $translator
      * @param string $tabName
@@ -44,15 +45,18 @@ class BehaviourSettingsController extends AbstractController
      * @Route("/behaviour/settings/{tabName}", name="behaviour_settings")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Descriptors')
+    public function settings(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Descriptors')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
+
         $settingProvider = ProviderFactory::create(Setting::class);
         $settingProvider->getSettingsByScope('Behaviour');
         $container = new Container();
 
         $form = $this->createForm(BehaviourSettingsType::class, null, ['action' => $this->generateUrl('school_admin__behaviour_settings')]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $data = [];
             $data['status'] = 'success';
             try {
@@ -79,7 +83,7 @@ class BehaviourSettingsController extends AbstractController
 
         // Finally Finished
         $manager->addContainer($container)->buildContainers();
-
-        return $this->render('@KookaburraSchoolAdmin/behaviour/settings.html.twig');
+        return $pageManager->createBreadcrumbs('Behaviour Settings', [])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 }

@@ -50,13 +50,7 @@ class AcademicYearController extends AbstractController
      */
     public function manage(AcademicYearPagination $pagination, PageManager $pageManager)
     {
-        $request = $pageManager->getRequest();
-        if ($request->getContentType() !== 'json')
-            return $this->render('react_base.html.twig',
-                [
-                    'page' => $pageManager,
-                ]
-            );
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
 
         $content = ProviderFactory::getRepository(AcademicYear::class)->findBy([], ['firstDay' => 'ASC']);
         $pagination->setContent($content)->setPageMax(25)
@@ -80,14 +74,8 @@ class AcademicYearController extends AbstractController
      */
     public function edit(ContainerManager $manager, PageManager $pageManager, ?AcademicYear $year = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $request = $pageManager->getRequest();
-        if ($request->getContentType() !== 'json')
-            return $this->render('react_base.html.twig',
-                [
-                    'page' => $pageManager,
-                ]
-            );
-
 
         if (!$year instanceof AcademicYear) {
             $year = new AcademicYear();

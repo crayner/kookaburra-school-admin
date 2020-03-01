@@ -46,13 +46,8 @@ class DaysOfTheWeekController extends AbstractController
      */
     public function manage(PageManager $pageManager, ContainerManager $manager, string $tabName = 'Monday')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $request = $pageManager->getRequest();
-        if ($request->getContentType() !== 'json')
-            return $this->render('react_base.html.twig',
-                [
-                    'page' => $pageManager,
-                ]
-            );
 
         $container = new Container();
         $container->setTarget('formContent')->setSelectedPanel($tabName);

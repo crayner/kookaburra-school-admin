@@ -51,13 +51,7 @@ class SpecialDayController extends AbstractController
      */
     public function manage(SpecialDayPagination $pagination, PageManager $pageManager)
     {
-        $request = $pageManager->getRequest();
-        if ($request->getContentType() !== 'json')
-            return $this->render('react_base.html.twig',
-                [
-                    'page' => $pageManager,
-                ]
-            );
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
 
         $content = ProviderFactory::getRepository(AcademicYearSpecialDay::class)->findBy([],['date' => 'ASC']);
         $pagination->setStoreFilterURL($this->generateUrl('school_admin__special_day_filter_store'))->setContent($content)->setPageMax(25)
@@ -82,13 +76,8 @@ class SpecialDayController extends AbstractController
      */
     public function edit(ContainerManager $manager, PageManager $pageManager, ?AcademicYearSpecialDay $day = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $request = $pageManager->getRequest();
-        if ($request->getContentType() !== 'json')
-            return $this->render('react_base.html.twig',
-                [
-                    'page' => $pageManager,
-                ]
-            );
 
         if ($request->attributes->get('_route') === 'school_admin__special_day_duplicate') {
             $copy = clone $day;

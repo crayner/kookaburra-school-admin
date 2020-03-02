@@ -18,6 +18,7 @@ namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Form\DashboardSettingsType;
@@ -33,19 +34,21 @@ class DashboardSettingsController extends AbstractController
 {
     /**
      * settings
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param TranslatorInterface $translator
      * @return JsonResponse|Response
      * @Route("/dashboard/settings/", name="dashboard_settings")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator)
+    public function settings(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         // System Settings
         $form = $this->createForm(DashboardSettingsType::class, null, ['action' => $this->generateUrl('school_admin__dashboard_settings',)]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $data = [];
             $data['status'] = 'success';
             try {
@@ -64,7 +67,8 @@ class DashboardSettingsController extends AbstractController
 
         $manager->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/dashboard/settings.html.twig');
+        return $pageManager->createBreadcrumbs('Dashboard Settings')
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
 }

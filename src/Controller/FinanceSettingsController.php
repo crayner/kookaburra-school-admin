@@ -19,13 +19,13 @@ use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Form\FinanceSettingsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -38,7 +38,7 @@ class FinanceSettingsController extends AbstractController
 {
     /**
      * settings
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param TranslatorInterface $translator
      * @param string $tabName
@@ -46,15 +46,17 @@ class FinanceSettingsController extends AbstractController
      * @Route("/finance/settings/{tabName}", name="finance_settings")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'General')
+    public function settings(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'General')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         $settingProvider = ProviderFactory::create(Setting::class);
         $settingProvider->getSettingsByScope('Finance');
         $container = new Container();
 
         $form = $this->createForm(FinanceSettingsType::class, null, ['action' => $this->generateUrl('school_admin__finance_settings', ['tabName' => $tabName])]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $data = [];
             $data['status'] = 'success';
             try {
@@ -85,6 +87,8 @@ class FinanceSettingsController extends AbstractController
         // Finally Finished
         $manager->addContainer($container)->buildContainers();
 
+        return $pageManager->createBreadcrumbs('Finance Settings')
+            ->render(['containers' => $manager->getBuiltContainers()]);
         return $this->render('@KookaburraSchoolAdmin/finance/settings.html.twig');
     }
 }

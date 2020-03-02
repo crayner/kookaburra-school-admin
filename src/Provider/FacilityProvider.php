@@ -15,9 +15,9 @@
 
 namespace Kookaburra\SchoolAdmin\Provider;
 
-use App\Entity\ActivitySlot;
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
+use Kookaburra\Activities\Entity\ActivitySlot;
 use Kookaburra\RollGroups\Entity\RollGroup;
 use Kookaburra\SchoolAdmin\Entity\Facility;
 use Kookaburra\SchoolAdmin\Entity\FacilityPerson;
@@ -35,18 +35,19 @@ class FacilityProvider implements EntityProviderInterface
      */
     private $entityName = Facility::class;
 
+    /**
+     * canDelete
+     * @param Facility $facility
+     * @return bool
+     */
     public function canDelete(Facility $facility): bool
     {
-        if ($this->getRepository(RollGroup::class)->countFacility($facility) === 0)
-        {
-            if ($this->getRepository(ActivitySlot::class)->countFacility($facility) === 0)
-            {
-                if ($this->getRepository(FacilityPerson::class)->countFacility($facility) === 0)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
+        if ($this->getRepository(RollGroup::class)->countFacility($facility) > 0)
+            return false;
+        if ($this->getRepository(ActivitySlot::class)->countFacility($facility) > 0)
+            return false;
+        if ($this->getRepository(FacilityPerson::class)->countFacility($facility) > 0)
+            return false;
+        return true;
     }
 }

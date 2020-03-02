@@ -52,6 +52,8 @@ class FacilityType extends AbstractType
                 [
                     'label' => 'Facility Type',
                     'placeholder' => 'Please select...',
+                    'help' => '{anchor}Manage Facility Types Settings{closeAnchor}',
+                    'help_translation_parameters' => ['{anchor}' => '<a href="'.$options['facility_setting_uri'].'">', '{closeAnchor}' => '</a>']
                 ]
             )
             ->add('capacity', NumberType::class,
@@ -149,6 +151,11 @@ class FacilityType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
+        $resolver->setRequired(
+            [
+                'facility_setting_uri',
+            ]
+        );
         $resolver->setDefaults(
             [
                 'translation_domain' => 'SchoolAdmin',

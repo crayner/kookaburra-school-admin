@@ -520,3 +520,19 @@ Head of Year: Head of Year
 Manage Year Groups: Manage Year Groups
 Must be unique. Controls chronological ordering: Must be unique. Controls chronological ordering
 Top of List: Top of List
+A comma-separated list of types for facilities.: A comma-separated list of types for facilities.
+Add Facility: Add Facility
+FacilityTypes: FacilityTypes
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'

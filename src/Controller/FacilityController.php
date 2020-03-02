@@ -17,6 +17,8 @@ namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
 use App\Entity\Setting;
+use App\Manager\MessageManager;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Entity\Facility;
@@ -26,7 +28,9 @@ use Kookaburra\SchoolAdmin\Pagination\FacilityPagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -41,26 +45,35 @@ class FacilityController extends AbstractController
      * manage
      * @Route("/facility/manage/", name="facility_manage")
      * @IsGranted("ROLE_ROUTE")
+     * @param FacilityPagination $pagination
+     * @param PageManager $pageManager
+     * @return JsonResponse|Response
      */
-    public function manage(FacilityPagination $pagination)
+    public function manage(FacilityPagination $pagination, PageManager $pageManager)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $content = ProviderFactory::getRepository(Facility::class)->findBy([], ['name' => 'ASC']);
-        $pagination->setContent($content)
+        $pagination->setContent($content)->setAddElementRoute($this->generateUrl('school_admin__facility_add'))
             ->setPaginationScript();
-        return $this->render('@KookaburraSchoolAdmin/facility/manage.html.twig');
+        return $pageManager->createBreadcrumbs('Facilities')
+            ->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
      * edit
      * @param ContainerManager $manager
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param Facility|null $facility
+     * @return JsonResponse|Response
      * @Route("/facility/{facility}/edit/", name="facility_edit")
      * @Route("/facility/add/", name="facility_add")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function edit(ContainerManager $manager, Request $request, ?Facility $facility = null)
+    public function edit(ContainerManager $manager, PageManager $pageManager, ?Facility $facility = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
+
         if (!$facility instanceof Facility) {
             $facility = new Facility();
             $action = $this->generateUrl('school_admin__facility_add');
@@ -68,11 +81,10 @@ class FacilityController extends AbstractController
             $action = $this->generateUrl('school_admin__facility_edit', ['facility' => $facility->getId()]);
         }
 
-        $form = $this->createForm(FacilityType::class, $facility, ['action' => $action]);
+        $form = $this->createForm(FacilityType::class, $facility, ['action' => $action, 'facility_setting_uri' => $this->generateUrl('school_admin__facility_settings')]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
-            dump($content);
             $form->submit($content);
             $data = [];
             $data['status'] = 'success';
@@ -81,7 +93,7 @@ class FacilityController extends AbstractController
                 $provider = ProviderFactory::create(Facility::class);
                 $data = $provider->persistFlush($facility, $data);
                 if ($data['status'] === 'success' && $id === $facility->getId())
-                    $form = $this->createForm(FacilityType::class, $facility, ['action' => $this->generateUrl('school_admin__facility_edit', ['facility' => $facility->getId()])]);
+                    $form = $this->createForm(FacilityType::class, $facility, ['action' => $this->generateUrl('school_admin__facility_edit', ['facility' => $facility->getId()]), 'facility_setting_uri' => $this->generateUrl('school_admin__facility_settings')]);
             } else {
                 $data = ErrorMessageHelper::getInvalidInputsMessage($data);
             }
@@ -91,49 +103,57 @@ class FacilityController extends AbstractController
 
             return new JsonResponse($data, 200);
         }
-        $manager->singlePanel($form->createView());
+        $manager->setReturnRoute($this->generateUrl('school_admin__facility_manage'))->setAddElementRoute($this->generateUrl('school_admin__facility_add'))->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/facility/edit.html.twig',
+        return $pageManager->createBreadcrumbs($facility->getId() > 0 ? 'Edit Facility' : 'Add Facility',
             [
-                'facility' => $facility,
+                ['uri' => 'school_admin__facility_manage', 'name' => 'Facilities']
             ]
-        );
+        )
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**
      * delete
      * @param Facility $facility
-     * @param FlashBagInterface $flashBag
      * @param TranslatorInterface $translator
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @param FacilityPagination $pagination
+     * @param PageManager $pageManager
      * @Route("/facility/{facility}/delete/", name="facility_delete")
      * @IsGranted("ROLE_ROUTE")
+     * @return JsonResponse|Response
      */
-    public function delete(Facility $facility, FlashBagInterface $flashBag, TranslatorInterface $translator)
+    public function delete(Facility $facility, TranslatorInterface $translator, FacilityPagination $pagination, PageManager $pageManager)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $provider = ProviderFactory::create(Facility::class);
 
         $provider->delete($facility);
 
-        $provider->getMessageManager()->pushToFlash($flashBag, $translator);
+        $content = ProviderFactory::getRepository(Facility::class)->findBy([], ['name' => 'ASC']);
 
-        return $this->redirectToRoute('school_admin__facility_manage');
+        $pagination->setContent($content)->setAddElementRoute($this->generateUrl('school_admin__facility_add'))
+            ->setPaginationScript();
+        return $pageManager->createBreadcrumbs('Facilities')
+            ->render(['pagination' => $pagination->toArray(), 'messages' => $provider->getMessageManager()->serialiseTranslatedMessages($translator), 'url' => $this->generateUrl('school_admin__facility_manage')]);
     }
 
     /**
      * settings
      * @param Request $request
      * @param ContainerManager $manager
-     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
+     * @return JsonResponse|Response
      * @Route("/facility/settings/", name="facility_settings")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator)
+    public function settings(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         // System Settings
         $form = $this->createForm(FacilitySettingsType::class, null, ['action' => $this->generateUrl('school_admin__facility_settings',)]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $data = [];
             $data['status'] = 'success';
             try {
@@ -152,6 +172,7 @@ class FacilityController extends AbstractController
 
         $manager->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/facility/settings.html.twig');
+        return $pageManager->createBreadcrumbs('Facility Settings')
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 }

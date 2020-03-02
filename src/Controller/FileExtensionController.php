@@ -16,6 +16,7 @@
 namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\FileExtension;
@@ -38,30 +39,36 @@ class FileExtensionController extends AbstractController
     /**
      * manage
      * @param FileExtensionPagination $pagination
+     * @param PageManager $pageManager
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/file/extensions/manage/", name="file_extensions_manage")
      * @IsGranted("ROLE_ROUTE")
-     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function manage(FileExtensionPagination $pagination)
+    public function manage(FileExtensionPagination $pagination, PageManager $pageManager)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $content = ProviderFactory::getRepository(FileExtension::class)->findBy([], ['extension' => 'ASC']);
         $pagination->setContent($content)
+            ->setAddElementRoute($this->generateUrl('school_admin__file_extensions_add'))
             ->setPaginationScript();
-        return $this->render('@KookaburraSchoolAdmin/file-extension/manage.html.twig');
+        return $pageManager->createBreadcrumbs('File Extensions')
+            ->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
      * edit
      * @param ContainerManager $manager
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param FileExtension|null $fileExtension
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/file/extensions/{fileExtension}/edit/", name="file_extensions_edit")
      * @Route("/file/extensions/add/", name="file_extensions_add")
      * @IsGranted("ROLE_ROUTE")
-     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function edit(ContainerManager $manager, Request $request, ?FileExtension $fileExtension = null)
+    public function edit(ContainerManager $manager, PageManager $pageManager, ?FileExtension $fileExtension = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         if (!$fileExtension instanceof FileExtension) {
             $fileExtension = new FileExtension();
             $action = $this->generateUrl('school_admin__file_extensions_add');
@@ -71,7 +78,7 @@ class FileExtensionController extends AbstractController
 
         $form = $this->createForm(FileExtensionType::class, $fileExtension, ['action' => $action]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
             $form->submit($content);
             $data = [];
@@ -92,13 +99,16 @@ class FileExtensionController extends AbstractController
 
             return new JsonResponse($data, 200);
         }
-        $manager->singlePanel($form->createView());
+        $manager->setAddElementRoute($this->generateUrl('school_admin__file_extensions_add'))
+            ->setReturnRoute($this->generateUrl('school_admin__file_extensions_manage'))
+            ->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/file-extension/edit.html.twig',
+        return $pageManager->createBreadcrumbs($fileExtension->getId() > 0 ? 'Edit File Extension' : 'Add File Extension',
             [
-                'fileExtension' => $fileExtension,
+                ['uri' => 'school_admin__file_extensions_manage', 'name' => 'File Extensions']
             ]
-        );
+        )
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

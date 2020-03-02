@@ -16,6 +16,7 @@
 namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\YearGroup;
@@ -41,14 +42,17 @@ class YearGroupController extends AbstractController
      * @Route("/year/group/manage/",name="year_group_manage")
      * @IsGranted("ROLE_ROUTE")
      * @param YearGroupPagination $pagination
-     * @return
+     * @param PageManager $pageManager
+     * @return JsonResponse
      */
-    public function manage(YearGroupPagination $pagination)
+    public function manage(YearGroupPagination $pagination, PageManager $pageManager)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $content = ProviderFactory::getRepository(YearGroup::class)->findBy([],['sequenceNumber' => 'ASC']);
         $pagination->setContent($content)->setPageMax(25)
             ->setPaginationScript();
-        return $this->render('@KookaburraSchoolAdmin/year-group/manage.html.twig');
+        return $pageManager->createBreadcrumbs('Manage Year Groups')
+            ->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
@@ -56,9 +60,15 @@ class YearGroupController extends AbstractController
      * @Route("/year/group/{year}/edit/", name="year_group_edit")
      * @Route("/year/group/add/", name="year_group_add")
      * @IsGranted("ROLE_ROUTE")
+     * @param ContainerManager $manager
+     * @param PageManager $pageManager
+     * @param YearGroup|null $year
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function edit(ContainerManager $manager, Request $request, ?YearGroup $year = null)
+    public function edit(ContainerManager $manager, PageManager $pageManager, ?YearGroup $year = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         if (!$year instanceof YearGroup) {
             $year = new YearGroup();
             $action = $this->generateUrl('school_admin__year_group_add');
@@ -68,7 +78,7 @@ class YearGroupController extends AbstractController
 
         $form = $this->createForm(YearGroupType::class, $year, ['action' => $action]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
             $form->submit($content);
             $data = [];
@@ -90,12 +100,12 @@ class YearGroupController extends AbstractController
             return new JsonResponse($data, 200);
         }
         $manager->singlePanel($form->createView());
-
-        return $this->render('@KookaburraSchoolAdmin/year-group/edit.html.twig',
+        return $pageManager->createBreadcrumbs($year->getId() > 0 ? 'Edit Year Group' : 'Add Year Group',
             [
-                'year' => $year,
+                ['uri' => 'school_admin__year_group_manage', 'name' => 'Manage Year Groups']
             ]
-        );
+        )
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**
@@ -105,36 +115,50 @@ class YearGroupController extends AbstractController
      * @param YearGroup $year
      * @param FlashBagInterface $flashBag
      * @param TranslatorInterface $translator
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @param YearGroupPagination $pagination
+     * @param PageManager $pageManager
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function delete(YearGroup $year, FlashBagInterface $flashBag, TranslatorInterface $translator)
+    public function delete(YearGroup $year, TranslatorInterface $translator, YearGroupPagination $pagination, PageManager $pageManager)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $provider = ProviderFactory::create(YearGroup::class);
 
         $provider->delete($year);
 
-        $provider->getMessageManager()->pushToFlash($flashBag, $translator);
+        $content = ProviderFactory::getRepository(YearGroup::class)->findBy([],['sequenceNumber' => 'ASC']);
+        $pagination->setContent($content)->setPageMax(25)
+            ->setPaginationScript();
 
-        return $this->redirectToRoute('school_admin__year_group_manage');
+        return $pageManager->createBreadcrumbs('Manage Year Groups')
+            ->render(['pagination' => $pagination->toArray(), 'messages' => $provider->getMessageManager()->serialiseTranslatedMessages($translator)]);
     }
 
     /**
      * topOfList
      * @Route("/year/group/{year}/top/of/list/", name="year_group_top_of_list")
-     * @Security("is_granted('ROLE_ROUTE', ['school_admin__year_group_manage'])")
+     * @IsGranted("ROLE_ROUTE")
      * @param YearGroup $year
      * @param FlashBagInterface $flashBag
      * @param TranslatorInterface $translator
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @param YearGroupPagination $pagination
+     * @param PageManager $pageManager
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function topOfList(YearGroup $year, FlashBagInterface $flashBag, TranslatorInterface $translator)
+    public function topOfList(YearGroup $year, TranslatorInterface $translator, YearGroupPagination $pagination, PageManager $pageManager)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $provider = ProviderFactory::create(YearGroup::class);
 
         $provider->moveToTopOfList($year);
 
-        $provider->getMessageManager()->pushToFlash($flashBag, $translator);
+        $content = ProviderFactory::getRepository(YearGroup::class)->findBy([],['sequenceNumber' => 'ASC']);
+        $pagination->setContent($content)->setPageMax(25)
+            ->setPaginationScript();
 
-        return $this->redirectToRoute('school_admin__year_group_manage');
+        return $pageManager->createBreadcrumbs('Manage Year Groups')
+            ->render(['pagination' => $pagination->toArray(), 'messages' => $provider->getMessageManager()->serialiseTranslatedMessages($translator), 'url' => $this->generateUrl('school_admin__year_group_manage')]);
     }
+
+
 }

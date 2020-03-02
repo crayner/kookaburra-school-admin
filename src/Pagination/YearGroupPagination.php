@@ -68,7 +68,7 @@ class YearGroupPagination extends AbstractPaginationManager
         $action->setTitle('Edit')
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
-            ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-700')
+            ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-800 hover:text-purple-500')
             ->setRoute('school_admin__year_group_edit')
             ->setRouteParams(['year' => 'id']);
         $row->addAction($action);
@@ -77,7 +77,7 @@ class YearGroupPagination extends AbstractPaginationManager
         $action->setTitle('Delete')
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
-            ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-700')
+            ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-800 hover:text-red-500')
             ->setRoute('school_admin__year_group_delete')
             ->setDisplayWhen('canDelete')
             ->setRouteParams(['year' => 'id']);
@@ -87,7 +87,7 @@ class YearGroupPagination extends AbstractPaginationManager
         $action->setTitle('Top of List')
             ->setAClass('')
             ->setColumnClass('column p-2 sm:p-3')
-            ->setSpanClass('far fa-caret-square-up fa-fw fa-1-5x text-gray-700')
+            ->setSpanClass('far fa-caret-square-up fa-fw fa-1-5x text-gray-800 hover:text-purple-500')
             ->setRoute('school_admin__year_group_top_of_list')
             ->setRouteParams(['year' => 'id']);
         $row->addAction($action);

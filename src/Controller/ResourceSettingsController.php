@@ -19,6 +19,7 @@ use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Form\ResourceSettingsType;
@@ -38,21 +39,24 @@ class ResourceSettingsController extends AbstractController
 {
     /**
      * settings
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param TranslatorInterface $translator
+     * @param string|null $tabName
      * @return JsonResponse|Response
      * @Route("/resource/settings/{tabName}", name="resource_settings")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator, ?string $tabName = 'Category')
+    public function settings(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator, ?string $tabName = 'Category')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         $settingProvider = ProviderFactory::create(Setting::class);
         $settingProvider->getSettingsByScope('Resources');
 
         $form = $this->createForm(ResourceSettingsType::class, null, ['action' => $this->generateUrl('school_admin__resource_settings', ['tabName' => $tabName])]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $data = [];
             $data['status'] = 'success';
             try {
@@ -69,7 +73,6 @@ class ResourceSettingsController extends AbstractController
             return new JsonResponse($data, 200);
         }
 
-
         // Finally Finished
         $container = new Container();
         $panel = new Panel('Category', 'SchoolAdmin');
@@ -80,6 +83,7 @@ class ResourceSettingsController extends AbstractController
         // Finally Finished
         $manager->addContainer($container)->buildContainers();
 
-        return $this->render('@KookaburraSchoolAdmin/resource/settings.html.twig');
+        return $pageManager->createBreadcrumbs('Resource Settings', [])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 }

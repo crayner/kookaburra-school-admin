@@ -379,6 +379,7 @@ attendance_code_warning: These codes should not be changed during an active scho
 attendancecontexttype:
     attendance__defaultrollgroupattendancetype:
         present: Present
+        tardy: Tardy
         present - late: Present - Late
         present - offsite: Present - Off Site
         absent: Absent
@@ -464,3 +465,53 @@ April: April
 May: May
 June: June
 Manage Academic Year Terms: Manage Academic Year Terms
+Academic Year Terms: Academic Year Terms
+Access Settings: Access Settings
+Allow Outcome Editing: Allow Outcome Editing
+Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?: Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?
+Enables a public listing of units, with teachers able to opt in to share units.: Enables a public listing of units, with teachers able to opt in to share units.
+Lesson Details Template: Lesson Details Template
+Make Units Public: Make Units Public
+Parent Weekly Email Summary Include Behaviour: Parent Weekly Email Summary Include Behaviour
+Parent Weekly Email Summary Include Markbook: Parent Weekly Email Summary Include Markbook
+Planner Templates: Planner Templates
+Share Unit Outline: Share Unit Outline
+'Sharing Default: Parents': 'Sharing Default: Parents'
+'Sharing Default: Students': 'Sharing Default: Students'
+Should Markbook information be included in the weekly planner email summary that goes out to parents?: Should Markbook information be included in the weekly planner email summary that goes out to parents?
+Should behaviour information be included in the weekly planner email summary that goes out to parents?: Should behaviour information be included in the weekly planner email summary that goes out to parents?
+Should the text within outcomes be editable when planning lessons and units?: Should the text within outcomes be editable when planning lessons and units?
+Smart Block Template: Smart Block Template
+"Teacher's Notes Template": "Teacher's Notes Template"
+Template to be inserted into Lesson Details field: Template to be inserted into Lesson Details field
+"Template to be inserted into Teacher's Notes field": "Template to be inserted into Teacher's Notes field"
+Template to be inserted into Unit Outline section of planner: Template to be inserted into Unit Outline section of planner
+Template to be inserted into new block in Smart Unit: Template to be inserted into new block in Smart Unit
+Templates: Templates
+Unit Outline Template: Unit Outline Template
+When adding lessons and deploying units, should sharing default for parents be Y or N?: When adding lessons and deploying units, should sharing default for parents be Y or N?
+When adding lessons and deploying units, should sharing default for students be Y or N?: When adding lessons and deploying units, should sharing default for students be Y or N?
+Targets Template: Targets Template
+An HTML template to be used in the targets field.: An HTML template to be used in the targets field.
+Teaching Strategies Template: Teaching Strategies Template
+An HTML template to be used in the teaching strategies field.: An HTML template to be used in the teaching strategies field.
+Notes & Review Template: Notes & Review Template
+An HTML template to be used in the notes and review field.: An HTML template to be used in the notes and review field.
+Categories: Categories
+Allowable choices for category: Allowable choices for category
+Purpose Settings: Purpose Settings
+Purposes (General): Purposes (General)
+Allowable choices for purpose when creating a resource: Allowable choices for purpose when creating a resource
+Purposes (Restricted): Purposes (Restricted)
+Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights: Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights
+Purpose: Purpose
+Tardy: Tardy
+Must be unique: Must be unique
+Must be unique,  Use for sort.: Must be unique,  Use for sort.
+Reportable: Reportable
+Allow Future Use: Allow Future Use
+Can this code be used in Set Future Absence?: Can this code be used in Set Future Absence?
+Available to Roles: Available to Roles
+role_multiple_select: 'Controls who can use this code.<br/>Use Control, Command and/or Shift to select multiple.'
+Edit Attendance Code: Edit Attendance Code
+Edit Individual Need: Edit Individual Need

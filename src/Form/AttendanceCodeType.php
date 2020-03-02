@@ -86,8 +86,7 @@ class AttendanceCodeType extends AbstractType
             ->add('roleAll', EntityType::class,
                 [
                     'label' => 'Available to Roles',
-                    'help' => 'Controls who can use this code.<br/>
-Use Control, Command and/or Shift to select multiple.',
+                    'help' => 'role_multiple_select',
                     'class' => Role::class,
                     'data' => $options['data']->getRoleAll(),
                     'choice_label' => 'name',

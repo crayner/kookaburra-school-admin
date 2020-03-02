@@ -19,23 +19,27 @@ use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
-use Kookaburra\SchoolAdmin\Form\MarkbookSettingType;
 use Kookaburra\SchoolAdmin\Form\PlannerSettingType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * Class PlannerSettingsController
+ * @package Kookaburra\SchoolAdmin\Controller
+ * @todo Move code to Planner Module when created
+ */
 class PlannerSettingsController extends AbstractController
 {
     /**
      * settings
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param TranslatorInterface $translator
      * @param string $tabName
@@ -43,15 +47,17 @@ class PlannerSettingsController extends AbstractController
      * @Route("/planner/settings/{tabName}", name="planner_settings")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Templates')
+    public function settings(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Templates')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         $settingProvider = ProviderFactory::create(Setting::class);
         $settingProvider->getSettingsByScope('Planner');
         $container = new Container();
 
         $form = $this->createForm(PlannerSettingType::class, null, ['action' => $this->generateUrl('school_admin__planner_settings', ['tabName' => $tabName])]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $data = [];
             $data['status'] = 'success';
             try {
@@ -77,8 +83,8 @@ class PlannerSettingsController extends AbstractController
 
         // Finally Finished
         $manager->addContainer($container)->buildContainers();
-
-        return $this->render('@KookaburraSchoolAdmin/planner/settings.html.twig');
+        return $pageManager->createBreadcrumbs('Planner Settings', [])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
 }

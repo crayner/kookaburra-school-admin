@@ -27,7 +27,6 @@ use Kookaburra\SchoolAdmin\Form\DayOfTheWeekType;
 use Kookaburra\SystemAdmin\Entity\Role;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**

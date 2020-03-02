@@ -15,9 +15,9 @@
 
 namespace Kookaburra\SchoolAdmin\Controller;
 
-
 use App\Container\ContainerManager;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Form\ActivitySettingsType;
@@ -30,26 +30,33 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * Class ActivitySettingsController
+ * @package Kookaburra\SchoolAdmin\Controller
+ * @todo Move this code to Activity Module when created.
+ */
 class ActivitySettingsController extends AbstractController
 {
     /**
      * settings
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param TranslatorInterface $translator
-     * @param string $tabName
      * @return JsonResponse|Response
      * @Route("/activity/settings/", name="activity_settings")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator)
+    public function settings(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
+
         $settingProvider = ProviderFactory::create(Setting::class);
         $settingProvider->getSettingsByScope('Activities');
 
         $form = $this->createForm(ActivitySettingsType::class, null, ['action' => $this->generateUrl('school_admin__activity_settings')]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $data = [];
             $data['status'] = 'success';
             try {
@@ -66,10 +73,9 @@ class ActivitySettingsController extends AbstractController
             return new JsonResponse($data, 200);
         }
 
-
         // Finally Finished
         $manager->singlePanel($form->createView());
-
-        return $this->render('@KookaburraSchoolAdmin/activity/settings.html.twig');
+        return $pageManager->createBreadcrumbs('Activity Settings', [])
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 }

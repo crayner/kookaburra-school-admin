@@ -16,6 +16,7 @@
 namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\House;
@@ -39,26 +40,34 @@ class HouseController extends AbstractController
      * manage
      * @Route("/house/manage/", name="house_manage")
      * @IsGranted("ROLE_ROUTE")
+     * @param HousePagination $pagination
+     * @param PageManager $pageManager
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function manage(HousePagination $pagination)
+    public function manage(HousePagination $pagination, PageManager $pageManager)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
         $content = ProviderFactory::getRepository(House::class)->findBy([], ['name' => 'ASC']);
-        $pagination->setContent($content)->setPageMax(10)
+        $pagination->setContent($content)->setPageMax(10)->setAddElementRoute($this->generateUrl('school_admin__house_add'))
             ->setPaginationScript();
-        return $this->render('@KookaburraSchoolAdmin/house/manage.html.twig');
+        return $pageManager->createBreadcrumbs('Houses')
+            ->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
      * edit
      * @param ContainerManager $manager
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param House|null $house
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      * @Route("/house/{house}/edit/", name="house_edit")
      * @Route("/house/add/", name="house_add")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function edit(ContainerManager $manager, Request $request, ?House $house = null)
+    public function edit(ContainerManager $manager, PageManager $pageManager, ?House $house = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         if (!$house instanceof House) {
             $house = new House();
             $action = $this->generateUrl('school_admin__house_add');
@@ -68,7 +77,7 @@ class HouseController extends AbstractController
 
         $form = $this->createForm(HouseType::class, $house, ['action' => $action]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
             $form->submit($content);
             $data = [];
@@ -89,13 +98,14 @@ class HouseController extends AbstractController
 
             return new JsonResponse($data, 200);
         }
-        $manager->singlePanel($form->createView());
+        $manager->setReturnRoute($this->generateUrl('school_admin__house_manage'))->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/house/edit.html.twig',
+        return $pageManager->createBreadcrumbs($house->getId() > 0 ? 'Edit House' : 'Add House',
             [
-                'house' => $house,
+                ['uri' => 'school_admin__house_manage', 'name' => 'Houses']
             ]
-        );
+        )
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

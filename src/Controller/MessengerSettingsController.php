@@ -17,6 +17,7 @@ namespace Kookaburra\SchoolAdmin\Controller;
 
 use App\Container\ContainerManager;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Form\MessengerSettingsType;
@@ -36,7 +37,7 @@ class MessengerSettingsController extends AbstractController
 {
     /**
      * settings
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param TranslatorInterface $translator
      * @param string $tabName
@@ -44,14 +45,16 @@ class MessengerSettingsController extends AbstractController
      * @Route("/messenger/settings/", name="messenger_settings")
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Features')
+    public function settings(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Features')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
         $settingProvider = ProviderFactory::create(Setting::class);
         $settingProvider->getSettingsByScope('Messenger');
 
         $form = $this->createForm(MessengerSettingsType::class, null, ['action' => $this->generateUrl('school_admin__messenger_settings')]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $data = [];
             $data['status'] = 'success';
             try {
@@ -68,10 +71,10 @@ class MessengerSettingsController extends AbstractController
             return new JsonResponse($data, 200);
         }
 
-
         // Finally Finished
         $manager->singlePanel($form->createView());
 
-        return $this->render('@KookaburraSchoolAdmin/messenger/settings.html.twig');
+        return $pageManager->createBreadcrumbs('Messenger Settings')
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 }

@@ -15,10 +15,10 @@
 
 namespace Kookaburra\SchoolAdmin\Form;
 
-use Kookaburra\SchoolAdmin\Entity\ExternalAssessment;
+use App\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
+use Kookaburra\SchoolAdmin\Entity\YearGroup;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -31,19 +31,28 @@ class AssessmentFieldType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         $builder
-            ->add('externalAssessment', HiddenType::class)
+            ->add('assessment', HiddenType::class)
             ->add('category', HiddenType::class)
-            ->add('yearGroupList', ChoiceType::class,
+            ->add('yearGroupList', EntityType::class,
                 [
                     'expanded' => true,
                     'multiple' => true,
                     'required' => false,
+                    'label' => 'Nothing to see here',
+                    'choice_label' => 'name',
+                    'translation_domain' => false,
+                    'choice_translation_domain' => false,
+                    'class' => YearGroup::class,
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('g')
+                            ->orderBy('g.sequenceNumber', 'ASC')
+                        ;
+                    },
                 ]
             )
         ;
-    }
+     }
 
     /**
      * configureOptions
@@ -55,16 +64,8 @@ class AssessmentFieldType extends AbstractType
             [
                 'translation_domain' => 'SchoolAdmin',
                 'data_class' => null,
+                'row_style' => 'transparent',
             ]
         );
-    }
-
-    /**
-     * getParent
-     * @return string|null
-     */
-    public function getParent()
-    {
-        return FormType::class;
     }
 }

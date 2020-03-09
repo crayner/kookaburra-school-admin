@@ -42,7 +42,7 @@ class ExternalAssessmentFieldRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('f')
             ->distinct()
-            ->select(['a.id','a.nameShort','f.category'])
+            ->select(['a.id','a.nameShort','f.category','f.yearGroupList'])
             ->leftJoin('f.externalAssessment', 'a')
             ->orderBy('a.nameShort', 'ASC')
             ->addOrderBy('f.category', 'ASC')

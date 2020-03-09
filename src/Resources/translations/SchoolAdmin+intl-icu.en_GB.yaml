@@ -503,7 +503,7 @@ Purpose Settings: Purpose Settings
 Purposes (General): Purposes (General)
 Allowable choices for purpose when creating a resource: Allowable choices for purpose when creating a resource
 Purposes (Restricted): Purposes (Restricted)
-Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights: Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
 Purpose: Purpose
 Tardy: Tardy
 Must be unique: Must be unique
@@ -536,3 +536,7 @@ FacilityTypes: FacilityTypes
 'Type: Study': 'Type: Study'
 'Type: Undercover': 'Type: Undercover'
 '{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: Use the options below to select the external assessments that you wish to include in your Data Points export. If duplicates of any assessment exist, only the most recent entry will be shown.
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: 'Use the options below to select the internal assessments that you wish to include in your Data Points export. If duplicates of any assessment exist, only the most recent entry will be shown.'
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'

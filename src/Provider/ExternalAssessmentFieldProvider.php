@@ -21,6 +21,7 @@ use App\Provider\EntityProviderInterface;
 use App\Provider\ProviderFactory;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentStudentEntry;
+use Kookaburra\SchoolAdmin\Entity\YearGroup;
 
 /**
  * Class ExternalAssessmentFieldProvider
@@ -56,13 +57,32 @@ class ExternalAssessmentFieldProvider implements EntityProviderInterface
     public function findByActiveInEAOrder(): array
     {
         $result = $this->getRepository()->findByActiveInEAOrder();
-        $dataPoints = unserialize(ProviderFactory::create(Setting::class)->getSettingByScopeAsString('Tracking', 'externalAssessmentDataPoints'));
+        $result = array_map(function($item){
+            $item['label'] = $item['nameShort'] . ' - ';
+            $w = explode('_', $item['category']);
+            $item['name'] = isset($w[1]) ? $w[1] : $w[0];
+            $item['label'] .= $item['name'];
+            foreach($item['yearGroupList'] as $q=>$w) {
+                $item['yearGroupList'][$q] = ProviderFactory::create(YearGroup::class)->findOne($w);
+            }
+            return $item;
+        }, $result);
+
+        usort($result, function($a, $b) {
+            $retval = $a['nameShort'] <=> $b['nameShort'];
+            if ($retval === 0) {
+                $retval = $b['name'] <=> $a['name'];
+            }
+            return $retval;
+        });
+
+        $dataPoints = ProviderFactory::create(Setting::class)->getSettingByScopeAsArray('Tracking', 'externalAssessmentDataPoints');
 
         foreach($result as $q=>$item)
         {
             foreach($dataPoints as $point)
             {
-                if ($item['id'] === intval($point['externalAssessment']) && $item['category'] === $point['category'])
+                if ($item['id'] === intval($point['assessment']) && $item['category'] === $point['category'])
                 {
                     $result[$q]['yearGroupList'] = $point['yearGroupList'];
                     break;

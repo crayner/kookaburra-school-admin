@@ -15,10 +15,12 @@
 
 namespace Kookaburra\SchoolAdmin\Form;
 
-use Kookaburra\SchoolAdmin\Manager\Hidden\TrackingSettings;
+use App\Form\Type\HeaderType;
+use App\Form\Type\ReactCollectionType;
+use App\Form\Type\ReactFormType;
+use Kookaburra\SchoolAdmin\Form\Subscriber\TrackingSettingsSubscriber;
+use Kookaburra\SchoolAdmin\Manager\Hidden\DataPoints;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,8 +29,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  * Class TrackingSettingsType
  * @package Kookaburra\SchoolAdmin\Form
  */
-class TrackingSettingsType extends AbstractType
+class InternalDataPointsType extends AbstractType
 {
+    /**
+     * @var
+     */
+    private $prefix;
+
     /**
      * buildForm
      * @param FormBuilderInterface $builder
@@ -37,20 +44,20 @@ class TrackingSettingsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('external', CollectionType::class,
+            ->add('int-header', HeaderType::class,
                 [
-                    'allow_add' => false,
-                    'allow_delete' => false,
-                    'required' => false,
-                    'entry_type' => AssessmentFieldType::class,
+                    'label' =>         'Data Point - Internal Assessment',
+                    'help' => 'internal_assessment_help',
                 ]
             )
-            ->add('internal', CollectionType::class,
+            ->add('dataPoints', ReactCollectionType::class,
                 [
                     'allow_add' => false,
                     'allow_delete' => false,
                     'required' => false,
                     'entry_type' => AssessmentFieldType::class,
+                    'element_delete_route' => false,
+                    'row_style' => 'transparent',
                 ]
             )
             ->add('submit', SubmitType::class,
@@ -59,7 +66,9 @@ class TrackingSettingsType extends AbstractType
                     'translation_domain' => 'messages',
                 ]
             )
+            ->addEventSubscriber(new TrackingSettingsSubscriber('internal'))
         ;
+
     }
 
     /**
@@ -71,9 +80,9 @@ class TrackingSettingsType extends AbstractType
         $resolver->setDefaults(
             [
                 'translation_domain' => 'SchoolAdmin',
-                'data_class' => TrackingSettings::class,
+                'data_class' => DataPoints::class,
                 'attr' => [
-                    'class' => 'smallIntBorder fullWidth',
+                    'className' => 'smallIntBorder fullWidth',
                 ],
             ]
         );
@@ -85,6 +94,6 @@ class TrackingSettingsType extends AbstractType
      */
     public function getParent()
     {
-        return FormType::class;
+        return ReactFormType::class;
     }
 }

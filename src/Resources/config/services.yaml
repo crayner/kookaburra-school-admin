@@ -7,7 +7,7 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     Kookaburra\SchoolAdmin\:
         resource: '../../../src/*'
-        exclude: '../../../src/{DependencyInjection,Resources,Tests,Form/EventListener,Form/Transform,Provider,Manager/Hidden}'
+        exclude: '../../../src/{DependencyInjection,Resources,Tests,Form/Subscriber,Form/Transform,Provider,Manager/Hidden}'
 
     Kookaburra\SchoolAdmin\Pagination\SpecialDayPagination:
         calls:

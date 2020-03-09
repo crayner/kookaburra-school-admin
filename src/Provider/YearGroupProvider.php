@@ -20,6 +20,7 @@ use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
 use Doctrine\DBAL\Driver\PDOException;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use Kookaburra\Library\Helper\ReturnAction;
 use Kookaburra\SchoolAdmin\Entity\YearGroup;
 use Symfony\Component\Form\ChoiceList\View\ChoiceView;
 
@@ -48,6 +49,10 @@ class YearGroupProvider implements EntityProviderInterface
         return $result;
     }
 
+    /**
+     * moveToTopOfList
+     * @param YearGroup $year
+     */
     public function moveToTopOfList(YearGroup $year)
     {
         $years = $this->getRepository()->findBy([], ['sequenceNumber' => 'ASC']);
@@ -120,5 +125,24 @@ class YearGroupProvider implements EntityProviderInterface
             }
         }
         return $this->allYears;
+    }
+
+    /**
+     * find
+     * @param $id
+     * @return \App\Manager\EntityInterface|void|null
+     */
+    public function findOne(int $id): ?YearGroup
+    {
+        if (isset($this->allYears[intval($id)]))
+            return $this->allYears[intval($id)];
+
+        if (intval($id) > 0 && empty($this->allYears)) {
+            $this->findAll();
+
+            if (isset($this->allYears[intval($id)]))
+                return $this->allYears[intval($id)];
+        }
+        return null;
     }
 }

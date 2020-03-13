@@ -540,3 +540,19 @@ external_assessment_help: Use the options below to select the external assessmen
 'Data Point - External Assessment': 'Data Point - External Assessment'
 internal_assessment_help: 'Use the options below to select the internal assessments that you wish to include in your Data Points export. If duplicates of any assessment exist, only the most recent entry will be shown.'
 'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: External
+Internal: Internal
+Add Grade Scale: Add Grade Scale
+Add Grade: Add Grade
+Add Scale: Add Scale
+AddScale: AddScale
+Descriptor: Descriptor
+Edit Grade Scale: Edit Grade Scale
+'Edit Scale ({name})': 'Edit Scale ({name})'
+Is Default?: Is Default?
+Manage Grade Scales: Manage Grade Scales
+Manage Scale Grade: Manage Scale Grade
+Must be unique for this Scale: Must be unique for this Scale
+Preselects this option when using this scale in appropriate contexts.: Preselects this option when using this scale in appropriate contexts.
+Scale: Scale
+Value: Value

@@ -39,6 +39,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Class ScaleController
  * @package Kookaburra\SchoolAdmin\Controller
+ * @todo Copy scale / scalegrade data to installation/demo files as required
  */
 class ScaleController extends AbstractController
 {

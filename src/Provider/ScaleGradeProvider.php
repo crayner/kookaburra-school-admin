@@ -46,6 +46,7 @@ class ScaleGradeProvider implements EntityProviderInterface
         try {
             $table = $sm->listTableDetails($prefix. 'ScaleGrade');
             $indexes = $sm->listTableIndexes($prefix. 'ScaleGrade');
+
             if (isset($indexes['scalesequence'])) {
                 $index = $table->getIndex('scalesequence');
                 $sm->dropIndex($index, $table);

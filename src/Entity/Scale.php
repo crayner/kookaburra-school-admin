@@ -283,6 +283,7 @@ class Scale implements EntityInterface
     public function toArray(?string $name = null): array
     {
         return [
+            'id' => $this->getId(),
             'name' => $this->getName(),
             'usage' => $this->getUsage(),
             'abbr' => $this->getNameShort(),
@@ -291,5 +292,10 @@ class Scale implements EntityInterface
             'numeric' => $this->isNumeric() ? TranslationsHelper::translate('Yes', [], 'messages') : TranslationsHelper::translate('No', [], 'messages'),
             'canDelete' => ProviderFactory::create(Scale::class)->canDelete($this),
         ];
+    }
+
+    public function getScaleId(): ?int
+    {
+        return $this->getId();
     }
 }

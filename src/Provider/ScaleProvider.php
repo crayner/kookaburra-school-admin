@@ -30,6 +30,11 @@ class ScaleProvider implements EntityProviderInterface
 
     private $entityName = Scale::class;
 
+    /**
+     * canDelete
+     * @param Scale $scale
+     * @return bool
+     */
     public function canDelete(Scale $scale)
     {
         if ($this->getRepository(ScaleGrade::class)->countScaleUse($scale) === 0)

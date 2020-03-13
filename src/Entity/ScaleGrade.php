@@ -114,7 +114,7 @@ class ScaleGrade implements EntityInterface
      */
     public function getScaleId(): int
     {
-        return $this->getScale() ? $this->getScale()->getId() : 0;
+        return $this->getScale() ? intval($this->getScale()->getId()) : 0;
     }
 
     /**
@@ -237,6 +237,7 @@ class ScaleGrade implements EntityInterface
             'descriptor' => $this->getDescriptor(),
             'sequence' => $this->getSequenceNumber(),
             'id' => $this->getId(),
+            'scale' => $this->getScaleId(),
             'default' => $this->isDefault() ? TranslationsHelper::translate('Yes', [], 'messages') : TranslationsHelper::translate('No', [], 'messages'),
             'canDelete' => ProviderFactory::create(ScaleGrade::class)->canDelete($this),
         ];

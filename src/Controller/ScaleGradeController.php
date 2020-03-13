@@ -15,7 +15,10 @@
 
 namespace Kookaburra\SchoolAdmin\Controller;
 
+use App\Container\Container;
 use App\Container\ContainerManager;
+use App\Container\Panel;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Entity\Scale;
@@ -29,7 +32,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -44,36 +46,43 @@ class ScaleGradeController extends AbstractController
      * manage
      * @param ScaleGradePagination $pagination
      * @param Scale $scale
-     * @Route("/scale/{scale}/grade/manage",name="scale_grade_manage")
-     * @Security("is_granted('ROLE_ROUTE', ['school_admin__scale_grade_edit'])")
+     * @param PageManager $pageManager
      * @return JsonResponse
+     * @Route("/scale/{scale}/grade/manage",name="scale_grade_manage")
+     * @IsGranted("ROLE_ROUTE")
      */
-    public function manage(ScaleGradePagination $pagination, Scale $scale)
+    public function manage(ScaleGradePagination $pagination, Scale $scale, PageManager $pageManager)
     {
-        try {
-            $repository = ProviderFactory::getRepository(ScaleGrade::class);
-            $content = $repository->findBy(['scale' => $scale],['sequenceNumber' => 'ASC']);
-            $pagination->setContent($content)
-                ->setAddElementRoute($this->generateUrl('school_admin__scale_grade_add', ['scale' => $scale->getId()]));
-            return new JsonResponse(['content' => $pagination->toArray(), 'pageMax' => $pagination->getPageMax(), 'status' => 'success'], 200);
-        } catch (\Exception $e) {
-            return new JsonResponse(['status' => 'error', 'message' => $e->getMessage()], 200);
-        }
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+
+        $repository = ProviderFactory::getRepository(ScaleGrade::class);
+        $content = $repository->findBy(['scale' => $scale],['sequenceNumber' => 'ASC']);
+        $pagination->setContent($content)
+            ->setReturnRoute($this->generateUrl('school_admin__scale_edit', ['scale' => $scale->getId(), 'tabName' => 'Grades']))
+            ->setAddElementRoute($this->generateUrl('school_admin__scale_grade_add', ['scale' => $scale->getId()]));
+        return $pageManager->createBreadcrumbs('Manage Scale Grade', [
+            ['uri' => 'school_admin__scale_manage', 'name' => 'Manage Scales'],
+            ['uri' => 'school_admin__scale_edit', 'name' => 'Edit Scale ({name})', 'trans_params' => ['{name}' => $scale->getName()], 'uri_params' => ['scale' => $scale->getId(), 'tabName' => 'Grades']]
+        ])
+            ->render(['pagination' => $pagination->toArray()]);
     }
 
     /**
      * edit
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param Scale $scale
      * @param ScaleGrade|null $grade
+     * @return JsonResponse|Response
      * @Route("/scale/{scale}/grade/{grade}/edit/",name="scale_grade_edit")
      * @Route("/scale/{scale}/grade/add/",name="scale_grade_add")
      * @IsGranted("ROLE_ROUTE")
-     * @return JsonResponse|Response
      */
-    public function edit(Request $request, ContainerManager $manager, Scale $scale, ?ScaleGrade $grade = null)
+    public function edit(PageManager $pageManager, ContainerManager $manager, Scale $scale, ?ScaleGrade $grade = null)
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
+
         if ($request->get('_route') === 'school_admin__scale_grade_add') {
             $grade = new ScaleGrade();
             $action = $this->generateUrl('school_admin__scale_grade_add', ['scale' => $scale->getId()]);
@@ -84,7 +93,7 @@ class ScaleGradeController extends AbstractController
 
         $form = $this->createForm(ScaleGradeType::class, $grade, ['action' => $action]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $content = json_decode($request->getContent(), true);
             $form->submit($content);
             $data = [];
@@ -106,19 +115,26 @@ class ScaleGradeController extends AbstractController
             }
 
             $manager->singlePanel($form->createView());
-            $data['form'] = $manager->getFormFromContainer('formContent', 'single');
+            $data['form'] = $manager->getFormFromContainer();
 
             return new JsonResponse($data, 200);
         }
 
-        $manager->singlePanel($form->createView());
-        return $this->render('@KookaburraSchoolAdmin/scale/grade/edit.html.twig',
-            [
-                'scale' => $scale,
-                'grade' => $grade,
-            ]
-        );
+        $container = new Container();
 
+        $panel = new Panel('Details');
+
+
+        $manager->setReturnRoute($this->generateUrl('school_admin__scale_edit', ['scale' => $scale->getId(), 'tabName' => 'Grades']))
+            ->singlePanel($form->createView());
+
+        return $pageManager->createBreadcrumbs($grade->getId() > 0 ? 'Edit Grade Scale' : 'Add Grade Scale',
+            [
+                ['uri' => 'school_admin__scale_manage', 'name' => 'Manage Scales'],
+                ['uri' => 'school_admin__scale_edit', 'name' => 'Edit Scale ({name})', 'trans_params' => ['{name}' => $scale->getName()], 'uri_params' => ['scale' => $scale->getId(), 'tabName' => 'Grades']]
+            ]
+        )
+            ->render(['containers' => $manager->getBuiltContainers()]);
     }
 
     /**

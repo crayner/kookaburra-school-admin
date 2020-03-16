@@ -289,29 +289,29 @@ CREATE TABLE `__prefix__INPersonDescriptor` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__Scale` (
-                                             `id` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
-                                             `name` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                             `nameShort` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                             `usage_info` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                             `lowestAcceptable` int(7) UNSIGNED ZEROFILL DEFAULT NULL,
-                                             `active` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
-                                             `is_numeric` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
-                                             PRIMARY KEY (`id`),
-                                             KEY `lowestAcceptable` (`lowestAcceptable`)
+    `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `nameShort` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `usage_info` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `lowestAcceptable` int(7) UNSIGNED DEFAULT NULL,
+    `active` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+    `is_numeric` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+    PRIMARY KEY (`id`),
+    KEY `lowestAcceptable` (`lowestAcceptable`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__ScaleGrade` (
-                                                  `id` int(7) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
-                                                  `value` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                  `descriptor` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                  `sequenceNumber` int(5) DEFAULT NULL,
-                                                  `isDefault` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
-                                                  `scale` int(5) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                  PRIMARY KEY (`id`),
-                                                  UNIQUE KEY `id` (`id`,`value`),
-                                                  UNIQUE KEY `scaleValue` (`scale`,`value`) USING BTREE,
-                                                  UNIQUE KEY `scaleSequence` (`sequenceNumber`,`scale`),
-                                                  KEY `scale` (`scale`) USING BTREE
+    `id` int(7) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `value` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `descriptor` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `sequenceNumber` int(5) DEFAULT NULL,
+    `isDefault` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+    `scale` int(5) UNSIGNED DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `id` (`id`,`value`),
+    UNIQUE KEY `scaleValue` (`scale`,`value`) USING BTREE,
+    UNIQUE KEY `scaleSequence` (`sequenceNumber`,`scale`),
+    KEY `scale` (`scale`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__YearGroup` (

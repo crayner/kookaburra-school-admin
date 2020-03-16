@@ -39,7 +39,7 @@ class ScaleGrade implements EntityInterface
     /**
      * @var integer|null
      * @ORM\Id()
-     * @ORM\Column(type="integer", columnDefinition="INT(7) UNSIGNED ZEROFILL AUTO_INCREMENT")
+     * @ORM\Column(type="integer", columnDefinition="INT(7) UNSIGNED AUTO_INCREMENT")
      * @ORM\GeneratedValue
      */
     private $id;

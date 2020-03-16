@@ -19,6 +19,7 @@ use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Kookaburra\SchoolAdmin\Form\MarkbookSettingType;
@@ -44,17 +45,21 @@ class MarkbookSettingController extends AbstractController
      * @param string $tabName
      * @return JsonResponse|Response
      * @Route("/markbook/settings/{tabName}", name="markbook_settings")
+     * @todo Move to Markbook Module
      * @IsGranted("ROLE_ROUTE")
      */
-    public function settings(Request $request, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Features')
+    public function settings(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Features')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
+
         $settingProvider = ProviderFactory::create(Setting::class);
         $settingProvider->getSettingsByScope('Markbook');
         $container = new Container();
 
         $form = $this->createForm(MarkbookSettingType::class, null, ['action' => $this->generateUrl('school_admin__markbook_settings')]);
 
-        if ($request->getContentType() === 'json') {
+        if ($request->getContent() !== '') {
             $data = [];
             $data['status'] = 'success';
             try {
@@ -79,6 +84,10 @@ class MarkbookSettingController extends AbstractController
 
         // Finally Finished
         $manager->addContainer($container)->buildContainers();
+
+        return $pageManager->createBreadcrumbs('Markbook Settings',
+        )
+            ->render(['containers' => $manager->getBuiltContainers()]);
 
         return $this->render('@KookaburraSchoolAdmin/markbook/settings.html.twig');
     }

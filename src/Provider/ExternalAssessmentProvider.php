@@ -40,6 +40,8 @@ class ExternalAssessmentProvider implements EntityProviderInterface
      */
     public function canDelete(ExternalAssessment $assessment): bool
     {
+        if ($assessment->isActive())
+            return false;
         if ($this->getRepository(ExternalAssessmentField::class)->countFieldOfAssessment($assessment) === 0)
         {
             return true;

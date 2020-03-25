@@ -132,29 +132,29 @@ CREATE TABLE `__prefix__DaysOfWeek` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__ExternalAssessment` (
-                                                          `id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT,
-                                                          `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                          `nameShort` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                          `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                          `website` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-                                                          `active` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                          `allowFileUpload` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
-                                                          PRIMARY KEY (`id`)
+    `id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `nameShort` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `website` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    `active` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `allowFileUpload` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__ExternalAssessmentField` (
-                                                               `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT,
-                                                               `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                               `category` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                               `sort_order` int(4) DEFAULT NULL,
-                                                               `year_group_list` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '(DC2Type:simple_array)',
-                                                               `external_assessment` int(4) UNSIGNED DEFAULT NULL,
-                                                               `scale` int(5) UNSIGNED DEFAULT NULL,
-                                                               PRIMARY KEY (`id`),
-                                                               UNIQUE KEY `name_category` (`name`,`category`) USING BTREE,
-                                                               UNIQUE KEY `category_order_scale` (`category`,`sort_order`,`scale`),
-                                                               KEY `external_assessment` (`external_assessment`) USING BTREE,
-                                                               KEY `scale` (`scale`) USING BTREE
+    `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `category` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `sort_order` int(4) DEFAULT NULL,
+    `year_group_list` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '(DC2Type:simple_array)',
+    `external_assessment` int(4) UNSIGNED DEFAULT NULL,
+    `scale` int(5) UNSIGNED DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `name_category` (`name`,`category`) USING BTREE,
+    UNIQUE KEY `category_order_scale` (`sort_order`,`category`,`scale`),
+    KEY `external_assessment` (`external_assessment`) USING BTREE,
+    KEY `scale` (`scale`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__ExternalAssessmentStudent` (

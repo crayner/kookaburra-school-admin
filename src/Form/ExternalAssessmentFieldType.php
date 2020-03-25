@@ -15,12 +15,12 @@
 
 namespace Kookaburra\SchoolAdmin\Form;
 
-use App\Entity\Scale;
-use App\Form\Type\DisplayType;
+use App\Form\Type\HeaderType;
 use App\Form\Type\ReactFormType;
 use App\Form\Type\SimpleArrayToEntityType;
 use Doctrine\ORM\EntityRepository;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
+use Kookaburra\SchoolAdmin\Entity\Scale;
 use Kookaburra\SchoolAdmin\Entity\YearGroup;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -43,12 +43,10 @@ class ExternalAssessmentFieldType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('externalAssessment', DisplayType::class,
+            ->add('externalAssessment', HeaderType::class,
                 [
-                    'label' => 'External Assessment',
-                    'help' => 'This value cannot be changed.',
-                    'data' => $options['data']->getExternalAssessment()->getName(),
-                    'mapped' => false,
+                    'label' => 'Assessment field for - {name}',
+                    'label_translation_parameters' => ['{name}' => $options['data']->getExternalAssessment()->getName()]
                 ]
             )
             ->add('name', TextType::class,

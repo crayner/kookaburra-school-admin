@@ -29,9 +29,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          @ORM\Index(name="scale", columns={"scale"})},
  *     uniqueConstraints={
  *          @ORM\UniqueConstraint(name="name_category",columns={"name","category"}),
- *          @ORM\UniqueConstraint(name="category_order_scale",columns={"category","sort_order","scale"})})
+ *          @ORM\UniqueConstraint(name="category_order_scale",columns={"sort_order","category","scale"})})
  * @UniqueEntity({"name", "category"})
- * @UniqueEntity({"category", "order", "scale"})
+ * @UniqueEntity({"order", "category", "scale"})
  */
 class ExternalAssessmentField implements EntityInterface
 {

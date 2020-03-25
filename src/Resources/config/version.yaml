@@ -1,5 +1,5 @@
 version: 0.0.00
-name: School Admin
+name: 'School Admin'
 module:
     name: 'School Admin'
     description: 'Allows administrators to configure school settings.'
@@ -16,7 +16,7 @@ module:
             precedence: 0
             category: 'Years, Days & Times'
             description: 'Allows user to control the definition of academic years within the system'
-            URLList: 'academic_year_manage,academic_year_edit,academic_year_delete,academic_year_add'
+            URLList: 'academic_year_manage,academic_year_edit,academic_year_delete,academic_year_add,default'
             entryURL: academic_year_manage
             entrySidebar: 'Y'
             menuShow: 'Y'
@@ -36,7 +36,7 @@ module:
             precedence: 0
             category: Groupings
             description: ''
-            URLList: 'year_group_manage,year_group_edit,year_group_add,year_group_delete'
+            URLList: 'year_group_manage,year_group_edit,year_group_add,year_group_delete,year_group_top_of_list'
             entryURL: year_group_manage
             entrySidebar: 'Y'
             menuShow: 'Y'
@@ -91,8 +91,8 @@ module:
             categoryPermissionOther: 'N'
             permissions:
                 - Administrator
-        Terms:
-            name: Terms
+        'Academic Year Terms':
+            name: 'Academic Year Terms'
             precedence: 0
             category: 'Years, Days & Times'
             description: ''
@@ -236,7 +236,7 @@ module:
             precedence: 1
             category: Assess
             description: 'Manage all aspects of grade scales, which are used throughout ARR to control grade input.'
-            URLList: 'scale_manage,scale_add,scale_edit,scale_delete,scale_grade_add,scale_grade_edit,scale_grade_delete'
+            URLList: 'scale_manage,scale_add,scale_edit,scale_delete,scale_grade_manage,scale_grade_add,scale_grade_edit,scale_grade_delete'
             entryURL: scale_manage
             entrySidebar: 'Y'
             menuShow: 'Y'
@@ -491,4 +491,3 @@ module:
             categoryPermissionOther: 'N'
             permissions:
                 - Administrator
-

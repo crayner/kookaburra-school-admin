@@ -104,4 +104,24 @@ class ExternalAssessmentFieldRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * findFieldSetChoices
+     * @return array
+     */
+    public function findFieldSetChoices(): array
+    {
+        return $this->createQueryBuilder('f')
+            ->select(['f.category', 'ea.id AS ea_id'])
+            ->join('f.externalAssessment', 'ea')
+            ->orderBy('ea.name', 'ASC')
+            ->groupBy('ea.id')
+            ->addGroupBy('f.category')
+            ->where('ea.active = :true')
+            ->setParameter('true', 'Y')
+            ->getQuery()
+            ->getResult();
+    }
+
+
 }

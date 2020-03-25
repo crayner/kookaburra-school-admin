@@ -120,11 +120,6 @@ class ScaleGradeController extends AbstractController
             return new JsonResponse($data, 200);
         }
 
-        $container = new Container();
-
-        $panel = new Panel('Details');
-
-
         $manager->setReturnRoute($this->generateUrl('school_admin__scale_edit', ['scale' => $scale->getId(), 'tabName' => 'Grades']))
             ->singlePanel($form->createView());
 

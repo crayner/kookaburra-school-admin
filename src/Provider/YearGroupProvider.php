@@ -145,4 +145,15 @@ class YearGroupProvider implements EntityProviderInterface
         }
         return null;
     }
+
+    /**
+     * getYearGroupName
+     * @param int $id
+     * @return string
+     */
+    public function getYearGroupName(int $id): string
+    {
+        $yg = $this->findOne($id);
+        return $yg->getName();
+    }
 }

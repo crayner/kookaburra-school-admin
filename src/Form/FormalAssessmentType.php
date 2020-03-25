@@ -24,6 +24,10 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class FormalAssessmentType
+ * @package Kookaburra\SchoolAdmin\Form
+ */
 class FormalAssessmentType extends AbstractType
 {
     /**
@@ -54,7 +58,7 @@ class FormalAssessmentType extends AbstractType
             )
             ->add('submit', SubmitType::class,
                 [
-                    "label" => 'Submit Internal Assessment Settings'
+                    "label" => 'Submit'
                 ]
             )
         ;

@@ -1,5 +1,5 @@
 CREATE TABLE `__prefix__AcademicYear` (
-                                                    `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                    `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                     `name` varchar(9) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                     `status` varchar(8) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Upcoming',
                                                     `firstDay` date DEFAULT NULL COMMENT '(DC2Type:date_immutable)',
@@ -11,7 +11,7 @@ CREATE TABLE `__prefix__AcademicYear` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE  `__prefix__AcademicYearSpecialDay` (
-                                                              `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                              `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                               `type` varchar(14) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                               `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                               `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -20,20 +20,20 @@ CREATE TABLE  `__prefix__AcademicYearSpecialDay` (
                                                               `schoolStart` time DEFAULT NULL COMMENT '(DC2Type:time_immutable)',
                                                               `schoolEnd` time DEFAULT NULL COMMENT '(DC2Type:time_immutable)',
                                                               `schoolClose` time DEFAULT NULL COMMENT '(DC2Type:time_immutable)',
-                                                              `academic_year` int(3) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                              `academic_year` int(3) UNSIGNED DEFAULT NULL,
                                                               PRIMARY KEY (`id`),
                                                               UNIQUE KEY `date` (`date`),
                                                               KEY `academicYear` (`academic_year`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__AcademicYearTerm` (
-                                                        `id` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                        `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                         `sequenceNumber` int(5) DEFAULT NULL,
                                                         `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                         `nameShort` varchar(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                         `firstDay` date DEFAULT NULL COMMENT '(DC2Type:date_immutable)',
                                                         `lastDay` date DEFAULT NULL COMMENT '(DC2Type:date_immutable)',
-                                                        `academic_year` int(3) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                        `academic_year` int(3) UNSIGNED DEFAULT NULL,
                                                         PRIMARY KEY (`id`),
                                                         UNIQUE KEY `name` (`academic_year`,`name`) USING BTREE,
                                                         UNIQUE KEY `abbr` (`academic_year`,`nameShort`),
@@ -42,7 +42,7 @@ CREATE TABLE `__prefix__AcademicYearTerm` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__AlertLevel` (
-                                                  `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                  `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                   `nameShort` varchar(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                   `colour` varchar(7) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'RGB Hex',
@@ -53,7 +53,7 @@ CREATE TABLE `__prefix__AlertLevel` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__AttendanceCode` (
-                                                      `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                      `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                       `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                       `code` varchar(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                       `type` varchar(12) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -71,18 +71,18 @@ CREATE TABLE `__prefix__AttendanceCode` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__AttendanceLogCourseClass` (
-                                                                `id` int(14) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                                `id` int(14) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                                 `date` date DEFAULT NULL,
                                                                 `timestampTaken` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                                                                `course_class` int(8) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                                `taker` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                                `course_class` int(8) UNSIGNED DEFAULT NULL,
+                                                                `taker` int(10) UNSIGNED DEFAULT NULL,
                                                                 PRIMARY KEY (`id`),
                                                                 KEY `course_class` (`course_class`) USING BTREE,
                                                                 KEY `taker` (`taker`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__AttendanceLogPerson` (
-                                                           `id` int(14) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                           `id` int(14) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                            `direction` varchar(3) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                            `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                            `reason` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -90,10 +90,10 @@ CREATE TABLE `__prefix__AttendanceLogPerson` (
                                                            `comment` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                            `date` date DEFAULT NULL,
                                                            `timestampTaken` datetime DEFAULT NULL,
-                                                           `attendance_code` int(3) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                           `person` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                           `taker` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                           `course_class` int(8) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                           `attendance_code` int(3) UNSIGNED DEFAULT NULL,
+                                                           `person` int(10) UNSIGNED DEFAULT NULL,
+                                                           `taker` int(10) UNSIGNED DEFAULT NULL,
+                                                           `course_class` int(8) UNSIGNED DEFAULT NULL,
                                                            PRIMARY KEY (`id`),
                                                            UNIQUE KEY `dateContextPersonClass` (`date`,`context`,`person`,`course_class`),
                                                            KEY `date` (`date`),
@@ -105,18 +105,18 @@ CREATE TABLE `__prefix__AttendanceLogPerson` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__AttendanceLogRollGroup` (
-                                                              `id` int(14) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                              `id` int(14) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                               `date` date DEFAULT NULL,
                                                               `timestampTaken` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                                                              `roll_group` int(5) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                              `taker` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                              `roll_group` int(5) UNSIGNED DEFAULT NULL,
+                                                              `taker` int(10) UNSIGNED DEFAULT NULL,
                                                               PRIMARY KEY (`id`),
                                                               KEY `roll_group` (`roll_group`) USING BTREE,
                                                               KEY `taker` (`taker`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__DaysOfWeek` (
-                                                  `id` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                  `id` int(2) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                   `name` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                   `nameShort` varchar(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                   `sequenceNumber` int(2) DEFAULT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE `__prefix__DaysOfWeek` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__ExternalAssessment` (
-                                                          `id` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                          `id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                           `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                           `nameShort` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                           `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -143,13 +143,13 @@ CREATE TABLE `__prefix__ExternalAssessment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__ExternalAssessmentField` (
-                                                               `id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                               `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                                `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                                `category` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                                `sort_order` int(4) DEFAULT NULL,
                                                                `year_group_list` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '(DC2Type:simple_array)',
-                                                               `external_assessment` int(4) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                               `scale` int(5) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                               `external_assessment` int(4) UNSIGNED DEFAULT NULL,
+                                                               `scale` int(5) UNSIGNED DEFAULT NULL,
                                                                PRIMARY KEY (`id`),
                                                                UNIQUE KEY `name_category` (`name`,`category`) USING BTREE,
                                                                UNIQUE KEY `category_order_scale` (`category`,`sort_order`,`scale`),
@@ -158,21 +158,21 @@ CREATE TABLE `__prefix__ExternalAssessmentField` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__ExternalAssessmentStudent` (
-                                                                 `id` int(12) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                                 `id` int(12) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                                  `date` date NOT NULL,
                                                                  `attachment` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                                 `external_assessment` int(4) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                                 `person` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                                 `external_assessment` int(4) UNSIGNED DEFAULT NULL,
+                                                                 `person` int(10) UNSIGNED DEFAULT NULL,
                                                                  PRIMARY KEY (`id`),
                                                                  KEY `person` (`person`),
                                                                  KEY `external_assessment` (`external_assessment`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__ExternalAssessmentStudentEntry` (
-                                                                      `id` int(14) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
-                                                                      `external_assessment_student` int(12) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                                      `external_assessment_field` int(6) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                                      `scale_grade` int(7) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                                      `id` int(14) UNSIGNED NOT NULL AUTO_INCREMENT,
+                                                                      `external_assessment_student` int(12) UNSIGNED DEFAULT NULL,
+                                                                      `external_assessment_field` int(6) UNSIGNED DEFAULT NULL,
+                                                                      `scale_grade` int(7) UNSIGNED DEFAULT NULL,
                                                                       PRIMARY KEY (`id`),
                                                                       KEY `external_assessment_student` (`external_assessment_student`) USING BTREE,
                                                                       KEY `external_assessment_field` (`external_assessment_field`) USING BTREE,
@@ -180,7 +180,7 @@ CREATE TABLE `__prefix__ExternalAssessmentStudentEntry` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__Facility` (
-                                                `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                 `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                 `type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                 `capacity` int(5) DEFAULT NULL,
@@ -200,9 +200,9 @@ CREATE TABLE `__prefix__Facility` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__FacilityPerson` (
-                                                `id` bigint(12) UNSIGNED ZEROFILL AUTO_INCREMENT NOT NULL,
-                                                `facility` int(10) UNSIGNED ZEROFILL NOT NULL,
-                                                `person` int(10) UNSIGNED ZEROFILL NOT NULL,
+                                                `id` bigint(12) UNSIGNED AUTO_INCREMENT NOT NULL,
+                                                `facility` int(10) UNSIGNED NOT NULL,
+                                                `person` int(10) UNSIGNED NOT NULL,
                                                 `usage_type` varchar(8) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
                                                 PRIMARY KEY (`id`),
                                                 KEY `facility` (`facility`),
@@ -210,7 +210,7 @@ CREATE TABLE `__prefix__FacilityPerson` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__FileExtension` (
-                                                     `id` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                     `id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                      `type` varchar(16) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Other',
                                                      `extension` varchar(7) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                      `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -218,7 +218,7 @@ CREATE TABLE `__prefix__FileExtension` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__House` (
-                                             `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                             `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT,
                                              `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                              `nameShort` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                              `logo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -228,29 +228,29 @@ CREATE TABLE `__prefix__House` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__INArchive` (
-                                                 `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                 `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                  `strategies` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                  `targets` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                  `notes` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                  `archiveTitle` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                  `archiveTimestamp` datetime DEFAULT NULL,
-                                                 `person` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                 `person` int(10) UNSIGNED DEFAULT NULL,
                                                  PRIMARY KEY (`id`),
                                                  KEY `person` (`person`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__INAssistant` (
-                                                   `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                    `comment` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                                   `student` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                   `assistant` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                   `student` int(10) UNSIGNED DEFAULT NULL,
+                                                   `assistant` int(10) UNSIGNED DEFAULT NULL,
                                                    PRIMARY KEY (`id`),
                                                    KEY `student` (`student`) USING BTREE,
                                                    KEY `assistant` (`assistant`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__INDescriptor` (
-                                                    `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                    `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                     `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                     `nameShort` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                     `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
@@ -268,20 +268,20 @@ CREATE TABLE `__prefix__INArchiveDescriptors` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__IN` (
-                                          `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                          `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
                                           `strategies` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                           `targets` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                           `notes` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-                                          `person` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
+                                          `person` int(10) UNSIGNED DEFAULT NULL,
                                           PRIMARY KEY (`id`),
                                           UNIQUE KEY `person` (`person`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__INPersonDescriptor` (
-                                                          `id` int(12) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
-                                                          `person` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                          `in_descriptor` int(3) UNSIGNED ZEROFILL DEFAULT NULL,
-                                                          `alert_level` int(3) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                          `id` int(12) UNSIGNED NOT NULL AUTO_INCREMENT,
+                                                          `person` int(10) UNSIGNED DEFAULT NULL,
+                                                          `in_descriptor` int(3) UNSIGNED DEFAULT NULL,
+                                                          `alert_level` int(3) UNSIGNED DEFAULT NULL,
                                                           PRIMARY KEY (`id`),
                                                           KEY `person` (`person`) USING BTREE,
                                                           KEY `alert_level` (`alert_level`) USING BTREE,
@@ -315,11 +315,11 @@ CREATE TABLE `__prefix__ScaleGrade` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `__prefix__YearGroup` (
-                                                 `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+                                                 `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT,
                                                  `name` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                  `nameShort` varchar(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
                                                  `sequenceNumber` int(3) UNSIGNED NOT NULL,
-                                                 `head_of_year` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
+                                                 `head_of_year` int(10) UNSIGNED DEFAULT NULL,
                                                  PRIMARY KEY (`id`),
                                                  UNIQUE KEY `name` (`name`),
                                                  UNIQUE KEY `nameShort` (`nameShort`),

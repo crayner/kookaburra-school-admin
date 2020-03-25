@@ -556,3 +556,15 @@ Must be unique for this Scale: Must be unique for this Scale
 Preselects this option when using this scale in appropriate contexts.: Preselects this option when using this scale in appropriate contexts.
 Scale: Scale
 Value: Value
+primary_external_help: 'These settings allow a particular type of external assessment to be associated with each year group. The selected assessment will be used as the primary assessment to be used as a baseline for comparison (for example, within the Markbook). You are required to select a particular field category can be chosen from which to draw data (if no category is chosen, the data will not be saved).'
+Comma-separated list of types to make available in Internal Assessments.: Comma-separated list of types to make available in Internal Assessments.
+Edit Scale (Cognitive Abilities Test): Edit Scale (Cognitive Abilities Test)
+Field Set: Field Set
+Field Sets: Field Sets
+File Upload: File Upload
+Internal Assessment Settings: Internal Assessment Settings
+Internal Assessment Types: Internal Assessment Types
+Manage External Assessments: Manage External Assessments
+Primary External Assessment: Primary External Assessment
+Submit Internal Assessment Settings: Submit Internal Assessment Settings
+Submit Primary External Assessment: Submit Primary External Assessment

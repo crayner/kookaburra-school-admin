@@ -22,6 +22,7 @@ use App\Provider\ProviderFactory;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
 use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentStudentEntry;
 use Kookaburra\SchoolAdmin\Entity\YearGroup;
+use Symfony\Component\Form\ChoiceList\View\ChoiceView;
 
 /**
  * Class ExternalAssessmentFieldProvider
@@ -90,6 +91,25 @@ class ExternalAssessmentFieldProvider implements EntityProviderInterface
             }
         }
 
+        return $result;
+    }
+
+    /**
+     * findFieldSetChoices
+     * @return array
+     */
+    public function findFieldSetChoices(): array
+    {
+        $choices = $this->getRepository()->findFieldSetChoices();
+
+        $result = [];
+        foreach($choices as $choice)
+        {
+            $cat = explode('_', $choice['category']);
+            $cat = array_pop($cat);
+            $w = new ChoiceView(null, $choice['category'], $cat);
+            $result[intval($choice['ea_id'])][$cat]  = $w;
+        }
         return $result;
     }
 }

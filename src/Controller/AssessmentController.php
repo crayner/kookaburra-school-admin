@@ -19,6 +19,7 @@ use App\Container\Container;
 use App\Container\ContainerManager;
 use App\Container\Panel;
 use App\Entity\Setting;
+use App\Manager\PageManager;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use App\Util\TranslationsHelper;
@@ -27,7 +28,8 @@ use Kookaburra\SchoolAdmin\Entity\ExternalAssessmentField;
 use Kookaburra\SchoolAdmin\Form\ExternalAssessmentFieldType;
 use Kookaburra\SchoolAdmin\Form\ExternalAssessmentType;
 use Kookaburra\SchoolAdmin\Form\FormalAssessmentType;
-use Kookaburra\SchoolAdmin\Manager\Hidden\FormalAssessmentManager;
+use Kookaburra\SchoolAdmin\Form\PrimaryExternalAssessmentType;
+use Kookaburra\SchoolAdmin\Manager\Hidden\ExternalAssessmentByYearGroups;
 use Kookaburra\SchoolAdmin\Pagination\ExternalAssessmentFieldPagination;
 use Kookaburra\SchoolAdmin\Pagination\ExternalAssessmentPagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -37,6 +39,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -292,37 +295,69 @@ class AssessmentController extends AbstractController
      * formalAssessment
      * @Route("formal/assessment/{tabName}", name="formal_assessment")
      * @IsGranted("ROLE_ROUTE")
+     * @param PageManager $pageManager
+     * @param ContainerManager $manager
+     * @param TranslatorInterface $translator
+     * @param string $tabName
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function formalAssessment(Request $request, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Internal')
+    public function formalAssessment(PageManager $pageManager, ContainerManager $manager, TranslatorInterface $translator, string $tabName = 'Internal')
     {
+        if ($pageManager->isNotReadyForJSON()) return $pageManager->getBaseResponse();
+        $request = $pageManager->getRequest();
+        $container = new Container();
+
+        $content = json_decode($request->getContent(), true);
         // System Settings
-        $form = $this->createForm(FormalAssessmentType::class, null, ['action' => $this->generateUrl('school_admin__formal_assessment',)]);
+        $form = $this->createForm(FormalAssessmentType::class, null, ['action' => $this->generateUrl('school_admin__formal_assessment', ['tabName' => 'Internal'])]);
 
-        if ($request->getContentType() === 'json') {
-            $data = [];
-            $data['status'] = 'success';
-            try {
-                $data['errors'] = ProviderFactory::create(Setting::class)->handleSettingsForm($form, $request, $translator);
-            } catch (\Exception $e) {
-                $data = ErrorMessageHelper::getDatabaseErrorMessage($data, true);
+        if ($content !== null) {
+            if (array_key_exists('internalSettingsHeader', $content)) {
+                $data = [];
+                $data['status'] = 'success';
+                try {
+                    $data['errors'] = ProviderFactory::create(Setting::class)->handleSettingsForm($form, $request, $translator);
+                } catch (\Exception $e) {
+                    $data = ErrorMessageHelper::getDatabaseErrorMessage($data, true);
+                }
+
+                $manager->singlePanel($form->createView());
+                $data['form'] = $manager->getFormFromContainer('formContent', 'single');
+
+                return new JsonResponse($data, 200);
+            } else if (array_key_exists('primaryExternalHeader', $content)) {
+                if ($this->isCsrfTokenValid('primary_external_assessment', $content['_token'])) {
+                    $ea = new ExternalAssessmentByYearGroups();
+                    $data = $ea->handleRequest($content);
+                    $form = $this->createForm(PrimaryExternalAssessmentType::class, $ea, ['action' => $this->generateUrl('school_admin__formal_assessment', ['tabName' => 'External'])]);
+
+                    $manager->singlePanel($form->createView());
+                    $data['form'] = $manager->getFormFromContainer();
+                    return new JsonResponse($data, 200);
+                } else {
+                    $ea = new ExternalAssessmentByYearGroups();
+                    $form = $this->createForm(PrimaryExternalAssessmentType::class, $ea, ['action' => $this->generateUrl('school_admin__formal_assessment', ['tabName' => 'External'])]);
+                    $data = ErrorMessageHelper::getInvalidTokenMessage([], true);
+                    $manager->singlePanel($form->createView());
+                    $data['form'] = $manager->getFormFromContainer();
+                    return new JsonResponse($data);
+                }
             }
-
-            $manager->singlePanel($form->createView());
-            $data['form'] = $manager->getFormFromContainer('formContent', 'single');
-
-            return new JsonResponse($data, 200);
-        }
-        if ($request->request->has('formal_external_assessment')) {
-            $assessments = $request->request->get('formal_external_assessment');
-            if ($this->isCsrfTokenValid('formal_external_assessment', $assessments['_token'])) {
-                unset($assessments['_token']);
-                ProviderFactory::create(Setting::class)->setSettingByScope('School Admin', 'primaryExternalAssessmentByYearGroup', serialize($assessments));
-            }
         }
 
-        $manager->singlePanel($form->createView());
+        $panel = new Panel('Internal');
+        $container->setTranslationDomain('SchoolAdmin')->addForm('Internal', $form->createView())->addPanel($panel)->setSelectedPanel($tabName);
 
-        $fa = new FormalAssessmentManager();
+        $ea = new ExternalAssessmentByYearGroups();
+        $form = $this->createForm(PrimaryExternalAssessmentType::class, $ea, ['action' => $this->generateUrl('school_admin__formal_assessment', ['tabName' => 'External'])]);
+
+        $panel = new Panel('External');
+        $container->addForm('External', $form->createView())->addPanel($panel);
+
+        $manager->addContainer($container)->buildContainers();
+        return $pageManager->createBreadcrumbs('Formal Assessment Settings',
+            )
+            ->render(['containers' => $manager->getBuiltContainers()]);
 
         return $this->render('@KookaburraSchoolAdmin/assessment/settings.html.twig', [
             'assessments' => $fa->createFormContent(),

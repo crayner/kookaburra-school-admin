@@ -39,7 +39,7 @@ class MarkbookSettingController extends AbstractController
 {
     /**
      * settings
-     * @param Request $request
+     * @param PageManager $pageManager
      * @param ContainerManager $manager
      * @param TranslatorInterface $translator
      * @param string $tabName
@@ -88,7 +88,5 @@ class MarkbookSettingController extends AbstractController
         return $pageManager->createBreadcrumbs('Markbook Settings',
         )
             ->render(['containers' => $manager->getBuiltContainers()]);
-
-        return $this->render('@KookaburraSchoolAdmin/markbook/settings.html.twig');
     }
 }

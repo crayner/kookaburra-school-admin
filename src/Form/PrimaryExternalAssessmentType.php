@@ -15,11 +15,19 @@
 
 namespace Kookaburra\SchoolAdmin\Form;
 
+use App\Form\Type\HeaderType;
+use App\Form\Type\ReactCollectionType;
+use App\Form\Type\ReactFormType;
+use Kookaburra\SchoolAdmin\Manager\Hidden\ExternalAssessmentByYearGroups;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class PrimaryExternalAssessmentType
+ * @package Kookaburra\SchoolAdmin\Form
+ */
 class PrimaryExternalAssessmentType extends AbstractType
 {
     /**
@@ -30,9 +38,34 @@ class PrimaryExternalAssessmentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('primaryExternalHeader', HeaderType::class,
+                [
+                    'label' => 'Primary External Assessment',
+                    'help' => 'primary_external_help',
+                ]
+            )
+            ->add('yearGroups', ReactCollectionType::class,
+                [
+                    'element_delete_route' => false,
+                    'entry_type' => ExternalAssessmentFieldSetType::class,
+                    'row_style' => 'single',
+                    'header_row' => [
+                        [
+                            'label' => 'Year Groups',
+                        ],
+                        [
+                            'label' => 'External Assessments',
+                        ],
+                        [
+                            'label' => 'Field Sets',
+                        ],
+                    ],
+                ]
+            )
             ->add('submit', SubmitType::class,
                 [
-                    "label" => 'Submit Primary External Assessment'
+                    'label' => 'Submit',
+                    'translation_domain' => 'SchoolAdmin',
                 ]
             )
         ;
@@ -47,8 +80,17 @@ class PrimaryExternalAssessmentType extends AbstractType
         $resolver->setDefaults(
             [
                 'translation_domain' => 'SchoolAdmin',
-                'data_class' => null,
+                'data_class' => ExternalAssessmentByYearGroups::class,
             ]
         );
+    }
+
+    /**
+     * getParent
+     * @return string|null
+     */
+    public function getParent()
+    {
+        return ReactFormType::class;
     }
 }

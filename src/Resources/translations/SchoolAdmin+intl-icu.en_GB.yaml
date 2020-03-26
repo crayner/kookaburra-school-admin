@@ -535,6 +535,12 @@ FacilityTypes: FacilityTypes
 'Type: Storage': 'Type: Storage'
 'Type: Study': 'Type: Study'
 'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
 '{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
 external_assessment_help: Use the options below to select the external assessments that you wish to include in your Data Points export. If duplicates of any assessment exist, only the most recent entry will be shown.
 'Data Point - External Assessment': 'Data Point - External Assessment'
@@ -577,3 +583,6 @@ Edit field: Edit field
 Fields: Fields
 Manage Assessment Fields for {name}: Manage Assessment Fields for {name}
 Should the student record include the option of a file upload?: Should the student record include the option of a file upload?
+SMS Settings: SMS Settings
+Enable Home Screen Widget: Enable Home Screen Widget
+Adds a Message Wall widget to the home page, hihglighting current messages.: Adds a Message Wall widget to the home page, highlighting current messages.

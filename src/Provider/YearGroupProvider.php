@@ -39,12 +39,16 @@ class YearGroupProvider implements EntityProviderInterface
 
     /**
      * getCurrentYearGroupChoiceList
+     * @param bool $useEntity
      * @return array
      */
-    public function getCurrentYearGroupChoiceList(): array {
+    public function getCurrentYearGroupChoiceList(bool $useEntity = false): array {
         $result = [];
         foreach($this->getRepository()->findCurrentYearGroups() as $q=>$w){
-            $result[]= new ChoiceView([], $w->getId(), $w->getName(), []);
+            if ($useEntity)
+                $result[$w->getId()] = $w;
+            else
+                $result[]= new ChoiceView([], $w->getId(), $w->getName(), []);
         }
         return $result;
     }

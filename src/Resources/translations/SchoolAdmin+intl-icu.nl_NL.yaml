@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: Wijjzig
+Delete: Wis
+Name: Naam
+Dates: Datums
+Status: Status
+Actions: Acties
+'There are no records to display.': 'Er zijn geen gegevens om weer te geven.'
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': 'First Page'
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': 'Last Page'
+academicyear:
+    status:
+        past: Afgelopen
+        current: Lopend
+        upcoming: Komend
+Sequence: Volgorde
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': Schoolbeheer
+'Sequence Number': Volgnummer
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': 'Eerste dag'
+'Last Day': 'Laatste dag'
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 'Termijn bewerken'
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': 'Termijn toevoegen'
+'Manage Terms': 'Termijnen beheren'
+Monday: Maandag
+Mon: Ma
+Installed: Geïnstalleerd
+'School Day': Schooldag
+'School Opens': 'School opent'
+'School Starts': 'Lessen beginnen'
+'School Ends': 'Lessen eindigen'
+'School Closes': 'School sluit'
+Submit: Invoeren
+Display: Display
+Tuesday: Dinsdag
+Tue: Di
+Wednesday: Woensdag
+Wed: Wo
+Thursday: Donderdag
+Thu: Do
+Friday: Vrijdag
+Fri: Vr
+Saturday: Zaterdag
+Sat: Za
+Sunday: Zondag
+Sun: Zo
+'Manage Days of the Week': 'Beheer de dagen van de week'
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': Urenwijziging
+        'school closure': 'School gesloten'
+Date: Datum
+Type: Type
+'Manage Special Days': 'Beheer feestdagen'
+'Edit Special Day': 'Speciale dag bewerken'
+'Please select...': Kies...
+Description: Beschrijving
+'Add Special Day': 'Speciale dag toevoegen'
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: Duplikaat
+'Term Break': 'Term Break'
+Calendar: Calendar
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: Logo
+'Manage Houses': 'Beheer huizen'
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': 'Wijzig huis'
+'Add House': 'Voeg huis toe'
+Projector: Projector
+TV: TV
+'DVD Player': DVD-speler
+Hifi: Hifi
+Speakers: Luidsprekers
+'Interactive White Board': 'Interactief whiteboard'
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': oefencomputer
+Capacity: Capaciteit
+Facilities: Leermiddelen
+'Manage Facilities': 'Beheer faciliteiten'
+facility:
+    type:
+        classroom: Klaslokaal
+        hall: Zaal
+        laboratory: Laboratory
+        library: Bibliotheek
+        office: Kantoor
+        outdoor: 'Open lucht'
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: Opslag
+        study: Studiezaal
+        undercover: Onderdak
+        other: Andere
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': Leerlingcomputers
+'How many are there': Hoeveel
+Extension: Extensie
+'Room''s internal phone number.': 'Intern telefoonnummer'
+'Phone Number': Telefoonnummer
+'Room''s external phone number.': 'Rechtstreeks nummer'
+Comment: Opmerking
+'Edit Facility': 'Bewerk faciliteiten'
+'Facility Type': 'Type leermiddel'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'Gebruik onderstaande opties om de externe beoordeling te kiezen die meegenomen moet worden in de puntenuitvoer.'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'Enkel de meest recente beoordeling wordt getoond.'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'Gebruik onderstaande opties om de interne beoordelingen te kiezen die meegenomen moeten worden in de puntenuitvoer.'
+'Add Field': 'Voeg een veld toe'
+'External Assessment': 'Externe evaluatie'
+'This value cannot be changed.': 'Deze waarde kan niet worden gewijzigd.'
+Category: Categorie
+Order: Volgorde
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': Puntenschaal
+'Grade scale used to control values that can be assigned.': 'Puntenschaal om de waarden te controleren die kunnen worden toegekend.'
+'Year Groups': Leerjaren
+'Year groups to which this field is relevant.': 'Leerjaren waarop dit veld van toepassing is'
+'Edit Field': 'Edit Field'
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': Volginstellingen
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: Gebruik
+Active: Actief
+Numeric: Numeriek
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 'Korte omschrijving hoe de puntenschaal gebruikt wordt.'
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': 'Gebruikt deze puntenschaal enkel numerieke punten?  Nota: de kwotering ''onvolledig'' telt hiervoor niet mee.'
+'Lowest Acceptable': 'Laagst aanvaardbare'
+'This is the lowest grade a student can get without being unsatisfactory.': 'Dit zijn de laagste punten die een student kan krijgen zonder onvoldoende te scoren.'
+Details: Details
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: Features
+'Enable Effort': 'Enable Effort'
+'Should columns have the Effort section enabled?': 'Should columns have the Effort section enabled?'
+'Enable Rubrics': 'Enable Rubrics'
+'Should columns have Rubrics section enabled?': 'Should columns have Rubrics section enabled?'
+'Enable Column Weighting': 'Enable Column Weighting'
+'Should column weighting and total scores be enabled in the Markbook?': 'Should column weighting and total scores be enabled in the Markbook?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': 'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.'
+'Enable Display Cumulative Marks': 'Enable Display Cumulative Marks'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?'
+'Enable Raw Attainment Marks': 'Enable Raw Attainment Marks'
+'Should recording of raw marks be enabled in the Markbook?': 'Should recording of raw marks be enabled in the Markbook?'
+'Enable Modified Assessment': 'Enable Modified Assessment'
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: Interface
+'Markbook Type': Puntenboektype
+'Comma-separated list of types to make available in the Markbook.': 'CSV-lijst van types in het puntenboek'
+'Group Columns by Term': 'Group Columns by Term'
+'Should columns and total scores be grouped by term?': 'Should columns and total scores be grouped by term?'
+'Attainment Alternative Name': 'Andere naam voor Doel'
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 'Afgekorte naam voor Doel'
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': 'Andere naam voor Studiehouding'
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': 'Afgekorte naam voor Studiehouding'
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: Waarschuwingen
+'Show Student Attainment Warning': 'Toon leerling waarschuwing onderprestatie'
+'Show low attainment grade visual warning to students?': 'Visuele waarschuwing voor de leerlingen bij lage scores?'
+'Show Student Effort Warning': 'Toon leerling waarschuwingen over inspanning'
+'Show low effort grade visual warning to students?': 'Visuele waarschuwing voor de leerlingen bij slechte attitude?'
+'Show Parent Attainment Warning': 'Toon ouders waarschuwingen onderprestatie'
+'Show low attainment grade visual warning to parents?': 'Visuele waarschuwing voor de ouders bij lage scores?'
+'Show Parent Effort Warning': 'Toon ouders waarschuwingen over inspanning'
+'Show low effort grade visual warning to parents?': 'Visuele waarschuwing voor de ouders bij slechte attitude?'
+'Personalised Warnings': 'Gepersonaliseerde waarschuwingen'
+'Should markbook warnings be based on personal targets, if they are available?': 'Puntenboekwaarschuwingen baseren op persoonlijke doelen als ze beschikbaar zijn?'
+'Markbook Settings': Puntenboekinstellingen
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': Berichtenbordinstellingen
+'Message Bubble Width Type': 'Breedte berichten'
+'Should the message bubble be regular or wide?': 'Moet de berichtenwolk gemiddeld of extra breed zijn?'
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: Gewoon
+        wide: Breed
+'Message Bubble Background Color': 'Achtergrondkleur berichten'
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': 'Achtergrondkleur van de berichtenwolk in RGBA. Leeg laten voor verstekthema.'
+'Message Bubble Auto Hide': 'Verberg berichtenwolk automatisch'
+'Should message bubble fade out automatically?': 'Moet de berichtenwolk automatisch vervagen?'
+Miscellaneous: Varia
+'Message Bcc': 'Message Bcc'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'Comma-separated list of recipients to bcc all messenger emails to.'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': 'Algemene instellingen'
+Email: Email
+'Email address to send finance emails from.': 'E-mailadres van de boekhoudafdeling.'
+'Enable Online Payment': 'Onlinebetalingen mogelijk maken'
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': 'Moeten facturen online betaalbaar zijn via een geencrypteerde koppeling? Hiervoor moet een correct geconfigureerde poort in de betalingsinstellingen aanwezig zijn.'
+'Online Payment Threshold': 'Drempel onlinebetalingen'
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': 'Als facturen online betaald kunnen worden, wat is dan het maximaal toegelaten bedrag? Geen waarde betekent ongelimiteerd.'
+Invoices: Facturen
+'Invoice Text': Factuurtekst
+'Text to appear in invoice, above invoice details and fees.': 'Tekst op de facturen boven de omschrijving en kostprijs.'
+'Invoice Notes': Factuurnota
+'Text to appear in invoice, below invoice details and fees.': 'Tekst op de facturen onder de omschrijving en kostprijs.'
+'Invoicee Name Style': 'Invoicee Name Style'
+'Determines how invoicee name appears on invoices and receipts.': 'Determines how invoicee name appears on invoices and receipts.'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': Factuurnummering
+'How should invoice numbers be constructed?': 'Hoe worden schoolfacturen genummerd?'
+Receipts: Ontvangstbewijzen
+'Receipt Text': 'Tekst ontvangstbewijs'
+'Text to appear in receipt, above receipt details and fees.': 'Tekst op betalingsbewijs, boven de omschrijving en kostprijs.'
+'Receipt Notes': Ontvangstbevestiging
+'Text to appear in receipt, below receipt details and fees.': 'Tekst op betalingsbewijs, onder de omschrijving en kostprijs.'
+'Hide Itemisation': 'Verberg oplijsting'
+'Hide fee and payment details in receipts?': 'Tarief en betalingsdetails verbergen in ontvangstbewijzen?'
+Reminders: Herinneringen
+'Reminder 1 Text': 'Tekst eerste aanmaning'
+'Text to appear in first level reminder level, above invoice details and fees.': 'Tekst bij de eerste aanmaning bovenaan.'
+'Reminder 2 Text': 'Tekst tweede aanmaning'
+'Text to appear in second level reminder level, above invoice details and fees.': 'Tekst bovenaan de tweede aanmaning.'
+'Reminder 3 Text': 'Tekst derde aanmaning'
+'Text to appear in third level reminder level, above invoice details and fees.': 'Tekst bovenaan de derde aanmaning.'
+Expenses: Uitgaven
+'Budget Categories': Begrotingcategorieën
+'Comma-separated list of budget categories.': 'CSV-lijst van begrotingscategorieën.'
+'Expense Approval Type': 'Type uitgavegoedkeuring'
+'How should expense approval be dealt with?': 'Hoe moeten onkostennota''s aangepakt worden?'
+'Budget Level Expense Approval': 'Goedkeuring begrotingsuitgavenniveau'
+'Should approval from a budget member with Full access be required?': 'Goedkeuring van een financieel medewerker met volledige toegang vereist?'
+'Expense Request Template': 'Sjabloon uitgave aanvraag'
+'An HTML template to be used in the description field of expense requests.': 'Een HTML-sjabloon voor de beschrijving bij een onkostennota.'
+'Allow Expense Add': 'Laat toe om kosten toe te voegen.'
+'Allows privileged users to add expenses without going through request process.': 'Laat gebruikers met rechten toe uitgaven toe te voegen zonder aanvraag.'
+'Purchasing Officer': Aankoopverantwoordelijke
+'User responsible for purchasing for the school.': 'Aankoopverantwoordelijke voor de school.'
+'Reimbursement Officer': Terugbetalingsverantwoordelijke
+'User responsible for reimbursing expenses.': 'Verantwoordelijke voor de terugbetalingen.'
+General: Algemeen
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 'Type Datum'
+'Should activities be organised around dates (flexible) or terms (easy)?': 'Moeten leeractiviteiten rond data georganiseerd worden (erg flexibel) of rond termijnen (eenvoudig)?'
+'Maximum Activities per Term': 'Maximum aantal leeractiviteiten per termijn.'
+'The most a student can sign up for in one term. Set to 0 for unlimited.': 'Het maximum waarvoor een leerling zich kan aanmelden. Kies 0 voor onbeperkt.'
+Access: Toegang
+'System-wide access control': 'Toegangscontrole voor het hele systeem.'
+Payment: Betaling
+'Payment system': Betaalsysteem
+activitysettingstype:
+    activities__payment:
+        none: Geen
+        single: Eenmalig
+        'per activity': 'Per activiteit'
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: Wedstrijd
+        selection: Keuze
+    activities__datetype:
+        date: Datum
+        term: trimester
+    activities__access:
+        none: Geen
+        view: Weergave
+        register: Aanmelden
+'Enrolment Type': Inschrijvingstype
+'Enrolment process type': 'Type Inschrijvingsproces'
+'Backup Choice': Reservekeuze
+'Allow students to choose a backup, in case enroled activity is full.': 'Laat leerlingen een alternatief kiezen in het geval er geen plaats meer is op de ingeschreven activiteit.'
+'Activity Types': 'Types Leeractiviteiten'
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': 'CSV-lijst van verschillende leeractiviteiten. Leeg laten om uit te schakelen.'
+'Disable External Provider Signup': 'Aanmelden via externe aanbieder uitschakelen'
+'Should we turn off the option to sign up for activities provided by an outside agency?': 'Moeten we de optie uitschakelen om in te schrijven voor activiteiten aangeboden door externen?'
+'Hide External Provider Cost': 'Verberg kosten externe aanbieder'
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': 'Moeten we de kost van activiteiten aangeboden door externen verbergen in het activiteitenoverzicht?'
+'Dashboard Settings': 'Dashboard Settings'
+'Staff Dashboard Default Tab': 'Staff Dashboard Default Tab'
+'The default landing tab for the staff dashboard.': 'The default landing tab for the staff dashboard.'
+'Student Dashboard Default Tab': 'Student Dashboard Default Tab'
+'The default landing tab for the student dashboard.': 'The default landing tab for the student dashboard.'
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: Planner
+    school_admin__studentdashboarddefaulttab:
+        planner: Planner
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': Leeroverzicht
+        timetable: Uurrooster
+        activities: Leeractiviteiten
+'Parent Dashboard Default Tab': 'Parent Dashboard Default Tab'
+'The default landing tab for the parent dashboard.': 'The default landing tab for the parent dashboard.'
+behaviour_letters_help: behaviour_letters_help
+Descriptors: Benamingen
+'Enable Descriptors': 'Activeer benamingen'
+'Setting to No reduces complexity of behaviour tracking.': 'Instellen op ''Nee'' maakt gedragsopvolging minder ingewikkeld.'
+'Positive Descriptors': 'Positieve benamingen'
+'Allowable choices for positive behaviour': 'Allowable choices for positive behaviour'
+'Negative Descriptors': 'Negatieve benamingen'
+'Allowable choices for negative behaviour': 'Allowable choices for negative behaviour'
+Levels: Niveaus
+'Enable Levels': 'Schakel niveaus in'
+'Allowable choices for severity level (from lowest to highest)': 'Allowable choices for severity level (from lowest to highest)'
+'Behaviour Letters': 'Berichten over gedrag'
+'Enable Behaviour Letters': 'Schakel berichten over gedrag in'
+'Should automated behaviour letter functionality be enabled?': 'Moet de functie om automatisch berichten over gedrag te verzenden worden ingeschakeld?'
+'Letter 1 Count': 'Aantal voor brief 1'
+'After how many negative records should letter 1 be sent?': 'Na hoeveel negatieve aantekeningen moet brief 1 verzonden worden?'
+'Letter 1 Text': 'Inhoud van brief 1'
+'The contents of letter 1, as HTML.': 'Inhoud van brief 1, als HTML'
+'Letter 2 Count': 'Aantal voor brief 2'
+'After how many negative records should letter 2 be sent?': 'Na hoeveel negatieve aantekeningen moet brief 2 verzonden worden?'
+'Letter 2 Text': 'Inhoud voor brief 2'
+'The contents of letter 2, as HTML.': 'Inhoud van brief 2, als HTML'
+'Letter 3 Count': 'Aantal voor brief 3'
+'After how many negative records should letter 3 be sent?': 'Na hoeveel negatieve aantekeningen moet brief 3 verzonden worden?'
+'Letter 3 Text': 'Inhoud voor brief 3'
+'The contents of letter 3, as HTML.': 'Inhoud van brief 3, als HTML'
+'Policy Link': Beleid
+'A link to the school behaviour policy.': 'Een koppeling naar het schoolreglement.'
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: Laag
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: Gemiddeld
+High: Hoog
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: Document
+        spreadsheet: Rekenblad
+        presentation: Presentatie
+        graphics/design: Opmaak
+        video: Video
+        audio: Geluid
+        other: Andere
+Code: Code
+Direction: Direction
+Scope: Bereik
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': 'Attendance Settings'
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: Aanwezig
+        tardy: Tardy
+        'present - late': 'Te laat'
+        'present - offsite': 'Present - Off Site'
+        absent: Afwezig
+        left: Uitgeschreven
+        'left - early': 'Vroeger vertrokken'
+'Attendance Codes': 'Attendance Codes'
+Reasons: Reasons
+'Attendance Reasons': 'Attendance Reasons'
+'Comma-separated list of reasons which are available when taking attendance.': 'Comma-separated list of reasons which are available when taking attendance.'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': 'Count Class Attendance as School Attendance'
+'Should attendance from the class context be used to prefill and inform school attendance?': 'Should attendance from the class context be used to prefill and inform school attendance?'
+'Cross-Fill Classes': 'Cross-Fill Classes'
+'Should classes prefill with data from other classes?': 'Should classes prefill with data from other classes?'
+'Default Roll Group Attendance Type': 'Default Roll Group Attendance Type'
+'The default selection for attendance type when taking Roll Group attendance': 'The default selection for attendance type when taking Roll Group attendance'
+'Default Class Attendance Type': 'Default Class Attendance Type'
+'The default selection for attendance type when taking Class attendance': 'The default selection for attendance type when taking Class attendance'
+Present: Aanwezig
+'Present - Late': 'Te laat'
+'Present - Off Site': 'Present - Off Site'
+Absent: Afwezig
+Left: Uitgeschreven
+'Left - Early': 'Vroeger vertrokken'
+'Student Self Registration': 'Student Self Registration'
+'Student Self Registration IP Addresses': 'Student Self Registration IP Addresses'
+'Comma-separated list of IP addresses within which students can self register.': 'Comma-separated list of IP addresses within which students can self register.'
+'Self Registration Redirect': 'Self Registration Redirect'
+'Should self registration redirect to Message Wall?': 'Should self registration redirect to Message Wall?'
+Teacher: Leraar
+'Support Staff': 'Ondersteunend Personeel'
+Administrator: Beheerder
+Parent: Ouder
+'Attendance CLI': 'Attendance CLI'
+'Enable Notifications by Roll Group': 'Enable Notifications by Roll Group'
+'Enable Notifications by Class': 'Enable Notifications by Class'
+'Additional Users to Notify': 'Additional Users to Notify'
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': 'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.'
+Context: Context
+Registration: Registratie
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: 'In Class'
+        out: 'Out of Class'
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: Beoordeel
+'External Assessments': 'Externe beoordelingen'
+'Formal Assessment Settings': 'Formele Beoordelings-instellingen'
+Scales: Scales
+Groupings: Richtingen
+Houses: Gebouwen
+Learn: Leren
+'Planner Settings': 'Instellingen voor Planner'
+'Resource Settings': 'Resource Settings'
+Other: Andere
+'Facility Settings': 'Instellingen faciliteiten'
+'File Extensions': 'File Extensions'
+People: Mensen
+'Individual Needs': 'Persoonlijke Noden'
+'Years, Days & Times': 'Schooljaren, -dagen & lesuren'
+'Academic Years': 'Academic Years'
+'Days of the Week': 'Days of the Week'
+'Special Days': 'Special Days'
+Terms: Termijnen
+'Module Menu': 'Menu modules'
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': Toegangsinstellingen
+'Allow Outcome Editing': 'Laat Resultaatbewerking toe'
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': 'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?'
+'Enables a public listing of units, with teachers able to opt in to share units.': 'Sta een publieke oplijsting van de leereenheden toe om leraars te laten delen en deelnemen.'
+'Lesson Details Template': Lesvoorbereidingssjabloon
+'Make Units Public': 'Maak hoofdstukken publiek'
+'Parent Weekly Email Summary Include Behaviour': 'Wekelijks bericht naar de ouders bevat attitudeverslag.'
+'Parent Weekly Email Summary Include Markbook': 'Parent Weekly Email Summary Include Markbook'
+'Planner Templates': 'Sjablonen voor Planner'
+'Share Unit Outline': 'Share Unit Outline'
+'Sharing Default: Parents': 'Verstek Delen: Ouders'
+'Sharing Default: Students': 'Verstekwaarde delen: Leerlingen'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'Should Markbook information be included in the weekly planner email summary that goes out to parents?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': 'Moet een attitudeverslag toegevoegd worden aan de wekelijkse agenda-mail die naar de ouders verstuurd wordt?'
+'Should the text within outcomes be editable when planning lessons and units?': 'Moet de tekst bij resultaten editeerbaar zijn bij het plannen van lessen en eenheden?'
+'Smart Block Template': 'Smart Block-template'
+'Teacher''s Notes Template': 'Sjabloon Lerarennota''s'
+'Template to be inserted into Lesson Details field': 'Sjabloon voor de lesvoorbereiding.'
+'Template to be inserted into Teacher''s Notes field': 'Sjabloon voor lerarennotities.'
+'Template to be inserted into Unit Outline section of planner': 'Sjabloon voor inhoudstafel in agenda.'
+'Template to be inserted into new block in Smart Unit': 'Sjabloon voor een nieuw blok in Smart Unit.'
+Templates: Templates
+'Unit Outline Template': 'Sjabloon Inhoud Leseenheid'
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': 'Worden nieuwe lessen en hoofdstukken automatisch gedeeld met de ouders J of N?'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': 'Worden nieuwe lessen en hoofdstukken automatisch gedeeld met de leerlingen J of N?'
+'Targets Template': 'Targets Template'
+'An HTML template to be used in the targets field.': 'An HTML template to be used in the targets field.'
+'Teaching Strategies Template': 'Teaching Strategies Template'
+'An HTML template to be used in the teaching strategies field.': 'An HTML template to be used in the teaching strategies field.'
+'Notes & Review Template': 'Notes & Review Template'
+'An HTML template to be used in the notes and review field.': 'An HTML template to be used in the notes and review field.'
+Categories: Categorieën
+'Allowable choices for category': 'Toegestane keuzes als categorie'
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': 'Doelen (Algemeen)'
+'Allowable choices for purpose when creating a resource': 'Toegelaten keuzes bij aanmaken bronnen'
+'Purposes (Restricted)': 'Doelen (Beperkt)'
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: Doeleinde
+Tardy: Tardy
+'Must be unique': 'Moet uniek zijn'
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: 'Op rapport'
+'Allow Future Use': 'Allow Future Use'
+'Can this code be used in Set Future Absence?': 'Can this code be used in Set Future Absence?'
+'Available to Roles': 'Available to Roles'
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': 'Edit Attendance Code'
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': 'Edit Year Group'
+'Head of Year': 'Head of Year'
+'Manage Year Groups': 'Beheer leerjaren'
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'A comma-separated list of types for facilities.'
+'Add Facility': 'Voeg faciliteiten toe'
+FacilityTypes: FacilityTypes
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: Extern
+Internal: Internal
+'Add Grade Scale': 'Voeg puntenschaal toe'
+'Add Grade': 'Voeg punten toe'
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: Benaming
+'Edit Grade Scale': 'Wijzig puntenschaal'
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': 'Verstekwaarde?'
+'Manage Grade Scales': 'Beheer puntenschalen'
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: Schaal
+Value: Waarde
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'Opsomming van types, beschikbaar bij interne evaluaties'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': Verzameling
+'Field Sets': 'Field Sets'
+'File Upload': 'Bestand opladen'
+'Internal Assessment Settings': 'Interne Beoordelings-instellingen'
+'Internal Assessment Types': 'Types interne evaluaties'
+'Manage External Assessments': 'Beheer externe evaluaties'
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': 'Voeg een externe evaluatie toe'
+'Allow File Upload': 'Bestanden opladen toestaan'
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 'Korte omschrijving van de evaluatie en hoe ze gebruikt wordt.'
+'Edit External Assessment': 'Wijzig externe evaluatie.'
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': 'Moet bij de leerlingeninfo ook een bestand kunnen opgeladen worden?'
+'SMS Settings': SMS-instellingen
+'Enable Home Screen Widget': 'Honkpaginawidget inschakelen'
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'Adds a Message Wall widget to the home page, hihglighting current messages.'

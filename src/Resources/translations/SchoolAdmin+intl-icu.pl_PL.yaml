@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: Edytować
+Delete: Usuń
+Name: Nazwa
+Dates: Daty
+Status: Stan
+Actions: Akcja
+'There are no records to display.': 'Brak zawartości do wyświetlenia.'
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': 'First Page'
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': 'Last Page'
+academicyear:
+    status:
+        past: Wstaw
+        current: Obecny
+        upcoming: Nadchodzący
+Sequence: Sekwencja
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': 'Administrator szkoły'
+'Sequence Number': 'Numer sekwencji'
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': 'Pierwszy dzień'
+'Last Day': 'Ostatni dzień'
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 'Edytuj warunek'
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': 'Dodaj warunek'
+'Manage Terms': 'Zarządzaj warunkami'
+Monday: Poniedziałek
+Mon: Pon
+Installed: Zainstalowany
+'School Day': 'Dzień szkolny'
+'School Opens': 'Szkoła otwiera'
+'School Starts': 'Początek szkoły'
+'School Ends': 'Koniec szkoły'
+'School Closes': 'Zamknięta szkoła'
+Submit: Zatwierdź
+Display: Display
+Tuesday: Wtorek
+Tue: Wt
+Wednesday: Środa
+Wed: Śr
+Thursday: Czwartek
+Thu: Czw
+Friday: Piątek
+Fri: Pt
+Saturday: Sobota
+Sat: Sob
+Sunday: Niedziela
+Sun: Słońce
+'Manage Days of the Week': 'Zarzadzaj dniami tygodnia'
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': 'Zmiana czasu'
+        'school closure': 'Zamknięcie szkoły'
+Date: Data
+Type: Typ
+'Manage Special Days': 'Zarządzaj dni specjalne'
+'Edit Special Day': 'Edytuj dzień specjalny'
+'Please select...': Wybierz....
+Description: opis
+'Add Special Day': 'Dodaj dzień specjalny'
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: Duplikować
+'Term Break': 'Term Break'
+Calendar: Kalendarz
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: Logo
+'Manage Houses': 'Zarządzaj domami'
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': 'Edytuj dom'
+'Add House': 'Dodaj dom'
+Projector: Rzutnik
+TV: TV
+'DVD Player': DVD
+Hifi: Hifi
+Speakers: Głośnik
+'Interactive White Board': 'Tablica interaktywna'
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': 'Komputer dydaktyczny'
+Capacity: Pojemność
+Facilities: Miejsce
+'Manage Facilities': 'Zarządzaj pomieszczeniami'
+facility:
+    type:
+        classroom: Sala
+        hall: 'Korytarz/sala gimnastyczna'
+        laboratory: Laboratory
+        library: Biblioteka
+        office: Biuro
+        outdoor: 'Na zewnątrz'
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: Przechowywanie
+        study: Gabinet
+        undercover: Tajny
+        other: Inne
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': 'Komputer ucznia'
+'How many are there': 'Ile tam jest'
+Extension: Rozszerzenie
+'Room''s internal phone number.': 'Numer wewnętrzny'
+'Phone Number': 'Numer telefonu'
+'Room''s external phone number.': 'Zewnętrzny numer telefonu w pokoju.'
+Comment: Komentarz
+'Edit Facility': 'Edytuj obiekt'
+'Facility Type': 'Typ obiektu'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'Użyj poniższych opcji, aby wybrać zewnętrzne oceny, które chcesz uwzględnić w eksporcie Punktów danych.'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'Jeśli istnieją duplikaty dowolnej oceny, zostanie wyświetlony tylko najnowszy wpis.'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'Użyj poniższych opcji, aby wybrać oceny końcowe, które chcesz uwzględnić w eksporcie Punktów danych.'
+'Add Field': 'Dodaj plik'
+'External Assessment': 'Zewnętrzna ocena'
+'This value cannot be changed.': 'Wartość nie może być zmieniona.'
+Category: Categoria
+Order: Inne
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': 'Skala ocen'
+'Grade scale used to control values that can be assigned.': 'Skala ocen używana do kontrolowania wartości, które można przypisać.'
+'Year Groups': 'Klasa wychowawcza'
+'Year groups to which this field is relevant.': 'Klasa wychjowawcza, do których odnosi się to pole.'
+'Edit Field': 'Edytuj pole'
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': 'śledzenie ustawień'
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: Zurzycie
+Active: Aktywacja
+Numeric: Numeryczne
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 'Krótki opis wykorzystania skali.'
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': 'Czy ta skala używa tylko ocen numerycznych? Uwaga: ocena "Nieukończone" jest zwolniona.'
+'Lowest Acceptable': 'Najniższy akceptowalny'
+'This is the lowest grade a student can get without being unsatisfactory.': 'Jest to najniższa ocena, jaką uczeń może uzyskać niezadowalający'
+Details: Szczegóły
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: cechy
+'Enable Effort': 'Włącz przyrost wiedzy'
+'Should columns have the Effort section enabled?': 'Czy kolumny powinny mieć włączoną sekcję wysiłku?'
+'Enable Rubrics': 'Włącz dział'
+'Should columns have Rubrics section enabled?': 'Czy w kolumnach należy włączyć sekcję działy?'
+'Enable Column Weighting': 'Włącz ważenie kolumny'
+'Should column weighting and total scores be enabled in the Markbook?': 'Czy w dzienniku ocen należy włączyć ważenie kolumn i całkowite wyniki?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': 'Obliczanie skumulowanych znaków i wag jest obecnie dostępne tylko przy użyciu wartości procentowej jako domyślnej skali oceny. Wartość tę można zmienić w Ustawieniach systemu.'
+'Enable Display Cumulative Marks': 'Włącz wyświetlanie zbiorczych znaków'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'Czy na stronie powinny być wyświetlane skumulowane znaki?'
+'Enable Raw Attainment Marks': 'Włącz surowe znaczniki osiągnięcia'
+'Should recording of raw marks be enabled in the Markbook?': 'Czy w dzienniku ocen należy włączyć zapisywanie nieprzetworzonych znaków?'
+'Enable Modified Assessment': 'Włącz zmodyfikowaną ocenę'
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: 'Układ strony'
+'Markbook Type': 'Typ dziennika ocen'
+'Comma-separated list of types to make available in the Markbook.': 'Rozdzielana przecinkami lista typów dostępnych w dzienniku ocen.'
+'Group Columns by Term': 'Grupuj kolumny według terminów'
+'Should columns and total scores be grouped by term?': 'Czy kolumny i wyniki łączne powinny być pogrupowane według terminu?'
+'Attainment Alternative Name': 'Osiągnięcie Alternatywna nazwa'
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 'Osiągnięcie Alternatywna nazwa Skrót'
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': 'Inna nazwa przyrostu wiedzy'
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': 'Skrót alternatywnej nazwy przyrostu wiedzy'
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: Ostrzeżenia
+'Show Student Attainment Warning': 'Pokaż Ostrzeżenie dot. Osiągnięć ucznia'
+'Show low attainment grade visual warning to students?': 'Pokazać uczniom ostrzeżenie wizualne o niskim poziomie osiągnięć'
+'Show Student Effort Warning': 'Pokaż ostrzeżenie o wysiłku ucznia'
+'Show low effort grade visual warning to students?': 'Pokazać uczniom wizualne ostrzeżenie o niskim stopniu trudności?'
+'Show Parent Attainment Warning': 'Pokaż Ostrzeżenie o zdobyciu rodzica'
+'Show low attainment grade visual warning to parents?': 'Pokaż rodzicom wizualne ostrzeżenie o niskim poziomie osiągnięć?'
+'Show Parent Effort Warning': 'Pokaż ostrzeżenie o wysiłku rodziców'
+'Show low effort grade visual warning to parents?': 'Pokazać rodzicom ostrzeżenia wizualne o niskim stopniu trudności?'
+'Personalised Warnings': 'Spersonalizowane ostrzeżenia'
+'Should markbook warnings be based on personal targets, if they are available?': 'Czy ostrzeżenia w dzienniku powinny być oparte na celach osobistych, jeśli są dostępne?'
+'Markbook Settings': 'Ustawienia dziennika ocen'
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': 'Ustawienia wiadomości'
+'Message Bubble Width Type': 'Typ szerokości bąbelka wiadomości'
+'Should the message bubble be regular or wide?': 'Czy bąbel wiadomości powinien być regularny czy szeroki?'
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: Regularny
+        wide: Szeroki
+'Message Bubble Background Color': 'Kolor tła wiadomości'
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': 'Kolor tła bąbelka wiadomości w RGBA (np. 100,100,100,0,50). Jeśli puste, zostanie użyta domyślna kompozycja.'
+'Message Bubble Auto Hide': 'Message Bubble Auto Hide'
+'Should message bubble fade out automatically?': 'Czy dymek wiadomości powinien automatycznie znikać?'
+Miscellaneous: Różne
+'Message Bcc': 'Wiadomość Bcc'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'Rozdzielana przecinkami lista adresatów do wszystkich wiadomości e-mail do komunikatora.'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': 'Ustawienia główne'
+Email: 'poczta elektroniczna'
+'Email address to send finance emails from.': 'Adres e-mail, na który będą wysyłane wiadomości e-mail o finansach.'
+'Enable Online Payment': 'Włącz płatność online'
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': 'Czy faktury powinny być płatne online, za pośrednictwem zaszyfrowanego linku na fakturze? Wymaga poprawnie skonfigurowanej bramy płatności w Ustawieniach systemu.'
+'Online Payment Threshold': 'Próg płatności online'
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': 'Jeśli faktury są płatne online, jaka jest maksymalna dozwolona płatność? Przydatny do kontrolowania opłat za płatności. Żadna wartość nie jest nieograniczona.'
+Invoices: Faktury
+'Invoice Text': 'Tekst faktury'
+'Text to appear in invoice, above invoice details and fees.': 'Tekst wyświetlany na fakturze, powyżej szczegółów faktury i opłat.'
+'Invoice Notes': 'Uwagi do faktury'
+'Text to appear in invoice, below invoice details and fees.': 'Tekst do wyświetlenia na fakturze, poniżej szczegółów faktury i opłat.'
+'Invoicee Name Style': 'Styl nazwy faktury'
+'Determines how invoicee name appears on invoices and receipts.': 'Określa, w jaki sposób nazwa faktury pojawia się na fakturach i paragonach.'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': 'Styl numeru faktury'
+'How should invoice numbers be constructed?': 'W jaki sposób należy konstruować numery faktur?'
+Receipts: 'Wpływy kasowe'
+'Receipt Text': 'Tekst potwierdzenia'
+'Text to appear in receipt, above receipt details and fees.': 'Tekst pojawiający się przy odbiorze, powyżej szczegółów rachunku i opłat.'
+'Receipt Notes': 'Uwagi do paragonu'
+'Text to appear in receipt, below receipt details and fees.': 'Tekst pojawiający się w odbiorze, poniżej szczegółów rachunku i opłat.'
+'Hide Itemisation': 'Ukryj przedmiot'
+'Hide fee and payment details in receipts?': 'Ukryj informacje o opłatach i płatnościach na paragonach?'
+Reminders: Przypomnienia
+'Reminder 1 Text': 'Przypomnienie 1 Tekst'
+'Text to appear in first level reminder level, above invoice details and fees.': 'Tekst wyświetlany na poziomie przypomnienia pierwszego poziomu, powyżej szczegółów faktury i opłat.'
+'Reminder 2 Text': 'Przypomnienie 2 Tekst'
+'Text to appear in second level reminder level, above invoice details and fees.': 'Tekst wyświetlany na poziomie przypomnienia drugiego poziomu, powyżej szczegółów faktury i opłat.'
+'Reminder 3 Text': 'Przypomnienie 3 Tekst'
+'Text to appear in third level reminder level, above invoice details and fees.': 'Tekst wyświetlany na poziomie przypomnienia trzeciego poziomu, powyżej szczegółów faktury i opłat.'
+Expenses: Wydatki
+'Budget Categories': 'Kategorie budżetu'
+'Comma-separated list of budget categories.': 'Rozdzielana przecinkami lista kategorii budżetu.'
+'Expense Approval Type': 'Rodzaj zatwierdzenia wydatków'
+'How should expense approval be dealt with?': 'W jaki sposób należy załatwić zatwierdzenie wydatków?'
+'Budget Level Expense Approval': 'Zatwierdzenie wydatków na poziomie budżetu'
+'Should approval from a budget member with Full access be required?': 'Czy wymagana jest zgoda członka budżetu o pełnym dostępie?'
+'Expense Request Template': 'Szablon żądania wydatków'
+'An HTML template to be used in the description field of expense requests.': 'Szablon HTML, który będzie używany w polu opisu żądań wydatków.'
+'Allow Expense Add': 'Zezwalaj na wydatki Dodaj'
+'Allows privileged users to add expenses without going through request process.': 'Umożliwia uprzywilejowanym użytkownikom dodawanie wydatków bez przechodzenia przez proces żądania.'
+'Purchasing Officer': 'Specjalista ds. Zakupów'
+'User responsible for purchasing for the school.': 'Użytkownik odpowiedzialny za zakupy do szkoły.'
+'Reimbursement Officer': 'Specjalista ds. Refundacji'
+'User responsible for reimbursing expenses.': 'Użytkownik odpowiedzialny za zwrot wydatków.'
+General: Generał
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 'Typ daty'
+'Should activities be organised around dates (flexible) or terms (easy)?': 'Czy aktywności/zajęcia dodatkowe powinny być organizowane w datach (elastyczne) lub warunkach (łatwe)?'
+'Maximum Activities per Term': 'Maksymalna ilość zajęć dodatkowych w tym okresie '
+'The most a student can sign up for in one term. Set to 0 for unlimited.': 'Uczeń może zapisać się na jeden semestr. Ustaw na 0 dla nieograniczonej.'
+Access: Dostęp
+'System-wide access control': 'Ogólnosystemowa kontrola dostępu'
+Payment: Zapłata
+'Payment system': 'System płatności'
+activitysettingstype:
+    activities__payment:
+        none: Żaden
+        single: Pojedynczy
+        'per activity': 'Za aktywność'
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: Konkurencyjny
+        selection: Wybór
+    activities__datetype:
+        date: Data
+        term: Semestr
+    activities__access:
+        none: Żaden
+        view: Wyświetl
+        register: Zarejestruj
+'Enrolment Type': 'Typ rejestracji'
+'Enrolment process type': 'Typ procesu rejestracji'
+'Backup Choice': 'Zapisz na zajęcia:'
+'Allow students to choose a backup, in case enroled activity is full.': 'Pozwól uczniom wybrać listę rezerwową, na wypadek gdyby zapisana aktywność była pełna.'
+'Activity Types': 'Rodzaje działań'
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': 'Rozdzielona przecinkami lista różnych rodzajów aktywności dostępnych w szkole. Pozostaw puste, aby wyłączyć tę funkcję.'
+'Disable External Provider Signup': 'Wyłącz rejestr zewnętrznego dostawcy'
+'Should we turn off the option to sign up for activities provided by an outside agency?': 'Czy powinniśmy wyłączyć opcję rejestracji w zajęciach dodatkowych świadczonych przez zewnętrzną agencję?'
+'Hide External Provider Cost': 'Ukryj koszt zewnętrznego dostawcy'
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': 'Czy powinniśmy ukrywać koszty zajęć dodatkowych zapewnionych przez zewnętrzną agencję w widoku działań?'
+'Dashboard Settings': 'Dashboard Settings'
+'Staff Dashboard Default Tab': 'Zakładka domyślna pulpitu menedżera personelu'
+'The default landing tab for the staff dashboard.': 'Domyślna karta do lądowania na pulpicie nawigacyjnym personelu.'
+'Student Dashboard Default Tab': 'Karta domyślna panelu ucznia'
+'The default landing tab for the student dashboard.': 'Domyślna karta docelowa dla pulpitu ucznia.'
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: 'Rozkład zajęć'
+    school_admin__studentdashboarddefaulttab:
+        planner: 'Rozkład zajęć'
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': 'Przegląd wiedzy'
+        timetable: 'Plan lekcji'
+        activities: 'Aktywności/Zajęcia dodatkowe'
+'Parent Dashboard Default Tab': 'Domyślna karta panelu nadrzędnego'
+'The default landing tab for the parent dashboard.': 'Domyślna karta docelowa dla panelu nadrzędnego.'
+behaviour_letters_help: behaviour_letters_help
+Descriptors: Opis
+'Enable Descriptors': 'Włącz opis'
+'Setting to No reduces complexity of behaviour tracking.': 'Wybierając "Nie" zmniejsza informacje szczegółowe zachowania.'
+'Positive Descriptors': 'Pozytywne opis'
+'Allowable choices for positive behaviour': 'Dopuszczalne wybory na pozytywne zachowanie'
+'Negative Descriptors': 'Negatywne opis'
+'Allowable choices for negative behaviour': 'Dopuszczalne wybory negatywnego zachowania'
+Levels: Poziomy
+'Enable Levels': 'Włącz poziomy'
+'Allowable choices for severity level (from lowest to highest)': 'Dopuszczalne wybory poziomu ważności (od najniższego do najwyższego)'
+'Behaviour Letters': 'Listy zachowań'
+'Enable Behaviour Letters': 'Włącz listy zachowań'
+'Should automated behaviour letter functionality be enabled?': 'Czy należy włączyć funkcję automatycznego zachowania listów?'
+'Letter 1 Count': 'List 1 po zachowaniu'
+'After how many negative records should letter 1 be sent?': 'Po ilu ujemnych rekordach powinna być wysłana litera 1?'
+'Letter 1 Text': 'Letter 1 Text'
+'The contents of letter 1, as HTML.': 'Treść litery 1, jako HTML.'
+'Letter 2 Count': 'Letter 2 Count'
+'After how many negative records should letter 2 be sent?': 'Po ilu ujemnych rekordach powinna być wysłana litera 2?'
+'Letter 2 Text': 'Letter 2 Text'
+'The contents of letter 2, as HTML.': 'Treść litery 2, jako HTML.'
+'Letter 3 Count': 'Letter 3 Count'
+'After how many negative records should letter 3 be sent?': 'Po ilu ujemnych rekordach powinna być wysłana litera 3?'
+'Letter 3 Text': 'Letter 3 Text'
+'The contents of letter 3, as HTML.': 'Treść litery 3, jako HTML.'
+'Policy Link': 'Link do zasad'
+'A link to the school behaviour policy.': 'Link do polityki zachowania w szkole.'
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: Niska
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: Średni
+High: Wysoki
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: Dokument
+        spreadsheet: 'Arkusz kalkulacyjny'
+        presentation: Prezentacja
+        graphics/design: Grafika
+        video: Video
+        audio: Audio
+        other: Inne
+Code: Kod
+Direction: Kierunek
+Scope: Obszar
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': 'Ustawienia obecności'
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: Obecny
+        tardy: Tardy
+        'present - late': Obecny-spóźniony
+        'present - offsite': 'Present - Off Site'
+        absent: Nieobecny
+        left: opuścił
+        'left - early': 'Wyszedł wcześniej'
+'Attendance Codes': 'Kody obecności'
+Reasons: Powody
+'Attendance Reasons': 'Przyczyny nieobecności'
+'Comma-separated list of reasons which are available when taking attendance.': 'Rozdzielana przecinkami lista powodów, które są dostępne podczas wzięcia udziału.'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': 'Liczyć frekwencję klasową jako frekwencję szkolną'
+'Should attendance from the class context be used to prefill and inform school attendance?': 'Czy uczestnictwo w kontekście klasy powinno być używane do wstępnego wypełniania i informowania o obecności w szkole?'
+'Cross-Fill Classes': 'Wypełnij lekcje'
+'Should classes prefill with data from other classes?': 'Czy lekcje powinny być wypełniać danymi z poprzednich lekcji?'
+'Default Roll Group Attendance Type': 'Typ obecności domyślnie dla klasy'
+'The default selection for attendance type when taking Roll Group attendance': 'Domyślny wybór dla typu obecności podczas przyjmowania frekwencji zgodnie z klasami'
+'Default Class Attendance Type': 'Domyślny typ obecności w klasie'
+'The default selection for attendance type when taking Class attendance': 'Domyślna selekcja dla typu obecności w trakcie uczestniczenia w zajęciach'
+Present: Obecny
+'Present - Late': Obecny-spóźniony
+'Present - Off Site': 'Present - Off Site'
+Absent: Nieobecny
+Left: opuścił
+'Left - Early': 'Wyszedł wcześniej'
+'Student Self Registration': 'Samodzielna rejestracja uczniów'
+'Student Self Registration IP Addresses': 'Adresy IP do samodzielnej rejestracji uczniów'
+'Comma-separated list of IP addresses within which students can self register.': 'Rozdzielana przecinkami lista adresów IP, w których uczniowie mogą się samodzielnie rejestrować.'
+'Self Registration Redirect': 'Przekierowanie samodzielnej rejestracji'
+'Should self registration redirect to Message Wall?': 'Czy własna rejestracja powinna przekierować do ściany wiadomości?'
+Teacher: Nauczyciel
+'Support Staff': 'Personel pomocniczy'
+Administrator: Administrator
+Parent: Rodzic
+'Attendance CLI': 'Obecność CLI'
+'Enable Notifications by Roll Group': 'Włącz powiadomienia według klas'
+'Enable Notifications by Class': 'Włącz powiadomienia według klas'
+'Additional Users to Notify': 'Dodatkowi użytkownicy do powiadomienia'
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': 'Wyślij ogólno-szkolne dzienne sprawozdanie z obecności do dodatkowych użytkowników. Wyłączając użytkowników z dostępem do klas nie zarejestrowanych lub przedmioty nie zarejestrowanych.'
+Context: Context
+Registration: Rejestracja
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: 'W klasie'
+        out: 'Poza klasą'
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: oceny
+'External Assessments': 'Zewnętrzne oceny'
+'Formal Assessment Settings': 'Formalne ustawienia oceny'
+Scales: Scales
+Groupings: Grupowania
+Houses: Domy
+Learn: Nauka
+'Planner Settings': 'Ustawienia rozkładu zajęć'
+'Resource Settings': 'Resource Settings'
+Other: Inne
+'Facility Settings': 'Ustawienia obiektu'
+'File Extensions': 'File Extensions'
+People: My
+'Individual Needs': 'Indywidualne potrzeby'
+'Years, Days & Times': 'Lata, dni i czasy'
+'Academic Years': 'Academic Years'
+'Days of the Week': 'Days of the Week'
+'Special Days': 'Specjalne dni'
+Terms: Warunki
+'Module Menu': 'Menu modułu'
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': 'Przejdź do ustawień'
+'Allow Outcome Editing': 'Zezwalaj na edycję wyników'
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': 'Zezwalaj użytkownikom, którzy nie mają dostępu do planera urządzenia, na pokazywanie konturów jednostek za pomocą rozkładu zajęć lekcji?'
+'Enables a public listing of units, with teachers able to opt in to share units.': 'Umożliwia publiczną listę jednostek, z nauczycielami, którzy mogą zdecydować się na udostępnianie jednostek.'
+'Lesson Details Template': 'Szablon szczegółów lekcji'
+'Make Units Public': 'Udostępnij jednostki publicznie'
+'Parent Weekly Email Summary Include Behaviour': 'Podsumowanie wiadomości e-mail dla rodziców tygodniowo obejmuje zachowanie'
+'Parent Weekly Email Summary Include Markbook': 'Podsumowanie wiadomości e-mail dla rodziców zawiera dziennik ocen'
+'Planner Templates': 'Szablony rozkładu zajęć'
+'Share Unit Outline': 'Udostępnij zarys jednostki'
+'Sharing Default: Parents': 'Sharing Default: Parents'
+'Sharing Default: Students': 'Sharing Default: uczniów'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'Czy informacje o dzienniku ocen powinny być zawarte w cotygodniowym podsumowaniu e-mailem dla rozkładu zajęć, które trafia do rodziców?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': 'Czy informacje o zachowaniu powinny być zawarte w cotygodniowym podsumowaniu e-mailem dla rozkładu zajęć, które trafia do rodziców?'
+'Should the text within outcomes be editable when planning lessons and units?': 'Czy tekst w ramach wyników powinien być edytowalny podczas planowania lekcji i jednostek?'
+'Smart Block Template': 'SMART KLASS szablon blokowy'
+'Teacher''s Notes Template': 'Szablon notatek nauczyciela'
+'Template to be inserted into Lesson Details field': 'Szablon do wstawienia do pola Szczegóły lekcji'
+'Template to be inserted into Teacher''s Notes field': 'Szablon do wstawienia w pole Notatek nauczyciela'
+'Template to be inserted into Unit Outline section of planner': 'Szablon do wstawienia do sekcji Plan konturów'
+'Template to be inserted into new block in Smart Unit': 'Szablon do wstawienia do nowego bloku w Smart Unit'
+Templates: Szablony
+'Unit Outline Template': 'Szablon konturowy jednostki'
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': 'Czy dodawanie lekcji i wdrażanie jednostek powinno być domyślne dla rodziców: Y lub N?'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': 'Czy dodawanie lekcji i wdrażanie jednostek powinno być domyślne dla uczniów: Y lub N?'
+'Targets Template': 'Szablon celu'
+'An HTML template to be used in the targets field.': 'Szablon HTML do użycia w polu celów.'
+'Teaching Strategies Template': 'Szablon strategii nauczania'
+'An HTML template to be used in the teaching strategies field.': 'Szablon HTML do zastosowania w polu strategii nauczania.'
+'Notes & Review Template': 'Notatki i szablon recenzji'
+'An HTML template to be used in the notes and review field.': 'Szablon HTML, który będzie używany w polu uwag i recenzji.'
+Categories: Kategorie
+'Allowable choices for category': 'Dopuszczalne wybory dla kategorii'
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': 'Cele (ogólne)'
+'Allowable choices for purpose when creating a resource': 'Dopuszczalne wybory do celu podczas tworzenia zasobu'
+'Purposes (Restricted)': 'Cele (ograniczone)'
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: 'Cel, powód'
+Tardy: Tardy
+'Must be unique': 'Musi być unikalny'
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: Raporty
+'Allow Future Use': 'Zezwalaj na przyszłe użycie'
+'Can this code be used in Set Future Absence?': 'Czy ten kod może być użyty w Ustawieniu przyszłej nieobecności?'
+'Available to Roles': 'Dostępne dla ról'
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': 'Edytuj kod obecności'
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': "Edytuj klasę\_wychowawczą"
+'Head of Year': Wychowawca
+'Manage Year Groups': 'Zarządzaj Klasą wychowawczą'
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'Rozdzielana przecinkami lista typów obiektów.'
+'Add Facility': 'Dodaj obiekt'
+FacilityTypes: FacilityTypes
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: Zewnętrzny
+Internal: Wewnętrzny
+'Add Grade Scale': 'Dodaj skalę ocen'
+'Add Grade': 'Dodaj stopień'
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: Objaśnienie
+'Edit Grade Scale': 'Edytuj skalę ocen'
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': 'Czy jest domyślny?'
+'Manage Grade Scales': 'Zarządzaj skalami ocen'
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: Skala
+Value: Wartość
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'Rozdzielana przecinkami lista typów do udostępniania w ocenach końcowych.'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': 'Zestaw pól'
+'Field Sets': 'Field Sets'
+'File Upload': 'Udostępnianie pliku'
+'Internal Assessment Settings': 'Ustawienia ocen końcowych'
+'Internal Assessment Types': 'typy ocen końcowych'
+'Manage External Assessments': 'Zarządzaj ocenami bieżącymi'
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': 'Dodaj zewnętrzne oceny'
+'Allow File Upload': 'Zezwalaj na przesyłanie plików'
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 'Krótki opis oceny i sposób jej wykorzystania.'
+'Edit External Assessment': 'Edytuj zewnętrzną ocenę'
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': 'Czy zapis studencki powinien zawierać opcję przesłania pliku?'
+'SMS Settings': 'Ustawienia SMS'
+'Enable Home Screen Widget': 'Włącz widżet ekranu głównego'
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'Adds a Message Wall widget to the home page, hihglighting current messages.'

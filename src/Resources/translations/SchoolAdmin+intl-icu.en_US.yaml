@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: Edit
+Delete: Delete
+Name: Name
+Dates: Dates
+Status: Status
+Actions: Actions
+'There are no records to display.': 'There are no records to display.'
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': 'First Page'
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': 'Last Page'
+academicyear:
+    status:
+        past: Past
+        current: Current
+        upcoming: Upcoming
+Sequence: Sequence
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': 'School Admin'
+'Sequence Number': 'Sequence Number'
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': 'First Day'
+'Last Day': 'Last Day'
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 'Edit Term'
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': 'Add Term'
+'Manage Terms': 'Manage Terms'
+Monday: Monday
+Mon: Mon
+Installed: Installed
+'School Day': 'School Day'
+'School Opens': 'School Opens'
+'School Starts': 'School Starts'
+'School Ends': 'School Ends'
+'School Closes': 'School Closes'
+Submit: Submit
+Display: Display
+Tuesday: Tuesday
+Tue: Tue
+Wednesday: Wednesday
+Wed: Wed
+Thursday: Thursday
+Thu: Thu
+Friday: Friday
+Fri: Fri
+Saturday: Saturday
+Sat: Sat
+Sunday: Sunday
+Sun: Sun
+'Manage Days of the Week': 'Manage Days of the Week'
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': 'Timing Change'
+        'school closure': 'School Closure'
+Date: Date
+Type: Type
+'Manage Special Days': 'Manage Special Days'
+'Edit Special Day': 'Edit Special Day'
+'Please select...': 'Please select...'
+Description: Description
+'Add Special Day': 'Add Special Day'
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: Duplicate
+'Term Break': 'Term Break'
+Calendar: Calendar
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: Logo
+'Manage Houses': 'Manage Houses'
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': 'Edit House'
+'Add House': 'Add House'
+Projector: Projector
+TV: TV
+'DVD Player': 'DVD Player'
+Hifi: Hifi
+Speakers: Speakers
+'Interactive White Board': 'Interactive White Board'
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': 'Teaching computer'
+Capacity: Capacity
+Facilities: Facilities
+'Manage Facilities': 'Manage Facilities'
+facility:
+    type:
+        classroom: Classroom
+        hall: Hall
+        laboratory: Laboratory
+        library: Library
+        office: Office
+        outdoor: Outdoor
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: Storage
+        study: Study
+        undercover: Undercover
+        other: Other
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': 'Student Computers'
+'How many are there': 'How many are there'
+Extension: Extension
+'Room''s internal phone number.': 'Room''s internal phone number.'
+'Phone Number': 'Phone Number'
+'Room''s external phone number.': 'Room''s external phone number.'
+Comment: Comment
+'Edit Facility': 'Edit Facility'
+'Facility Type': 'Facility Type'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'Use the options below to select the external assessments that you wish to include in your Data Points export.'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'If duplicates of any assessment exist, only the most recent entry will be shown.'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'Use the options below to select the internal assessments that you wish to include in your Data Points export.'
+'Add Field': 'Add Field'
+'External Assessment': 'External Assessment'
+'This value cannot be changed.': 'This value cannot be changed.'
+Category: Category
+Order: Order
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': 'Grade Scale'
+'Grade scale used to control values that can be assigned.': 'Grade scale used to control values that can be assigned.'
+'Year Groups': 'Year Groups'
+'Year groups to which this field is relevant.': 'Year groups to which this field is relevant.'
+'Edit Field': 'Edit Field'
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': 'Tracking Settings'
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: Usage
+Active: Active
+Numeric: Numeric
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 'Brief description of how scale is used.'
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': 'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.'
+'Lowest Acceptable': 'Lowest Acceptable'
+'This is the lowest grade a student can get without being unsatisfactory.': 'This is the lowest grade a student can get without being unsatisfactory.'
+Details: Details
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: Features
+'Enable Effort': 'Enable Effort'
+'Should columns have the Effort section enabled?': 'Should columns have the Effort section enabled?'
+'Enable Rubrics': 'Enable Rubrics'
+'Should columns have Rubrics section enabled?': 'Should columns have Rubrics section enabled?'
+'Enable Column Weighting': 'Enable Column Weighting'
+'Should column weighting and total scores be enabled in the Markbook?': 'Should column weighting and total scores be enabled in the Markbook?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': 'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.'
+'Enable Display Cumulative Marks': 'Enable Display Cumulative Marks'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?'
+'Enable Raw Attainment Marks': 'Enable Raw Attainment Marks'
+'Should recording of raw marks be enabled in the Markbook?': 'Should recording of raw marks be enabled in the Markbook?'
+'Enable Modified Assessment': 'Enable Modified Assessment'
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: Interface
+'Markbook Type': 'Markbook Type'
+'Comma-separated list of types to make available in the Markbook.': 'Comma-separated list of types to make available in the Markbook.'
+'Group Columns by Term': 'Group Columns by Term'
+'Should columns and total scores be grouped by term?': 'Should columns and total scores be grouped by term?'
+'Attainment Alternative Name': 'Attainment Alternative Name'
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 'Attainment Alternative Name Abbreviation'
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': 'Effort Alternative Name'
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': 'Effort Alternative Name Abbreviation'
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: Warnings
+'Show Student Attainment Warning': 'Show Student Attainment Warning'
+'Show low attainment grade visual warning to students?': 'Show low attainment grade visual warning to students?'
+'Show Student Effort Warning': 'Show Student Effort Warning'
+'Show low effort grade visual warning to students?': 'Show low effort grade visual warning to students?'
+'Show Parent Attainment Warning': 'Show Parent Attainment Warning'
+'Show low attainment grade visual warning to parents?': 'Show low attainment grade visual warning to parents?'
+'Show Parent Effort Warning': 'Show Parent Effort Warning'
+'Show low effort grade visual warning to parents?': 'Show low effort grade visual warning to parents?'
+'Personalised Warnings': 'Personalized Warnings'
+'Should markbook warnings be based on personal targets, if they are available?': 'Should markbook warnings be based on personal targets, if they are available?'
+'Markbook Settings': 'Markbook Settings'
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': 'Message Wall Settings'
+'Message Bubble Width Type': 'Message Bubble Width Type'
+'Should the message bubble be regular or wide?': 'Should the message bubble be regular or wide?'
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: Regular
+        wide: Wide
+'Message Bubble Background Color': 'Message Bubble Background Color'
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': 'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.'
+'Message Bubble Auto Hide': 'Message Bubble Auto Hide'
+'Should message bubble fade out automatically?': 'Should message bubble fade out automatically?'
+Miscellaneous: Miscellaneous
+'Message Bcc': 'Message Bcc'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'Comma-separated list of recipients to bcc all messenger emails to.'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': 'General Settings'
+Email: Email
+'Email address to send finance emails from.': 'Email address to send finance emails from.'
+'Enable Online Payment': 'Enable Online Payment'
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': 'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.'
+'Online Payment Threshold': 'Online Payment Threshold'
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': 'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.'
+Invoices: Invoices
+'Invoice Text': 'Invoice Text'
+'Text to appear in invoice, above invoice details and fees.': 'Text to appear in invoice, above invoice details and fees.'
+'Invoice Notes': 'Invoice Notes'
+'Text to appear in invoice, below invoice details and fees.': 'Text to appear in invoice, below invoice details and fees.'
+'Invoicee Name Style': 'Invoicee Name Style'
+'Determines how invoicee name appears on invoices and receipts.': 'Determines how invoicee name appears on invoices and receipts.'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': 'Invoice Number Style'
+'How should invoice numbers be constructed?': 'How should invoice numbers be constructed?'
+Receipts: Receipts
+'Receipt Text': 'Receipt Text'
+'Text to appear in receipt, above receipt details and fees.': 'Text to appear in receipt, above receipt details and fees.'
+'Receipt Notes': 'Receipt Notes'
+'Text to appear in receipt, below receipt details and fees.': 'Text to appear in receipt, below receipt details and fees.'
+'Hide Itemisation': 'Hide Itemisation'
+'Hide fee and payment details in receipts?': 'Hide fee and payment details in receipts?'
+Reminders: Reminders
+'Reminder 1 Text': 'Reminder 1 Text'
+'Text to appear in first level reminder level, above invoice details and fees.': 'Text to appear in first level reminder level, above invoice details and fees.'
+'Reminder 2 Text': 'Reminder 2 Text'
+'Text to appear in second level reminder level, above invoice details and fees.': 'Text to appear in second level reminder level, above invoice details and fees.'
+'Reminder 3 Text': 'Reminder 3 Text'
+'Text to appear in third level reminder level, above invoice details and fees.': 'Text to appear in third level reminder level, above invoice details and fees.'
+Expenses: Expenses
+'Budget Categories': 'Budget Categories'
+'Comma-separated list of budget categories.': 'Comma-separated list of budget categories.'
+'Expense Approval Type': 'Expense Approval Type'
+'How should expense approval be dealt with?': 'How should expense approval be dealt with?'
+'Budget Level Expense Approval': 'Budget Level Expense Approval'
+'Should approval from a budget member with Full access be required?': 'Should approval from a budget member with Full access be required?'
+'Expense Request Template': 'Expense Request Template'
+'An HTML template to be used in the description field of expense requests.': 'An HTML template to be used in the description field of expense requests.'
+'Allow Expense Add': 'Allow Expense Add'
+'Allows privileged users to add expenses without going through request process.': 'Allows privileged users to add expenses without going through request process.'
+'Purchasing Officer': 'Purchasing Officer'
+'User responsible for purchasing for the school.': 'User responsible for purchasing for the school.'
+'Reimbursement Officer': 'Reimbursement Officer'
+'User responsible for reimbursing expenses.': 'User responsible for reimbursing expenses.'
+General: General
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 'Date Type'
+'Should activities be organised around dates (flexible) or terms (easy)?': 'Should activities be organised around dates (flexible) or terms (easy)?'
+'Maximum Activities per Term': 'Maximum Activities per Term'
+'The most a student can sign up for in one term. Set to 0 for unlimited.': 'The most a student can sign up for in one term. Set to 0 for unlimited.'
+Access: Access
+'System-wide access control': 'System-wide access control'
+Payment: Payment
+'Payment system': 'Payment system'
+activitysettingstype:
+    activities__payment:
+        none: None
+        single: Single
+        'per activity': 'Per Activity'
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: Competitive
+        selection: Selection
+    activities__datetype:
+        date: Date
+        term: Term
+    activities__access:
+        none: None
+        view: View
+        register: Register
+'Enrolment Type': 'Enrolment Type'
+'Enrolment process type': 'Enrolment process type'
+'Backup Choice': 'Backup Choice'
+'Allow students to choose a backup, in case enroled activity is full.': 'Allow students to choose a backup, in case enroled activity is full.'
+'Activity Types': 'Activity Types'
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': 'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.'
+'Disable External Provider Signup': 'Disable External Provider Signup'
+'Should we turn off the option to sign up for activities provided by an outside agency?': 'Should we turn off the option to sign up for activities provided by an outside agency?'
+'Hide External Provider Cost': 'Hide External Provider Cost'
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': 'Should we hide the cost of activities provided by an outside agency from the Activities View?'
+'Dashboard Settings': 'Dashboard Settings'
+'Staff Dashboard Default Tab': 'Staff Dashboard Default Tab'
+'The default landing tab for the staff dashboard.': 'The default landing tab for the staff dashboard.'
+'Student Dashboard Default Tab': 'Student Dashboard Default Tab'
+'The default landing tab for the student dashboard.': 'The default landing tab for the student dashboard.'
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: Planner
+    school_admin__studentdashboarddefaulttab:
+        planner: Planner
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': 'Learning Overview'
+        timetable: Timetable
+        activities: Activities
+'Parent Dashboard Default Tab': 'Parent Dashboard Default Tab'
+'The default landing tab for the parent dashboard.': 'The default landing tab for the parent dashboard.'
+behaviour_letters_help: behaviour_letters_help
+Descriptors: Descriptors
+'Enable Descriptors': 'Enable Descriptors'
+'Setting to No reduces complexity of behaviour tracking.': 'Setting to No reduces complexity of behaviour tracking.'
+'Positive Descriptors': 'Positive Descriptors'
+'Allowable choices for positive behaviour': 'Allowable choices for positive behaviour'
+'Negative Descriptors': 'Negative Descriptors'
+'Allowable choices for negative behaviour': 'Allowable choices for negative behaviour'
+Levels: Levels
+'Enable Levels': 'Enable Levels'
+'Allowable choices for severity level (from lowest to highest)': 'Allowable choices for severity level (from lowest to highest)'
+'Behaviour Letters': 'Behaviour Letters'
+'Enable Behaviour Letters': 'Enable Behaviour Letters'
+'Should automated behaviour letter functionality be enabled?': 'Should automated behaviour letter functionality be enabled?'
+'Letter 1 Count': 'Letter 1 Count'
+'After how many negative records should letter 1 be sent?': 'After how many negative records should letter 1 be sent?'
+'Letter 1 Text': 'Letter 1 Text'
+'The contents of letter 1, as HTML.': 'The contents of letter 1, as HTML.'
+'Letter 2 Count': 'Letter 2 Count'
+'After how many negative records should letter 2 be sent?': 'After how many negative records should letter 2 be sent?'
+'Letter 2 Text': 'Letter 2 Text'
+'The contents of letter 2, as HTML.': 'The contents of letter 2, as HTML.'
+'Letter 3 Count': 'Letter 3 Count'
+'After how many negative records should letter 3 be sent?': 'After how many negative records should letter 3 be sent?'
+'Letter 3 Text': 'Letter 3 Text'
+'The contents of letter 3, as HTML.': 'The contents of letter 3, as HTML.'
+'Policy Link': 'Policy Link'
+'A link to the school behaviour policy.': 'A link to the school behaviour policy.'
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: Low
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: Medium
+High: High
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: Document
+        spreadsheet: Spreadsheet
+        presentation: Presentation
+        graphics/design: Graphics/Design
+        video: Video
+        audio: Audio
+        other: Other
+Code: Code
+Direction: Direction
+Scope: Scope
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': 'Attendance Settings'
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: Present
+        tardy: Tardy
+        'present - late': 'Present - Late'
+        'present - offsite': 'Present - Off Site'
+        absent: Absent
+        left: Left
+        'left - early': 'Left - Early'
+'Attendance Codes': 'Attendance Codes'
+Reasons: Reasons
+'Attendance Reasons': 'Attendance Reasons'
+'Comma-separated list of reasons which are available when taking attendance.': 'Comma-separated list of reasons which are available when taking attendance.'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': 'Count Class Attendance as School Attendance'
+'Should attendance from the class context be used to prefill and inform school attendance?': 'Should attendance from the class context be used to prefill and inform school attendance?'
+'Cross-Fill Classes': 'Cross-Fill Classes'
+'Should classes prefill with data from other classes?': 'Should classes prefill with data from other classes?'
+'Default Roll Group Attendance Type': 'Default Roll Group Attendance Type'
+'The default selection for attendance type when taking Roll Group attendance': 'The default selection for attendance type when taking Roll Group attendance'
+'Default Class Attendance Type': 'Default Class Attendance Type'
+'The default selection for attendance type when taking Class attendance': 'The default selection for attendance type when taking Class attendance'
+Present: Present
+'Present - Late': 'Present - Late'
+'Present - Off Site': 'Present - Off Site'
+Absent: Absent
+Left: Left
+'Left - Early': 'Left - Early'
+'Student Self Registration': 'Student Self Registration'
+'Student Self Registration IP Addresses': 'Student Self Registration IP Addresses'
+'Comma-separated list of IP addresses within which students can self register.': 'Comma-separated list of IP addresses within which students can self register.'
+'Self Registration Redirect': 'Self Registration Redirect'
+'Should self registration redirect to Message Wall?': 'Should self registration redirect to Message Wall?'
+Teacher: Teacher
+'Support Staff': 'Support Staff'
+Administrator: Administrator
+Parent: Parent
+'Attendance CLI': 'Attendance CLI'
+'Enable Notifications by Roll Group': 'Enable Notifications by Roll Group'
+'Enable Notifications by Class': 'Enable Notifications by Class'
+'Additional Users to Notify': 'Additional Users to Notify'
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': 'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.'
+Context: Context
+Registration: Registration
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: 'In Class'
+        out: 'Out of Class'
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: Assess
+'External Assessments': 'External Assessments'
+'Formal Assessment Settings': 'Formal Assessment Settings'
+Scales: Scales
+Groupings: Groupings
+Houses: Houses
+Learn: Learn
+'Planner Settings': 'Planner Settings'
+'Resource Settings': 'Resource Settings'
+Other: Other
+'Facility Settings': 'Facility Settings'
+'File Extensions': 'File Extensions'
+People: People
+'Individual Needs': 'Individual Needs'
+'Years, Days & Times': 'Years, Days & Times'
+'Academic Years': 'Academic Years'
+'Days of the Week': 'Days of the Week'
+'Special Days': 'Special Days'
+Terms: Terms
+'Module Menu': 'Module Menu'
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': 'Access Settings'
+'Allow Outcome Editing': 'Allow Outcome Editing'
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': 'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?'
+'Enables a public listing of units, with teachers able to opt in to share units.': 'Enables a public listing of units, with teachers able to opt in to share units.'
+'Lesson Details Template': 'Lesson Details Template'
+'Make Units Public': 'Make Units Public'
+'Parent Weekly Email Summary Include Behaviour': 'Parent Weekly Email Summary Include Behaviour'
+'Parent Weekly Email Summary Include Markbook': 'Parent Weekly Email Summary Include Markbook'
+'Planner Templates': 'Planner Templates'
+'Share Unit Outline': 'Share Unit Outline'
+'Sharing Default: Parents': 'Sharing Default: Parents'
+'Sharing Default: Students': 'Sharing Default: Students'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'Should Markbook information be included in the weekly planner email summary that goes out to parents?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': 'Should behaviour information be included in the weekly planner email summary that goes out to parents?'
+'Should the text within outcomes be editable when planning lessons and units?': 'Should the text within outcomes be editable when planning lessons and units?'
+'Smart Block Template': 'Smart Block Template'
+'Teacher''s Notes Template': 'Teacher''s Notes Template'
+'Template to be inserted into Lesson Details field': 'Template to be inserted into Lesson Details field'
+'Template to be inserted into Teacher''s Notes field': 'Template to be inserted into Teacher''s Notes field'
+'Template to be inserted into Unit Outline section of planner': 'Template to be inserted into Unit Outline section of planner'
+'Template to be inserted into new block in Smart Unit': 'Template to be inserted into new block in Smart Unit'
+Templates: Templates
+'Unit Outline Template': 'Unit Outline Template'
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': 'When adding lessons and deploying units, should sharing default for parents be Y or N?'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': 'When adding lessons and deploying units, should sharing default for students be Y or N?'
+'Targets Template': 'Targets Template'
+'An HTML template to be used in the targets field.': 'An HTML template to be used in the targets field.'
+'Teaching Strategies Template': 'Teaching Strategies Template'
+'An HTML template to be used in the teaching strategies field.': 'An HTML template to be used in the teaching strategies field.'
+'Notes & Review Template': 'Notes & Review Template'
+'An HTML template to be used in the notes and review field.': 'An HTML template to be used in the notes and review field.'
+Categories: Categories
+'Allowable choices for category': 'Allowable choices for category'
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': 'Purposes (General)'
+'Allowable choices for purpose when creating a resource': 'Allowable choices for purpose when creating a resource'
+'Purposes (Restricted)': 'Purposes (Restricted)'
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: Purpose
+Tardy: Tardy
+'Must be unique': 'Must be unique'
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: Reportable
+'Allow Future Use': 'Allow Future Use'
+'Can this code be used in Set Future Absence?': 'Can this code be used in Set Future Absence?'
+'Available to Roles': 'Available to Roles'
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': 'Edit Attendance Code'
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': 'Edit Year Group'
+'Head of Year': 'Head of Year'
+'Manage Year Groups': 'Manage Year Groups'
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'A comma-separated list of types for facilities.'
+'Add Facility': 'Add Facility'
+FacilityTypes: FacilityTypes
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: External
+Internal: Internal
+'Add Grade Scale': 'Add Grade Scale'
+'Add Grade': 'Add Grade'
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: Descriptor
+'Edit Grade Scale': 'Edit Grade Scale'
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': 'Is Default?'
+'Manage Grade Scales': 'Manage Grade Scales'
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: Scale
+Value: Value
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'Comma-separated list of types to make available in Internal Assessments.'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': 'Field Set'
+'Field Sets': 'Field Sets'
+'File Upload': 'File Upload'
+'Internal Assessment Settings': 'Internal Assessment Settings'
+'Internal Assessment Types': 'Internal Assessment Types'
+'Manage External Assessments': 'Manage External Assessments'
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': 'Add External Assessment'
+'Allow File Upload': 'Allow File Upload'
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 'Brief description of assessment and how it is used.'
+'Edit External Assessment': 'Edit External Assessment'
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': 'Should the student record include the option of a file upload?'
+'SMS Settings': 'SMS Settings'
+'Enable Home Screen Widget': 'Enable Home Screen Widget'
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'Adds a Message Wall widget to the home page, hihglighting current messages.'

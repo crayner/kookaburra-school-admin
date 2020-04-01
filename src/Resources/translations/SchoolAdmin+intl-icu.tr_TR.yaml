@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: Düzenle
+Delete: silmek
+Name: isim
+Dates: Tarih
+Status: durum
+Actions: Eylemler
+'There are no records to display.': 'Gösterilecek kayıt yok.'
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': 'First Page'
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': 'Last Page'
+academicyear:
+    status:
+        past: geçmiş
+        current: şimdiki
+        upcoming: Yaklaşan
+Sequence: Sıra
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': 'Okul yöneticisi'
+'Sequence Number': 'Sıra numarası'
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': 'İlk gün'
+'Last Day': 'Son gun'
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 'Terimi Düzenle'
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': 'Terim ekle'
+'Manage Terms': 'Koşulları Yönet'
+Monday: Pazartesi
+Mon: benim
+Installed: Kurulmuş
+'School Day': 'Okul günü'
+'School Opens': 'Okul açar'
+'School Starts': 'Okul başlar'
+'School Ends': 'Okul biter'
+'School Closes': 'Okul kapatır'
+Submit: Gönder
+Display: Display
+Tuesday: Salı
+Tue: senin
+Wednesday: Çarşamba
+Wed: evlenmek
+Thursday: Perşembe
+Thu: koleksiyon
+Friday: Cuma
+Fri: ücretsiz
+Saturday: Cumartesi
+Sat: Oturdu
+Sunday: Pazar
+Sun: Güneş
+'Manage Days of the Week': 'Haftanın Günlerini Yönet'
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': 'Zamanlama Değişimi'
+        'school closure': 'Okul Kapanışı'
+Date: tarih
+Type: tip
+'Manage Special Days': 'Özel Günleri Yönet'
+'Edit Special Day': 'Özel Günü Düzenle'
+'Please select...': 'Lütfen seçin...'
+Description: Açıklama
+'Add Special Day': 'Özel Gün Ekle'
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: Çift
+'Term Break': 'Term Break'
+Calendar: Calendar
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: Logo
+'Manage Houses': 'Evleri Yönet'
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': 'Evi Düzenle'
+'Add House': 'Ev ekle'
+Projector: projektör
+TV: TV
+'DVD Player': 'DVD oynatıcı'
+Hifi: Hifi
+Speakers: Hoparlörler
+'Interactive White Board': 'İnteraktif yazı tahtası'
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': 'Bilgisayar öğretmek'
+Capacity: Kapasite
+Facilities: tesisler
+'Manage Facilities': 'Tesisleri Yönet'
+facility:
+    type:
+        classroom: Sınıf
+        hall: salon
+        laboratory: Laboratory
+        library: Kütüphane
+        office: Ofis
+        outdoor: 'Dış mekan'
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: Depolama
+        study: 'Ders çalışma'
+        undercover: Gizli
+        other: Diğer
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': 'Öğrenci bilgisayarları'
+'How many are there': 'Orada kaç tane var'
+Extension: Uzantı
+'Room''s internal phone number.': 'Odanın dahili telefon numarası.'
+'Phone Number': 'Telefon numarası'
+'Room''s external phone number.': 'Odanın harici telefon numarası.'
+Comment: 'Yorum Yap'
+'Edit Facility': 'Tesis Düzenleme'
+'Facility Type': 'Tesis tipi'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'Veri Noktaları dışa aktarma işleminize eklemek istediğiniz dış değerlendirmeleri seçmek için aşağıdaki seçenekleri kullanın.'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'Herhangi bir değerlendirmenin kopyası varsa, sadece en son kayıtlar gösterilecektir.'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'Veri Noktaları dışa aktarma işleminize dahil etmek istediğiniz dahili değerlendirmeleri seçmek için aşağıdaki seçenekleri kullanın.'
+'Add Field': 'Alan ekle'
+'External Assessment': 'Dış değerlendirme'
+'This value cannot be changed.': 'Bu değer değiştirilemez.'
+Category: Kategori
+Order: Sipariş
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': 'Not ölçeği'
+'Grade scale used to control values that can be assigned.': 'Atanabilecek değerleri kontrol etmek için kullanılan sınıf ölçeği.'
+'Year Groups': 'Yıl grupları'
+'Year groups to which this field is relevant.': 'Bu alanın alakalı olduğu yıl grupları.'
+'Edit Field': 'Alanı Düzenle'
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': 'İzleme Ayarları'
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: kullanım
+Active: Aktif
+Numeric: Sayısal
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 'Ölçeğin nasıl kullanıldığı ile ilgili kısa açıklama.'
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': "Bu ölçek sadece sayısal notları kullanıyor mu?\_Not, \"Eksik\" notunun muaf olduğuna dikkat edin."
+'Lowest Acceptable': 'En Düşük Kabul Edilebilir'
+'This is the lowest grade a student can get without being unsatisfactory.': 'Bu, bir öğrencinin yetersiz kalmadan alabileceği en düşük nottur.'
+Details: ayrıntılar
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: Özellikler
+'Enable Effort': 'Çaba Etkinleştir'
+'Should columns have the Effort section enabled?': 'Çabalar bölümleri etkin olmalı mı?'
+'Enable Rubrics': 'Rubrikleri Etkinleştir'
+'Should columns have Rubrics section enabled?': 'Sütunlar, Rubrikler bölümünün etkin olması gerekir mi?'
+'Enable Column Weighting': 'Sütun Ağırlığını Etkinleştir'
+'Should column weighting and total scores be enabled in the Markbook?': 'Sütun ağırlıklandırma ve toplam puanlar Markbook''ta etkinleştirilmeli midir?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': "Kümülatif işaretlerin ve ağırlıkların hesaplanması şu anda yalnızca Varsayılan Değerlendirme Ölçeği olarak Yüzde kullanıldığında mevcuttur.\_Bu değer Sistem Ayarlarında değiştirilebilir."
+'Enable Display Cumulative Marks': 'Ekran Kümülatif İşaretlerini Etkinleştir'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'Öğrenciler ve Ebeveynler için Görünüm Defterini Göster sayfasında ve Öğrenci Profillerinde kümülatif işaretler gösterilmeli midir?'
+'Enable Raw Attainment Marks': 'Ham Erişim İşaretlerini Etkinleştir'
+'Should recording of raw marks be enabled in the Markbook?': 'Ham işaretlerin kaydı Markbook''ta etkinleştirilmeli mi?'
+'Enable Modified Assessment': 'Değiştirilmiş Değerlendirmeyi Etkinleştir'
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: arayüzey
+'Markbook Type': 'Markbook Türü'
+'Comma-separated list of types to make available in the Markbook.': 'Markbook''ta kullanılabilecek virgülle ayrılmış tür listesi.'
+'Group Columns by Term': 'Terime Göre Grup Sütunları'
+'Should columns and total scores be grouped by term?': 'Sütunlar ve toplam puanlar terime göre gruplandırılmalı mıdır?'
+'Attainment Alternative Name': 'Erişim Alternatif Adı'
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 'Erişim Alternatif Adı Kısaltma'
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': 'Çaba Alternatif Adı'
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': 'Çaba Alternatif Adı Kısaltma'
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: Uyarılar
+'Show Student Attainment Warning': 'Öğrenci Kazanma Uyarısını Göster'
+'Show low attainment grade visual warning to students?': 'Öğrencilere düşük başarı notu görsel uyarısı gösterilsin mi?'
+'Show Student Effort Warning': 'Öğrenci Çaba Uyarısını Göster'
+'Show low effort grade visual warning to students?': 'Düşük efor dereceli görsel uyarıyı öğrencilere gösterme?'
+'Show Parent Attainment Warning': 'Üst Erişim Uyarısını Göster'
+'Show low attainment grade visual warning to parents?': 'Ebeveynlere düşük başarı notu görsel uyarısı gösterilsin mi?'
+'Show Parent Effort Warning': 'Ebeveyn Çaba Uyarısını Göster'
+'Show low effort grade visual warning to parents?': 'Ebeveynlere düşük çaba notu görsel uyarı göster?'
+'Personalised Warnings': 'Kişisel Uyarılar'
+'Should markbook warnings be based on personal targets, if they are available?': 'Pazarlama uyarıları mevcutsa kişisel hedeflere mi dayanmalı?'
+'Markbook Settings': 'Markbook Ayarları'
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': 'Mesaj Duvarı Ayarları'
+'Message Bubble Width Type': 'Mesaj Kabarcık Genişliği Tipi'
+'Should the message bubble be regular or wide?': 'Mesaj balonu normal mi geniş mi olmalı?'
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: Düzenli
+        wide: Geniş
+'Message Bubble Background Color': 'Mesaj Kabarcık Arka Plan Rengi'
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': "RGBA'da mesaj kabarcık arka plan rengi (örneğin, 100, 100, 100,0.50).\_Boşsa, tema varsayılanı kullanılacaktır."
+'Message Bubble Auto Hide': 'Mesaj Kabarcık Otomatik Gizle'
+'Should message bubble fade out automatically?': 'Mesaj balonu otomatik olarak kaybolmalı mı?'
+Miscellaneous: Çeşitli
+'Message Bcc': 'Mesaj Bcc'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'Tüm mesajlaşma e-postalarının gönderileceği virgülle ayrılmış alıcı listesi.'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': 'Genel Ayarlar'
+Email: E-posta
+'Email address to send finance emails from.': 'Finans e-postalarını göndereceğiniz e-posta adresi.'
+'Enable Online Payment': 'Çevrimiçi Ödemeyi Etkinleştir'
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': "Faturalar, faturadaki şifreli bir bağlantı üzerinden çevrimiçi olarak ödenmeli midir?\_Sistem Ayarlarında doğru şekilde yapılandırılmış ödeme ağ geçidi gerektirir."
+'Online Payment Threshold': 'Online Ödeme Eşiği'
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': "Faturalar çevrimiçi olarak ödenebilirse, izin verilen maksimum ödeme nedir?\_Ödeme ücretlerini kontrol etmek için kullanışlıdır.\_Hiçbir değer sınırsız demektir."
+Invoices: Faturalar
+'Invoice Text': 'Fatura Metni'
+'Text to appear in invoice, above invoice details and fees.': 'Faturada görünecek metin, yukarıda fatura ayrıntıları ve ücretleri.'
+'Invoice Notes': 'Fatura Notları'
+'Text to appear in invoice, below invoice details and fees.': 'Faturada görünecek metin, aşağıda fatura ayrıntıları ve ücretleri.'
+'Invoicee Name Style': 'Fatura Adı Stili'
+'Determines how invoicee name appears on invoices and receipts.': 'Fatura ve makbuzlarda fatura adının nasıl görüneceğini belirler.'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': 'Fatura Numarası Stili'
+'How should invoice numbers be constructed?': 'Fatura numaraları nasıl yapılmalı?'
+Receipts: Makbuzlar
+'Receipt Text': 'Makbuz Metni'
+'Text to appear in receipt, above receipt details and fees.': 'Makbuz detaylarında ve ücretlerde, makbuzda görünecek metin.'
+'Receipt Notes': 'Makbuz Notları'
+'Text to appear in receipt, below receipt details and fees.': 'Makbuz detaylarında ve ücretlerin altında makbuzda görünecek metin.'
+'Hide Itemisation': 'Öğeyi Gizle'
+'Hide fee and payment details in receipts?': 'Makbuzlarda ücret ve ödeme detaylarını gizle?'
+Reminders: Hatırlatmalar
+'Reminder 1 Text': 'Hatırlatıcı 1 Metin'
+'Text to appear in first level reminder level, above invoice details and fees.': 'Fatura ayrıntıları ve ücretlerin üstünde birinci seviye hatırlatma düzeyinde görünecek metin.'
+'Reminder 2 Text': 'Hatırlatıcı 2 Metin'
+'Text to appear in second level reminder level, above invoice details and fees.': 'Fatura ayrıntıları ve ücretlerin üstünde ikinci seviye hatırlatma düzeyinde görünecek metin.'
+'Reminder 3 Text': 'Hatırlatıcı 3 Metin'
+'Text to appear in third level reminder level, above invoice details and fees.': 'Fatura ayrıntıları ve ücretlerin üstünde üçüncü seviye hatırlatma düzeyinde görünecek metin.'
+Expenses: giderler
+'Budget Categories': 'Bütçe Kategorileri'
+'Comma-separated list of budget categories.': 'Virgülle ayrılmış bütçe kategorileri listesi.'
+'Expense Approval Type': 'Gider Onay Türü'
+'How should expense approval be dealt with?': 'Gider onayı nasıl ele alınmalıdır?'
+'Budget Level Expense Approval': 'Bütçe Seviyesi Gider Onayı'
+'Should approval from a budget member with Full access be required?': 'Tam erişime sahip bir bütçe üyesinden onay istenmeli mi?'
+'Expense Request Template': 'Gider İsteği Şablonu'
+'An HTML template to be used in the description field of expense requests.': 'Gider taleplerinin açıklama alanında kullanılacak bir HTML şablonu.'
+'Allow Expense Add': 'Gider Eklemeye İzin Ver'
+'Allows privileged users to add expenses without going through request process.': 'Ayrıcalıklı kullanıcıların istek sürecinden geçmeden harcama eklemesine izin verir.'
+'Purchasing Officer': 'Satınalma memuru'
+'User responsible for purchasing for the school.': 'Okul için satın almaktan kullanıcı sorumludur.'
+'Reimbursement Officer': 'Geri Ödeme Memuru'
+'User responsible for reimbursing expenses.': 'Giderlerin geri ödenmesinden sorumlu olan kullanıcı.'
+General: Genel
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 'Tarih türü'
+'Should activities be organised around dates (flexible) or terms (easy)?': 'Faaliyetler tarihler arasında mı (esnek) veya terimlerle (kolay) yapılmalı mı?'
+'Maximum Activities per Term': 'Dönem Başına Maksimum Faaliyetler'
+'The most a student can sign up for in one term. Set to 0 for unlimited.': "Bir öğrencinin en fazla bir terim için kayıt olabilir.\_Sınırsız için 0'a ayarlayın."
+Access: Erişim
+'System-wide access control': 'Sistem çapında erişim kontrolü'
+Payment: Ödeme
+'Payment system': 'Ödeme sistemi'
+activitysettingstype:
+    activities__payment:
+        none: Yok
+        single: Tek
+        'per activity': 'Etkinlik Başına'
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: Rekabetçi
+        selection: seçim
+    activities__datetype:
+        date: tarih
+        term: terim
+    activities__access:
+        none: Yok
+        view: Görünüm
+        register: 'Kayıt olmak'
+'Enrolment Type': 'Kayıt Türü'
+'Enrolment process type': 'Kayıt işlem türü'
+'Backup Choice': 'Yedekleme Seçimi'
+'Allow students to choose a backup, in case enroled activity is full.': 'Öğrencilerin, kayıtlı etkinliklerin dolu olması durumunda bir yedekleme seçmesine izin verin.'
+'Activity Types': 'Etkinlik Türleri'
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': "Okulda mevcut olan farklı etkinlik türlerinin virgülle ayrılmış listesi.\_Bu özelliği etkisiz hale getirmek için boş bırakın."
+'Disable External Provider Signup': 'Harici Sağlayıcı Kayıt İşlemini Devre Dışı Bırak'
+'Should we turn off the option to sign up for activities provided by an outside agency?': 'Bir dış kurum tarafından sağlanan etkinliklere kaydolma seçeneğini kapatmalı mıyız?'
+'Hide External Provider Cost': 'Harici Tedarikçi Maliyetini Gizle'
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': 'Bir dış kurum tarafından sağlanan faaliyetlerin maliyetini Faaliyetler Görünümünden gizlemeli miyiz?'
+'Dashboard Settings': 'Dashboard Settings'
+'Staff Dashboard Default Tab': 'Personel Panosu Varsayılan Sekmesi'
+'The default landing tab for the staff dashboard.': 'Personel gösterge tablosu için varsayılan açılış sekmesi.'
+'Student Dashboard Default Tab': 'Öğrenci Gösterge Tablosu Varsayılan Sekmesi'
+'The default landing tab for the student dashboard.': 'Öğrenci gösterge panosu için varsayılan açılış sekmesi.'
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: planlamacı
+    school_admin__studentdashboarddefaulttab:
+        planner: planlamacı
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': 'Öğrenmeye Genel Bakış'
+        timetable: 'Masa saati'
+        activities: faaliyetler
+'Parent Dashboard Default Tab': 'Üst Dashboard Varsayılan Sekmesi'
+'The default landing tab for the parent dashboard.': 'Üst gösterge panosu için varsayılan açılış sekmesi.'
+behaviour_letters_help: behaviour_letters_help
+Descriptors: Tanıtıcılar
+'Enable Descriptors': 'Tanımlayıcıları Etkinleştir'
+'Setting to No reduces complexity of behaviour tracking.': 'Hayır olarak ayarlamak, davranış izlemenin karmaşıklığını azaltır.'
+'Positive Descriptors': 'Olumlu Tanımlayıcılar'
+'Allowable choices for positive behaviour': 'Olumlu davranış için izin verilen seçimler'
+'Negative Descriptors': 'Olumsuz Tanımlayıcılar'
+'Allowable choices for negative behaviour': 'Olumsuz davranış için izin verilen seçimler'
+Levels: Seviyeleri
+'Enable Levels': 'Seviyeleri Etkinleştir'
+'Allowable choices for severity level (from lowest to highest)': 'Ciddiyet düzeyi için izin verilen seçenekler (en düşükten en yükseğe)'
+'Behaviour Letters': 'Davranış Mektupları'
+'Enable Behaviour Letters': 'Davranış Harflerini Etkinleştir'
+'Should automated behaviour letter functionality be enabled?': 'Otomatik davranış mektubu işlevi etkinleştirilmeli mi?'
+'Letter 1 Count': 'Harf 1 Sayısı'
+'After how many negative records should letter 1 be sent?': '1. harften sonra kaç tane negatif kayıt gönderilmelidir?'
+'Letter 1 Text': '1. Harf'
+'The contents of letter 1, as HTML.': 'Harf 1''in içeriği, HTML olarak.'
+'Letter 2 Count': 'Harf 2 Sayısı'
+'After how many negative records should letter 2 be sent?': '2. harften sonra kaç tane negatif kayıt gönderilmelidir?'
+'Letter 2 Text': '2. Harf'
+'The contents of letter 2, as HTML.': '2 harfinin içeriği, HTML olarak.'
+'Letter 3 Count': 'Harf 3 Sayısı'
+'After how many negative records should letter 3 be sent?': '3. harften sonra kaç tane negatif kayıt gönderilmelidir?'
+'Letter 3 Text': '3. Harf'
+'The contents of letter 3, as HTML.': '3. harfin içeriği, HTML olarak.'
+'Policy Link': 'Politika Bağlantısı'
+'A link to the school behaviour policy.': 'Okul davranış politikasına bir bağlantı.'
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: Düşük
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: Orta
+High: Yüksek
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: belge
+        spreadsheet: Çizelge
+        presentation: Sunum
+        graphics/design: 'Grafik Tasarım'
+        video: Video
+        audio: Ses
+        other: Diğer
+Code: kod
+Direction: yön
+Scope: kapsam
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': 'Seyirci Ayarları'
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: Mevcut
+        tardy: Tardy
+        'present - late': 'Şimdiki - Geç'
+        'present - offsite': 'Present - Off Site'
+        absent: Yok
+        left: Ayrıldı
+        'left - early': 'Erken ayrılmak'
+'Attendance Codes': 'Seyirci Kodları'
+Reasons: Nedenleri
+'Attendance Reasons': 'Seyirci Nedenleri'
+'Comma-separated list of reasons which are available when taking attendance.': 'Devam alırken kullanılabilecek nedenlerin virgülle ayrılmış listesi.'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': 'Count Class Attendance as School Attendance'
+'Should attendance from the class context be used to prefill and inform school attendance?': 'Should attendance from the class context be used to prefill and inform school attendance?'
+'Cross-Fill Classes': 'Cross-Fill Classes'
+'Should classes prefill with data from other classes?': 'Should classes prefill with data from other classes?'
+'Default Roll Group Attendance Type': 'Varsayılan Rulo Grubu Devam Türü'
+'The default selection for attendance type when taking Roll Group attendance': 'Roll Group katılımını alırken katılım türü için varsayılan seçim'
+'Default Class Attendance Type': 'Varsayılan Derse Devam Tipi'
+'The default selection for attendance type when taking Class attendance': 'Derse devam ederken devam türü için varsayılan seçim'
+Present: Mevcut
+'Present - Late': 'Şimdiki - Geç'
+'Present - Off Site': 'Present - Off Site'
+Absent: Yok
+Left: Ayrıldı
+'Left - Early': 'Erken ayrılmak'
+'Student Self Registration': 'Öğrenci Kendi Kendine Kayıt'
+'Student Self Registration IP Addresses': 'Öğrenci Kendi Kendine Kayıt IP Adresleri'
+'Comma-separated list of IP addresses within which students can self register.': 'Öğrencilerin kendi kendilerini kaydettirebilecekleri virgülle ayrılmış IP adresleri listesi.'
+'Self Registration Redirect': 'Kendinden Kayıt Yönlendirme'
+'Should self registration redirect to Message Wall?': 'Kendi kendine kayıt Mesaj Duvarı''na yönlendirmeli mi?'
+Teacher: Öğretmen
+'Support Staff': 'Destek personeli'
+Administrator: yönetici
+Parent: ebeveyn
+'Attendance CLI': 'Seyirci CLI'
+'Enable Notifications by Roll Group': 'Rulo Grubuna Göre Bildirimleri Etkinleştir'
+'Enable Notifications by Class': 'Sınıf İçi Bildirimleri Etkinleştir'
+'Additional Users to Notify': 'Bildirilecek Ek Kullanıcılar'
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': "Okul genelinde günlük devam raporunu ek kullanıcılara gönderin.\_Kayıtlı Olmayan Rol Gruplarına veya Kayıtlı Olmayan Sınıflara erişim iznine sahip rollerle sınırlıdır."
+Context: Context
+Registration: kayıt
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: Sınıfta
+        out: 'Sınıf dışı'
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: Belirlemek
+'External Assessments': 'Dış Değerlendirmeler'
+'Formal Assessment Settings': 'Resmi Değerlendirme Ayarları'
+Scales: Scales
+Groupings: Gruplandırmaları
+Houses: Evler
+Learn: öğrenmek
+'Planner Settings': 'Planlayıcı Ayarları'
+'Resource Settings': 'Resource Settings'
+Other: Diğer
+'Facility Settings': 'Tesis Ayarları'
+'File Extensions': 'File Extensions'
+People: İnsanlar
+'Individual Needs': 'Bireysel ihtiyaçlar'
+'Years, Days & Times': 'Yıllar, Günler ve Zamanlar'
+'Academic Years': 'Academic Years'
+'Days of the Week': 'Days of the Week'
+'Special Days': 'Special Days'
+Terms: şartlar
+'Module Menu': 'Modül Menüsü'
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': 'Erişim Ayarları'
+'Allow Outcome Editing': 'Sonuç Düzenlemeye İzin Ver'
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': 'Ünite planlayıcısına erişimi olmayan kullanıcıların ders planlayıcısı aracılığıyla Ünite Anahatlarını görmesine izin verilsin mi?'
+'Enables a public listing of units, with teachers able to opt in to share units.': 'Öğretmenlerin birimleri paylaşmayı seçebilecekleri birimlerin halka açık listelenmesini sağlar.'
+'Lesson Details Template': 'Ders Detayları Şablonu'
+'Make Units Public': 'Birimleri Genel Yap'
+'Parent Weekly Email Summary Include Behaviour': 'Ana Haftalık E-posta Özeti Davranışı İçerir'
+'Parent Weekly Email Summary Include Markbook': 'Ana Haftalık E-posta Özeti Markbook İçerir'
+'Planner Templates': 'Planlayıcı Şablonları'
+'Share Unit Outline': 'Birim Anahat Paylaş'
+'Sharing Default: Parents': 'Varsayılan Paylaşımı: Ebeveynler'
+'Sharing Default: Students': 'Varsayılan Paylaşımı: Öğrenciler'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'Markbook bilgileri, ebeveynlere giden haftalık planlayıcı e-posta özetinde yer almalı mı?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': 'Davranış bilgileri ebeveynlere giden haftalık planlayıcı e-posta özetinde yer almalı mı?'
+'Should the text within outcomes be editable when planning lessons and units?': 'Ders ve birimleri planlarken çıktıların içindeki metin düzenlenebilir mi?'
+'Smart Block Template': 'Akıllı Blok Şablonu'
+'Teacher''s Notes Template': 'Öğretmenin Notları Şablonu'
+'Template to be inserted into Lesson Details field': 'Ders Detayları alanına eklenecek şablon'
+'Template to be inserted into Teacher''s Notes field': 'Öğretmenin Notları alanına eklenecek şablon'
+'Template to be inserted into Unit Outline section of planner': 'Planlamacının Birim Anahat bölümüne eklenecek şablon'
+'Template to be inserted into new block in Smart Unit': 'Akıllı Ünitede yeni bloğa eklenecek şablon'
+Templates: Şablonlar
+'Unit Outline Template': 'Birim Anahat Şablonu'
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': 'Ders eklerken ve birimlerini dağıtırken, ebeveynler için varsayılan paylaşımın Y veya N olması gerekir mi?'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': 'Ders eklerken ve dersleri dağıtırken, öğrenciler için varsayılan paylaşım Y mi yoksa N mi olmalı?'
+'Targets Template': 'Hedef Şablonu'
+'An HTML template to be used in the targets field.': 'Hedefler alanında kullanılacak bir HTML şablonu.'
+'Teaching Strategies Template': 'Öğretim Stratejileri Şablonu'
+'An HTML template to be used in the teaching strategies field.': 'Öğretim stratejileri alanında kullanılacak bir HTML şablonu.'
+'Notes & Review Template': 'Notlar ve İnceleme Şablonu'
+'An HTML template to be used in the notes and review field.': 'Notlar ve inceleme alanında kullanılacak bir HTML şablonu.'
+Categories: Kategoriler
+'Allowable choices for category': 'Kategori için izin verilen seçenekler'
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': 'Amaçlar (Genel)'
+'Allowable choices for purpose when creating a resource': 'Kaynak oluştururken amaç için izin verilen seçimler'
+'Purposes (Restricted)': 'Amaçlar (Sınırlı)'
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: amaç
+Tardy: Tardy
+'Must be unique': 'Eşsiz olmalı'
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: 'bildirilmesi zorunlu'
+'Allow Future Use': 'Gelecekte Kullanıma İzin Ver'
+'Can this code be used in Set Future Absence?': 'Bu kod Geleceğin Yokluğunu Ayarla''da kullanılabilir mi?'
+'Available to Roles': 'Rollere Uygun'
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': 'Katılım Kodunu Düzenle'
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': 'Yıl Grubunu Düzenle'
+'Head of Year': 'Yılın Başkanı'
+'Manage Year Groups': 'Yıl Gruplarını Yönet'
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'Tesisler için virgülle ayrılmış tür listesi.'
+'Add Facility': 'Tesis Ekleyin'
+FacilityTypes: FacilityTypes
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: dış
+Internal: İç
+'Add Grade Scale': 'Not Ölçeği Ekle'
+'Add Grade': 'Not ekle'
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: açıklayıcısı
+'Edit Grade Scale': 'Not Ölçeğini Düzenle'
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': 'Varsayılan mı?'
+'Manage Grade Scales': 'Not Ölçeklerini Yönet'
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: ölçek
+Value: değer
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'İç Değerlendirmelerde virgülle ayrılmış türlerin listesi.'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': 'Saha Seti'
+'Field Sets': 'Field Sets'
+'File Upload': 'Dosya yükleme'
+'Internal Assessment Settings': 'İç Değerlendirme Ayarları'
+'Internal Assessment Types': 'İç Değerlendirme Türleri'
+'Manage External Assessments': 'Dış Değerlendirmeleri Yönet'
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': 'Dış Değerlendirme Ekleyin'
+'Allow File Upload': 'Dosya Yüklemeye İzin Ver'
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 'Değerlendirmenin kısa bir açıklaması ve nasıl kullanıldığı.'
+'Edit External Assessment': 'Dış Değerlendirmeyi Düzenle'
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': 'Öğrenci kaydı bir dosya yükleme seçeneğini içermeli midir?'
+'SMS Settings': 'SMS Ayarları'
+'Enable Home Screen Widget': 'Ana Ekran Widget''ını Etkinleştir'
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'Adds a Message Wall widget to the home page, hihglighting current messages.'

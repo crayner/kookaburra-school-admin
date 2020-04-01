@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: تحرير
+Delete: حذف
+Name: الإسم
+Dates: التواريخ
+Status: الحالة
+Actions: الإجراءات
+'There are no records to display.': 'لا توجد سجلات لعرضها.'
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': 'First Page'
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': 'Last Page'
+academicyear:
+    status:
+        past: الماضى
+        current: الحالي
+        upcoming: القادمة
+Sequence: التسلسل
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': 'إدارة  المدرسة'
+'Sequence Number': 'الرقم التسلسلي'
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': 'اليوم الأول'
+'Last Day': 'اليوم الأخير'
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 'تحرير الفصل الدراسي'
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': 'إضافة فصل دراسي'
+'Manage Terms': 'إدارة الشروط'
+Monday: الإثنين
+Mon: الإثنين
+Installed: مثبت
+'School Day': 'اليوم الدراسي'
+'School Opens': 'فتح  المدرسة'
+'School Starts': 'تبدأ المدرسة'
+'School Ends': 'تنتهي المدرسة'
+'School Closes': 'إغلاق المدرسة'
+Submit: ارسال
+Display: Display
+Tuesday: الثلاثاء
+Tue: الثلاثاء
+Wednesday: الاربعاء
+Wed: الأربعاء
+Thursday: الخميس
+Thu: الخميس
+Friday: الجمعة
+Fri: الجمعة
+Saturday: السبت
+Sat: السبت
+Sunday: الأحد
+Sun: الأحد
+'Manage Days of the Week': 'إدارة أيام الأسبوع'
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': 'تغيير توقيت'
+        'school closure': 'إغلاق المدرسة'
+Date: التاريخ
+Type: النوع
+'Manage Special Days': 'إدارة الأيام الخاصة'
+'Edit Special Day': 'تحرير يوم خاص'
+'Please select...': 'يرجى الإختيار...'
+Description: الوصف
+'Add Special Day': 'إضافة يوم خاص'
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: تكرار
+'Term Break': 'Term Break'
+Calendar: Calendar
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: الشعار
+'Manage Houses': 'إدارة المنازل'
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': 'تحرير المنزل'
+'Add House': 'إضافة منزل'
+Projector: 'عارض ضوئي'
+TV: تلفاز
+'DVD Player': 'مشغل دي في دي'
+Hifi: Hifi
+Speakers: 'مكبرات صوت'
+'Interactive White Board': 'السبورة البيضاء التفاعلية'
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': 'كمبيوتر للتدريس'
+Capacity: السعة
+Facilities: المرافق
+'Manage Facilities': 'Manage Facilities'
+facility:
+    type:
+        classroom: 'فصل دراسي'
+        hall: قاعة
+        laboratory: Laboratory
+        library: المكتبة
+        office: مكتب
+        outdoor: خارجي
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: التخزين
+        study: دراسة
+        undercover: سري
+        other: أخرى
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': 'أجهزة كمبيوتر الطلاب'
+'How many are there': 'كم العدد هناك'
+Extension: إمتداد
+'Room''s internal phone number.': 'رقم الهاتف الداخلي للغرفة.'
+'Phone Number': 'رقم الهاتف'
+'Room''s external phone number.': 'رقم الهاتف الخارجي للغرفة.'
+Comment: تعليق
+'Edit Facility': 'Edit Facility'
+'Facility Type': 'نوع المكان'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'Use the options below to select the external assessments that you wish to include in your Data Points export.'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'If duplicates of any assessment exist, only the most recent entry will be shown.'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'Use the options below to select the internal assessments that you wish to include in your Data Points export.'
+'Add Field': 'إضافة حقل'
+'External Assessment': 'تقييم خارجي'
+'This value cannot be changed.': 'لا يمكن تغيير هذه القيمة.'
+Category: التصنيف
+Order: الطلب
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': 'مقياس الدرجة'
+'Grade scale used to control values that can be assigned.': 'مقياس الدرجة المستخدم للتحكم في القيم التي يمكن استخدامها'
+'Year Groups': 'المجموعات السنوية'
+'Year groups to which this field is relevant.': 'مجموعة السنة التي تناسب هذا الحقل'
+'Edit Field': 'Edit Field'
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': 'إعدادات التتبع'
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: الإستخدام
+Active: نَشط
+Numeric: رقمي
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 'وصف مختصر لطريقة عمل الميزان'
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': 'هل هذا المقياس يستخدم أرقاما فقط؟ لاحظ أن الدرجات غير المكتملة ستكون معفاة'
+'Lowest Acceptable': 'الحد الأدنى المقبول'
+'This is the lowest grade a student can get without being unsatisfactory.': 'وهذه هي أدنى درجة يمكن أن يتحصل عليها الطالب دون أن يكون غير مرضي.'
+Details: التفاصيل
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: المميزات
+'Enable Effort': 'Enable Effort'
+'Should columns have the Effort section enabled?': 'Should columns have the Effort section enabled?'
+'Enable Rubrics': 'Enable Rubrics'
+'Should columns have Rubrics section enabled?': 'Should columns have Rubrics section enabled?'
+'Enable Column Weighting': 'Enable Column Weighting'
+'Should column weighting and total scores be enabled in the Markbook?': 'Should column weighting and total scores be enabled in the Markbook?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': 'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.'
+'Enable Display Cumulative Marks': 'Enable Display Cumulative Marks'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?'
+'Enable Raw Attainment Marks': 'Enable Raw Attainment Marks'
+'Should recording of raw marks be enabled in the Markbook?': 'Should recording of raw marks be enabled in the Markbook?'
+'Enable Modified Assessment': 'Enable Modified Assessment'
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: الواجهة
+'Markbook Type': 'نوع سجل الدرجات'
+'Comma-separated list of types to make available in the Markbook.': 'قائمة مفصولة بفواصل لأنواع سجل الدرجات المتاحة في النظام.'
+'Group Columns by Term': 'مجموعة الأعمدة بواسطة الفصل'
+'Should columns and total scores be grouped by term?': 'Should columns and total scores be grouped by term?'
+'Attainment Alternative Name': 'اسم التحصيل البديل'
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 'اختصار اسم التحصيل البديل'
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': 'الإسم البديل للجهد'
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': 'اختصار اسم بديل الجهد'
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: تحذيرات
+'Show Student Attainment Warning': 'إظهار تحذيرات تحصيل الطالب'
+'Show low attainment grade visual warning to students?': 'إظهار تحذير مرئي للطلاب لدرجة التحصيل المنخفض؟'
+'Show Student Effort Warning': 'إظهار تحذيرات جهد الطالب'
+'Show low effort grade visual warning to students?': 'إظهار التحذير المرئي لانخفاض درجة الجهد للطلاب؟'
+'Show Parent Attainment Warning': 'إظهار تحذيرات تحصيل ولي الأمر'
+'Show low attainment grade visual warning to parents?': 'إظهار تحذير مرئي لأولياء الأمور لدرجة التحصيل المنخفض؟'
+'Show Parent Effort Warning': 'إظهار تحذيرات جهد ولي الأمر'
+'Show low effort grade visual warning to parents?': 'إظهار التحذير المرئي لانخفاض درجة الجهد لأولياء الامور؟'
+'Personalised Warnings': 'تحذيرات شخصية'
+'Should markbook warnings be based on personal targets, if they are available?': 'هل يجب أن تكون تحذيرات سجل الدرجات مبنية على الأهداف الشخصية، إذا كانت متوفرة؟'
+'Markbook Settings': 'إعدادات سجل الدرجات'
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': 'إعدادات رسالة الحائط'
+'Message Bubble Width Type': 'نوع عرض فقاعة الرسالة'
+'Should the message bubble be regular or wide?': 'هل فقاعة الرسالة تكون عادية أم عريضة؟'
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: عادي
+        wide: عريض
+'Message Bubble Background Color': 'لون خلفية فقاعة الرسالة '
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': 'لون خلفية فقاعة الرسالة في RGBA ( مثلاً . 100,100,100,0.50 ). إذا كان فارغاً، سوف يتم إستخدام السمة الافتراضية.'
+'Message Bubble Auto Hide': 'فقاعة الرسالة تختفي تلقائياً'
+'Should message bubble fade out automatically?': 'هل فقاعة الرسالة تتلاشى تلقائياً؟'
+Miscellaneous: متنوع
+'Message Bcc': 'Message Bcc'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'Comma-separated list of recipients to bcc all messenger emails to.'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': 'الإعدادات العامة'
+Email: 'البريد الالكترونى'
+'Email address to send finance emails from.': 'عنوان البريد الإلكتروني لإرسال رسائل البريد الإلكتروني من المالية.'
+'Enable Online Payment': 'تمكين الدفع الإلكتروني'
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': 'هل يجب أن تكون الفواتير قابلة للدفع إلكترونيا، عبر وصلة مشفرة في الفاتورة؟ يتطلب تكوين بوابة الدفع بشكل صحيح في إعدادات النظام.'
+'Online Payment Threshold': 'حد الدفع الإلكتروني'
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': 'إذا الفواتير المستحقة قابلة للدفع الإلكتروني، ما هو الحد الأقصى المسموح للدفع؟ هذا مفيد للسيطرة على دفع الرسوم. عدم تحديد قيمة تعني غير محدود.'
+Invoices: الفواتير
+'Invoice Text': 'نص الفاتورة'
+'Text to appear in invoice, above invoice details and fees.': 'النص الذي سيظهر في الفاتورة، أعلى تفاصيل الفاتورة والرسوم.'
+'Invoice Notes': 'ملاحظات الفاتورة'
+'Text to appear in invoice, below invoice details and fees.': 'النص الذي سيظهر في الفاتورة، أدنى تفاصيل الفاتورة والرسوم.'
+'Invoicee Name Style': 'Invoicee Name Style'
+'Determines how invoicee name appears on invoices and receipts.': 'Determines how invoicee name appears on invoices and receipts.'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': 'تنسيق رقم الفاتورة'
+'How should invoice numbers be constructed?': 'كيف ينبغي بناء أرقام الفاتورة؟'
+Receipts: الإيصالات
+'Receipt Text': 'نص الإيصال'
+'Text to appear in receipt, above receipt details and fees.': 'النص الذي سيظهر في ايصال الاستلام، أعلى تفاصيل الإيصال والرسوم.'
+'Receipt Notes': 'ملاحظات الإيصال'
+'Text to appear in receipt, below receipt details and fees.': 'النص الذي سيظهر في ايصال الاستلام، أدنى تفاصيل الإيصال والرسوم.'
+'Hide Itemisation': 'Hide Itemisation'
+'Hide fee and payment details in receipts?': 'Hide fee and payment details in receipts?'
+Reminders: التذكيرات
+'Reminder 1 Text': 'نص التذكير 1'
+'Text to appear in first level reminder level, above invoice details and fees.': 'النص الذي سيظهر في المستوى الأول من مستوى التذكير، أعلى تفاصيل الفاتورة والرسوم.'
+'Reminder 2 Text': 'نص التذكير 2'
+'Text to appear in second level reminder level, above invoice details and fees.': 'النص الذي سيظهر في المستوى الثاني من مستوى التذكير، أعلى تفاصيل الفاتورة والرسوم.'
+'Reminder 3 Text': 'نص التذكير 3'
+'Text to appear in third level reminder level, above invoice details and fees.': 'النص الذي سيظهر في المستوى الثالث من مستوى التذكير، أعلى تفاصيل الفاتورة والرسوم.'
+Expenses: النفقات
+'Budget Categories': 'Budget Categories'
+'Comma-separated list of budget categories.': 'Comma-separated list of budget categories.'
+'Expense Approval Type': 'Expense Approval Type'
+'How should expense approval be dealt with?': 'How should expense approval be dealt with?'
+'Budget Level Expense Approval': 'Budget Level Expense Approval'
+'Should approval from a budget member with Full access be required?': 'Should approval from a budget member with Full access be required?'
+'Expense Request Template': 'Expense Request Template'
+'An HTML template to be used in the description field of expense requests.': 'An HTML template to be used in the description field of expense requests.'
+'Allow Expense Add': 'Allow Expense Add'
+'Allows privileged users to add expenses without going through request process.': 'Allows privileged users to add expenses without going through request process.'
+'Purchasing Officer': 'Purchasing Officer'
+'User responsible for purchasing for the school.': 'User responsible for purchasing for the school.'
+'Reimbursement Officer': 'Reimbursement Officer'
+'User responsible for reimbursing expenses.': 'User responsible for reimbursing expenses.'
+General: عام
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 'نوع التاريخ'
+'Should activities be organised around dates (flexible) or terms (easy)?': 'Should activities be organised around dates (flexible) or terms (easy)?'
+'Maximum Activities per Term': 'أقصى حد للأنشطة بالفصل الدراسي'
+'The most a student can sign up for in one term. Set to 0 for unlimited.': 'أكثر عدد طلاب يمكنهم التسجيل في فصل دراسي واحد. تعيين إلى 0 ليكون غير محدود.'
+Access: الوصول
+'System-wide access control': 'التحكم بالوصول على مستوى النظام'
+Payment: الدفـع
+'Payment system': 'نظام الدفع'
+activitysettingstype:
+    activities__payment:
+        none: 'لا شيء'
+        single: فردي
+        'per activity': 'لكل نشاط'
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: تنافسي
+        selection: انتقاء
+    activities__datetype:
+        date: التاريخ
+        term: 'الفصل الدراسي'
+    activities__access:
+        none: 'لا شيء'
+        view: معاينة
+        register: التسجيل
+'Enrolment Type': 'نوع التسجيل'
+'Enrolment process type': 'نوع عملية الالتحاق'
+'Backup Choice': 'خيار النسخ الاحتياطي'
+'Allow students to choose a backup, in case enroled activity is full.': 'السماح للطلاب بإختيار النسخ الاحتياطي، في حالة النشاط الملتحق به ممتلئ.'
+'Activity Types': 'أنواع النشاط'
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': 'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.'
+'Disable External Provider Signup': 'تعطيل تسجيل المزود الخارجي'
+'Should we turn off the option to sign up for activities provided by an outside agency?': 'هل يجب علينا إيقاف خيار الاشتراك في الأنشطة التي تقدمها الوكالات الخارجية؟'
+'Hide External Provider Cost': 'إخفاء تكلفة المزود الخارجي'
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': 'هل يجب أن نخفي تكاليف الأنشطة التي تقدمها الوكالات الخارجية من معاينة الأنشطة؟'
+'Dashboard Settings': 'Dashboard Settings'
+'Staff Dashboard Default Tab': 'لوحة فريق العمل اللسان الافتراضي'
+'The default landing tab for the staff dashboard.': 'The default landing tab for the staff dashboard.'
+'Student Dashboard Default Tab': 'Student Dashboard Default Tab'
+'The default landing tab for the student dashboard.': 'The default landing tab for the student dashboard.'
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: المُخطِط
+    school_admin__studentdashboarddefaulttab:
+        planner: المُخطِط
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': 'النظرة العامة على التعلم'
+        timetable: 'الجدول الزمني'
+        activities: الأنْشطة
+'Parent Dashboard Default Tab': 'Parent Dashboard Default Tab'
+'The default landing tab for the parent dashboard.': 'The default landing tab for the parent dashboard.'
+behaviour_letters_help: behaviour_letters_help
+Descriptors: Descriptors
+'Enable Descriptors': 'Enable Descriptors'
+'Setting to No reduces complexity of behaviour tracking.': 'Setting to No reduces complexity of behaviour tracking.'
+'Positive Descriptors': 'واصفات إيجابية'
+'Allowable choices for positive behaviour': 'Allowable choices for positive behaviour'
+'Negative Descriptors': 'واصفات سلبية'
+'Allowable choices for negative behaviour': 'Allowable choices for negative behaviour'
+Levels: المستويات
+'Enable Levels': 'تفعيل الصفوف'
+'Allowable choices for severity level (from lowest to highest)': 'Allowable choices for severity level (from lowest to highest)'
+'Behaviour Letters': 'Behaviour Letters'
+'Enable Behaviour Letters': 'Enable Behaviour Letters'
+'Should automated behaviour letter functionality be enabled?': 'Should automated behaviour letter functionality be enabled?'
+'Letter 1 Count': 'Letter 1 Count'
+'After how many negative records should letter 1 be sent?': 'After how many negative records should letter 1 be sent?'
+'Letter 1 Text': 'Letter 1 Text'
+'The contents of letter 1, as HTML.': 'The contents of letter 1, as HTML.'
+'Letter 2 Count': 'Letter 2 Count'
+'After how many negative records should letter 2 be sent?': 'After how many negative records should letter 2 be sent?'
+'Letter 2 Text': 'Letter 2 Text'
+'The contents of letter 2, as HTML.': 'The contents of letter 2, as HTML.'
+'Letter 3 Count': 'Letter 3 Count'
+'After how many negative records should letter 3 be sent?': 'After how many negative records should letter 3 be sent?'
+'Letter 3 Text': 'Letter 3 Text'
+'The contents of letter 3, as HTML.': 'The contents of letter 3, as HTML.'
+'Policy Link': 'رابط سياسة الخصوصية'
+'A link to the school behaviour policy.': 'رابط لسياسات سلوك المدرسة.'
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: منخفض
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: متوسط
+High: عالي
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: مستند
+        spreadsheet: 'جدول بيانات'
+        presentation: 'العرض التقديمي'
+        graphics/design: الرسومات/التصميم
+        video: فيديو
+        audio: صوت
+        other: أخرى
+Code: الكود
+Direction: الاتجاه
+Scope: المجال
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': 'إعدادات الحضور'
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: حاضر
+        tardy: Tardy
+        'present - late': 'حضر - متأخر'
+        'present - offsite': 'Present - Off Site'
+        absent: غائب
+        left: مستأذن
+        'left - early': 'مستأذن - مبكر'
+'Attendance Codes': 'اكواد الحضور'
+Reasons: الاسباب
+'Attendance Reasons': 'سبب الغياب'
+'Comma-separated list of reasons which are available when taking attendance.': 'Comma-separated list of reasons which are available when taking attendance.'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': 'Count Class Attendance as School Attendance'
+'Should attendance from the class context be used to prefill and inform school attendance?': 'Should attendance from the class context be used to prefill and inform school attendance?'
+'Cross-Fill Classes': 'Cross-Fill Classes'
+'Should classes prefill with data from other classes?': 'Should classes prefill with data from other classes?'
+'Default Roll Group Attendance Type': 'Default Roll Group Attendance Type'
+'The default selection for attendance type when taking Roll Group attendance': 'The default selection for attendance type when taking Roll Group attendance'
+'Default Class Attendance Type': 'Default Class Attendance Type'
+'The default selection for attendance type when taking Class attendance': 'The default selection for attendance type when taking Class attendance'
+Present: حاضر
+'Present - Late': 'حضر - متأخر'
+'Present - Off Site': 'Present - Off Site'
+Absent: غائب
+Left: مستأذن
+'Left - Early': 'مستأذن - مبكر'
+'Student Self Registration': 'Student Self Registration'
+'Student Self Registration IP Addresses': 'Student Self Registration IP Addresses'
+'Comma-separated list of IP addresses within which students can self register.': 'Comma-separated list of IP addresses within which students can self register.'
+'Self Registration Redirect': 'Self Registration Redirect'
+'Should self registration redirect to Message Wall?': 'Should self registration redirect to Message Wall?'
+Teacher: معلم
+'Support Staff': 'فريق الدعم'
+Administrator: 'مسؤول النظام'
+Parent: 'ولي أمر'
+'Attendance CLI': 'Attendance CLI'
+'Enable Notifications by Roll Group': 'Enable Notifications by Roll Group'
+'Enable Notifications by Class': 'Enable Notifications by Class'
+'Additional Users to Notify': 'Additional Users to Notify'
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': 'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.'
+Context: Context
+Registration: التسجيل
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: 'دخول الفصل'
+        out: 'الخروج من الفصل'
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: التقييم
+'External Assessments': 'تقويم خارجي'
+'Formal Assessment Settings': 'إعدادات التقويم الرسمي'
+Scales: Scales
+Groupings: التجميعات
+Houses: المنازل
+Learn: تعلم
+'Planner Settings': 'إعدادات المخطط'
+'Resource Settings': 'Resource Settings'
+Other: أخرى
+'Facility Settings': 'Facility Settings'
+'File Extensions': 'File Extensions'
+People: الأشخاص
+'Individual Needs': 'الاحتياجات الفردية'
+'Years, Days & Times': 'سنوات, أيام وأوقات'
+'Academic Years': 'Academic Years'
+'Days of the Week': 'Days of the Week'
+'Special Days': 'Special Days'
+Terms: الشروط
+'Module Menu': 'قائمة الموديول'
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': 'إعدادات الوصول'
+'Allow Outcome Editing': 'السماح بتحريرالنتيجة'
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': 'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?'
+'Enables a public listing of units, with teachers able to opt in to share units.': 'Enables a public listing of units, with teachers able to opt in to share units.'
+'Lesson Details Template': 'قالب تفاصيل الدرس'
+'Make Units Public': 'جعل الوحدات العامة'
+'Parent Weekly Email Summary Include Behaviour': 'ملخص البريد الإلكتروني الاسبوعي لولي الأمر يشمل السلوك'
+'Parent Weekly Email Summary Include Markbook': 'Parent Weekly Email Summary Include Markbook'
+'Planner Templates': 'قوالب المخطط'
+'Share Unit Outline': 'Share Unit Outline'
+'Sharing Default: Parents': 'المشاركة الافتراضية: أولياء الأمور'
+'Sharing Default: Students': 'المشاركة الافتراضية: الطلاب'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'Should Markbook information be included in the weekly planner email summary that goes out to parents?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': 'Should behaviour information be included in the weekly planner email summary that goes out to parents?'
+'Should the text within outcomes be editable when planning lessons and units?': 'هل يجب أن يكون النص ضمن النتائج قابل للتعديل أثناء التخطيط للدروس والوحدات؟'
+'Smart Block Template': 'قالب الكتلة الذكية'
+'Teacher''s Notes Template': 'قالب مذكرات المعلم'
+'Template to be inserted into Lesson Details field': 'القالب المراد إدراجها في حقل تفاصيل الدرس'
+'Template to be inserted into Teacher''s Notes field': 'القالب المراد إدراجه في حقل ملاحظات للمعلم'
+'Template to be inserted into Unit Outline section of planner': 'القالب المراد إدراجه في قسم موجز الوحدة للمخطط '
+'Template to be inserted into new block in Smart Unit': 'القالب المراد إدراجه في كتلة جديدة في الوحدة الذكية'
+Templates: Templates
+'Unit Outline Template': 'قالب مخطط الوحدة'
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': 'عند إضافة الدروس ونشر الوحدات، هل ينبغي المشاركة الافتراضية لأولياء الأمور أن يكون نعم أو لا؟'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': 'عند إضافة الدروس ونشر الوحدات، هل ينبغي المشاركة الافتراضية للطلاب أن يكون نعم أو لا؟'
+'Targets Template': 'Targets Template'
+'An HTML template to be used in the targets field.': 'An HTML template to be used in the targets field.'
+'Teaching Strategies Template': 'Teaching Strategies Template'
+'An HTML template to be used in the teaching strategies field.': 'An HTML template to be used in the teaching strategies field.'
+'Notes & Review Template': 'Notes & Review Template'
+'An HTML template to be used in the notes and review field.': 'An HTML template to be used in the notes and review field.'
+Categories: التصنيفات
+'Allowable choices for category': 'الخيارات المسموح بها للفئة'
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': 'أغراض (عامة)'
+'Allowable choices for purpose when creating a resource': 'الخيارات المسموح بها للغرض عند إنشاء مصدر'
+'Purposes (Restricted)': 'أغراض (مقيدة)'
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: الغرض
+Tardy: Tardy
+'Must be unique': 'يجب أن تكون فريدة من نوعها'
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: 'قابل للتقرير'
+'Allow Future Use': 'السماح للاستخدام في المستقبل'
+'Can this code be used in Set Future Absence?': 'Can this code be used in Set Future Absence?'
+'Available to Roles': 'Available to Roles'
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': 'تحرير كود الحضور'
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': 'Edit Year Group'
+'Head of Year': 'Head of Year'
+'Manage Year Groups': 'إدارة مجموعات السنة'
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'A comma-separated list of types for facilities.'
+'Add Facility': 'Add Facility'
+FacilityTypes: 'نوع المكان'
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: خارجي
+Internal: Internal
+'Add Grade Scale': 'إضافة مقياس الدرجة'
+'Add Grade': 'إضافة درجة'
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: واصف
+'Edit Grade Scale': 'تحرير مقياس الدرجة'
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': 'افتراضي ؟'
+'Manage Grade Scales': 'إدارة مقاييس الدرجات'
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: المقياس
+Value: القيمة
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'Comma-separated list of types to make available in Internal Assessments.'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': 'حقل التعيين'
+'Field Sets': 'Field Sets'
+'File Upload': 'رفع الملف'
+'Internal Assessment Settings': 'إعدادات التقويم الداخلي'
+'Internal Assessment Types': 'نوع التقييم الداخلي'
+'Manage External Assessments': 'إدارة التقييمات الخارجية'
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': 'إضافة تقييم خارجي'
+'Allow File Upload': 'السماح برفع الملف'
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 'وصف موجز للتقييم وطريقة استخدامه.'
+'Edit External Assessment': 'تحرير التقييم الخارجي'
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': 'هل ينبغي أن يشمل سجل الطالب خيار رفع ملف؟'
+'SMS Settings': 'إعدادات الرسائل القصيرة'
+'Enable Home Screen Widget': 'Enable Home Screen Widget'
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'Adds a Message Wall widget to the home page, hihglighting current messages.'

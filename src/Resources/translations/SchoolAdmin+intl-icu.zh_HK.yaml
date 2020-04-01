@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: 編輯
+Delete: 刪除
+Name: 名稱
+Dates: 日期
+Status: 狀態
+Actions: 行動
+'There are no records to display.': 沒有要顯示的記錄
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': 'First Page'
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': 'Last Page'
+academicyear:
+    status:
+        past: 過去
+        current: 目前
+        upcoming: 即將到來
+Sequence: 序列
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': '學校'
+'Sequence Number': 序列號
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': 第一天
+'Last Day': 最後一天
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 編輯學期
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': '加入學期'
+'Manage Terms': 管理學期
+Monday: 星期一
+Mon: 星期一
+Installed: 已安裝
+'School Day': 上學日
+'School Opens': 開放
+'School Starts': 開學
+'School Ends': '學校結束'
+'School Closes': '學校關閉'
+Submit: 提交
+Display: Display
+Tuesday: 星期二
+Tue: 星期二
+Wednesday: 星期三
+Wed: 星期三
+Thursday: 星期四
+Thu: 星期四
+Friday: 星期五
+Fri: 星期五
+Saturday: 星期六
+Sat: 星期六
+Sunday: 星期日
+Sun: 星期天
+'Manage Days of the Week': 管理一周中的日子
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': 時間變化
+        'school closure': '學校停課'
+Date: 日期
+Type: 類型
+'Manage Special Days': 全力特別的日期
+'Edit Special Day': 編輯特別的日期
+'Please select...': 請選擇...
+Description: 描寫
+'Add Special Day': '加特別的日期'
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: 重複
+'Term Break': 'Term Break'
+Calendar: Calendar
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: 徽標
+'Manage Houses': 管理社
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': 編輯社
+'Add House': '加社'
+Projector: '放映機'
+TV: 電視
+'DVD Player': 'DVD 播放機'
+Hifi: 音響
+Speakers: 音箱
+'Interactive White Board': 電子白板
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': 老師的電腦
+Capacity: 容量
+Facilities: 設施
+'Manage Facilities': 'Manage Facilities'
+facility:
+    type:
+        classroom: 課室
+        hall: '禮堂'
+        laboratory: Laboratory
+        library: 圖書館
+        office: 辦公室
+        outdoor: 戶外
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: 存儲
+        study: 學習
+        undercover: 臥底
+        other: 其他
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': 學生的電腦
+'How many are there': 哪裡有多少
+Extension: 擴展
+'Room''s internal phone number.': 房間的內部電話號碼。
+'Phone Number': 電話號碼
+'Room''s external phone number.': 房間的外部電話號碼
+Comment: 評論
+'Edit Facility': 'Edit Facility'
+'Facility Type': 'Facility Type'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'Use the options below to select the external assessments that you wish to include in your Data Points export.'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'If duplicates of any assessment exist, only the most recent entry will be shown.'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'Use the options below to select the internal assessments that you wish to include in your Data Points export.'
+'Add Field': '加領域'
+'External Assessment': 外部評估
+'This value cannot be changed.': 不能改變這個價值。
+Category: 類別
+Order: 秩序
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': 成績規模
+'Grade scale used to control values that can be assigned.': 用來控制直可以被指派的成績規模。
+'Year Groups': 年級
+'Year groups to which this field is relevant.': '對這個領域相關的年級。'
+'Edit Field': 'Edit Field'
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': 跟蹤設定
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: 用法
+Active: 活性
+Numeric: 數字
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 規模是如何被使用的簡要說明。
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': '這個規模用不用數字牌號?注意, 成績 "殘缺" 是豁免。'
+'Lowest Acceptable': 最低可接受
+'This is the lowest grade a student can get without being unsatisfactory.': 這是一位學生可以拿到的最低成績而不是不理想.
+Details: 詳情
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: Features
+'Enable Effort': 'Enable Effort'
+'Should columns have the Effort section enabled?': 'Should columns have the Effort section enabled?'
+'Enable Rubrics': 'Enable Rubrics'
+'Should columns have Rubrics section enabled?': 'Should columns have Rubrics section enabled?'
+'Enable Column Weighting': 'Enable Column Weighting'
+'Should column weighting and total scores be enabled in the Markbook?': 'Should column weighting and total scores be enabled in the Markbook?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': 'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.'
+'Enable Display Cumulative Marks': 'Enable Display Cumulative Marks'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?'
+'Enable Raw Attainment Marks': 'Enable Raw Attainment Marks'
+'Should recording of raw marks be enabled in the Markbook?': 'Should recording of raw marks be enabled in the Markbook?'
+'Enable Modified Assessment': 'Enable Modified Assessment'
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: Interface
+'Markbook Type': 成績表的類型
+'Comma-separated list of types to make available in the Markbook.': 在成績表的用逗號分隔的列表。
+'Group Columns by Term': 'Group Columns by Term'
+'Should columns and total scores be grouped by term?': 'Should columns and total scores be grouped by term?'
+'Attainment Alternative Name': 替代發跡名稱
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 替代發跡名稱縮寫
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': 替代成就名稱
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': 替代成就名稱縮寫
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: 警告
+'Show Student Attainment Warning': 顯示學生發跡警告
+'Show low attainment grade visual warning to students?': '應該顯示低發跡警告給學生看?'
+'Show Student Effort Warning': 顯示學生成就警告
+'Show low effort grade visual warning to students?': '應該顯示低成就警告給學生看?'
+'Show Parent Attainment Warning': 顯示家長成就的警告
+'Show low attainment grade visual warning to parents?': '應該顯示低發跡警告給家長看?'
+'Show Parent Effort Warning': 顯示家長成就的警告
+'Show low effort grade visual warning to parents?': '應該顯示低成就警告給家長看?'
+'Personalised Warnings': 個人的警告
+'Should markbook warnings be based on personal targets, if they are available?': '如果有，成績表警告應該根據個人目標?'
+'Markbook Settings': 成績表的設置
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': 信息牆設定
+'Message Bubble Width Type': 信息泡泡寬度類型
+'Should the message bubble be regular or wide?': 信息泡泡應該一般還是很寬？
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: 定期
+        wide: 寬
+'Message Bubble Background Color': 信息泡泡背景顏色
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': '信息泡泡背景的RGBA顏色 (例如: 100,100,100,0.50)。如果空白，會運用主題的自動顏色。'
+'Message Bubble Auto Hide': 自動隱藏信息泡泡
+'Should message bubble fade out automatically?': 信息泡泡應該自動隱藏嗎？
+Miscellaneous: '雜項'
+'Message Bcc': 'Message Bcc'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'Comma-separated list of recipients to bcc all messenger emails to.'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': 設定
+Email: 電子郵件
+'Email address to send finance emails from.': '用來送財政網頁的電郵'
+'Enable Online Payment': 啟用網上付款
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': '發票應該可以在網上付錢，通過在發票中的加密鏈接？這要求在系統設定的正確的配置的網關.'
+'Online Payment Threshold': 網上付錢戶限
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': '如果發票可以在網上付款，最多可以付多少? 在控制付款費用時有用。沒有價值意思是沒有限。'
+Invoices: 發票
+'Invoice Text': 發票文字
+'Text to appear in invoice, above invoice details and fees.': 在發票上的發票詳情和費用以上可顯示的文字。
+'Invoice Notes': 發票筆記
+'Text to appear in invoice, below invoice details and fees.': 在發票上的發票詳情和費用以下可顯示的文字。
+'Invoicee Name Style': 'Invoicee Name Style'
+'Determines how invoicee name appears on invoices and receipts.': 'Determines how invoicee name appears on invoices and receipts.'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': 發票號碼類型
+'How should invoice numbers be constructed?': '發票編號應該怎麼樣創造?'
+Receipts: 發票
+'Receipt Text': 收據文字
+'Text to appear in receipt, above receipt details and fees.': 在收據上的收據詳情和費用以上可顯示的文字。
+'Receipt Notes': 收據筆記
+'Text to appear in receipt, below receipt details and fees.': 在收據上的收據詳情和費用以下可顯示的文字。
+'Hide Itemisation': 'Hide Itemisation'
+'Hide fee and payment details in receipts?': 'Hide fee and payment details in receipts?'
+Reminders: 提示
+'Reminder 1 Text': '提示1 信息'
+'Text to appear in first level reminder level, above invoice details and fees.': 在第一提醒級，在發票盒費用以上顯示的文字。
+'Reminder 2 Text': '提示2 信息'
+'Text to appear in second level reminder level, above invoice details and fees.': 在第二提示中發票詳情和費用以上可顯示的文字。
+'Reminder 3 Text': '提示3 信息'
+'Text to appear in third level reminder level, above invoice details and fees.': 在第三提示中發票詳情和費用以上可顯示的文字。
+Expenses: 費用
+'Budget Categories': '預算類別'
+'Comma-separated list of budget categories.': '預算類別逗號分隔列表'
+'Expense Approval Type': 費用批准類型
+'How should expense approval be dealt with?': '怎樣處理費用的批准?'
+'Budget Level Expense Approval': '預算及別費用的批准'
+'Should approval from a budget member with Full access be required?': '應不應該需求一個有許可的預算成員的批准?'
+'Expense Request Template': 費用請求模式
+'An HTML template to be used in the description field of expense requests.': '一個 HTML模型是使用在描述領域的費用請求'
+'Allow Expense Add': '允許增加費用'
+'Allows privileged users to add expenses without going through request process.': 'Allows privileged users to add expenses without going through request process.'
+'Purchasing Officer': 購買主任
+'User responsible for purchasing for the school.': '用戶有責任幫學校購買'
+'Reimbursement Officer': '報銷主任'
+'User responsible for reimbursing expenses.': '用戶有責任報銷費用'
+General: 一般
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 資料類型
+'Should activities be organised around dates (flexible) or terms (easy)?': '活動應該用日期(靈活)還是用學期(簡單)分類?'
+'Maximum Activities per Term': 一個學期中的最多活動
+'The most a student can sign up for in one term. Set to 0 for unlimited.': '一個學期中學生能登記的最多的活動。如果無限，定做 0。'
+Access: 評估
+'System-wide access control': 控制全系統的接駁
+Payment: 付款
+'Payment system': 付款系統
+activitysettingstype:
+    activities__payment:
+        none: 無
+        single: 單
+        'per activity': 每個活動
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: 競爭性
+        selection: 選擇
+    activities__datetype:
+        date: 日期
+        term: 學期
+    activities__access:
+        none: 無
+        view: 觀看
+        register: 登記
+'Enrolment Type': '報名品種'
+'Enrolment process type': '報名過程類型'
+'Backup Choice': 額外選擇
+'Allow students to choose a backup, in case enroled activity is full.': '允許學生選擇備用的活動，萬一參加的活動滿。 '
+'Activity Types': 活動類型
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': '一份冠以在學校中的不同活動選項的用逗號分開的名單。 如果不需要用，請留空白。'
+'Disable External Provider Signup': 關閉外部提供者申請
+'Should we turn off the option to sign up for activities provided by an outside agency?': '應該把在另外機構活動報名的選項關嗎?'
+'Hide External Provider Cost': 隱蔽外部提供者的費用
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': '應該在活動中隱藏從另外機構活動的費用嗎?'
+'Dashboard Settings': 'Dashboard Settings'
+'Staff Dashboard Default Tab': 'Staff Dashboard Default Tab'
+'The default landing tab for the staff dashboard.': 'The default landing tab for the staff dashboard.'
+'Student Dashboard Default Tab': 'Student Dashboard Default Tab'
+'The default landing tab for the student dashboard.': 'The default landing tab for the student dashboard.'
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: 計劃表
+    school_admin__studentdashboarddefaulttab:
+        planner: 計劃表
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': 學習慨覧
+        timetable: 時間表
+        activities: 活動
+'Parent Dashboard Default Tab': 'Parent Dashboard Default Tab'
+'The default landing tab for the parent dashboard.': 'The default landing tab for the parent dashboard.'
+behaviour_letters_help: behaviour_letters_help
+Descriptors: 描述附
+'Enable Descriptors': 'Enable Descriptors'
+'Setting to No reduces complexity of behaviour tracking.': 'Setting to No reduces complexity of behaviour tracking.'
+'Positive Descriptors': 正面描述符
+'Allowable choices for positive behaviour': 'Allowable choices for positive behaviour'
+'Negative Descriptors': '負面描述符'
+'Allowable choices for negative behaviour': 'Allowable choices for negative behaviour'
+Levels: 級
+'Enable Levels': 'Enable Levels'
+'Allowable choices for severity level (from lowest to highest)': 'Allowable choices for severity level (from lowest to highest)'
+'Behaviour Letters': 行為信件
+'Enable Behaviour Letters': 'Enable Behaviour Letters'
+'Should automated behaviour letter functionality be enabled?': 'Should automated behaviour letter functionality be enabled?'
+'Letter 1 Count': 信件1數目
+'After how many negative records should letter 1 be sent?': 'After how many negative records should letter 1 be sent?'
+'Letter 1 Text': 信件1正文
+'The contents of letter 1, as HTML.': 信件1的正文的HTML版本。
+'Letter 2 Count': 信件2數目
+'After how many negative records should letter 2 be sent?': 'After how many negative records should letter 2 be sent?'
+'Letter 2 Text': 信件2正文
+'The contents of letter 2, as HTML.': 信件2的正文的HTML版本。
+'Letter 3 Count': 信件3數目
+'After how many negative records should letter 3 be sent?': 'After how many negative records should letter 3 be sent?'
+'Letter 3 Text': 信件2正文
+'The contents of letter 3, as HTML.': 信件3的正文的HTML版本。
+'Policy Link': '政策網頁'
+'A link to the school behaviour policy.': 學生行為政策的網址
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: 低
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: 中
+High: 高
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: 文件
+        spreadsheet: '電子表格'
+        presentation: 介紹
+        graphics/design: 圖像/設計
+        video: 影片
+        audio: 錄音
+        other: 其他
+Code: 代碼
+Direction: Direction
+Scope: 範圍
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': 'Attendance Settings'
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: 到
+        tardy: Tardy
+        'present - late': 到-遲到
+        'present - offsite': 'Present - Off Site'
+        absent: 缺席
+        left: 離開
+        'left - early': 離開-早
+'Attendance Codes': 'Attendance Codes'
+Reasons: Reasons
+'Attendance Reasons': 'Attendance Reasons'
+'Comma-separated list of reasons which are available when taking attendance.': 'Comma-separated list of reasons which are available when taking attendance.'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': 'Count Class Attendance as School Attendance'
+'Should attendance from the class context be used to prefill and inform school attendance?': 'Should attendance from the class context be used to prefill and inform school attendance?'
+'Cross-Fill Classes': 'Cross-Fill Classes'
+'Should classes prefill with data from other classes?': 'Should classes prefill with data from other classes?'
+'Default Roll Group Attendance Type': 'Default Roll Group Attendance Type'
+'The default selection for attendance type when taking Roll Group attendance': 'The default selection for attendance type when taking Roll Group attendance'
+'Default Class Attendance Type': 'Default Class Attendance Type'
+'The default selection for attendance type when taking Class attendance': 'The default selection for attendance type when taking Class attendance'
+Present: 到
+'Present - Late': 到-遲到
+'Present - Off Site': 'Present - Off Site'
+Absent: 缺席
+Left: 離開
+'Left - Early': 離開-早
+'Student Self Registration': 'Student Self Registration'
+'Student Self Registration IP Addresses': 'Student Self Registration IP Addresses'
+'Comma-separated list of IP addresses within which students can self register.': 'Comma-separated list of IP addresses within which students can self register.'
+'Self Registration Redirect': 'Self Registration Redirect'
+'Should self registration redirect to Message Wall?': 'Should self registration redirect to Message Wall?'
+Teacher: 老師
+'Support Staff': 支援員工
+Administrator: 管理員
+Parent: 家長
+'Attendance CLI': 'Attendance CLI'
+'Enable Notifications by Roll Group': 'Enable Notifications by Roll Group'
+'Enable Notifications by Class': 'Enable Notifications by Class'
+'Additional Users to Notify': 'Additional Users to Notify'
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': 'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.'
+Context: Context
+Registration: 註冊
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: 'In Class'
+        out: 'Out of Class'
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: 評估
+'External Assessments': 'External Assessments'
+'Formal Assessment Settings': 正式評估設定
+Scales: Scales
+Groupings: 分組
+Houses: 社
+Learn: 學習
+'Planner Settings': 計劃表設置
+'Resource Settings': 'Resource Settings'
+Other: 其他
+'Facility Settings': 'Facility Settings'
+'File Extensions': 'File Extensions'
+People: 人士
+'Individual Needs': 個人需要
+'Years, Days & Times': 年，日，時間
+'Academic Years': 'Academic Years'
+'Days of the Week': 'Days of the Week'
+'Special Days': 'Special Days'
+Terms: 條件
+'Module Menu': 程式組件選單
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': 進接設定
+'Allow Outcome Editing': 允許編輯結果
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': 'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?'
+'Enables a public listing of units, with teachers able to opt in to share units.': 允許公眾單元的列表，和老師能選擇分享分享單元。
+'Lesson Details Template': '課堂詳情模型'
+'Make Units Public': 公開單元
+'Parent Weekly Email Summary Include Behaviour': 家長每週電郵總結包括行為
+'Parent Weekly Email Summary Include Markbook': 'Parent Weekly Email Summary Include Markbook'
+'Planner Templates': 計劃表模板
+'Share Unit Outline': 'Share Unit Outline'
+'Sharing Default: Parents': '自動分享:家長'
+'Sharing Default: Students': '自動分享:學生'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'Should Markbook information be included in the weekly planner email summary that goes out to parents?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': '行為資料應該加入給家長的每週結論電郵?'
+'Should the text within outcomes be editable when planning lessons and units?': '在結果中的文字應該在在計畫課堂和單元時可以編輯嗎?'
+'Smart Block Template': 智能方塊模型
+'Teacher''s Notes Template': 老師筆記的模型
+'Template to be inserted into Lesson Details field': '在課堂詳情裏需要加入模型'
+'Template to be inserted into Teacher''s Notes field': '在老師筆記裏需要加入模型'
+'Template to be inserted into Unit Outline section of planner': '加入進計畫的單元概要的模板。'
+'Template to be inserted into new block in Smart Unit': '加入進智能單元的新方塊的模板。'
+Templates: Templates
+'Unit Outline Template': 單元概要模型
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': '在加入課堂和單元時，是否自動和家長分享呢?'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': '在加入課堂和單元時，是否自動和學生分享呢?'
+'Targets Template': 'Targets Template'
+'An HTML template to be used in the targets field.': 'An HTML template to be used in the targets field.'
+'Teaching Strategies Template': 'Teaching Strategies Template'
+'An HTML template to be used in the teaching strategies field.': 'An HTML template to be used in the teaching strategies field.'
+'Notes & Review Template': 'Notes & Review Template'
+'An HTML template to be used in the notes and review field.': 'An HTML template to be used in the notes and review field.'
+Categories: 類型
+'Allowable choices for category': 給類型可以選擇的選擇
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': '目的 (一般)'
+'Allowable choices for purpose when creating a resource': 可
+'Purposes (Restricted)': '目的 (受限)'
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: 目的
+Tardy: Tardy
+'Must be unique': '必須由獨特'
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: '可報告'
+'Allow Future Use': 'Allow Future Use'
+'Can this code be used in Set Future Absence?': 'Can this code be used in Set Future Absence?'
+'Available to Roles': 'Available to Roles'
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': 'Edit Attendance Code'
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': 'Edit Year Group'
+'Head of Year': 'Head of Year'
+'Manage Year Groups': 管理年級
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'A comma-separated list of types for facilities.'
+'Add Facility': 'Add Facility'
+FacilityTypes: FacilityTypes
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: 外部
+Internal: Internal
+'Add Grade Scale': '加成績規模'
+'Add Grade': '加成績'
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: 描述符
+'Edit Grade Scale': 編輯成績規模
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': '是否自動?'
+'Manage Grade Scales': 管理成績規模
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: 規模
+Value: 價值
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'Comma-separated list of types to make available in Internal Assessments.'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': 域設置
+'Field Sets': 'Field Sets'
+'File Upload': 上載文件
+'Internal Assessment Settings': 內部評估設定
+'Internal Assessment Types': 'Internal Assessment Types'
+'Manage External Assessments': 管理外部評估
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': '加外部評估'
+'Allow File Upload': 允許上載文件
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 評估的簡要說明及如何使用。
+'Edit External Assessment': 編輯外部評估
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': '學生紀錄應該包括上傳文件的選擇嗎?'
+'SMS Settings': SMS設定
+'Enable Home Screen Widget': '啟用主頁微件'
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'Adds a Message Wall widget to the home page, hihglighting current messages.'

@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: Editare
+Delete: Șterge
+Name: Nume
+Dates: Date
+Status: Status
+Actions: Acțiuni
+'There are no records to display.': 'Nu există înregistrări de afișat'
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': 'First Page'
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': 'Last Page'
+academicyear:
+    status:
+        past: Trecut
+        current: Prezent
+        upcoming: Viitor
+Sequence: Secvență
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': 'Administrare Școală'
+'Sequence Number': 'Număr secvență'
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': 'Prima zi'
+'Last Day': 'Ultima zi'
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 'Editează Semestru'
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': 'Adaugă semestru'
+'Manage Terms': 'Administrare semestre'
+Monday: Luni
+Mon: Lu
+Installed: Instalat
+'School Day': 'Zi de școală'
+'School Opens': 'Școala deschisă'
+'School Starts': 'Orele studiu încep la'
+'School Ends': 'Orele studiu se termină la'
+'School Closes': 'Școala închisă'
+Submit: Trimite
+Display: Display
+Tuesday: Marți
+Tue: Ma
+Wednesday: Miercuri
+Wed: Mi
+Thursday: Joi
+Thu: Jo
+Friday: Vineri
+Fri: Vi
+Saturday: Sîmbătă
+Sat: Sî
+Sunday: Duminică
+Sun: Du
+'Manage Days of the Week': 'Administreaza Zilele săptămânii'
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': 'Schimbare dată'
+        'school closure': 'Închidere Școală'
+Date: Dată
+Type: Tip
+'Manage Special Days': 'Gestionare Zile Speciale'
+'Edit Special Day': 'Editează Zi Specială'
+'Please select...': 'Vă rugăm selectați....'
+Description: Descriere
+'Add Special Day': 'Adaugă Zi Specială'
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: Copie
+'Term Break': 'Term Break'
+Calendar: Calendar
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: 'Logo, emblema'
+'Manage Houses': 'Gestionați locații '
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': 'Editare Spațiu'
+'Add House': 'Adaugă spațiu '
+Projector: Proiector
+TV: TV
+'DVD Player': DVD-player
+Hifi: HiFi
+Speakers: 'Stație audio'
+'Interactive White Board': 'Tablă Interactivă'
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': 'Computer '
+Capacity: Competență
+Facilities: Facilități
+'Manage Facilities': 'Manage Facilities'
+facility:
+    type:
+        classroom: Clasă
+        hall: Incintă
+        laboratory: Laboratory
+        library: Biblioteca
+        office: Birou
+        outdoor: 'În aer liber'
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: Depozit
+        study: Studiu
+        undercover: 'Spații protejate'
+        other: Diverse
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': 'Computere cursanți'
+'How many are there': 'Cât de multe sunt ?'
+Extension: 'Extensii fișier'
+'Room''s internal phone number.': 'Număr telefon filiale'
+'Phone Number': 'Număr telefon'
+'Room''s external phone number.': 'Număr telefon locație'
+Comment: Comentariu
+'Edit Facility': 'Edit Facility'
+'Facility Type': 'Facility Type'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'Use the options below to select the external assessments that you wish to include in your Data Points export.'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'If duplicates of any assessment exist, only the most recent entry will be shown.'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'Use the options below to select the internal assessments that you wish to include in your Data Points export.'
+'Add Field': 'Adaugă câmp'
+'External Assessment': 'Evaluare externă'
+'This value cannot be changed.': 'Această valoare nu poate fi schimbată.'
+Category: Categorii
+Order: Comandă
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': 'Scara notare'
+'Grade scale used to control values that can be assigned.': 'Scara de notare folosită pentru a controla valorile care pot fi atribuite'
+'Year Groups': 'Ani studiu(Cohorte)'
+'Year groups to which this field is relevant.': 'Anul școlar(cohorta) la care se referă acest cîmp este adecvat.'
+'Edit Field': 'Edit Field'
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': 'Tracking Settings'
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: Practică
+Active: Activ
+Numeric: Numeric
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 'Scurtă descriere a modului în care este utilizată scara de evaluare.'
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': 'Această scară folosește numai date numerice? Notă, clasa "incompletă" este exceptată.'
+'Lowest Acceptable': 'Cel mai mic acceptabil'
+'This is the lowest grade a student can get without being unsatisfactory.': 'Aceasta este cea mai mică notă obținută de cursant  fără a fi considerată nesatisfăcătoare.'
+Details: Detalii
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: Features
+'Enable Effort': 'Enable Effort'
+'Should columns have the Effort section enabled?': 'Should columns have the Effort section enabled?'
+'Enable Rubrics': 'Enable Rubrics'
+'Should columns have Rubrics section enabled?': 'Should columns have Rubrics section enabled?'
+'Enable Column Weighting': 'Enable Column Weighting'
+'Should column weighting and total scores be enabled in the Markbook?': 'Should column weighting and total scores be enabled in the Markbook?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': 'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.'
+'Enable Display Cumulative Marks': 'Enable Display Cumulative Marks'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?'
+'Enable Raw Attainment Marks': 'Enable Raw Attainment Marks'
+'Should recording of raw marks be enabled in the Markbook?': 'Should recording of raw marks be enabled in the Markbook?'
+'Enable Modified Assessment': 'Enable Modified Assessment'
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: Interface
+'Markbook Type': 'Tip Catalog'
+'Comma-separated list of types to make available in the Markbook.': 'Comma-separated list of types to make available in the Markbook.'
+'Group Columns by Term': 'Group Columns by Term'
+'Should columns and total scores be grouped by term?': 'Should columns and total scores be grouped by term?'
+'Attainment Alternative Name': 'Aptitudini nume alternativ'
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 'Aptitudini nume alternativ abreviere'
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': 'Randament nume alternativ'
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': 'Randament nume alternativ abreviere'
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: Avertismente
+'Show Student Attainment Warning': 'Arată cursanților atingerea rezultatelor'
+'Show low attainment grade visual warning to students?': 'Arată avertizare vizuală   Grad scăzut de realizare al obiectivelor  pentru cursanți?'
+'Show Student Effort Warning': 'Arată cursanților nivel efort '
+'Show low effort grade visual warning to students?': 'Arată avertizare vizuală Grad scăzut efort cursant  pentru cursanți?'
+'Show Parent Attainment Warning': 'Arată părinților atingerea rezultatelor'
+'Show low attainment grade visual warning to parents?': 'Arată avertizare  Grad scăzut de realizare al obiectivelor  pentru părinți?'
+'Show Parent Effort Warning': 'Arată părinților nivel efort '
+'Show low effort grade visual warning to parents?': 'Arată avertizare vizuală Grad scăzut efort cursant  pentru părinți?'
+'Personalised Warnings': 'Avertismente personalizate'
+'Should markbook warnings be based on personal targets, if they are available?': 'Catalogul ar trebui  să se bazeze pe obiective personale, în cazul în care sunt disponibile?'
+'Markbook Settings': 'Gestionați Catalog note'
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': 'Setări Mesaje Avizier '
+'Message Bubble Width Type': 'Mesaje balon lățime'
+'Should the message bubble be regular or wide?': 'Dimensiunea mesajului balon ar trebui să fie regulat sau larg?'
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: Obișnuit
+        wide: Extins
+'Message Bubble Background Color': 'Mesaje balon culoare fundal'
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': 'Mesajul culoare baloane de fundal in RGBA (ex 100,100,100,0.50). Dacă este gol,va fi folosită tema implicită.'
+'Message Bubble Auto Hide': 'Mesaje balon autoascundere'
+'Should message bubble fade out automatically?': 'Ar trebui ca mesajele balon să dispară în mod automat?'
+Miscellaneous: Diverse
+'Message Bcc': 'Message Bcc'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'Comma-separated list of recipients to bcc all messenger emails to.'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': 'Setări generale'
+Email: E-mail
+'Email address to send finance emails from.': 'Adresa de e-mail pentru a trimite e-mailuri de finanțare de la'
+'Enable Online Payment': 'Deschisă plata online'
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': 'Facturile plătite on-line, este obligatorie o legătură criptată ? Necesită gateway de plată configurat corect în Setări de sistem'
+'Online Payment Threshold': 'Online limită de plată'
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': 'Dacă facturile sunt plătibile on-line, care este plata maximă permisă? Utile pentru controlul taxele de plată. Nici o valoare înseamnă nelimitat.'
+Invoices: Facturi
+'Invoice Text': 'Text factură'
+'Text to appear in invoice, above invoice details and fees.': 'Text de afișat  în factura, mai sus de detalii factură și taxe.'
+'Invoice Notes': 'Note factură'
+'Text to appear in invoice, below invoice details and fees.': 'Text de afișat  în factura, mai jos de detalii factură și taxe.'
+'Invoicee Name Style': 'Invoicee Name Style'
+'Determines how invoicee name appears on invoices and receipts.': 'Determines how invoicee name appears on invoices and receipts.'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': 'Mod număr factură'
+'How should invoice numbers be constructed?': 'Cum ar trebui să fie concepute numerele facturilor?'
+Receipts: Încasări
+'Receipt Text': 'Text adeverință'
+'Text to appear in receipt, above receipt details and fees.': 'Text de afișat pe chitanță, de mai sus de  detalii primire și taxe.'
+'Receipt Notes': 'Note adeverință'
+'Text to appear in receipt, below receipt details and fees.': 'Text de afișat pe chitanță, de mai jos de  detalii primire și taxe.'
+'Hide Itemisation': 'Hide Itemisation'
+'Hide fee and payment details in receipts?': 'Hide fee and payment details in receipts?'
+Reminders: Istoric
+'Reminder 1 Text': 'Reminder 1 Text'
+'Text to appear in first level reminder level, above invoice details and fees.': 'Text de  afișat  în primul nivel istoric ,  mai sus la detaliile facturii și taxelor.'
+'Reminder 2 Text': 'Reminder 2 Text'
+'Text to appear in second level reminder level, above invoice details and fees.': 'Text de afișat  în al doilea nivel de nivel istoric, mai sus de  detalii factură și taxe.'
+'Reminder 3 Text': 'Reminder 3 Text'
+'Text to appear in third level reminder level, above invoice details and fees.': 'Text de afișat  în al doilea nivel de nivel istoric, mai jos de  detalii factură și taxe.'
+Expenses: Cheltuieli
+'Budget Categories': 'Categorii buget'
+'Comma-separated list of budget categories.': 'Lista de categorii bugetare separate prin virgulă.'
+'Expense Approval Type': 'Cheltuieli tip aprobare'
+'How should expense approval be dealt with?': 'Cum ar trebui să fie abordată aprobarea cheltuielilor  ?'
+'Budget Level Expense Approval': 'Buget Nivelul de cheltuieli aprobate'
+'Should approval from a budget member with Full access be required?': 'Ar trebui să fie necesară aprobarea din partea unui membru cu acces deplin la buget ?'
+'Expense Request Template': 'Cheltuieli Cerere tipizată'
+'An HTML template to be used in the description field of expense requests.': 'Un șablon HTML pentru a fi utilizat în domeniul descrierii cererilor de cheltuieli.'
+'Allow Expense Add': 'Allow Expense Add'
+'Allows privileged users to add expenses without going through request process.': 'Allows privileged users to add expenses without going through request process.'
+'Purchasing Officer': 'Administrator cheltuieli'
+'User responsible for purchasing for the school.': 'Utilizator responsabil pentru achizițiile din școală.'
+'Reimbursement Officer': 'Administrator încasări'
+'User responsible for reimbursing expenses.': 'Utilizator responsabil pentru rambursarea cheltuielilor.'
+General: 'General '
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 'Tip dată'
+'Should activities be organised around dates (flexible) or terms (easy)?': 'Ar trebui să fie organizate activități în jurul datelor (flexibil) sau termene (ușor)?'
+'Maximum Activities per Term': 'Număr maxim activități la termen'
+'The most a student can sign up for in one term. Set to 0 for unlimited.': 'Cel mult un cursant se poate înscrie la un termen. Setați 0 pentru nelimitat.'
+Access: Accesare
+'System-wide access control': 'System-wide access control'
+Payment: Plată
+'Payment system': 'Sistem plată'
+activitysettingstype:
+    activities__payment:
+        none: Nimic
+        single: Individual
+        'per activity': 'Pe activitate'
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: Competitiv
+        selection: Selecție
+    activities__datetype:
+        date: Dată
+        term: Termen
+    activities__access:
+        none: Nimic
+        view: Afișare
+        register: Înregistrare
+'Enrolment Type': 'Tip înscriere'
+'Enrolment process type': 'Tip proces de înscriere'
+'Backup Choice': 'Alege soluție copie rezervă'
+'Allow students to choose a backup, in case enroled activity is full.': 'Permiteți elevilor să aleagă o copie de rezervă, în cazul în care activitatea de înscriere este completă.'
+'Activity Types': 'Tipuri activitate'
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': 'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.'
+'Disable External Provider Signup': 'Dezactivați Furnizor Inregistrare externă'
+'Should we turn off the option to sign up for activities provided by an outside agency?': 'Ar trebui dezactivată opțiunea de înscriere pentru activitățile prestate de o agenție din afară?'
+'Hide External Provider Cost': 'Ascunde  tarife Furnizor extern'
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': 'Ar trebui să ne ascundem costul activităților furnizate de o agenție din afara din Afișare Activități ?'
+'Dashboard Settings': 'Dashboard Settings'
+'Staff Dashboard Default Tab': 'Staff Dashboard Default Tab'
+'The default landing tab for the staff dashboard.': 'The default landing tab for the staff dashboard.'
+'Student Dashboard Default Tab': 'Student Dashboard Default Tab'
+'The default landing tab for the student dashboard.': 'The default landing tab for the student dashboard.'
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: Planificare
+    school_admin__studentdashboarddefaulttab:
+        planner: Planificare
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': 'Prezentare Învățare'
+        timetable: Orar
+        activities: Activități
+'Parent Dashboard Default Tab': 'Parent Dashboard Default Tab'
+'The default landing tab for the parent dashboard.': 'The default landing tab for the parent dashboard.'
+behaviour_letters_help: behaviour_letters_help
+Descriptors: Descriptors
+'Enable Descriptors': 'Enable Descriptors'
+'Setting to No reduces complexity of behaviour tracking.': 'Setting to No reduces complexity of behaviour tracking.'
+'Positive Descriptors': 'Descriptori pozitivi'
+'Allowable choices for positive behaviour': 'Allowable choices for positive behaviour'
+'Negative Descriptors': 'Descriptori negativi'
+'Allowable choices for negative behaviour': 'Allowable choices for negative behaviour'
+Levels: Niveluri
+'Enable Levels': 'Enable Levels'
+'Allowable choices for severity level (from lowest to highest)': 'Allowable choices for severity level (from lowest to highest)'
+'Behaviour Letters': 'Behaviour Letters'
+'Enable Behaviour Letters': 'Enable Behaviour Letters'
+'Should automated behaviour letter functionality be enabled?': 'Should automated behaviour letter functionality be enabled?'
+'Letter 1 Count': 'Letter 1 Count'
+'After how many negative records should letter 1 be sent?': 'After how many negative records should letter 1 be sent?'
+'Letter 1 Text': 'Letter 1 Text'
+'The contents of letter 1, as HTML.': 'The contents of letter 1, as HTML.'
+'Letter 2 Count': 'Letter 2 Count'
+'After how many negative records should letter 2 be sent?': 'After how many negative records should letter 2 be sent?'
+'Letter 2 Text': 'Letter 2 Text'
+'The contents of letter 2, as HTML.': 'The contents of letter 2, as HTML.'
+'Letter 3 Count': 'Letter 3 Count'
+'After how many negative records should letter 3 be sent?': 'After how many negative records should letter 3 be sent?'
+'Letter 3 Text': 'Letter 3 Text'
+'The contents of letter 3, as HTML.': 'The contents of letter 3, as HTML.'
+'Policy Link': 'Legătură Securitate'
+'A link to the school behaviour policy.': 'Un link la politica de comportament școlar.'
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: Scăzut
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: Mediu
+High: Ridicat
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: Document
+        spreadsheet: 'Foaie de calcul (Excell)'
+        presentation: 'Prezentare (ppt)'
+        graphics/design: Grafică/desen
+        video: Video
+        audio: Audio
+        other: Diverse
+Code: Cod
+Direction: Direction
+Scope: Domeniu
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': 'Attendance Settings'
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: Prezent
+        tardy: Tardy
+        'present - late': 'Prezent / Întîrziat'
+        'present - offsite': 'Present - Off Site'
+        absent: Absent
+        left: Plecat
+        'left - early': Plecat-timpuriu
+'Attendance Codes': 'Attendance Codes'
+Reasons: Reasons
+'Attendance Reasons': 'Attendance Reasons'
+'Comma-separated list of reasons which are available when taking attendance.': 'Comma-separated list of reasons which are available when taking attendance.'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': 'Count Class Attendance as School Attendance'
+'Should attendance from the class context be used to prefill and inform school attendance?': 'Should attendance from the class context be used to prefill and inform school attendance?'
+'Cross-Fill Classes': 'Cross-Fill Classes'
+'Should classes prefill with data from other classes?': 'Should classes prefill with data from other classes?'
+'Default Roll Group Attendance Type': 'Default Roll Group Attendance Type'
+'The default selection for attendance type when taking Roll Group attendance': 'The default selection for attendance type when taking Roll Group attendance'
+'Default Class Attendance Type': 'Default Class Attendance Type'
+'The default selection for attendance type when taking Class attendance': 'The default selection for attendance type when taking Class attendance'
+Present: Prezent
+'Present - Late': 'Prezent / Întîrziat'
+'Present - Off Site': 'Present - Off Site'
+Absent: Absent
+Left: Plecat
+'Left - Early': Plecat-timpuriu
+'Student Self Registration': 'Student Self Registration'
+'Student Self Registration IP Addresses': 'Student Self Registration IP Addresses'
+'Comma-separated list of IP addresses within which students can self register.': 'Comma-separated list of IP addresses within which students can self register.'
+'Self Registration Redirect': 'Self Registration Redirect'
+'Should self registration redirect to Message Wall?': 'Should self registration redirect to Message Wall?'
+Teacher: Profesor
+'Support Staff': 'Echipa de asistență'
+Administrator: 'Administrator '
+Parent: Părinte
+'Attendance CLI': 'Attendance CLI'
+'Enable Notifications by Roll Group': 'Enable Notifications by Roll Group'
+'Enable Notifications by Class': 'Enable Notifications by Class'
+'Additional Users to Notify': 'Additional Users to Notify'
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': 'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.'
+Context: Context
+Registration: Înregistrare
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: 'In Class'
+        out: 'Out of Class'
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: Evaluări
+'External Assessments': 'External Assessments'
+'Formal Assessment Settings': 'Formal Assessment Settings'
+Scales: Scales
+Groupings: Grupări
+Houses: Locații
+Learn: Învățare
+'Planner Settings': 'Gestionați Planificarea'
+'Resource Settings': 'Resource Settings'
+Other: Diverse
+'Facility Settings': 'Facility Settings'
+'File Extensions': 'File Extensions'
+People: Persoane
+'Individual Needs': 'Nevoi individuale'
+'Years, Days & Times': 'Ani, Zile & Ore'
+'Academic Years': 'Academic Years'
+'Days of the Week': 'Days of the Week'
+'Special Days': 'Special Days'
+Terms: Scadențe
+'Module Menu': 'Meniu Modul'
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': 'Setări acces'
+'Allow Outcome Editing': 'Permiteți Editare Rezultat '
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': 'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?'
+'Enables a public listing of units, with teachers able to opt in to share units.': 'Permite o listă publică de unități, cu profesori capabili de a opta pentru a împărți unități.'
+'Lesson Details Template': 'Detalii șablon lecție'
+'Make Units Public': 'Creați Unități publice'
+'Parent Weekly Email Summary Include Behaviour': 'Email Rezumat săptămânal părinți Include Comportamentul'
+'Parent Weekly Email Summary Include Markbook': 'Parent Weekly Email Summary Include Markbook'
+'Planner Templates': 'Șabloane Planificare'
+'Share Unit Outline': 'Share Unit Outline'
+'Sharing Default: Parents': 'Distribuire părinți: implicit'
+'Sharing Default: Students': 'Distribuire cursanți: implicit'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'Should Markbook information be included in the weekly planner email summary that goes out to parents?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': 'Includem informații comportament în  email rezumat săptămînal planificat care merge la părinți?'
+'Should the text within outcomes be editable when planning lessons and units?': 'Doriți ca textul în rezultate editabile să fie activ atunci când planificați  lecții și unități?'
+'Smart Block Template': 'Tipizat Block inteligent'
+'Teacher''s Notes Template': 'Comentarii  profesor Șabloane'
+'Template to be inserted into Lesson Details field': 'Șablon pentru a fi introdus în câmp Detalii Lectia'
+'Template to be inserted into Teacher''s Notes field': 'Șablon pentru a fi introdus în câmpul Comentarii profesor'
+'Template to be inserted into Unit Outline section of planner': 'Șablon pentru a fi introdus în secțiunea Schiță Unitate planificare'
+'Template to be inserted into new block in Smart Unit': 'Șablon pentru a fi inserat în bloc nou în Unitate inteligentă'
+Templates: Templates
+'Unit Outline Template': 'Format schiță șablon'
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': 'Atunci când se adaugă lecții și implementarea  unităților , ar trebuica partajarea implicită  pentru părinți să fie Da  sau Nu?'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': 'Atunci când se adaugă lecții și implementarea  unităților , ar trebuica partajarea implicită  pentru cursanți să fie Da  sau Nu?'
+'Targets Template': 'Targets Template'
+'An HTML template to be used in the targets field.': 'An HTML template to be used in the targets field.'
+'Teaching Strategies Template': 'Teaching Strategies Template'
+'An HTML template to be used in the teaching strategies field.': 'An HTML template to be used in the teaching strategies field.'
+'Notes & Review Template': 'Notes & Review Template'
+'An HTML template to be used in the notes and review field.': 'An HTML template to be used in the notes and review field.'
+Categories: Categorii
+'Allowable choices for category': 'Alegeri permise pentru categoria'
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': 'Proiecte (General) '
+'Allowable choices for purpose when creating a resource': 'Alegeri admisibile pentru scopuri educaționale  când se creează o resursă'
+'Purposes (Restricted)': 'Proiecte (General)  '
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: Scop
+Tardy: Tardy
+'Must be unique': 'Trebuie să fie unic'
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: Raportabile
+'Allow Future Use': 'Allow Future Use'
+'Can this code be used in Set Future Absence?': 'Can this code be used in Set Future Absence?'
+'Available to Roles': 'Available to Roles'
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': 'Edit Attendance Code'
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': 'Edit Year Group'
+'Head of Year': 'Head of Year'
+'Manage Year Groups': 'Gestionați Ani Studiu'
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'A comma-separated list of types for facilities.'
+'Add Facility': 'Add Facility'
+FacilityTypes: FacilityTypes
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: Extern
+Internal: Internal
+'Add Grade Scale': 'Adaugă scară de notare'
+'Add Grade': 'Adaugă Notă'
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: Descriptor
+'Edit Grade Scale': 'Editează Scara de Notare'
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': 'Is Default?'
+'Manage Grade Scales': 'Gestionați scara de notare'
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: Scară
+Value: Valoare
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'Comma-separated list of types to make available in Internal Assessments.'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': 'Setare cîmpuri'
+'Field Sets': 'Field Sets'
+'File Upload': 'Încărcați fișier'
+'Internal Assessment Settings': 'Internal Assessment Settings'
+'Internal Assessment Types': 'Internal Assessment Types'
+'Manage External Assessments': 'Gestionați evaluări externe'
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': 'Adaugă Evaluare Externă'
+'Allow File Upload': 'Permiteți încărcare fișier'
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 'Scurtă descriere a evaluării și modul în care este folosită.'
+'Edit External Assessment': 'Editează Evaluare Externă'
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': 'La înregistrare cursanții au posibilitatea folosirii unui fișier de încărcare?'
+'SMS Settings': 'SMS setări'
+'Enable Home Screen Widget': 'Activați Home Screen Widget'
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'Adds a Message Wall widget to the home page, hihglighting current messages.'

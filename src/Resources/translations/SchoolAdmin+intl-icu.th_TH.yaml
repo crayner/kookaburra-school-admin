@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: แก้ไข
+Delete: ลบ
+Name: ชื่อ
+Dates: วัน
+Status: สถานะ
+Actions: แอ็กชั่น
+'There are no records to display.': ไม่มีรายการในการแสดงผล
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': หน้าแรก
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': หน้าสุดท้าย
+academicyear:
+    status:
+        past: ผ่านมา
+        current: ปัจจุบัน
+        upcoming: ที่จะเกิดขึ้น
+Sequence: ลำดับ
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': ตั้งค่าโรงเรียน
+'Sequence Number': หมายเลขลำดับ
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': วันแรก
+'Last Day': วันท้ายสุด
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 'แก้ไขภาคการศึกษา'
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': 'เพิ่มภาคการศึกษา'
+'Manage Terms': 'จัดการภาคการศึกษา'
+Monday: วันจันทร์
+Mon: จ.
+Installed: ติดตั้งแล้ว
+'School Day': วันเรียน
+'School Opens': โรงเรียนเปิด
+'School Starts': โรงเรียนเริ่มต้นเรียน
+'School Ends': โรงเรียนเลิกเรียน
+'School Closes': โรงเรียนปิดเวลา
+Submit: Submit
+Display: Display
+Tuesday: วันอังคาร
+Tue: อ.
+Wednesday: วันพุธ
+Wed: พ.
+Thursday: วันพฤหัสบดี
+Thu: พฤ.
+Friday: วันศุกร์
+Fri: ศ.
+Saturday: วันเสาร์
+Sat: ส.
+Sunday: วันอาทิตย์
+Sun: อ.
+'Manage Days of the Week': จัดการวันของสัปดาห์
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': เปลี่ยนเวลา
+        'school closure': การปิดโรงเรียน
+Date: วันที่
+Type: 'ประเภท'
+'Manage Special Days': จัดการวันพิเศษเฉพาะ
+'Edit Special Day': แก้ไขวันพิเศษ
+'Please select...': โปรดเลือก...
+Description: คำอธิบาย
+'Add Special Day': เพิ่มวันพิเศษ
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: ทำซ้ำ
+'Term Break': 'Term Break'
+Calendar: ปฏิทิน
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: โลโก้
+'Manage Houses': จัดการที่พัก
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': แก้ไขที่พัก
+'Add House': เพิ่มที่พัก
+Projector: โปรเจ็กเตอร์
+TV: ทีวี
+'DVD Player': 'เครื่องเล่น ดีวีดี'
+Hifi: ไฮไฟ
+Speakers: ลำโพง
+'Interactive White Board': กระดานไวท์บอร์ดแบบโต้ตอบ
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': สอนคอมพิวเตอร์
+Capacity: ความจุ
+Facilities: สิ่งอำนวยความสะดวก
+'Manage Facilities': จัดการสิ่งอำนวยความสะดวก
+facility:
+    type:
+        classroom: ห้องเรียน
+        hall: ห้องโถง
+        laboratory: Laboratory
+        library: ห้องสมุด
+        office: ออฟฟิซ
+        outdoor: กลางแจ้ง
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: พื้นที่เก็บ
+        study: ศึกษา
+        undercover: ปกปิด
+        other: อื่นๆ
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': คอมพิวเตอร์นักศึกษา
+'How many are there': มีจำนวนเท่าไหร่
+Extension: เอ็กเทนชั่น
+'Room''s internal phone number.': 'หมายเลขโทรศัพท์ภายในของห้อง'
+'Phone Number': หมายเลขโทรศัพท์
+'Room''s external phone number.': 'หมายเลขโทรศัพท์ภายนอกของห้อง'
+Comment: คอมเม้นท์
+'Edit Facility': แก้ไขสิ่งอำนวจความสะดวก
+'Facility Type': 'ประเภทของสิ่งอำนวยความสะดวก'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'ใช้ตัวเลือกด้านล่างเพื่อเลือกการประเมินภายนอกที่คุณต้องการรวมไว้ในการส่งออกจุดข้อมูลของคุณ'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'หากมีสำเนาของการประเมินใด ๆ อยู่ รายการล่าสุดจะปรากฏขึ้นเท่านั้น'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'ใช้ตัวเลือกด้านล่างเพื่อเลือกการประเมินภายในที่คุณต้องการรวมไว้ในการส่งออกจุดข้อมูลของคุณ'
+'Add Field': เพิ่มฟิลด์
+'External Assessment': 'การประเมินภายนอก'
+'This value cannot be changed.': ไม่สามารถเปลี่ยนค่านี้ได้
+Category: 'ประเภท'
+Order: ลำดับ
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': ระดับเกรด
+'Grade scale used to control values that can be assigned.': ระดับเกรดที่ใช้ในการควบคุมค่าที่สามารถกำหนดได้
+'Year Groups': กลุ่มปี
+'Year groups to which this field is relevant.': กลุ่มปีที่มีความเกี่ยวข้องในฟิลด์นี้
+'Edit Field': แก้ไขฟิลด์
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': ตั้งค่าการติดตาม
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: การใช้งาน
+Active: แอ็กทีฟ
+Numeric: ตัวเลข
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 'คำอธิบายอย่างย่อ เกี่ยวกับวิธีการใช้มาตราส่วน'
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': 'สเกลนี้ใช้เฉพาะเกรดตัวเลขหรือไม่? หมายเหตุเกรด "ไม่สมบูรณ์" ได้รับการยกเว้น'
+'Lowest Acceptable': ยอมรับได้ต่ำสุด
+'This is the lowest grade a student can get without being unsatisfactory.': นี่คือเกรดต่ำสุดที่นักศึกษาจะได้รับโดยไม่ต้องเป็นที่น่าพอใจ
+Details: รายละเอียด
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: คุณสมบัติ
+'Enable Effort': เปิดใช้งานความพยายาม
+'Should columns have the Effort section enabled?': 'คอลัมน์ควรมีส่วน ความพยายาม หรือไม่?'
+'Enable Rubrics': เปิดใช้งานรูบริก
+'Should columns have Rubrics section enabled?': คอลัมน์ควรมีการเปิดใช้งานส่วนรูบริกหรือไม่
+'Enable Column Weighting': เปิดใช้งานสัดส่วนคอลัมน์
+'Should column weighting and total scores be enabled in the Markbook?': 'ควรใช้การสัดส่วนคอลัมน์และคะแนนรวมเปิดใช้ใน Markbook หรือไม่?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': 'การคำนวณคะแนนและน้ำหนักสะสม ปัจจุบันมีให้เฉพาะเมื่อใช้เปอร์เซ็นต์เป็นมาตราส่วนการประเมินเริ่มต้น ค่านี้สามารถเปลี่ยนแปลงได้ในการตั้งค่าระบบ'
+'Enable Display Cumulative Marks': 'เปิดใช้งานการแสดง Marks สะสม'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'ควรมีคะแนนสะสมอยู่ในหน้า Markbook View สำหรับนักศึกษาและผู้ปกครองและในโปรไฟล์ นักศึกษา หรือไม่?'
+'Enable Raw Attainment Marks': เปิดใช้คะแนนดิบการบรรลุผล
+'Should recording of raw marks be enabled in the Markbook?': 'ควรเปิดการบันทึกคะแนนดิบใน Markbook หรือไม่?'
+'Enable Modified Assessment': เปิดใช้งานการปรับเปลี่ยนการประเมินผล
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: อินเตอร์เฟซ
+'Markbook Type': 'ประเภท Markbook'
+'Comma-separated list of types to make available in the Markbook.': 'รายการที่คั่นด้วยจุลภาคของประเภทเพื่อใช้ใน Markbook'
+'Group Columns by Term': 'กลุ่มคอลัมน์ตามภาคการศึกษา'
+'Should columns and total scores be grouped by term?': 'คอลัมน์และคะแนนรวมควรจัดกลุ่มตามภาคการศึกษาหรือไม่?'
+'Attainment Alternative Name': 'ชื่อทางเลือก การบรรลุผล'
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 'ชื่อย่อแทน การบรรลุผล'
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': ชื่อทางเลือกความพยายาม
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': ชื่อย่อแทนความพยายาม
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: คำเตือน
+'Show Student Attainment Warning': แสดงคำเตือนเกี่ยวกับการบรรลุผลของนักศึกษา
+'Show low attainment grade visual warning to students?': 'แสดงคำเตือนระดับการบรรลุผลการเรียนต่ำถึงนักศึกษาหรือไม่?'
+'Show Student Effort Warning': แสดงคำเตือนความพยายามแก่นักศึกษา
+'Show low effort grade visual warning to students?': 'แสดงการเตือนความพยายามระดับต่ำแก่นักศึกษาหรือไม่?'
+'Show Parent Attainment Warning': แสดงคำเตือนเกี่ยวกับการบรรลุผลแก่ผู้ปกครอง
+'Show low attainment grade visual warning to parents?': 'แสดงคำเตือนระดับบรรลุผลการเรียนต่ำถึงพ่อแม่หรือไม่?'
+'Show Parent Effort Warning': แสดงคำเตือนความพยายามแก่ผู้ปกครอง
+'Show low effort grade visual warning to parents?': 'แสดงการเตือนความพยายามระดับต่ำแก่พ่อแม่หรือไม่?'
+'Personalised Warnings': คำเตือนส่วนบุคคล
+'Should markbook warnings be based on personal targets, if they are available?': 'คำเตือน markbook ควรเป็นไปตามเป้าหมายส่วนบุคคลหรือไม่ถ้ามี?'
+'Markbook Settings': 'ตั้งค่า Markbook'
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': 'การตั้งค่า Message Wall'
+'Message Bubble Width Type': 'ประเภทความกว้างของ Message Bubble'
+'Should the message bubble be regular or wide?': 'Message Bubble ควรเป็นแบบปกติหรือกว้าง?'
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: ปกติ
+        wide: ทั่วไป
+'Message Bubble Background Color': 'สีพื้นหลัง Message Bubble'
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': 'สีพื้นหลังของ Message Bubble ใน RGBA (เช่น 100,100,100,0.50) หากว่างไว้ระบบจะใช้ค่าเริ่มต้นธีม'
+'Message Bubble Auto Hide': 'ซ่อน Message Bubble อัตโนมัติ'
+'Should message bubble fade out automatically?': 'Message Bubble ควรจะหายไปโดยอัตโนมัติหรือไม่?'
+Miscellaneous: เบ็ดเตล็ด
+'Message Bcc': 'ข้อความ Bcc'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'Comma-separated list of recipients to bcc all messenger emails to'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': การตั้งค่าทั่วไป
+Email: อีเมล์
+'Email address to send finance emails from.': ที่อยู่อีเมลเพื่อส่งอีเมลการเงิน
+'Enable Online Payment': เปิดใช้งานการชำระเงินออนไลน์
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': 'ควรจะออกใบแจ้งหนี้ทางออนไลน์ ผ่านทางลิงก์ที่เข้ารหัสในใบแจ้งหนี้หรือไม่? กำหนดเกตเวย์การชำระเงินที่กำหนดค่าไว้อย่างถูกต้องในการตั้งค่าระบบ'
+'Online Payment Threshold': เกณฑ์การชำระเงินออนไลน์
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': 'หากใบแจ้งหนี้ชำระเงินทางออนไลน์ การจ่ายเงินสูงสุดที่อนุญาตคืออะไร? มีประโยชน์ในการควบคุมค่าธรรมเนียมการชำระเงิน ไม่มีค่าหมายความว่าไม่จำกัด'
+Invoices: ใบแจ้งหนี้
+'Invoice Text': ข้อความใบแจ้งหนี้
+'Text to appear in invoice, above invoice details and fees.': 'ข้อความที่จะปรากฏในใบแจ้งหนี้ ด้านบนรายละเอียดใบแจ้งหนี้ค่าธรรมเนียม'
+'Invoice Notes': หมายเหตุใบแจ้งหนี้
+'Text to appear in invoice, below invoice details and fees.': 'ข้อความที่จะปรากฏในใบแจ้งหนี้ ด้านล่างรายละเอียดใบแจ้งหนี้และค่าธรรมเนียม'
+'Invoicee Name Style': รูปแบบชื่อผู้รับแจ้งหนี้
+'Determines how invoicee name appears on invoices and receipts.': 'กำหนดวิธีที่ชื่อ ผู้รับใบแจ้งหนี้ ปรากฏในใบแจ้งหนี้และใบเสร็จรับเงิน'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': รูปแบบเลขใบแจ้งหนี้
+'How should invoice numbers be constructed?': 'หมายเลขใบแจ้งหนี้ควรสร้างขึ้นรูปแบบอย่างไร?'
+Receipts: ใบเสร็จ
+'Receipt Text': ข้อความใบเสร็จ
+'Text to appear in receipt, above receipt details and fees.': 'ข้อความที่ปรากฏในใบเสร็จรับเงิน ด้านบนรายละเอียดใบเสร็จรับเงินและค่าธรรมเนียม'
+'Receipt Notes': หมายเหตุใบเสร็จ
+'Text to appear in receipt, below receipt details and fees.': 'ข้อความที่ปรากฏในใบเสร็จรับเงิน ด้านบนรายละเอียดใบเสร็จรับเงินและค่าธรรมเนียม'
+'Hide Itemisation': ซ่อนรายการไอเท็ม
+'Hide fee and payment details in receipts?': 'ซ่อนรายละเอียดค่าธรรมเนียมและรายละเอียดการชำระเงินในใบเสร็จรับเงิน?'
+Reminders: การแจ้งเตือน
+'Reminder 1 Text': 'ข้อความแจ้งเตือน 1'
+'Text to appear in first level reminder level, above invoice details and fees.': 'ข้อความจะปรากฏในระดับการแจ้งเตือนระดับแรก ด้านบนก่อนรายละเอียดใบแจ้งหนี้และค่าธรรมเนียม'
+'Reminder 2 Text': 'ข้อความแจ้งเตือน 2'
+'Text to appear in second level reminder level, above invoice details and fees.': 'ข้อความจะปรากฏในระดับการเตือนความจำระดับที่สอง ด้านบนรายละเอียดใบแจ้งหนี้และค่าธรรมเนียม'
+'Reminder 3 Text': 'ข้อความแจ้งเตือน 3'
+'Text to appear in third level reminder level, above invoice details and fees.': 'ข้อความจะปรากฏในระดับการเตือนความจำระดับที่สาม ด้านบนของรายละเอียดใบแจ้งหนี้และค่าธรรมเนียม'
+Expenses: รายจ่าย
+'Budget Categories': หมวดหมู่งบประมาณ
+'Comma-separated list of budget categories.': 'รายการหมวดหมู่งบประมาณที่คั่นด้วยจุลภาค'
+'Expense Approval Type': 'ประเภทการอนุมัติค่าใช้จ่าย'
+'How should expense approval be dealt with?': 'การจัดการค่าใช้จ่ายจะต้องได้รับการพิจารณาอย่างไร?'
+'Budget Level Expense Approval': การอนุมัติค่าใช้จ่ายในระดับงบประมาณ
+'Should approval from a budget member with Full access be required?': 'ควรได้รับการอนุมัติจากสมาชิกงบประมาณที่มีสิทธิ์เข้าถึงแบบ Full Access หรือไม่?'
+'Expense Request Template': เทมเพลตคำขอค่าใช้จ่าย
+'An HTML template to be used in the description field of expense requests.': 'เทมเพลต HTML ที่จะใช้ในฟิลด์คำอธิบายของคำขอค่าใช้จ่าย'
+'Allow Expense Add': อนุญาตให้เพิ่มค่าใช้จ่าย
+'Allows privileged users to add expenses without going through request process.': ช่วยให้ผู้ใช้ที่มีสิทธิพิเศษสามารถเพิ่มค่าใช้จ่ายโดยไม่ต้องผ่านกระบวนการขอ
+'Purchasing Officer': พนักงานจัดซื้อ
+'User responsible for purchasing for the school.': ผู้ใช้รับผิดชอบในการจัดซื้อสำหรับโรงเรียน
+'Reimbursement Officer': เจ้าหน้าที่การเบิกจ่าย
+'User responsible for reimbursing expenses.': ผู้ใช้รับผิดชอบค่าใช้จ่าย
+General: ทั่วไป
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 'ประเภทวันที่'
+'Should activities be organised around dates (flexible) or terms (easy)?': 'ควรจัดกิจกรรมตามวันที่ (ยืดหยุ่น) หรือภาคการศึกษา (ง่าย)?'
+'Maximum Activities per Term': 'กิจกรรมสูงสุดต่อภาคการศึกษา'
+'The most a student can sign up for in one term. Set to 0 for unlimited.': 'นักศึกษาส่วนใหญ่สามารถลงทะเบียนได้ในระยะหนึ่งภาคการศึกษา ตั้งค่าเป็น 0 ได้ไม่จำกัด'
+Access: การเข้าถึง
+'System-wide access control': การควบคุมการเข้าใช้งานทั่วทั้งระบบ
+Payment: การชำระเงิน
+'Payment system': ระบบการชำระเงิน
+activitysettingstype:
+    activities__payment:
+        none: ไม่มี
+        single: เดียว
+        'per activity': ต่อกิจกรรม
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: การแข่งขัน
+        selection: การคัดเลือก
+    activities__datetype:
+        date: วันที่
+        term: 'ภาคการศึกษา'
+    activities__access:
+        none: ไม่มี
+        view: ดู
+        register: ลงทะเบียน
+'Enrolment Type': 'ประเภทการลงทะเบียน'
+'Enrolment process type': 'ประเภทกระบวนการลงทะเบียน'
+'Backup Choice': ตัวเลือกการสำรองข้อมูล
+'Allow students to choose a backup, in case enroled activity is full.': อนุญาตให้นักศึกษาเลือกการสำรองในกรณีที่กิจกรรมที่ลงทะเบียนเรียนเต็มแล้ว
+'Activity Types': 'ประเภทกิจกรรม'
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': 'รายการที่คั่นด้วยจุลภาคของประเภทกิจกรรมต่างๆที่มีอยู่ในโรงเรียน เว้นว่างไว้เพื่อปิดใช้งานคุณลักษณะนี้'
+'Disable External Provider Signup': 'ปิดใช้งานการลงทะเบียนผู้ให้บริการภายนอก'
+'Should we turn off the option to sign up for activities provided by an outside agency?': 'เราควรปิดตัวเลือกในการลงชื่อสมัครเข้ากิจกรรมที่จัดโดยหน่วยงานภายนอกหรือไม่?'
+'Hide External Provider Cost': 'ซ่อนค่าใช้จ่ายจากผู้จัดภายนอก'
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': 'เราควรจะซ่อนต้นทุนของกิจกรรมที่จัดโดยหน่วยงานภายนอกจากมุมมองกิจกรรมหรือไม่?'
+'Dashboard Settings': ตั้งค่าแดชบอร์ด
+'Staff Dashboard Default Tab': แท็บเริ่มต้นแดชบอร์ดพนักงาน
+'The default landing tab for the staff dashboard.': แดชบอร์ดเริ่มต้นแรกของพนักงาน
+'Student Dashboard Default Tab': แท็บเริ่มต้นของแดชบอร์ดนักศึกษา
+'The default landing tab for the student dashboard.': แดชบอร์ดเริ่มต้นแรกของนักศึกษา
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: แผนเรียนรู้
+    school_admin__studentdashboarddefaulttab:
+        planner: แผนเรียนรู้
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': 'ภาพรวมการเรียนรู้'
+        timetable: ตารางเวลา
+        activities: กิจกรรม
+'Parent Dashboard Default Tab': แท็บเริ่มต้นแดชบอร์ดสำหรับผู้ปกครอง
+'The default landing tab for the parent dashboard.': แดชบอร์ดเริ่มต้นแรกสำหรับพ่อแม่
+behaviour_letters_help: behaviour_letters_help
+Descriptors: อธิบาย
+'Enable Descriptors': เปิดใช้งานการอธิบาย
+'Setting to No reduces complexity of behaviour tracking.': 'การตั้งค่าเป็น No ช่วยลดความซับซ้อนในการติดตามพฤติกรรม'
+'Positive Descriptors': คำอธิบายที่เป็นบวก
+'Allowable choices for positive behaviour': 'Allowable choices for positive behaviour'
+'Negative Descriptors': คำอธิบายเชิงลบ
+'Allowable choices for negative behaviour': 'Allowable choices for negative behaviour'
+Levels: ระดับ
+'Enable Levels': เปิดใช้งานระดับ
+'Allowable choices for severity level (from lowest to highest)': 'Allowable choices for severity level (from lowest to highest)'
+'Behaviour Letters': จดหมายการใช้พฤติกรรม
+'Enable Behaviour Letters': เปิดใช้งานจดหมายพฤติกรรม
+'Should automated behaviour letter functionality be enabled?': 'ควรเปิดใช้ฟังก์ชันจดหมายพฤติกรรมใช้งานอัตโนมัติหรือไม่?'
+'Letter 1 Count': 'จำนวนจดหมาย 1'
+'After how many negative records should letter 1 be sent?': 'หลังจากมีการส่งจดหมาย 1 บันทึกด้านลบ จำนวนเท่าใด?'
+'Letter 1 Text': 'ข้อความจดหมาย 1'
+'The contents of letter 1, as HTML.': 'เนื้อหาของจดหมาย 1 เป็น HTML'
+'Letter 2 Count': 'จำนวนจดหมาย 2'
+'After how many negative records should letter 2 be sent?': 'หลังจากมีการส่งจดหมาย 2 บันทึกด้านลบ จำนวนเท่าใด?'
+'Letter 2 Text': 'ข้อความจดหมาย 2'
+'The contents of letter 2, as HTML.': 'เนื้อหาของจดหมาย 2 เป็น HTML'
+'Letter 3 Count': 'จำนวนจดหมาย 3'
+'After how many negative records should letter 3 be sent?': 'หลังจากมีการส่งจดหมาย 3 บันทึกด้านลบ จำนวนเท่าใด?'
+'Letter 3 Text': 'ข้อความจดหมาย 3'
+'The contents of letter 3, as HTML.': 'เนื้อหาของจดหมาย 3 เป็น HTML'
+'Policy Link': ลิงก์นโยบาย
+'A link to the school behaviour policy.': ลิงก์ไปยังนโยบายพฤติกรรมของโรงเรียน
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: ต่ำ
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: กลาง
+High: สูง
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: เอกสาร
+        spreadsheet: สเปรดชีต
+        presentation: การนำเสนอ
+        graphics/design: 'กราฟิก / ดีไซน์'
+        video: วีดิโอ
+        audio: ออดิโอ
+        other: อื่นๆ
+Code: โค๊ด
+Direction: ทิศทาง
+Scope: ขอบเขต
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': การตั้งค่าผู้เข้าร่วม
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: มาเรียน
+        tardy: Tardy
+        'present - late': 'มาเรียน - สาย'
+        'present - offsite': 'Present - Off Site'
+        absent: ขาด
+        left: Left
+        'left - early': 'ออก - ก่อน'
+'Attendance Codes': รหัสการเข้าร่วม
+Reasons: เหตุผล
+'Attendance Reasons': เหตุผลที่เข้าร่วม
+'Comma-separated list of reasons which are available when taking attendance.': 'รายชื่อเหตุผลที่คั่นด้วยจุลภาคที่พร้อมใช้งานเมื่อเข้าร่วม'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': นับจำนวนผู้เข้าร่วมชั้นเรียนเป็นผู้เข้าร่วมโรงเรียน
+'Should attendance from the class context be used to prefill and inform school attendance?': 'ควรใช้การเข้าร่วมจากบริบทของชั้นเรียน เพื่อเตรียมการล่วงหน้าและแจ้งการเข้าโรงเรียน?'
+'Cross-Fill Classes': 'Cross-Fill Classes'
+'Should classes prefill with data from other classes?': 'Should classes prefill with data from other classes?'
+'Default Roll Group Attendance Type': 'ค่าเริ่มต้นประเภทการเข้าร่วมแบบ Roll Group'
+'The default selection for attendance type when taking Roll Group attendance': 'การเลือกค่าเริ่มต้นสำหรับประเภทการเข้าร่วมเมื่อเข้าร่วมกลุ่ม Roll Group'
+'Default Class Attendance Type': 'ค่าเริ่มต้นประเภทการเข้าร่วมชั้นเรียน'
+'The default selection for attendance type when taking Class attendance': 'ค่าเริ่มต้นการเลือกสำหรับประเภทการเข้าร่วมเมื่อเข้าชั้นเรียน'
+Present: มาเรียน
+'Present - Late': 'มาเรียน - สาย'
+'Present - Off Site': 'Present - Off Site'
+Absent: ขาด
+Left: Left
+'Left - Early': 'ออก - ก่อน'
+'Student Self Registration': การลงทะเบียนด้วยตนเองสำหรับนักศึกษา
+'Student Self Registration IP Addresses': 'ที่อยู่ IP สำหรับการลงทะเบียนด้วยตนเองของนักศึกษา'
+'Comma-separated list of IP addresses within which students can self register.': 'รายการที่อยู่ IP ที่คั่นด้วยจุลภาค ที่นักศึกษาสามารถลงทะเบียนได้'
+'Self Registration Redirect': 'Self Registration Redirect'
+'Should self registration redirect to Message Wall?': 'Should self registration redirect to Message Wall?'
+Teacher: ครู
+'Support Staff': เจ้าหน้าที่ฝ่ายสนับสนุน
+Administrator: ผู้ดูแลระบบ
+Parent: ผู้ปกครอง
+'Attendance CLI': 'Attendance CLI'
+'Enable Notifications by Roll Group': 'เปิดใช้การแจ้งเตือนโดย Roll Group'
+'Enable Notifications by Class': เปิดใช้งานการแจ้งเตือนตามชั้นเรียน
+'Additional Users to Notify': ผู้ใช้เพิ่มเติมเพื่อแจ้งเตือน
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': 'ส่งรายงานการเข้าร่วมโรงเรียนรายวันให้กับผู้ใช้เพิ่มเติม จำกัดเฉพาะบทบาทที่มีสิทธิ์เข้าถึง Roll Groups Not Registered หรือ Classes Not Registered'
+Context: บริบท
+Registration: การลงทะเบียน
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: ในชั้นเรียน
+        out: นอกชั้นเรียน
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: ประเมินผล
+'External Assessments': 'การประเมินภายนอก'
+'Formal Assessment Settings': ตั้งค่าหลักการการประเมิน
+Scales: Scales
+Groupings: การจัดกลุ่ม
+Houses: บ้าน
+Learn: การเรียนรู้
+'Planner Settings': 'ตั้งค่า Planner'
+'Resource Settings': 'Resource Settings'
+Other: อื่นๆ
+'Facility Settings': ตั้งค่าส่งอำนวยความสะดวก
+'File Extensions': 'File Extensions'
+People: ผู้คน
+'Individual Needs': ความต้องการส่วนบุคคล
+'Years, Days & Times': ปีวันและเวลา
+'Academic Years': 'Academic Years'
+'Days of the Week': วันในสัปดาห์
+'Special Days': วันพิเศษ
+Terms: 'ภาคการศึกษา'
+'Module Menu': รายการโมดูล
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': การตั้งค่าการเข้าถึง
+'Allow Outcome Editing': อนุญาตการแก้ไขผลลัพธ์
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': อนุญาตให้ผู้ใช้ที่ไม่มีสิทธิ์เข้าถึงวางแผนยูนิตเพื่อดูโครงสร้างยูนิตผ่านทางผู้วางแผนบทเรียน
+'Enables a public listing of units, with teachers able to opt in to share units.': เปิดให้มีรายชื่อยูนิตเป็นสาธารณะและครูสามารถเลือกใช้ยูนิตเพื่อแชร์ได้
+'Lesson Details Template': เทมเพลตรายละเอียดบทเรียน
+'Make Units Public': ทำให้หน่วยเป็นสาธารณะ
+'Parent Weekly Email Summary Include Behaviour': อีเมลข้อมูลสรุปรายสัปดาห์รวมถึงพฤติกรรม
+'Parent Weekly Email Summary Include Markbook': 'สรุปอีเมลรายสัปดาห์สำหรับผู้ปกครองรวมถึง Markbook'
+'Planner Templates': 'เทมเพลต Planner'
+'Share Unit Outline': แชร์โครงร่างของยูนิต
+'Sharing Default: Parents': 'การแชร์เริ่มต้น: พ่อแม่'
+'Sharing Default: Students': 'การแชร์เริ่มต้น: นักศึกษา'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'ข้อมูล Markbook ควรรวมอยู่ในอีเมล์สรุปรายละเอียดรายสัปดาห์ที่ส่งออกไปถึงผู้ปกครองหรือไม่?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': 'ข้อมูลพฤติกรรมควรรวมอยู่ในอีเมลสรุปข้อมูลของผู้วางแผนรายสัปดาห์ที่จะส่งออกไปให้พ่อแม่หรือไม่?'
+'Should the text within outcomes be editable when planning lessons and units?': 'ควรเปิดให้แก้ไขข้อความใน outcomes ได้เมื่อวางแผนบทเรียนและยูนิตหรือไม่?'
+'Smart Block Template': 'เทมเพลต สมาร์ทบล๊อก'
+'Teacher''s Notes Template': เทมเพลตหมายเหตุครู
+'Template to be inserted into Lesson Details field': เทมเพลตที่จะแทรกลงในฟิลด์รายละเอียดบทเรียน
+'Template to be inserted into Teacher''s Notes field': เทมเพลตที่จะแทรกลงในช่องโน้ตของครู
+'Template to be inserted into Unit Outline section of planner': 'เทมเพลตที่จะแทรกเข้าไปใน Unit Outline ของการวางแผน'
+'Template to be inserted into new block in Smart Unit': 'Template to be inserted into new block in Smart Unit'
+Templates: เทมเพลต
+'Unit Outline Template': เทมเพลตโครงร่างยูนิต
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': 'เมื่อเพิ่มบทเรียนและการปรับใช้ยูนิต ค่าเริ่มต้นการแชร์สำหรับผู้ปกครองควรกำหนดเป็น Y หรือ N ?'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': 'เมื่อเพิ่มบทเรียนและการปรับใช้ยูนิต ค่าเริ่มต้นการแชร์สำหรับนักศึกษาควรกำหนดเป็น Y หรือ N ?'
+'Targets Template': เทมเพลตเป้าหมาย
+'An HTML template to be used in the targets field.': 'เทมเพลต HTML ที่จะใช้ในฟิลด์เป้าหมาย'
+'Teaching Strategies Template': เทมเพลตกลยุทธ์การสอน
+'An HTML template to be used in the teaching strategies field.': 'เทมเพลต HTML ที่จะใช้ในฟิลด์กลยุทธ์การสอน'
+'Notes & Review Template': หมายเหตุและรีวิวเทมเพลต
+'An HTML template to be used in the notes and review field.': 'เทมเพลต HTML ที่จะใช้ในฟิลด์บันทึกและรีวิว'
+Categories: หมวดหมู่
+'Allowable choices for category': หมวดหมู่ที่ให้เลือก
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': 'วัตถุประสงค์ (ทั่วไป)'
+'Allowable choices for purpose when creating a resource': จุดประสงค์เมื่อสร้างรีซอร์สที่สามารถเลือกได้
+'Purposes (Restricted)': 'วัตถุประสงค์ (จำกัด)'
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: วัตถุประสงค์
+Tardy: Tardy
+'Must be unique': ต้องไม่ซ้ำกัน
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: ให้รายงานได้
+'Allow Future Use': อนุญาตให้ใช้ในอนาคต
+'Can this code be used in Set Future Absence?': 'รหัสนี้สามารถใช้ใน ชุดการขาดเรียนในอนาคตได้หรือไม่?'
+'Available to Roles': ใช้ได้กับบทบาท
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': แก้ไขรหัสผู้เข้าร่วม
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': แก้ไขกลุ่มปี
+'Head of Year': 'Head of Year'
+'Manage Year Groups': จัดการกลุ่มปี
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'รายการที่คั่นด้วยเครื่องหมายจุลภาคสำหรับประเภทสิ่งอำนวยความสะดวกต่างๆ'
+'Add Facility': เพิ่มสิ่งอำนวยความสะดวก
+FacilityTypes: 'ประเภทของสิ่งอำนวยความสะดวก'
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: 'ภายนอก'
+Internal: 'ภายใน'
+'Add Grade Scale': เพิ่มระดับเกรด
+'Add Grade': เพิ่มเกรด
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: อธิบาย
+'Edit Grade Scale': แก้ไขระดับเกรด
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': 'เป็นค่าเริ่มต้นหรือไม่?'
+'Manage Grade Scales': จัดการระดับเกรด
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: ระดับ
+Value: ค่า
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'รายการประเภทที่คั่นด้วยจุลภาคเพื่อให้มีอยู่ในการประเมินภายใน'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': ตั้งค่าฟิลด์
+'Field Sets': 'Field Sets'
+'File Upload': อัปโหลดไฟล์
+'Internal Assessment Settings': 'การตั้งค่าการประเมินภายใน'
+'Internal Assessment Types': 'ประเภทการประเมินภายใน'
+'Manage External Assessments': 'จัดการการประเมินภายนอก'
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': 'เพิ่มการประเมินภายนอก'
+'Allow File Upload': อนุญาตให้อัปโหลดไฟล์
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 'คำอธิบายอย่างย่อ เกี่ยวกับการประเมินและวิธีใช้'
+'Edit External Assessment': 'แก้ไขการประเมินภายนอก'
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': 'บันทึกของนักศึกษาควรมีตัวเลือกในการอัปโหลดไฟล์หรือไม่?'
+'SMS Settings': 'การตั้งค่า SMS'
+'Enable Home Screen Widget': เปิดใช้งานวิดเจ็ตหน้าจอหลัก
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'เพิ่มวิดเจ็ต Message Wall ไปยังหน้าแรกซึ่งเปลี่ยนเป็นข้อความปัจจุบัน'

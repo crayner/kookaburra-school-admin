@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: Uredi
+Delete: Izbriši
+Name: Ime
+Dates: Datumi
+Status: Status
+Actions: Akcije
+'There are no records to display.': 'Nema zapisa za prikaz.'
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': 'First Page'
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': 'Last Page'
+academicyear:
+    status:
+        past: Prethodno
+        current: Trenutačno
+        upcoming: Buduće
+Sequence: Niz
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': 'Administrator škole'
+'Sequence Number': 'Broj sekvence'
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': 'Prvi dan'
+'Last Day': 'Zadnji dan'
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 'Uredi polugodište'
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': 'Dodaj polugodište'
+'Manage Terms': 'Upravljanje polugodištima'
+Monday: Ponedjeljak
+Mon: Pon
+Installed: Instalirano
+'School Day': 'Školski dan'
+'School Opens': 'Škola se otvara'
+'School Starts': 'Predavanja počinju'
+'School Ends': 'Predavanja završavaju'
+'School Closes': 'Škola se zatvara'
+Submit: Predaj
+Display: Display
+Tuesday: Utorak
+Tue: Uto
+Wednesday: Srijeda
+Wed: Sri
+Thursday: Četvrtak
+Thu: Čet
+Friday: Petak
+Fri: Pet
+Saturday: Subota
+Sat: Sub
+Sunday: Nedjelja
+Sun: Ned
+'Manage Days of the Week': 'Upravljanje danima u tjednu'
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': 'Promjena vremena'
+        'school closure': 'Škola zatvorena'
+Date: Datum
+Type: Vrsta
+'Manage Special Days': 'Uređivanje posebnih dana'
+'Edit Special Day': 'Uredi posebni dan'
+'Please select...': Odaberite...
+Description: Opis
+'Add Special Day': 'Dodaj posebni dan'
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: Dupliciraj
+'Term Break': 'Term Break'
+Calendar: Kalendar
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: Logotip
+'Manage Houses': 'Upravljanje paviljonima'
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': 'Uredi paviljon'
+'Add House': 'Dodaj paviljon'
+Projector: Projektor
+TV: TV
+'DVD Player': 'DVD reproduktor'
+Hifi: HIFI
+Speakers: Zvučnici
+'Interactive White Board': 'Interaktivna/pametna ploča'
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': 'Nastavničko računalo'
+Capacity: Kapacitet
+Facilities: Objekti
+'Manage Facilities': 'Upravljanje objektima'
+facility:
+    type:
+        classroom: Učionica
+        hall: Hall
+        laboratory: Laboratory
+        library: Knjižnica
+        office: Ured
+        outdoor: 'Na otvorenom'
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: Skladište
+        study: Study
+        undercover: Undercover
+        other: Ostalo
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': 'Računala za polaznike'
+'How many are there': 'Koliko ih ima'
+Extension: Ekstenzija
+'Room''s internal phone number.': 'Interni telefonski broj prostorije.'
+'Phone Number': 'Telefonski broj'
+'Room''s external phone number.': 'Vanjski telefonski broj prostorije.'
+Comment: Komentar
+'Edit Facility': 'Uredi objekt'
+'Facility Type': 'Vrsta objekta'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'Use the options below to select the external assessments that you wish to include in your Data Points export.'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'If duplicates of any assessment exist, only the most recent entry will be shown.'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'Use the options below to select the internal assessments that you wish to include in your Data Points export.'
+'Add Field': 'Dodaj polje'
+'External Assessment': 'Vanjska procjena'
+'This value cannot be changed.': 'Ovu vrijednost nije moguće promijeniti.'
+Category: Kategorija
+Order: Redoslijed
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': 'Skala za ocjene'
+'Grade scale used to control values that can be assigned.': 'Skala za ocjenjivanje koja određuje ocjene/vrijednosti koje mogu biti dodijeljene.'
+'Year Groups': 'Grupa po godini'
+'Year groups to which this field is relevant.': 'Year groups to which this field is relevant.'
+'Edit Field': 'Uredi polje'
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': 'Postavke praćenja'
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: Korištenje
+Active: Aktivno
+Numeric: Numerička
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 'Kratki opis kako se koristi skala.'
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': 'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.'
+'Lowest Acceptable': 'Najniža prihvatljiva'
+'This is the lowest grade a student can get without being unsatisfactory.': 'Ovo je najniža ocjena koju učenik može dobiti bez da je nedovoljna za prolaz.'
+Details: Detalji
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: Mogućnosti
+'Enable Effort': 'Omogući trud'
+'Should columns have the Effort section enabled?': 'Should columns have the Effort section enabled?'
+'Enable Rubrics': 'Omogući rubrike'
+'Should columns have Rubrics section enabled?': 'Should columns have Rubrics section enabled?'
+'Enable Column Weighting': 'Omogući ponderiranje stupaca'
+'Should column weighting and total scores be enabled in the Markbook?': 'Should column weighting and total scores be enabled in the Markbook?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': 'Izračunavanje kumulativnih oznaka i pondera trenutno je dostupno samo kada se koristi postotak kao zadana skala procjene. Ova se vrijednost može promijeniti u Postavkama sustava.'
+'Enable Display Cumulative Marks': 'Omogući prikaz kumulativnih ocjena'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?'
+'Enable Raw Attainment Marks': 'Omogući brojčane ocjene za postignuće'
+'Should recording of raw marks be enabled in the Markbook?': 'Should recording of raw marks be enabled in the Markbook?'
+'Enable Modified Assessment': 'Omogući modificiranu procjenu'
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: Sučelje
+'Markbook Type': 'Vrsta imenika'
+'Comma-separated list of types to make available in the Markbook.': 'Comma-separated list of types to make available in the Markbook.'
+'Group Columns by Term': 'Group Columns by Term'
+'Should columns and total scores be grouped by term?': 'Should columns and total scores be grouped by term?'
+'Attainment Alternative Name': 'Alternativni naziv postignuća'
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 'Kratica alternativnog naziva postignuća'
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': 'Effort Alternative Name'
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': 'Effort Alternative Name Abbreviation'
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: Upozorenja
+'Show Student Attainment Warning': 'Show Student Attainment Warning'
+'Show low attainment grade visual warning to students?': 'Show low attainment grade visual warning to students?'
+'Show Student Effort Warning': 'Show Student Effort Warning'
+'Show low effort grade visual warning to students?': 'Show low effort grade visual warning to students?'
+'Show Parent Attainment Warning': 'Show Parent Attainment Warning'
+'Show low attainment grade visual warning to parents?': 'Show low attainment grade visual warning to parents?'
+'Show Parent Effort Warning': 'Show Parent Effort Warning'
+'Show low effort grade visual warning to parents?': 'Show low effort grade visual warning to parents?'
+'Personalised Warnings': 'Personalizirana upozorenja'
+'Should markbook warnings be based on personal targets, if they are available?': 'Should markbook warnings be based on personal targets, if they are available?'
+'Markbook Settings': 'Postavke imenika'
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': 'Message Wall Settings'
+'Message Bubble Width Type': 'Message Bubble Width Type'
+'Should the message bubble be regular or wide?': 'Should the message bubble be regular or wide?'
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: Standardno
+        wide: 'Široko'
+'Message Bubble Background Color': 'Message Bubble Background Color'
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': 'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.'
+'Message Bubble Auto Hide': 'Message Bubble Auto Hide'
+'Should message bubble fade out automatically?': 'Should message bubble fade out automatically?'
+Miscellaneous: Razno
+'Message Bcc': 'BCC poruka'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'Popis primatelja odvojenih zarezima za skrivenu kopiju svih poruka e-pošte s porukama.'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': 'Općenite postavke'
+Email: E-pošta
+'Email address to send finance emails from.': 'Adresa e-pošte s koje se šalju poruke vezane uz financije.'
+'Enable Online Payment': 'Omogući online plaćanje'
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': 'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.'
+'Online Payment Threshold': 'Prag online plaćanja'
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': 'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.'
+Invoices: Računi
+'Invoice Text': 'Tekst računa'
+'Text to appear in invoice, above invoice details and fees.': 'Tekst koji se pojavljuje na računu, iznad detalja računa i naknada.'
+'Invoice Notes': 'Napomene računa'
+'Text to appear in invoice, below invoice details and fees.': 'Tekst koji se pojavljuje na računu, ispod detalja računa i naknada.'
+'Invoicee Name Style': 'Oblik naziva primatelja računa'
+'Determines how invoicee name appears on invoices and receipts.': 'Određuje kako se oblikuje ime/naziv primatelja računa na računima i potvrdama.'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': 'Oblik brojeva računa'
+'How should invoice numbers be constructed?': 'Kako oblikovati broj računa (format)?'
+Receipts: Potvrde
+'Receipt Text': 'Tekst potvrde'
+'Text to appear in receipt, above receipt details and fees.': 'Text to appear in receipt, above receipt details and fees.'
+'Receipt Notes': 'Bilješka potvrde'
+'Text to appear in receipt, below receipt details and fees.': 'Text to appear in receipt, below receipt details and fees.'
+'Hide Itemisation': 'Skrij stavke'
+'Hide fee and payment details in receipts?': 'Skrij detalje naknade i uplate na računima?'
+Reminders: Podsjetnici
+'Reminder 1 Text': 'Tekst podsjetnika 1'
+'Text to appear in first level reminder level, above invoice details and fees.': 'Text to appear in first level reminder level, above invoice details and fees.'
+'Reminder 2 Text': 'Tekst podsjetnika 2'
+'Text to appear in second level reminder level, above invoice details and fees.': 'Text to appear in second level reminder level, above invoice details and fees.'
+'Reminder 3 Text': 'Tekst podsjetnika 3'
+'Text to appear in third level reminder level, above invoice details and fees.': 'Text to appear in third level reminder level, above invoice details and fees.'
+Expenses: Troškovi
+'Budget Categories': 'Kategorije budžeta'
+'Comma-separated list of budget categories.': 'CSV popis kategorija budžeta'
+'Expense Approval Type': 'Vrsta odobrenja troška'
+'How should expense approval be dealt with?': 'Kako se trebaju odobravati troškovi?'
+'Budget Level Expense Approval': 'Odobrenje troškova na razini proračuna'
+'Should approval from a budget member with Full access be required?': 'Should approval from a budget member with Full access be required?'
+'Expense Request Template': 'Predložak zahtjeva za odobrenje troška'
+'An HTML template to be used in the description field of expense requests.': 'An HTML template to be used in the description field of expense requests.'
+'Allow Expense Add': 'Dozvoli dodavanje troška'
+'Allows privileged users to add expenses without going through request process.': 'Omogućava ovlaštenim korisnicima dodavanje troškova bez prolaska kroz proceduru predavanja zahtjeva.'
+'Purchasing Officer': Ekonom
+'User responsible for purchasing for the school.': 'Korisnik je odgovoran za kupovinu i nabavku na razini škole.'
+'Reimbursement Officer': 'Službenik za povrat sredstava'
+'User responsible for reimbursing expenses.': 'Korisnik zadužen za povrat utrošenih sredstava.'
+General: Opća
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 'Vrsta datuma'
+'Should activities be organised around dates (flexible) or terms (easy)?': 'Should activities be organised around dates (flexible) or terms (easy)?'
+'Maximum Activities per Term': 'Najveći broj aktivnosti po polugodištu.'
+'The most a student can sign up for in one term. Set to 0 for unlimited.': 'The most a student can sign up for in one term. Set to 0 for unlimited.'
+Access: Pristup
+'System-wide access control': 'Kontrola pristupa na razini sustava'
+Payment: Plaćanje
+'Payment system': 'Sustav za plaćanje'
+activitysettingstype:
+    activities__payment:
+        none: Nijedan
+        single: Jedan
+        'per activity': 'Po aktivnosti'
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: Kompetitivno
+        selection: Odabir
+    activities__datetype:
+        date: Datum
+        term: Polugodišta
+    activities__access:
+        none: Nijedan
+        view: Prikaz
+        register: Registriraj
+'Enrolment Type': 'Vrsta upisa'
+'Enrolment process type': 'Enrolment process type'
+'Backup Choice': 'Odabir sigurnosne kopije'
+'Allow students to choose a backup, in case enroled activity is full.': 'Allow students to choose a backup, in case enroled activity is full.'
+'Activity Types': 'Vrste aktivnosti'
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': 'Popis različitih vrsta aktivnosti dostupnih u školi odvojenih zarezima. Ostavite prazno da biste onemogućili tu značajku.'
+'Disable External Provider Signup': 'Disable External Provider Signup'
+'Should we turn off the option to sign up for activities provided by an outside agency?': 'Should we turn off the option to sign up for activities provided by an outside agency?'
+'Hide External Provider Cost': 'Hide External Provider Cost'
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': 'Should we hide the cost of activities provided by an outside agency from the Activities View?'
+'Dashboard Settings': 'Dashboard Settings'
+'Staff Dashboard Default Tab': 'Zadani tab na upravljačkoj ploči za osoblje'
+'The default landing tab for the staff dashboard.': 'Zadana kartica nadzorne ploče osoblja'
+'Student Dashboard Default Tab': 'Zadani tab na upravljačkoj ploči za polaznike'
+'The default landing tab for the student dashboard.': 'Zadana kartica nadzorne ploče polaznika'
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: Planer
+    school_admin__studentdashboarddefaulttab:
+        planner: Planer
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': 'Learning Overview'
+        timetable: Raspored
+        activities: Aktivnosti
+'Parent Dashboard Default Tab': 'Zadana kartica nadzorne ploče roditelja'
+'The default landing tab for the parent dashboard.': 'Zadana kartica nadzorne ploče roditelja'
+behaviour_letters_help: behaviour_letters_help
+Descriptors: Deskriptori
+'Enable Descriptors': 'Omogući deskriptore'
+'Setting to No reduces complexity of behaviour tracking.': 'Postavljanje na Ne smanjuje složenost praćenja ponašanja.'
+'Positive Descriptors': 'Pozitivni deskriptori'
+'Allowable choices for positive behaviour': 'Dozvoljeni odabiri za pozitivno ponašanje'
+'Negative Descriptors': 'Negativni deskriptori'
+'Allowable choices for negative behaviour': 'Dozvoljeni odabiri za negativno ponašanje'
+Levels: Razine
+'Enable Levels': 'Omogući razine'
+'Allowable choices for severity level (from lowest to highest)': 'Allowable choices for severity level (from lowest to highest)'
+'Behaviour Letters': 'Pisma o ponašanju'
+'Enable Behaviour Letters': 'Omogući pisma o ponašanju'
+'Should automated behaviour letter functionality be enabled?': 'Treba li omogućiti funkcionalnost automatiziranog pisma o ponašanju?'
+'Letter 1 Count': 'Letter 1 Count'
+'After how many negative records should letter 1 be sent?': 'After how many negative records should letter 1 be sent?'
+'Letter 1 Text': 'Tekst pisma 1'
+'The contents of letter 1, as HTML.': 'Sadržaj pisma 1 kao HTML.'
+'Letter 2 Count': 'Letter 2 Count'
+'After how many negative records should letter 2 be sent?': 'After how many negative records should letter 2 be sent?'
+'Letter 2 Text': 'Tekst pisma 2'
+'The contents of letter 2, as HTML.': 'Sadržaj pisma 2 kao HTML.'
+'Letter 3 Count': 'Letter 3 Count'
+'After how many negative records should letter 3 be sent?': 'After how many negative records should letter 3 be sent?'
+'Letter 3 Text': 'Tekst pisma 3'
+'The contents of letter 3, as HTML.': 'Sadržaj pisma 3 kao HTML.'
+'Policy Link': 'Poveznica na politiku'
+'A link to the school behaviour policy.': 'Poveznica na tekst pravila ponašanja škole.'
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: Nisko
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: Srednje
+High: Visoko
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: Dokument
+        spreadsheet: Tablica
+        presentation: Prezentacija
+        graphics/design: Slika
+        video: Video
+        audio: Zvuk
+        other: Ostalo
+Code: Kôd
+Direction: Smjer
+Scope: Scope
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': 'Postavke prisutnosti'
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: Prisutan
+        tardy: Tardy
+        'present - late': 'Prisutan - kasni'
+        'present - offsite': 'Present - Off Site'
+        absent: Izostao
+        left: Napustio
+        'left - early': 'Otišao - ranije'
+'Attendance Codes': 'Šifre za prisutnost'
+Reasons: Razlozi
+'Attendance Reasons': 'Razlozi prisutnosti'
+'Comma-separated list of reasons which are available when taking attendance.': 'Comma-separated list of reasons which are available when taking attendance.'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': 'Count Class Attendance as School Attendance'
+'Should attendance from the class context be used to prefill and inform school attendance?': 'Should attendance from the class context be used to prefill and inform school attendance?'
+'Cross-Fill Classes': 'Cross-Fill Classes'
+'Should classes prefill with data from other classes?': 'Should classes prefill with data from other classes?'
+'Default Roll Group Attendance Type': 'Default Roll Group Attendance Type'
+'The default selection for attendance type when taking Roll Group attendance': 'The default selection for attendance type when taking Roll Group attendance'
+'Default Class Attendance Type': 'Default Class Attendance Type'
+'The default selection for attendance type when taking Class attendance': 'The default selection for attendance type when taking Class attendance'
+Present: Prisutan
+'Present - Late': 'Prisutan - kasni'
+'Present - Off Site': 'Present - Off Site'
+Absent: Izostao
+Left: Napustio
+'Left - Early': 'Otišao - ranije'
+'Student Self Registration': 'Samostalna registracija polaznika'
+'Student Self Registration IP Addresses': 'IP adrese polaznika za samostalnu prijavu'
+'Comma-separated list of IP addresses within which students can self register.': 'Popis IP adresa odvojenih zarezima s kojih se polaznici mogu sami registrirati.'
+'Self Registration Redirect': 'Preusmjeravanje na samostalno registriranje'
+'Should self registration redirect to Message Wall?': 'Should self registration redirect to Message Wall?'
+Teacher: Nastavnik
+'Support Staff': 'Osoblje za podršku'
+Administrator: Administrator
+Parent: Roditelj
+'Attendance CLI': 'Prisutnost CLI'
+'Enable Notifications by Roll Group': 'Enable Notifications by Roll Group'
+'Enable Notifications by Class': 'Enable Notifications by Class'
+'Additional Users to Notify': 'Dodatni korisnici koje treba obavijestiti'
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': 'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.'
+Context: Context
+Registration: Registracija
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: 'Na predavanju'
+        out: 'Van predavanja'
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: Ocjene
+'External Assessments': 'Vanjska procjena'
+'Formal Assessment Settings': 'Postavke formalne procjene'
+Scales: Scales
+Groupings: Grupacije
+Houses: Paviljoni
+Learn: Učenje
+'Planner Settings': 'Postavke planera'
+'Resource Settings': 'Resource Settings'
+Other: Ostalo
+'Facility Settings': 'Postavke objekta'
+'File Extensions': 'File Extensions'
+People: Osobe
+'Individual Needs': 'Posebne potrebe'
+'Years, Days & Times': 'Godine, dani i vremena'
+'Academic Years': 'Academic Years'
+'Days of the Week': 'Days of the Week'
+'Special Days': 'Posebni dani'
+Terms: Termini
+'Module Menu': 'Modul izbornika'
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': 'Postavke pristupa'
+'Allow Outcome Editing': 'Omogući uređivanje ishoda'
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': 'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?'
+'Enables a public listing of units, with teachers able to opt in to share units.': 'Enables a public listing of units, with teachers able to opt in to share units.'
+'Lesson Details Template': 'Predložak s pojedinostima lekcije'
+'Make Units Public': 'Učini jedinice javnima'
+'Parent Weekly Email Summary Include Behaviour': 'Roditeljski tjedni sažetak e-pošte uključuje ponašanje'
+'Parent Weekly Email Summary Include Markbook': 'Parent Weekly Email Summary Include Markbook'
+'Planner Templates': 'Predlošci planera'
+'Share Unit Outline': 'Podijeli jedinicu online'
+'Sharing Default: Parents': 'Zadano dijeljenje: roditelji'
+'Sharing Default: Students': 'Zadano dijeljenje: polaznici'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'Should Markbook information be included in the weekly planner email summary that goes out to parents?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': 'Treba li informacije o ponašanju uključiti u sažetak e-pošte tjednog planera koji se šalje roditeljima?'
+'Should the text within outcomes be editable when planning lessons and units?': 'Should the text within outcomes be editable when planning lessons and units?'
+'Smart Block Template': 'Smart Block Template'
+'Teacher''s Notes Template': 'Predložak za bilješke nastavnika'
+'Template to be inserted into Lesson Details field': 'Predložak će se umetnuti u polje Pojedinosti lekcije'
+'Template to be inserted into Teacher''s Notes field': 'Template to be inserted into Teacher''s Notes field'
+'Template to be inserted into Unit Outline section of planner': 'Template to be inserted into Unit Outline section of planner'
+'Template to be inserted into new block in Smart Unit': 'Template to be inserted into new block in Smart Unit'
+Templates: Predlošci
+'Unit Outline Template': 'Unit Outline Template'
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': 'When adding lessons and deploying units, should sharing default for parents be Y or N?'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': 'When adding lessons and deploying units, should sharing default for students be Y or N?'
+'Targets Template': 'Predložak ciljeva'
+'An HTML template to be used in the targets field.': 'An HTML template to be used in the targets field.'
+'Teaching Strategies Template': 'Predložak za strategije poučavanja'
+'An HTML template to be used in the teaching strategies field.': 'HTML predložak koji će se koristiti u polju strategija poučavanja.'
+'Notes & Review Template': 'Predložak za bilješke i pregled'
+'An HTML template to be used in the notes and review field.': 'HTML predložak koji će se koristiti u polju za bilješke i pregled.'
+Categories: Kategorije
+'Allowable choices for category': 'Allowable choices for category'
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': 'Purposes (General)'
+'Allowable choices for purpose when creating a resource': 'Allowable choices for purpose when creating a resource'
+'Purposes (Restricted)': 'Purposes (Restricted)'
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: Namjena
+Tardy: Tardy
+'Must be unique': 'Mora biti jedinstveno'
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: 'Za izvještaj'
+'Allow Future Use': 'Allow Future Use'
+'Can this code be used in Set Future Absence?': 'Can this code be used in Set Future Absence?'
+'Available to Roles': 'Dostupno ulogama'
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': 'Edit Attendance Code'
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': 'Uredi grupe po godini'
+'Head of Year': 'Head of Year'
+'Manage Year Groups': 'Uredi generaciju'
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'Popis vrsta objekata odvojenih zarezom.'
+'Add Facility': 'Dodaj objekt'
+FacilityTypes: VrsteObjekata
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: Vanjske
+Internal: Interno
+'Add Grade Scale': 'Dodaj skalu za ocjenjivanje'
+'Add Grade': 'Dodaj ocjenu'
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: Deskriptor
+'Edit Grade Scale': 'Uredi skalu za ocjenjivanje'
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': 'Zadano?'
+'Manage Grade Scales': 'Upravljaj skalama za ocjenjivanje'
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: Skala
+Value: Vrijednost
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'Comma-separated list of types to make available in Internal Assessments.'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': 'Field Set'
+'Field Sets': 'Field Sets'
+'File Upload': 'Postavljanje datoteke na poslužitelj'
+'Internal Assessment Settings': 'Postavke unutarnje procjene'
+'Internal Assessment Types': 'Vrste unutarnje procjene'
+'Manage External Assessments': 'Upravljanje vanjskim procjenama'
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': 'Dodaj vanjsku procjenu'
+'Allow File Upload': 'Dozvoli postavljanje datoteka na poslužitelj'
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 'Kratki opis procjene i kako te zašto se koristi.'
+'Edit External Assessment': 'Uredi vanjsku procjenu'
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': 'Treba li studentski zapis uključiti mogućnost postavljanja datoteke?'
+'SMS Settings': 'SMS postavke'
+'Enable Home Screen Widget': 'Omogući widget početnog zaslona'
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'Adds a Message Wall widget to the home page, hihglighting current messages.'

@@ -1,0 +1,584 @@
+'Student computers': 'Student computers'
+Edit: ערוך
+Delete: מחק
+Name: שם
+Dates: תאריכים
+Status: מצב
+Actions: פעולות
+'There are no records to display.': 'אין נתונים להצגה.'
+'Records {start}-{end} of {total}': 'Records {start}-{end} of {total}'
+'First Page': 'First Page'
+'Previous Page': 'Previous Page'
+'Next Page': 'Next Page'
+'Last Page': 'Last Page'
+academicyear:
+    status:
+        past: קודמות
+        current: 'נוכחית'
+        upcoming: באות
+Sequence: 'סדר פעולות'
+'Academic Year Manage': 'Academic Year Manage'
+'School Admin': 'מנהל בית הספר'
+'Sequence Number': 'מספר הרצף'
+'Must be unique. Helps to control chronological ordering.': 'Must be unique. Helps to control chronological ordering.'
+'First Day': 'יום הלימודים הראשון'
+'Last Day': 'יום הלימודים  האחרון'
+'Edit Academic Year': 'Edit Academic Year'
+'Add Academic Year': 'Add Academic Year'
+'Manage Academic Years': 'Manage Academic Years'
+'Edit Term': 'עריכת מונח'
+'Academic Year': 'Academic Year'
+'Must be unique in the Academic Year': 'Must be unique in the Academic Year'
+Abbreviation: Abbreviation
+'The last day of the term is after the last day of the academic year ({last-day}).': 'The last day of the term is after the last day of the academic year ({last-day}).'
+'The dates overlap {name}: {first} - {last}': 'The dates overlap {name}: {first} - {last}'
+'Add Term': 'הוסף מונח'
+'Manage Terms': 'נהל את התנאים'
+Monday: 'שני'
+Mon: 'יום שני'
+Installed: מותקן
+'School Day': 'יום לימודים'
+'School Opens': 'שעת פתיחת ביה"ס'
+'School Starts': 'שעת התחלת לימודים'
+'School Ends': 'שעת סיום לימודים'
+'School Closes': 'שעת סגירת ביה"ס'
+Submit: שלח
+Display: Display
+Tuesday: שלישי
+Tue: ג
+Wednesday: רביעי
+Wed: להתחתן
+Thursday: חמישי
+Thu: Thu
+Friday: שישי
+Fri: 'יום שישי'
+Saturday: שבת
+Sat: ישבה
+Sunday: ראשון
+Sun: שמש
+'Manage Days of the Week': 'נהל את ימות השבוע'
+'Academic Year: {value}': 'Academic Year: {value}'
+academicyearspecialday:
+    type:
+        'timing change': 'תזמון שינוי'
+        'school closure': 'ביה"ס נסגר'
+Date: תאריך
+Type: סוג
+'Manage Special Days': 'נהל ימים מיוחדים'
+'Edit Special Day': 'עריכת יום מיוחד'
+'Please select...': 'בבקשה לבחור...'
+Description: תיאור
+'Add Special Day': 'הוסף יום מיוחד'
+'his value is locked. Change it in the manage screen.': 'his value is locked. Change it in the manage screen.'
+'Must be unique in the Academic Year.': 'Must be unique in the Academic Year.'
+'This value is locked.': 'This value is locked.'
+Duplicate: שכפל
+'Term Break': 'Term Break'
+Calendar: Calendar
+'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar': 'Use CTRL-P on Windows or CMD-SHIFT-P on MAC to print this calendar'
+Logo: סמל
+'Manage Houses': 'ניהול בתים'
+'Image file size maximum 2MB': 'Image file size maximum 2MB'
+'Edit House': 'ערוך בית'
+'Add House': 'הוסף בית'
+Projector: מקרן
+TV: טלוויזיה
+'DVD Player': 'נגן DVD'
+Hifi: Hifi
+Speakers: רמקולים
+'Interactive White Board': 'לוח חכם'
+'Extension Number {number}': 'Extension Number {number}'
+'Phone Number {number}': 'Phone Number {number}'
+'Teaching computer': 'מחשב מורה'
+Capacity: 'נפח אחסון'
+Facilities: 'אמצעי לימוד'
+'Manage Facilities': 'ניהול מתקנים'
+facility:
+    type:
+        classroom: כיתה
+        hall: מסדרון
+        laboratory: Laboratory
+        library: ספריה
+        office: משרד
+        outdoor: 'חיצוני'
+        performance: 'Performance Space'
+        staffroom: 'Staff Room'
+        storage: מחסן
+        study: 'חדר למידה'
+        undercover: מקורה
+        other: אחר
+'Teacher Computer': 'Teacher Computer'
+'Student Computers': 'מחשבי תלמידים'
+'How many are there': 'כמה יש'
+Extension: סיומת
+'Room''s internal phone number.': 'מספר הטלפון הפנימי של החדר.'
+'Phone Number': 'מספר טלפון'
+'Room''s external phone number.': 'מספר הטלפון החיצוני של החדר.'
+Comment: הערה
+'Edit Facility': 'מתקן עריכה'
+'Facility Type': 'סוג מתקן'
+'Data Points - External Assessment': 'Data Points - External Assessment'
+'Use the options below to select the external assessments that you wish to include in your Data Points export.': 'השתמש באפשרויות הבאות כדי לבחור את ההערכות החיצוניות שברצונך לכלול ביצוא נקודות הנתונים שלך.'
+'If duplicates of any assessment exist, only the most recent entry will be shown.': 'אם קיימים כפילויות של הערכה כלשהי, יוצג רק הערך האחרון.'
+'Data Points - Internal Assessment': 'Data Points - Internal Assessment'
+'Use the options below to select the internal assessments that you wish to include in your Data Points export.': 'השתמש באפשרויות הבאות כדי לבחור את ההערכות הפנימיות שברצונך לכלול ביצוא נקודות הנתונים שלך.'
+'Add Field': 'הוסף שדה'
+'External Assessment': 'הערכה חיצונית'
+'This value cannot be changed.': 'לא ניתן לשנות ערך זה.'
+Category: קטגוריה
+Order: סידור
+'Order in which fields appear within category. Should be unique for this category.': 'Order in which fields appear within category. Should be unique for this category.'
+'Grade Scale': 'סקלת ציונים'
+'Grade scale used to control values that can be assigned.': 'סולם כיתה המשמש לשליטה בערכים שניתן להקצות.'
+'Year Groups': 'קבוצות שנתיים'
+'Year groups to which this field is relevant.': 'קבוצות שנה שבהן השדה הזה רלוונטי.'
+'Edit Field': 'Edit Field'
+'Manage External Assessments for {name}': 'Manage External Assessments for {name}'
+'Edit External Assessments': 'Edit External Assessments'
+'Tracking Settings': 'הגדרות מעקב'
+primary_external_assessment_help: primary_external_assessment_help
+scale_manage_note: scale_manage_note
+Usage: שימוש
+Active: פעיל
+Numeric: מספריים
+'Active: Yes': 'Active: Yes'
+'Active: No': 'Active: No'
+'Manage Scales': 'Manage Scales'
+'Brief description of how scale is used.': 'תיאור קצר של אופן השימוש בסולם.'
+'Does this scale use only numeric grades? Note, grade "Incomplete" is exempt.': 'האם קנה המידה הזה משתמש רק בציונים מספריים? הערה, ציון "לא שלם" הוא פטור.'
+'Lowest Acceptable': 'הנמוך ביותר המקובל'
+'This is the lowest grade a student can get without being unsatisfactory.': 'זהו הציון הנמוך ביותר שתלמיד יכול לקבל שאינו נכשל.'
+Details: 'פרטים נוספים'
+Grades: Grades
+'Edit Scale': 'Edit Scale'
+Features: 'מאפיינים'
+'Enable Effort': 'הפעל מאמץ'
+'Should columns have the Effort section enabled?': 'האם העמודות מופעלות?'
+'Enable Rubrics': 'הפעל רובריקס'
+'Should columns have Rubrics section enabled?': 'האם יש לאפשר לקטעים את הקטע ''רובריקות''?'
+'Enable Column Weighting': 'אפשר שקלול עמודות'
+'Should column weighting and total scores be enabled in the Markbook?': 'האם יש לאפשר ניפוח של עמודות וציונים הכוללים ב- Markbook?'
+'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.': 'Calculation of cumulative marks and weightings is currently only available when using Percentage as the Default Assessment Scale. This value can be changed in System Settings.'
+'Enable Display Cumulative Marks': 'הפעל סימני תצוגה מצטברים'
+'Should cumulative marks be displayed on the View Markbook page for Students and Parents and in Student Profiles?': 'האם יש להציג את הסימון המצטבר בדף הצגת מארקבוק לתלמידים ולהורים ובפרופילי סטודנטים?'
+'Enable Raw Attainment Marks': 'אפשר סימני השג גולמי'
+'Should recording of raw marks be enabled in the Markbook?': 'האם יש לאפשר הקלטה של ​​סימני גלם ב- Markbook?'
+'Enable Modified Assessment': 'הפעל הערכה משופרת'
+'Allows teachers to specify "Modified Assessment" for students with individual needs.': 'Allows teachers to specify "Modified Assessment" for students with individual needs.'
+Interface: ממשק
+'Markbook Type': סוג
+'Comma-separated list of types to make available in the Markbook.': 'רשימת סוגי מופרדים באמצעות פסיקים הזמינים ב- Markbook.'
+'Group Columns by Term': 'עמודות קבוצה לפי מונח'
+'Should columns and total scores be grouped by term?': 'האם יש לקבץ עמודות וציונים הכוללים לפי מונח?'
+'Attainment Alternative Name': 'שם חלופי'
+'A name to use isntead of "Attainment" in the first grade column of the markbook.': 'A name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Attainment Alternative Name Abbreviation': 'השמה שם אלטרנטיבי קיצור'
+'A short name to use isntead of "Attainment" in the first grade column of the markbook.': 'A short name to use isntead of "Attainment" in the first grade column of the markbook.'
+'Effort Alternative Name': 'שם חלופי למאמץ'
+'A name to use isntead of "Effort" in the second grade column of the markbook.': 'A name to use isntead of "Effort" in the second grade column of the markbook.'
+'Effort Alternative Name Abbreviation': 'מאמץ שם חלופי קיצור'
+'A short name to use isntead of "Effort" in the second grade column of the markbook.': 'A short name to use isntead of "Effort" in the second grade column of the markbook.'
+Warnings: אזהרות
+'Show Student Attainment Warning': 'הצג אזהרה על הישגי התלמידים'
+'Show low attainment grade visual warning to students?': 'הצג התראה חזותית ברמה נמוכה של תלמידים בכיתה?'
+'Show Student Effort Warning': 'הצג אזהרה מאמצי הסטודנטים'
+'Show low effort grade visual warning to students?': 'הצג את ההתרעה החזותית ברמה נמוכה עבור התלמידים?'
+'Show Parent Attainment Warning': 'הצג אזהרת השגחה'
+'Show low attainment grade visual warning to parents?': 'הצג את ההישגיות החזותית של ההישגים הנמוכים להורים?'
+'Show Parent Effort Warning': 'הצג את אזהרת המאמץ'
+'Show low effort grade visual warning to parents?': 'הצג את ההתרעה החזותית ברמה נמוכה להורים?'
+'Personalised Warnings': 'אזהרות מותאמות אישית'
+'Should markbook warnings be based on personal targets, if they are available?': 'האם אזהרות המארקבוק יהיו מבוססות על מטרות אישיות, אם הן זמינות?'
+'Markbook Settings': הגדרות
+messenger_sms_warning: messenger_sms_warning
+'Message Wall Settings': 'הגדרות קיר הודעה'
+'Message Bubble Width Type': 'הודעה סוג רוחב הבועה'
+'Should the message bubble be regular or wide?': 'האם בועת ההודעה תהיה קבועה או רחבה?'
+messengersettingstype:
+    messenger__messagebubblewidthtype:
+        regular: רגיל
+        wide: רחב
+'Message Bubble Background Color': 'הודעה צבע רקע בועה'
+'Message bubble background color in RGBA (e.g. 100,100,100,0.50). If blank, theme default will be used.': 'צבע רקע בועה של הודעה ב- RGBA (לדוגמה, 100,100,100,0.50). אם ברירת המחדל של ערכת נושא ריקה תשתמש.'
+'Message Bubble Auto Hide': 'הודעה אוטומטית בועה הסתר'
+'Should message bubble fade out automatically?': 'האם בועה המסר צריך להתפוגג באופן אוטומטי?'
+Miscellaneous: 'שונות'
+'Message Bcc': 'הודעה עותק מוסתר'
+'Comma-separated list of recipients to bcc all messenger emails to.': 'רשימת נמענים של מופרדים באמצעות פסיקים כדי להעביר את כל הודעות האימייל של Messenger אל.'
+'Messenger Settings': 'Messenger Settings'
+'General Settings': 'הגדרות כלליות'
+Email: 'דואר אלקטרוני'
+'Email address to send finance emails from.': 'כתובת דוא"ל כדי לשלוח מיילים דוא"ל מ.'
+'Enable Online Payment': 'אפשר תשלום מקוון'
+'Should invoices be payable online, via an encrypted link in the invoice? Requires correctly configured payment gateway in System Settings.': 'האם יש לשלם חשבוניות באופן מקוון, באמצעות קישור מוצפן בחשבונית? נדרש שער תשלום מוגדר כהלכה בהגדרות המערכת.'
+'Online Payment Threshold': 'סף התשלומים המקוון'
+'If invoices are payable online, what is the maximum payment allowed? Useful for controlling payment fees. No value means unlimited.': 'אם חשבוניות ישולמו באופן מקוון, מהו התשלום המרבי המותר? שימושי לבקרת תשלום תשלומים. אין ערך פירושו בלתי מוגבל.'
+Invoices: 'חשבוניות'
+'Invoice Text': 'טקסט חשבונית'
+'Text to appear in invoice, above invoice details and fees.': 'טקסט שיופיע בחשבונית, פרטי חשבונית ועמלות מעל.'
+'Invoice Notes': 'הערות חשבוניות'
+'Text to appear in invoice, below invoice details and fees.': 'טקסט שיופיע בחשבונית, פרטי חשבונית ועמלות.'
+'Invoicee Name Style': 'סגנון שם חשבונית'
+'Determines how invoicee name appears on invoices and receipts.': 'קובע כיצד יופיע שם חשבונית על חשבוניות וקבלות.'
+financesettingstype:
+    finance__invoiceenamestyle:
+        'surname, preferred name': 'Surname, Preferred name'
+        'official name': 'Official name'
+    finance__invoicenumber:
+        'invoice id': 'Invoice Identifier'
+        'person id + invoice id': 'Person & Invoice Identifiers'
+        'student id + invoice id': 'Student & Invoice Identifiers'
+    finance__expenseapprovaltype:
+        'one of': 'One of'
+        'two of': 'Two of'
+        'chain of all': 'Chain of All'
+'Invoice Number Style': 'סגנון מספר חשבונית'
+'How should invoice numbers be constructed?': 'כיצד ניתן לבנות מספרי חשבוניות?'
+Receipts: תקבולים
+'Receipt Text': 'טקסט קבלה'
+'Text to appear in receipt, above receipt details and fees.': 'טקסט להופיע בקבלה, פרטים מעל הקבלה ואגרות.'
+'Receipt Notes': 'הערות קבלה'
+'Text to appear in receipt, below receipt details and fees.': 'הטקסט יופיע בקבלה, מתחת לפרטים וקבלת פרטים.'
+'Hide Itemisation': 'הסתר פריט'
+'Hide fee and payment details in receipts?': 'הסתר את האגרה ואת פרטי התשלום בקבלות?'
+Reminders: תזכורות
+'Reminder 1 Text': 'תזכורת 1 טקסט'
+'Text to appear in first level reminder level, above invoice details and fees.': 'הטקסט יופיע ברמת תזכורת ברמה הראשונה, מעל פרטי החשבונית והעמלות.'
+'Reminder 2 Text': 'תזכורת 2 טקסט'
+'Text to appear in second level reminder level, above invoice details and fees.': 'הטקסט יופיע ברמת תזכורות ברמה השנייה, מעל פרטי החשבונית והעמלות.'
+'Reminder 3 Text': 'תזכורת 3 טקסט'
+'Text to appear in third level reminder level, above invoice details and fees.': 'הטקסט יופיע ברמת תזכורת ברמה שלישית, מעל פרטי החשבונית והעמלות.'
+Expenses: הוצאות
+'Budget Categories': 'קטגוריות תקציב'
+'Comma-separated list of budget categories.': 'רשימה של קטגוריות תקציב מופרדות באמצעות פסיקים.'
+'Expense Approval Type': 'סוג אישור הוצאות'
+'How should expense approval be dealt with?': 'כיצד יש לטפל באישור ההוצאות?'
+'Budget Level Expense Approval': 'אישור הוצאות תקציב'
+'Should approval from a budget member with Full access be required?': 'האם נדרש אישור מחבר תקציב עם גישה מלאה?'
+'Expense Request Template': 'תבנית בקשה להוצאה'
+'An HTML template to be used in the description field of expense requests.': 'תבנית HTML שתשמש בשדה התיאור של בקשות להוצאות.'
+'Allow Expense Add': 'לאפשר הכנסה הוסף'
+'Allows privileged users to add expenses without going through request process.': 'מאפשר למשתמשים חסוי להוסיף הוצאות מבלי לעבור תהליך הבקשה.'
+'Purchasing Officer': 'קצין רכש'
+'User responsible for purchasing for the school.': 'אחראי על רכישת בית הספר.'
+'Reimbursement Officer': 'קצין החזר'
+'User responsible for reimbursing expenses.': 'אחראי על החזר הוצאות.'
+General: כללי
+'Finance Settings': 'Finance Settings'
+' ': ' '
+'Activity Settings': 'Activity Settings'
+'Date Type': 'סוג תאריך'
+'Should activities be organised around dates (flexible) or terms (easy)?': 'פעילויות צריך להיות מאורגן סביב תאריכים (גמישים) או תנאי (קל)?'
+'Maximum Activities per Term': 'פעילויות מקסימליות לכל מונח'
+'The most a student can sign up for in one term. Set to 0 for unlimited.': 'רוב התלמיד יכול להירשם ב מונח אחד. הגדר ל -0 ללא הגבלה.'
+Access: גישה
+'System-wide access control': 'בקרת גישה מערכתית'
+Payment: תשלום
+'Payment system': 'מערכת תשלום'
+activitysettingstype:
+    activities__payment:
+        none: 'שום דבר'
+        single: יחיד
+        'per activity': 'לפי פעילות'
+        'single + per activity': 'Single & Per Activity'
+    activities__enrolmenttype:
+        competitive: תחרותי
+        selection: בחירה
+    activities__datetype:
+        date: תאריך
+        term: טווח
+    activities__access:
+        none: 'שום דבר'
+        view: הצג
+        register: הרשמה
+'Enrolment Type': 'סוג הרשמה'
+'Enrolment process type': 'סוג תהליך ההרשמה'
+'Backup Choice': 'אפשרות גיבוי'
+'Allow students to choose a backup, in case enroled activity is full.': 'אפשר לתלמידים לבחור גיבוי, למקרה שהפעילות המבוצעת מלאה.'
+'Activity Types': 'סוגי פעילות'
+'Comma-seperated list of the different activity types available in school. Leave blank to disalbe this feature.': 'רשימה מופרדת של סוגי הפעילות השונים הקיימים בבית הספר. השאר ריק כדי לבטל את התכונה הזו.'
+'Disable External Provider Signup': 'השבת רישום ספק חיצוני'
+'Should we turn off the option to sign up for activities provided by an outside agency?': 'האם עלינו לבטל את האפשרות להירשם לפעילויות שסופקו על ידי סוכנות חיצונית?'
+'Hide External Provider Cost': 'הסתר עלות ספק חיצוני'
+'Should we hide the cost of activities provided by an outside agency from the Activities View?': 'האם עלינו להסתיר את עלות הפעילות שסופקה על ידי סוכנות חיצונית מהפעילות ''פעילויות''?'
+'Dashboard Settings': 'Dashboard Settings'
+'Staff Dashboard Default Tab': 'הכרטיסייה ברירת מחדל של לוח המחוונים של הצוות'
+'The default landing tab for the staff dashboard.': 'כרטיסיית הנחיתה המשמשת כברירת מחדל עבור לוח המחוונים של הצוות.'
+'Student Dashboard Default Tab': 'הכרטיסייה ברירת מחדל של לוח המחוונים של לוח המחוונים'
+'The default landing tab for the student dashboard.': 'כרטיסיית הנחיתה המשמשת כברירת מחדל עבור מרכז השליטה של ​​הסטודנט.'
+dashboardsettingstype:
+    school_admin__staffdashboarddefaulttab:
+        planner: יומן
+    school_admin__studentdashboarddefaulttab:
+        planner: יומן
+    school_admin__parentdashboarddefaulttab:
+        'learning overview': 'סקירת הלמידה'
+        timetable: 'לוח זמנים'
+        activities: פעילויות
+'Parent Dashboard Default Tab': 'הכרטיסייה ברירת מחדל של לוח המחוונים של האב'
+'The default landing tab for the parent dashboard.': 'כרטיסיית הנחיתה המשמשת כברירת מחדל עבור מרכז השליטה הראשי.'
+behaviour_letters_help: behaviour_letters_help
+Descriptors: מתארים
+'Enable Descriptors': 'הפעל מתארים'
+'Setting to No reduces complexity of behaviour tracking.': 'ההגדרה ''לא'' מקטינה את המורכבות של מעקב אחר התנהגות.'
+'Positive Descriptors': 'מתארים חיוביים'
+'Allowable choices for positive behaviour': 'אפשרויות אפשריות להתנהגות חיובית'
+'Negative Descriptors': 'תיאורים שליליים'
+'Allowable choices for negative behaviour': 'אפשרויות אפשריות להתנהגות שלילית'
+Levels: רמות
+'Enable Levels': 'אפשר רמות'
+'Allowable choices for severity level (from lowest to highest)': 'אפשרויות אפשריות לרמת חומרה (מהנמוך ביותר לגבוה)'
+'Behaviour Letters': 'מכתבי התנהגות'
+'Enable Behaviour Letters': 'אפשר מכתבי התנהגות'
+'Should automated behaviour letter functionality be enabled?': 'האם יש לאפשר פונקציונליות של אותיות התנהגות אוטומטיות?'
+'Letter 1 Count': 'מכתב 1'
+'After how many negative records should letter 1 be sent?': 'לאחר כמה רשומות שליליות צריך מכתב 1 להישלח?'
+'Letter 1 Text': 'מכתב 1 טקסט'
+'The contents of letter 1, as HTML.': 'התוכן של אות 1, כמו HTML.'
+'Letter 2 Count': 'מכתב מכתב 2'
+'After how many negative records should letter 2 be sent?': 'לאחר כמה רשומות שליליות צריך מכתב 2 להישלח?'
+'Letter 2 Text': 'מכתב 2 טקסט'
+'The contents of letter 2, as HTML.': 'תוכן של מכתב 2, כמו HTML.'
+'Letter 3 Count': 'מכתב 3'
+'After how many negative records should letter 3 be sent?': 'לאחר כמה רשומות שליליות צריך מכתב 3 להישלח?'
+'Letter 3 Text': 'מכתב 3 טקסט'
+'The contents of letter 3, as HTML.': 'תוכן של מכתב 3, כמו HTML.'
+'Policy Link': 'קישור מדיניות'
+'A link to the school behaviour policy.': 'קישור למדיניות ההתנהגות של בתי הספר.'
+Letters: Letters
+'Behaviour Settings': 'Behaviour Settings'
+Low: 'נמוך'
+'Font/Border Colour': 'Font/Border Colour'
+'RGB Hex Value': 'RGB Hex Value'
+'Background Colour': 'Background Colour'
+Medium: 'בינוני'
+High: גבוהה
+'Alert Levels': 'Alert Levels'
+fileextension:
+    type:
+        document: מסמך
+        spreadsheet: 'גליון עבודה'
+        presentation: מצגת
+        graphics/design: גרפי/עיצוב
+        video: וידאו
+        audio: אודיו
+        other: אחר
+Code: קוד
+Direction: כיוון
+Scope: היקף
+'Direction: In': 'Direction: In'
+'Direction: Out': 'Direction: Out'
+'Scope: On Site': 'Scope: On Site'
+'Scope: Off Site': 'Scope: Off Site'
+'Attendance Settings': 'הגדרות נוכחות'
+attendance_code_warning: attendance_code_warning
+attendancecontexttype:
+    attendance__defaultrollgroupattendancetype:
+        present: 'מתנה'
+        tardy: Tardy
+        'present - late': 'הווה - מאוחר'
+        'present - offsite': 'Present - Off Site'
+        absent: 'נעדר'
+        left: שמאלה
+        'left - early': 'עזב מוקדם'
+'Attendance Codes': 'קודי נוכחות'
+Reasons: סיבות
+'Attendance Reasons': 'סיבות נוכחות'
+'Comma-separated list of reasons which are available when taking attendance.': 'רשימת מופרדת באמצעות פסיקים של סיבות הזמינים בעת לקיחת נוכחות.'
+'Context and Defaults': 'Context and Defaults'
+'Count Class Attendance as School Attendance': 'Count Class Attendance as School Attendance'
+'Should attendance from the class context be used to prefill and inform school attendance?': 'Should attendance from the class context be used to prefill and inform school attendance?'
+'Cross-Fill Classes': 'Cross-Fill Classes'
+'Should classes prefill with data from other classes?': 'Should classes prefill with data from other classes?'
+'Default Roll Group Attendance Type': 'סוג הנוכחות של קבוצת ברירת המחדל של גליל'
+'The default selection for attendance type when taking Roll Group attendance': 'בחירת ברירת המחדל עבור סוג נוכחות בעת נטילת נוכחות רול בקבוצה'
+'Default Class Attendance Type': 'סוג ברירת המחדל של נוכחות בכיתה'
+'The default selection for attendance type when taking Class attendance': 'בחירת ברירת המחדל עבור סוג נוכחות בעת נטילת נוכחות בכיתה'
+Present: 'מתנה'
+'Present - Late': 'הווה - מאוחר'
+'Present - Off Site': 'Present - Off Site'
+Absent: 'נעדר'
+Left: שמאלה
+'Left - Early': 'עזב מוקדם'
+'Student Self Registration': 'רישום עצמי של תלמידים'
+'Student Self Registration IP Addresses': 'כתובות IP של רישום עצמי של תלמידים'
+'Comma-separated list of IP addresses within which students can self register.': 'רשימת כתובות IP המופרדות באמצעות פסיק, שבהן יכולים התלמידים להירשם בעצמם.'
+'Self Registration Redirect': 'רישום עצמי להפניה מחדש'
+'Should self registration redirect to Message Wall?': 'רישום עצמי צריך להפנות אל קיר ההודעה?'
+Teacher: מורה
+'Support Staff': 'צוות תמיכה'
+Administrator: מזכיר
+Parent: הורה
+'Attendance CLI': 'נוכחות CLI'
+'Enable Notifications by Roll Group': 'אפשר התראות על ידי קבוצת רול'
+'Enable Notifications by Class': 'אפשר התראות לפי Class'
+'Additional Users to Notify': 'משתמשים נוספים להודיע'
+'Send the school-wide daily attendance report to additional users. Restricted to roles with permission to access Roll Groups Not Registered or Classes Not Registered.': 'שלח את דוח הנוכחות היומיומית של בית הספר למשתמשים נוספים. מוגבל לתפקידים בעלי הרשאה לגשת לקבוצות גליליות לא רשומים או מחלקות לא רשומים.'
+Context: Context
+Registration: הרשמה
+CLI: CLI
+'Your current IP address ({ip}) is included in the saved list.': 'Your current IP address ({ip}) is included in the saved list.'
+'Your current IP address ({ip}) is not included in the saved list.': 'Your current IP address ({ip}) is not included in the saved list.'
+attendancecode:
+    direction:
+        in: בכיתה
+        out: 'מחוץ לכיתה'
+    scope:
+        onsite: 'On Site'
+        'onsite - late': 'On Site - Late (Tardy)'
+        offsite: 'Off Site'
+        'offsite - left': 'Off Site - Left'
+Assess: להעריך
+'External Assessments': 'הערכות חיצוניות'
+'Formal Assessment Settings': 'הגדרות הערכה רשמית'
+Scales: Scales
+Groupings: קיבוצים
+Houses: בתים
+Learn: למד
+'Planner Settings': 'הגדרות Planner'
+'Resource Settings': 'Resource Settings'
+Other: אחר
+'Facility Settings': 'הגדרות מתקן'
+'File Extensions': 'File Extensions'
+People: 'אנשים'
+'Individual Needs': 'צרכים אישיים'
+'Years, Days & Times': 'שנים, ימים & פעמים'
+'Academic Years': 'Academic Years'
+'Days of the Week': 'Days of the Week'
+'Special Days': 'Special Days'
+Terms: 'תנאים'
+'Module Menu': 'תפריט מודול'
+July: July
+August: August
+September: September
+October: October
+November: November
+December: December
+January: January
+February: February
+March: March
+April: April
+May: May
+June: June
+'Manage Academic Year Terms': 'Manage Academic Year Terms'
+'Academic Year Terms': 'Academic Year Terms'
+'Access Settings': 'גש להגדרות'
+'Allow Outcome Editing': 'אפשר עריכת תוצאות'
+'Allow users who do not have access to the unit planner to see Unit Outlines via the lesson planner?': 'אפשר למשתמשים שאין להם גישה למתכנן היחידה כדי לראות את קווי המתאר של היחידה באמצעות מתכנן השיעורים?'
+'Enables a public listing of units, with teachers able to opt in to share units.': 'מאפשר רשימה ציבורית של יחידות, כאשר מורים יכולים להצטרף אל יחידות משותפות.'
+'Lesson Details Template': 'תבנית פרטי השיעור'
+'Make Units Public': 'הפוך יחידות ציבוריות'
+'Parent Weekly Email Summary Include Behaviour': 'אב שבועי סיכום דוא"ל כולל התנהגות'
+'Parent Weekly Email Summary Include Markbook': 'אב שבועי סיכום דוא"ל לכלול'
+'Planner Templates': 'תבניות'
+'Share Unit Outline': 'שתף מתאר יחידה'
+'Sharing Default: Parents': 'שיתוף ברירת מחדל: הורים'
+'Sharing Default: Students': 'שיתוף ברירת מחדל: סטודנטים'
+'Should Markbook information be included in the weekly planner email summary that goes out to parents?': 'האם נתוני Markbook ייכללו בסיכום המתכנן השבועי של השבוע שיוצא להורים?'
+'Should behaviour information be included in the weekly planner email summary that goes out to parents?': 'האם יש לכלול מידע התנהגותי בסיכום השבועי המתכנן השבועי שיוצא להורים?'
+'Should the text within outcomes be editable when planning lessons and units?': 'האם הטקסט בתוך התוצאות ניתן לעריכה בעת תכנון שיעורים ויחידות?'
+'Smart Block Template': 'תבנית חסום חכם'
+'Teacher''s Notes Template': 'תבנית הערות המורה'
+'Template to be inserted into Lesson Details field': 'תבנית שתוכנס לשדה ''פרטי השיעור'''
+'Template to be inserted into Teacher''s Notes field': 'תבנית שתוכנס לתחום ההערות של המורה'
+'Template to be inserted into Unit Outline section of planner': 'תבנית להיות מוכנס לתוך יחידת מתאר סעיף של המתכנן'
+'Template to be inserted into new block in Smart Unit': 'תבנית שתוכנס לבלוק חדש ביחידה חכמה'
+Templates: 'תבניות'
+'Unit Outline Template': 'תבנית מתאר יחידה'
+'When adding lessons and deploying units, should sharing default for parents be Y or N?': 'בעת הוספת שיעורים ופריסה של יחידות, יש לשתף ברירת מחדל להורים להיות Y או N?'
+'When adding lessons and deploying units, should sharing default for students be Y or N?': 'בעת הוספת שיעורים ופריסה של יחידות, יש לשתף ברירת מחדל עבור התלמידים להיות Y או N?'
+'Targets Template': 'תבנית יעדים'
+'An HTML template to be used in the targets field.': 'תבנית HTML שתשמש בשדה המיקודים.'
+'Teaching Strategies Template': 'תבנית אסטרטגיות הוראה'
+'An HTML template to be used in the teaching strategies field.': 'תבנית HTML שתשמש בתחום אסטרטגיות ההוראה.'
+'Notes & Review Template': 'הערות & סקירה תבנית'
+'An HTML template to be used in the notes and review field.': 'תבנית HTML שתשמש בשדה הערות וסקירה.'
+Categories: קטגוריות
+'Allowable choices for category': 'אפשרויות אפשריות לקטגוריה'
+'Purpose Settings': 'Purpose Settings'
+'Purposes (General)': 'מטרות (כללי)'
+'Allowable choices for purpose when creating a resource': 'אפשרויות אפשריות למטרה בעת יצירת משאב'
+'Purposes (Restricted)': 'מטרות (מוגבל)'
+'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights': 'Additional allowable choices for purpose when creating a resource, for those with "Manage All Resources" rights'
+Purpose: מטרה
+Tardy: Tardy
+'Must be unique': 'חייב להיות ייחודי'
+'Must be unique,  Use for sort.': 'Must be unique,  Use for sort.'
+Reportable: 'ניתן לדווח'
+'Allow Future Use': 'אפשר שימוש עתידי'
+'Can this code be used in Set Future Absence?': 'האם ניתן להשתמש בקוד זה בהגדרת היעדר עתידי?'
+'Available to Roles': 'זמין לתפקידים'
+role_multiple_select: role_multiple_select
+'Edit Attendance Code': 'ערוך קוד נוכחות'
+'Edit Individual Need': 'Edit Individual Need'
+'Edit Year Group': 'Edit Year Group'
+'Head of Year': 'ראש השנה'
+'Manage Year Groups': 'נהל קבוצות בשנת לימודים'
+'Must be unique. Controls chronological ordering': 'Must be unique. Controls chronological ordering'
+'Top of List': 'Top of List'
+'A comma-separated list of types for facilities.': 'רשימה מופרדת בפסיקים של סוגי מתקנים.'
+'Add Facility': 'הוסף מתקן'
+FacilityTypes: 'מתקנים'
+'Type: Classroom': 'Type: Classroom'
+'Type: Hall': 'Type: Hall'
+'Type: Laboratory': 'Type: Laboratory'
+'Type: Library': 'Type: Library'
+'Type: Office': 'Type: Office'
+'Type: Other': 'Type: Other'
+'Type: Outdoor': 'Type: Outdoor'
+'Type: Performance': 'Type: Performance'
+'Type: Staffroom': 'Type: Staffroom'
+'Type: Storage': 'Type: Storage'
+'Type: Study': 'Type: Study'
+'Type: Undercover': 'Type: Undercover'
+'Type: Document': 'Type: Document'
+'Type: Spreadsheet': 'Type: Spreadsheet'
+'Type: Presentation': 'Type: Presentation'
+'Type: Graphics/Design': 'Type: Graphics/Design'
+'Type: Video': 'Type: Video'
+'Type: Audio': 'Type: Audio'
+'{anchor}Manage Facility Types Settings{closeAnchor}': '{anchor}Manage Facility Types Settings{closeAnchor}'
+external_assessment_help: external_assessment_help
+'Data Point - External Assessment': 'Data Point - External Assessment'
+internal_assessment_help: internal_assessment_help
+'Data Point - Internal Assessment': 'Data Point - Internal Assessment'
+External: 'חיצוני'
+Internal: 'פנימי'
+'Add Grade Scale': 'הוסף סקלת ציונים'
+'Add Grade': 'הוסף ציון'
+'Add Scale': 'Add Scale'
+AddScale: AddScale
+Descriptor: מתאר
+'Edit Grade Scale': 'ערוך סקלת נתונים'
+'Edit Scale ({name})': 'Edit Scale ({name})'
+'Is Default?': 'האם ברירת המחדל?'
+'Manage Grade Scales': 'נהל סקלות ציונים'
+'Manage Scale Grade': 'Manage Scale Grade'
+'Must be unique for this Scale': 'Must be unique for this Scale'
+'Preselects this option when using this scale in appropriate contexts.': 'Preselects this option when using this scale in appropriate contexts.'
+Scale: 'קנה מידה'
+Value: ערך
+primary_external_help: primary_external_help
+'Comma-separated list of types to make available in Internal Assessments.': 'רשימת סוגי מופרדים באמצעות פסיקים כדי להפוך לזמינים בהערכות פנימיות.'
+'Edit Scale (Cognitive Abilities Test)': 'Edit Scale (Cognitive Abilities Test)'
+'Field Set': 'סט שדה'
+'Field Sets': 'Field Sets'
+'File Upload': 'העלאת קובץ'
+'Internal Assessment Settings': 'הגדרות הערכה פנימית'
+'Internal Assessment Types': 'סוגי הערכה פנימית'
+'Manage External Assessments': 'ניהול הערכות חיצוניות'
+'Primary External Assessment': 'Primary External Assessment'
+'Submit Internal Assessment Settings': 'Submit Internal Assessment Settings'
+'Submit Primary External Assessment': 'Submit Primary External Assessment'
+'Add External Assessment': 'הוסף הערכה חיצונית'
+'Allow File Upload': 'אפשר העלאת קובץ'
+'Assessment field for - {name}': 'Assessment field for - {name}'
+'Brief description of assessment and how it is used.': 'תיאור קצר של הערכה וכיצד נעשה בה שימוש.'
+'Edit External Assessment': 'עריכת הערכה חיצונית'
+'Edit field': 'Edit field'
+Fields: Fields
+'Manage Assessment Fields for {name}': 'Manage Assessment Fields for {name}'
+'Should the student record include the option of a file upload?': 'האם רשומת התלמיד כוללת את האפשרות של העלאת קובץ?'
+'SMS Settings': 'הגדרות SMS'
+'Enable Home Screen Widget': 'הפעל יישומון מסך הבית'
+'Adds a Message Wall widget to the home page, hihglighting current messages.': 'Adds a Message Wall widget to the home page, hihglighting current messages.'

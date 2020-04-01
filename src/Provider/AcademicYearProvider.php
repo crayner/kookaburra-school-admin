@@ -45,24 +45,27 @@ class AcademicYearProvider implements EntityProviderInterface
      * @return object|null
      * @throws \Exception
      */
-    public function setCurrentAcademicYear(SessionInterface $session)
+    public function setCurrentAcademicYear(SessionInterface $session): AcademicYear
     {
         $year = $this->getRepository()->findOneBy(['status' => 'Current']);
 
         //Check number of years returned.
         if (!$year instanceof AcademicYear) {
-            if (!empty($this->getRepository()->findAll()))
-                throw new MissingEntityException(TranslationsHelper::translate('Configuration Error: there is a problem accessing the current Academic Year from the database.'));
-            $year = new AcademicYear();
-            $year->setSequenceNumber(1)->setStatus('Current')->setFirstDay(new \DateTimeImmutable(date('Y').'-01-01'))->setLastDay(new \DateTimeImmutable(date('Y').'-12-31'))->setName(date('Y'));
-            $this->persistFlush($year);
+            if (!empty($this->getRepository()->findAll())) {
+                throw new MissingEntityException(TranslationsHelper::translate('Configuration Error: there is a problem accessing the current Academic Year from the database.', [], 'messages'));
+            } else {
+                $year = new AcademicYear();
+                $year->setSequenceNumber(1)->setStatus('Current')->setFirstDay(new \DateTimeImmutable(date('Y') . '-01-01'))->setLastDay(new \DateTimeImmutable(date('Y') . '-12-31'))->setName(date('Y'));
+                $this->persistFlush($year);
+            }
         }
         
-        $session->set('AcademicYearID',$year->getId());
-        $session->set('AcademicYear', $year);
-        $session->set('AcademicYearSequenceNumber', $year->getSequenceNumber());
-        $session->set('AcademicYearFirstDay', $year->getFirstDay());
-        $session->set('AcademicYearLastDay', $year->getLastDay());
+        $session->set('academicYear', $year);
+        // Legacy
+        $session->set('gibbonSchoolYearID',$year->getId());
+        $session->set('gibbonSchoolYearSequenceNumber', $year->getSequenceNumber());
+        $session->set('gibbonSchoolYearFirstDay', $year->getFirstDay());
+        $session->set('gibbonSchoolYearLastDay', $year->getLastDay());
         return $year;
     }
 

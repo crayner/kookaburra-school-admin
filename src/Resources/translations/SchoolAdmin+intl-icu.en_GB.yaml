@@ -1,5 +1,4 @@
-
-'Student computers': "{count, plural,
+Student computers: "{count, plural,
         one   {# student computer}
         other   {# student computers}
     }"

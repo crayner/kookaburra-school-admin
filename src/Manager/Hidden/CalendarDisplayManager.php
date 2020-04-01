@@ -15,7 +15,7 @@
 
 namespace Kookaburra\SchoolAdmin\Manager\Hidden;
 
-use App\Entity\I18n;
+use Kookaburra\SystemAdmin\Entity\I18n;
 use App\Entity\Setting;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;

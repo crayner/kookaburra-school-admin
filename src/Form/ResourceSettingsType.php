@@ -20,7 +20,7 @@ use App\Form\Type\EnumType;
 use App\Form\Type\HeaderType;
 use App\Form\Type\ParagraphType;
 use App\Form\Type\ReactFormType;
-use App\Form\Type\SettingsType;
+use Kookaburra\SystemAdmin\Form\SettingsType;
 use App\Form\Type\SimpleArrayType;
 use App\Form\Type\ToggleType;
 use App\Util\UrlGeneratorHelper;

@@ -2,9 +2,9 @@
 namespace Kookaburra\SchoolAdmin\Manager\Hidden;
 
 use Kookaburra\SystemAdmin\Entity\I18n;
-use App\Entity\Setting;
+use Kookaburra\SystemAdmin\Entity\Setting;
 use App\Provider\ProviderFactory;
-use App\Provider\SettingProvider;
+use Kookaburra\SystemAdmin\Provider\SettingProvider;
 use Doctrine\Common\Collections\ArrayCollection;
 use Kookaburra\SchoolAdmin\Entity\DaysOfWeek;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;

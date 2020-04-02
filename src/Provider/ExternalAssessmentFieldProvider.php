@@ -15,7 +15,7 @@
 
 namespace Kookaburra\SchoolAdmin\Provider;
 
-use App\Entity\Setting;
+use Kookaburra\SystemAdmin\Entity\Setting;
 use App\Manager\Traits\EntityTrait;
 use App\Provider\EntityProviderInterface;
 use App\Provider\ProviderFactory;

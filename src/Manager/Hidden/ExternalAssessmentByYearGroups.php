@@ -15,7 +15,7 @@
 
 namespace Kookaburra\SchoolAdmin\Manager\Hidden;
 
-use App\Entity\Setting;
+use Kookaburra\SystemAdmin\Entity\Setting;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
 use Doctrine\Common\Collections\ArrayCollection;

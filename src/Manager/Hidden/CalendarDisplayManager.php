@@ -16,7 +16,7 @@
 namespace Kookaburra\SchoolAdmin\Manager\Hidden;
 
 use Kookaburra\SystemAdmin\Entity\I18n;
-use App\Entity\Setting;
+use Kookaburra\SystemAdmin\Entity\Setting;
 use App\Provider\ProviderFactory;
 use App\Util\TranslationsHelper;
 use Doctrine\Common\Collections\ArrayCollection;

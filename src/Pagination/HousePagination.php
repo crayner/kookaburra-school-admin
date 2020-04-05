@@ -62,7 +62,7 @@ class HousePagination extends AbstractPaginationManager
 
         $action = new PaginationAction();
         $action->setTitle('Edit')
-            ->setAClass('')
+            ->setAClass('thickbox p-3 sm:p-0')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('fas fa-edit fa-fw fa-1-5x text-gray-800 hover:text-purple-500')
             ->setRoute('school_admin__house_edit')
@@ -71,7 +71,7 @@ class HousePagination extends AbstractPaginationManager
 
         $action = new PaginationAction();
         $action->setTitle('Delete')
-            ->setAClass('')
+            ->setAClass('thickbox p-3 sm:p-0')
             ->setColumnClass('column p-2 sm:p-3')
             ->setSpanClass('far fa-trash-alt fa-fw fa-1-5x text-gray-800 hover:text-red-500')
             ->setRoute('school_admin__house_delete')

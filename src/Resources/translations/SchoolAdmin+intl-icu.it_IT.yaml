@@ -285,7 +285,7 @@ activitysettingstype:
         competitive: Competitivo
         selection: Selezione
     activities__datetype:
-        date: Data
+        date: Dati
         term: Semestre
     activities__access:
         none: Nessuno

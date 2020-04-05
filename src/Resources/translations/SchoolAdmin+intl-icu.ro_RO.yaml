@@ -278,7 +278,7 @@ Payment: Plată
 activitysettingstype:
     activities__payment:
         none: Nimic
-        single: Individual
+        single: Privat
         'per activity': 'Pe activitate'
         'single + per activity': 'Single & Per Activity'
     activities__enrolmenttype:

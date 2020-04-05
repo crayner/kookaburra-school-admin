@@ -278,7 +278,7 @@ Payment: Pago
 activitysettingstype:
     activities__payment:
         none: Ninguno
-        single: Individual
+        single: Individuo
         'per activity': 'Por Extraprogramático'
         'single + per activity': 'Single & Per Activity'
     activities__enrolmenttype:

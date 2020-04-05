@@ -285,7 +285,7 @@ activitysettingstype:
         competitive: Concorrência
         selection: Seleção
     activities__datetype:
-        date: Data
+        date: Dados
         term: 'Período Letivo'
     activities__access:
         none: Nenhum

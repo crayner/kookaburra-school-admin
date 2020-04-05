@@ -285,7 +285,7 @@ activitysettingstype:
         competitive: 'Konkurrues '
         selection: 'Seleksionim '
     activities__datetype:
-        date: Data
+        date: 'Data '
         term: Termi
     activities__access:
         none: 'Asnjë '

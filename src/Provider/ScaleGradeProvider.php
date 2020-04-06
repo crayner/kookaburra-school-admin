@@ -15,8 +15,6 @@
 
 namespace Kookaburra\SchoolAdmin\Provider;
 
-
-use App\Entity\MarkbookColumn;
 use App\Entity\MarkbookTarget;
 use App\Entity\RubricColumn;
 use App\Manager\Traits\EntityTrait;
@@ -26,10 +24,17 @@ use Doctrine\DBAL\Schema\Index;
 use Doctrine\DBAL\Schema\SchemaException;
 use Kookaburra\SchoolAdmin\Entity\ScaleGrade;
 
+/**
+ * Class ScaleGradeProvider
+ * @package Kookaburra\SchoolAdmin\Provider
+ */
 class ScaleGradeProvider implements EntityProviderInterface
 {
     use EntityTrait;
 
+    /**
+     * @var string
+     */
     private $entityName = ScaleGrade::class;
 
     /**

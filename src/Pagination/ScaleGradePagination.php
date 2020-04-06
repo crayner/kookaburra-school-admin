@@ -81,7 +81,6 @@ class ScaleGradePagination extends AbstractPaginationManager
         $row->addAction($action);
 
         $this
-            ->setPageMax(50)
             ->setRow($row)
             ->setDraggableSort(true)
             ->setDraggableRoute('school_admin__scale_grade_sort');

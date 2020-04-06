@@ -15,14 +15,17 @@
 
 namespace Kookaburra\SchoolAdmin\Manager\Hidden;
 
-
+use App\Manager\PaginationSortInterface;
 use App\Provider\ProviderFactory;
 use App\Util\ErrorMessageHelper;
-use App\Util\TranslationsHelper;
 use Kookaburra\SchoolAdmin\Entity\ScaleGrade;
 use Kookaburra\SchoolAdmin\Pagination\ScaleGradePagination;
 
-class ScaleGradeSort
+/**
+ * Class ScaleGradeSort
+ * @package Kookaburra\SchoolAdmin\Manager\Hidden
+ */
+class ScaleGradeSort implements PaginationSortInterface
 {
     /**
      * @var ScaleGrade
@@ -108,9 +111,9 @@ class ScaleGradeSort
      * Details.
      *
      * @param array $details
-     * @return ScaleGradeSort
+     * @return $this
      */
-    public function setDetails(array $details): ScaleGradeSort
+    public function setDetails(array $details): self
     {
         $this->details = $details;
         return $this;

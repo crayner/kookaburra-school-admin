@@ -35,7 +35,7 @@ class Facility implements EntityInterface
     /**
      * @var integer|null
      * @ORM\Id
-     * @ORM\Column(type="integer", columnDefinition="INT(10) UNSIGNED ZEROFILL")
+     * @ORM\Column(type="integer", columnDefinition="INT(10) UNSIGNED")
      * @ORM\GeneratedValue
      */
     private $id;

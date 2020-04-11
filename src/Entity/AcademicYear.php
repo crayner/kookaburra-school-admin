@@ -40,7 +40,7 @@ class AcademicYear implements EntityInterface
     /**
      * @var integer|null
      * @ORM\Id
-     * @ORM\Column(type="integer", name="id", columnDefinition="INT(3) UNSIGNED ZEROFILL")
+     * @ORM\Column(type="integer", name="id", columnDefinition="INT(3) UNSIGNED")
      * @ORM\GeneratedValue
      */
     private $id;
